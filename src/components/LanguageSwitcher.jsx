@@ -1,0 +1,184 @@
+'use client'
+import {useState, useEffect, useContext} from 'react'
+import GlobalContext from '../context/GlobalContext'
+import {DefaultLanguage, SetDefaultLanguageOnLocalStorage, SetDefaultObjectLanguageOnLocalStorage} from '../configs/LanguagesConfig'
+import './css/languages-switch.css'
+import $ from 'jquery'
+import Image from 'next/image'
+
+const LanguageSwitcher = () => {
+
+        const context = useContext( GlobalContext )
+        const { state, setState } = context
+
+        const [ language, setLanguage ] = useState( state.language )
+        const [ loading, setLoading ] = useState( true )
+        const [ languageObject, setLanguageObject ] = useState( null )
+        const initialLanguage = DefaultLanguage() 
+
+        //const menuLanguages = $('.menu-languages')
+        const menuLanguages = $('.menu-languages')
+        const menuLanguagesBtn = $('.menu-languages-btn')
+        const closeLanguagesBtn = $('.close-languages-btn')
+        const languagesItems = $('.menu-languages-item')
+
+        const switchLanguage = async ( e, lang=null, selector=false ) => {
+                
+                if( selector ) return false
+                if( lang === null ) lang = e.target.getAttribute('data-language') 
+                if( lang === null ) return false
+                
+                const req = await fetch(`/languajes/${lang}.json`)
+                .then( res => res )
+                .catch( err => console.error( err ) )
+                const res = await req.json()
+
+                SetDefaultLanguageOnLocalStorage( res.language )
+                SetDefaultObjectLanguageOnLocalStorage( res )
+                setState( state => ({ ...state, language: res.language, language_file: res }) )
+                setLanguage( res.language )
+                setLanguageObject( res )
+                setLanguageOnClient( res )
+                
+                return res
+
+        }
+
+        const setLanguageOnClient = ( data ) => {
+            
+            // Seting flag image
+            $('.image-holder').attr('src', `/languajes/flags/${data.language}.svg`)
+            $('.image-holder').attr('alt', data.alt)
+            $('.image-holder').attr('data-language', data.language)
+
+        }
+
+        useEffect(() => {
+            
+            $( menuLanguagesBtn ).on('click', () => {
+                $( menuLanguages ).toggleClass('active')
+            })
+
+            $( closeLanguagesBtn ).on('click', () => {
+                $( menuLanguages ).removeClass('active')
+            })
+
+            $( languagesItems ).on('click', () => {
+                $('.menu-languages').removeClass('active')
+            })
+
+            return () => {
+                $( menuLanguagesBtn ).off('click')
+                $( closeLanguagesBtn ).off('click')
+                $( languagesItems ).off('click')
+            }
+
+        }, [ languageObject ] )
+
+        useEffect(() => {
+            
+            if( initialLanguage !== null ){
+                setLanguage( initialLanguage )
+                switchLanguage( null, initialLanguage ) 
+            }
+
+            setLoading( false ) 
+
+        },[ initialLanguage ])
+
+        if( loading )
+            return (<div className="spinner-border text-primary" role="status"> 
+            <span className="visually-hidden">Loading...</span>
+        </div>)
+
+        return (<div>
+            
+            <div className='menu-languages-button'>
+
+                <button className="menu-languages-btn"  data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation" >
+
+                    <div className="menu-languages-item-holder">
+                        <div className='d-flex flex-column align-items-center image-content'>
+
+                            <Image 
+                                className="flag image-holder rounded shadow border" 
+                                onClick={ e => switchLanguage( e, null, true ) } 
+                            />
+
+                        </div>  
+                    </div>
+
+                </button>
+    
+            </div>
+            
+            <div className="menu-languages">
+                
+                <div className="close-languages-btn">
+                    <i className="fas fa-times"></i>
+                </div>
+
+                <div className="menu-languages-items">
+                    
+                    <div className="menu-languages-item border shadow rounded ">
+                        <div className='d-flex flex-column align-items-center image-content' >
+                            <Image src={`/languajes/flags/es.svg`} alt="Español" className="flag rounded shadow border" data-language="es" onClick={ switchLanguage } />
+                            Español
+                        </div>
+                    </div>
+
+                    <div className="menu-languages-item border shadow rounded ">
+                        <div className='d-flex flex-column align-items-center image-content'>
+                            <Image src={`/languajes/flags/us.svg`} alt="Ingles" className="flag rounded shadow border" data-language="us" onClick={ switchLanguage } />
+                            Ingles
+                        </div>
+                    </div>
+
+                    <div className="menu-languages-item border shadow rounded ">
+                        <div className='d-flex flex-column align-items-center image-content'>
+                            <Image src={`/languajes/flags/it.svg`} alt="Italiano" className="flag rounded shadow border" data-language="it" onClick={ switchLanguage } />
+                            Italiano
+                        </div>  
+                    </div>
+
+                    <div className="menu-languages-item border shadow rounded ">
+                        <div className='d-flex flex-column align-items-center image-content'>
+                            <Image src={`/languajes/flags/fr.svg`} alt="Frances" className="flag rounded shadow border" data-language="fr" onClick={ switchLanguage } />
+                            Frances
+                        </div>
+                    </div>
+
+                    <div className="menu-languages-item border shadow rounded ">
+                        <div className='d-flex flex-column align-items-center image-content'>
+                            <Image src={`/languajes/flags/pt.svg`} alt="Portugues" className="flag rounded shadow border" data-language="pt" onClick={ switchLanguage } />
+                            Portugues
+                        </div>
+                    </div>
+
+                    <div className="menu-languages-item border shadow rounded ">
+                        <div className='d-flex flex-column align-items-center image-content'>
+                            <Image src={`/languajes/flags/de.svg`} alt="Aleman" className="flag rounded shadow border" data-language="de" onClick={ switchLanguage } />
+                            Aleman
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+            </div>
+
+        </div>)
+
+
+
+
+}
+
+export default LanguageSwitcher
+
+
+                
+
+
+
+

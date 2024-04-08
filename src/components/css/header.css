@@ -1,0 +1,19 @@
+.link-logo img{
+    max-width: 10rem;
+
+}
+
+@media screen and (max-width: 768px) {
+    .link-logo img{
+        max-width: 9rem;
+    }
+
+    .menu-languages-btn{
+        width: 60px;
+    }
+
+    .navbar-toggler{
+        transform: scale(0.79);
+    }
+    
+}

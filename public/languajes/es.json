@@ -1,0 +1,219 @@
+{
+    "language": "es",
+    "data": "es",
+    "alt": "Español",
+    "nav_bar":{ 
+        "contact":"Contacto",
+        "login":"Iniciar sesion",
+        "register":"Registrarse <b class='marked'>Gratis</b>",
+        "logout":"Cerrar Sesión",
+        "profile":"<b class='marked'>Mi cuenta</b>"
+    },
+    
+    "hero": {
+        "title": " Encuentra personas por su ",
+        "holder_title": " en todo el mundo",
+        "sub_title": " Obtendras un informe completo sobre la persona que buscas.",
+        "name": " Nombre ",
+        "email": " Email ",
+        "phone": " Teléfono ",
+        "address": " Dirección ",
+        "search_now": " Buscar ahora ",
+        "placeholder_name": " Ejemplo: Mariano Jose ",
+        "placeholder_email": " Ejemplo: mariano@mail.com ",
+        "placeholder_phone": " Ejemplo: +34 600 000 000 ",
+        "placeholder_address": "Ejemplo: Calle 123, Ciudad, Pais "
+    },
+
+    "services":{
+        "title1": " Tu búsqueda es anónima ",
+        "services1": " No te preocupes nadie sabrá que has buscado información, la solicitud es anónima y confidencial, tus datos personales son tratados de forma privada 100%."
+        ,
+        "title2": "¡Nuestra base de datos es actual!",
+        "services2": "Las bases de datos donde realizamos las consultas a través de nuestra API, se actualizan constantemente, para ofrecer la información más actual posible."
+        ,
+        "title3":"Buscamos en todos los archivos y bases de datos",
+        "services3": "Nuestra api es la más completa y extraemos datos de todos los registros,. archivos administración, redes sociales, empresas, registro de la propiedad, directorios…"
+        
+    },
+
+    "call_to_action": {
+        "give_us": " Danos un ",
+        "name": " nombre ",
+        "and_we": " y nosotros haremos el resto ",
+        "we_search": " Buscamos en bases de datos actualizadas.",
+        "api_data": " Datos de API’s profesionales para obtener filtrar los datos de la persona que buscas.",
+        "search_social": " Buscamos en todas las redes sociales.",
+        "search_engines": " Rastreamos en todos los buscadores existentes.",
+        "search_internet": " Revisamos internet de arriba abajo.",
+        "public_records": "Posibles registros públicos.",
+        "news": "Revisamos noticias y publicaciones aleatorias."
+    },
+
+    "counter": {
+        "total_searchs": " Total búsquedas ",
+        "total_results": " Total resultados ",
+        "success_rate": " Media de aciertos "
+    },
+
+    "why_us": {
+        "title": " ¿ Por que Find-Persons ? ",
+        "find_person": " Encontrar ",
+        "priority": " la persona que buscas ",
+        "is_our": " es nuestra prioridad ",
+        "high_performance": " Alto rendimiento ",
+        "in_seconds": " En pocos segundos te mostraremos los resultados de tu búsqueda. ",
+        "efficiency": " Eficiencia y seguridad ",
+        "person_found": " Encontraremos a la persona que buscas con un 94% de acierto como media, siempre obtendrás resultados ",
+        "unlimited_downloads": " Descargas y consultas ilimitadas",
+        "always_consult": " Podrás consultar los resultados de tus búsquedas siempre que quieras y descargar informes en múltiples formatos. "
+    },
+
+    "testimonials":{
+        "thanks1": " Gracias al servicio pude localizar a mi hermana biológica, muchas gracias! ",
+        "thanks2": " La herramienta me facilitó mas información de lo que esperaba, la verdad me sorprendí al ver todos los datos que obtuve. ",
+        "name1": "Ismael L. ",
+        "entry_footer1": " Búsqueda de perfiles en redes sociales",
+        "name2": " Manuel G. ",
+        "entry_footer2": " Investigación genealógica "
+    },
+
+    "prices":{
+        "ours": " Nuestras ",
+        "offers": " tarifas ",
+        "trial_price": " 0,60€ ",
+        "trial_text": " Prueba de 24 horas | Mensual por ",
+        "suscription_price": " 49,90€ ",
+        "info_text": " Nuestro plan único es una suscripción mensual de 49.90€ con la opción de cancelar en 24h teniendo un coste de 0.60€ "
+    },
+
+    "contact":{
+        "contact_whit_us": " Contacta con nosotros. ",
+        "contact_text": " Atenderemos tu petición con la mayor brevedad posible, <br/> Nuestro equipo de profesionales se encargará de estudiar tu solicitud. ",
+        "name": " Nombre ",
+        "email": " Email ",
+        "phone": " Teléfono ",
+        "message": " Mensaje ",
+        "please_confirm": " Por favor, confirma que estás de acuerdo con nuestra ",
+        "politics": " Política de privacidad ",
+        "and_the": " y los",
+        "terms": " Términos y condiciones ",
+        "send": "Enviar",
+        "do_reclaim": " ¿TIENES UNA RECLAMACIÓN O CONSULTA TÉCNICA?",
+        "reclaim_info": " Contacta directamente con nosotros, la atención es directa y muy rápida.",
+        "we_will_help": " Estaremos encantados de atenderte, ",
+        "use_the": " usa este formulario o escribanos a ",
+        "domain": " support@find-persons.com "
+
+    },
+
+    "footer":{
+        "searcher_profecional": " Buscador de personas profesional. ",
+        "importat_links": " Enlaces importantes",
+        "privacy_policies": " Políticas de privacidad ",
+        "cookies_policies": " Políticas de cookies ",
+        "terms_and_conditions": " Términos y condiciones ",
+        "legal_loan": " Aviso legal ",
+        "right_forgotem": " Derecho al olvido "
+    },
+
+    "search_page":{
+        "we_searching": " Estamos Buscando a ",
+        "in_the": " En todos los registros. ",
+        "socials": " Redes sociales ",
+        "work": " Datos de empresa ",
+        "address": " Residencia ",
+        "telephone": " Números de teléfono ",
+        "email": " Correos electrónicos ",
+        "news": " Noticias ",
+        "histories": " Ultimas historias ",
+        "title_accounts": " Rastreo de Perfiles ",
+        "accounts_description": " Encuentre informes detallados sobre personas, incluyendo datos de contacto, historial personal, vínculos profesionales y registros públicos extensivos. ",
+        "title_location": " Localización de Direcciones ",
+        "location_description": " Acceda rápidamente a direcciones actuales y anteriores de individuos, determinando si son propietarios o inquilinos, mediante nuestra herramienta de búsqueda. ",
+        "title_explore": " Exploración en Redes Sociales ",
+        "explore_description": " Investigue perfiles online, incluyendo actividades en redes sociales y plataformas de citas, con nuestra herramienta de búsqueda de perfiles públicos y ocultos. "
+        
+    },
+
+    "register": {
+        "title": "Registrate",
+        "subtitle": "Para obtener el informe.",
+        "free": "Gratis",
+        "accept_the": "Acepto los",
+        "terms_and_conditions": "términos y condiciones",
+        "of_service": "del servicio.",
+        "placeholder_email": "Email",
+        "placeholder_password": "Contraseña",
+        "example_email": "Ejemplo: miusuario@mail.com",
+        "min_password": "Un minimo de 6 caracteres",
+        "register_free": "Registrarse gratis",
+        "register_google": "Iniciar con Google",
+        "have_account": "¿Ya tienes una cuenta?",
+        "login": "Inicia sesión",
+        "register_success": "Registro exitoso",
+        "register_error": "Debes aceptar los terminos y condiciones del servicio.",
+        "register_error_email": "El correo no es valido",
+        "register_error_password": "La contraseña no es valida, ( minimo 6 caracteres )",
+        "register_error_email_in_use": "El correo ya esta en uso",
+        "register_error_account_exists": "La cuenta ya existe con diferentes credenciales.",
+        "we_founded": "¡Lo hemos encontrado! ",
+        "we_have_report": "tenemos un",
+        "complete_report": "informe completo",
+        "of_profile": "de su perfil.",
+        "register_to_see": "Registrate gratis para ver o descargar el informe completo.",
+        "register_accept": "Al registrarte aceptas los",
+        "register_terms": "términos y condiciones del servicio.",
+        "register_no_user_holder": "Registrate gratis para obtener un informe, <br />de cualquier persona que desees buscar.<br />Al registrarte aceptas los términos y condiciones del servicio."
+    },
+
+    "login": {
+        "title": "Iniciar",
+        "session": "Sesión",
+        "init_session": "Iniciar sesión",
+        "subtitle": "Inicia sesión para continuar buscando.",
+        "email_placeholder": "Email",
+        "password_placeholder": "Contraseña",
+        "accept_the": "Acepto los ",
+        "terms_and_conditions": " términos y condiciones ",
+        "of_service": "del servicio.",
+        "login": "Iniciar sesión",
+        "no_account": "¿No tienes una cuenta?",
+        "register_link": "Registrarme gratis",
+        "example_email": "Ejemplo: miusuario@mail.com",
+        "password_min": "Un minimo de 6 caracteres",
+        "success": "Inicio de sesión exitoso.",
+        "error": "El usuario no existe o la contraseña es incorrecta.",
+        "error_many_requests": "Demasiados intentos de inicio de sesión. Debes esperar 20 minutos para volver a intentar.",
+        "login_info": "Inicia session para ver el informe completo."
+    },
+
+    "payment": {
+        "title": "Todo listo!",
+        "sub_title": "Tenemos preparado un informe completo sobre que buscas, solo queda que realices el pago para poder acceder a el.",
+        "service_title": "Informe de resultados",
+        "service_description1": "Su informe de investigación completo, disponible en línea.",
+        "service_description2": "Desbloquea toda la información sobre la persona que buscas.",
+        "service_description3": "Nuestras bases de datos estan actualizadas.",
+        "service_description4": "Busquedas ilimitadas.",
+        "total_to_pay": "Total a pagar : ",
+        "total_price": " 0.60€",
+        "time_access": " 24 Horas de acceso al servicio.",
+        "name_placeholder": "Nombre del titular.",
+        "name_help": "Nombre del titular de la tarjeta.",
+        "cards_accept": "Aceptamos visa, master card y american express, su pago esta protegido por",
+        "secure_3ds": " 3Ds Secure",
+        "accept_terms": "Al aceptar el pago accedes a nuestro servicio por una suscripción mensual de 49.90€ con la opción de cancelar en 24 horas, teniendo un coste de 0.60€, pudiendo cancelar en cualquier momento.", 
+        "secure_payment": "Pago seguro",
+        "secure_payment_description": "En su extracto bancario le mostrará ",
+        "domain_name": "find-persons.com",
+        "contact_info": "Puede contactar con nuestro servicio de atención al cliente las ",
+        "contact_info_hours": " 24 Horas",
+        "contact_info_email": "support@find-perdons.com",
+        "btn_contact": " Contactar" 
+    
+    }
+
+
+   
+}

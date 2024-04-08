@@ -1,0 +1,158 @@
+.payment-container {
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+.content-payment-form {
+    max-width: 460px;
+    margin: 0 auto;
+    background: #aea2ea;
+    border-color: #aea4e6 !important;
+}
+
+.divider_bar, .divider_minus {
+    position: absolute;
+}
+
+.divider_bar::after{
+    content: "/";
+    position: absolute;
+    top: -8px;
+    left: -27px;
+    padding: 10px;
+    color: #5d47e1;
+    font-size: 31px;
+}
+
+.divider_minus::after{
+    content: "-";
+    position: absolute;
+    top: -8px;
+    left: -27px;
+    padding: 10px;
+    color: #5d47e1;
+    font-size: 31px;
+}
+
+small {
+    font-size: 0.7rem !important;
+    display: block;
+    margin: 5px 0;
+}
+
+.info-cards{
+    font-size: 0.9rem;
+}
+
+.info-payment {
+    background: #d9d3f8;
+    box-shadow: 2px 0px 0px 0px #afa2ea;
+    z-index: 1;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.title-section .marked::before{
+    background-color: #6c54f659;
+    border-radius: 25px;
+    z-index: 0;
+    box-shadow: 0px 2px 1px 1px #6c54f657;
+}
+
+.wrap-payment-form {
+    background: #aea2ea;
+    border-radius: 0px 10px 10px 0px;
+    min-height: 39.4rem;
+}
+
+.secure-icons-images{
+    height: 2.7rem;
+    justify-content: space-between;
+}
+
+.content-result-image{
+    padding: 1px;
+    background: #6c54f6;
+    border: solid 1px;
+    border-color: #afa2ea;
+    height: 15rem;
+    width: 34%;
+}
+
+#tefpayBox{
+    max-height: 9.4rem;  
+}
+
+#tefpayBox.loading::before{
+    content: "";
+    width: 100%;
+    height: 15rem;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-content: center;
+    background-image: url(/tefpay_resources/img/07V99000544/tefpay-logo1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10rem;   
+}
+
+@media screen and (max-width: 768px) {
+
+    .info-payment{
+        background-color: transparent;
+        box-shadow: none;
+        
+    }
+
+    .wrap-payment-form {
+        background: transparent;
+    }
+
+    .content-payment-form{
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background-color: transparent;
+        border: none;
+    }
+
+    .content-result-image{
+        padding: 1rem;
+        background: #6c54f6;
+        border: solid 1px;
+        border-color: #afa2ea;
+        height: 16rem;
+        width: 15rem !important;
+    }
+
+    .content-result-image img{
+        width: 100% !important;
+    }
+
+    .rounded2x {
+        flex-flow: wrap-reverse; 
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    .form-info{
+        width: 100% !important;
+        background: transparent;
+        box-shadow: none !important;
+        padding-top: 0px !important;
+    }
+
+    .secure-icons-images{
+        height: 2.3rem;
+        justify-content: normal;
+        width: 19rem;
+        margin: auto;
+        padding-top: 1rem;
+    }
+
+    .cards-images{
+        display: flex;
+        width: 11.6rem;
+        margin: auto;
+    }
+    
+}

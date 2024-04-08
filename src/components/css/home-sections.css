@@ -1,0 +1,59 @@
+.fa-paper-plane{
+font-size: 10rem;
+margin: 22px;
+color: #6b53f2;
+}
+
+.banner-pricing {
+    padding: 20px;
+    text-align: center;
+    width: 33%;
+    margin: auto;
+    margin-top: 5rem;
+}
+
+.banner-pricing h2 {
+    font-size: 24px; /* Tamaño del título */
+    color: #333; /* Color del título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+.banner-pricing p {
+    font-size: 18px; /* Tamaño del texto */
+    color: #666; /* Color del texto */
+    line-height: 1.6; /* Espacio entre líneas de texto */
+}
+
+.banner-pricing p strong {
+    color: #333; /* Color del texto en negrita */
+}
+
+h2.title-section{
+    font-size: 1.6rem;
+}
+
+h3.title-section{
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .img-fluid{
+        width: 45%;
+    }
+    .banner-pricing {
+        width: 90%;
+    }
+
+    .selectType > ul li {
+        min-width: 5rem;
+    }
+
+    header{
+        z-index: 2 !important;
+    }
+
+    .shearching-input{
+        font-size: 1rem !important;
+    }
+
+}

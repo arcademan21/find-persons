@@ -1,0 +1,115 @@
+.results-container {
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+.content-results-form {
+    max-width: 460px;
+    margin: 0 auto;
+    background: #aea2ea;
+    border-color: #aea4e6 !important;
+}
+
+.divider_bar, .divider_minus {
+    position: absolute;
+}
+
+.divider_bar::after{
+    content: "/";
+    position: absolute;
+    top: -8px;
+    left: -27px;
+    padding: 10px;
+    color: #5d47e1;
+    font-size: 31px;
+}
+
+.divider_minus::after{
+    content: "-";
+    position: absolute;
+    top: -8px;
+    left: -27px;
+    padding: 10px;
+    color: #5d47e1;
+    font-size: 31px;
+}
+
+small {
+    font-size: 0.7rem !important;
+    display: block;
+    margin: 5px 0;
+}
+
+.info-cards{
+    font-size: 0.9rem;
+}
+
+.info-results {
+    background: #d9d3f8;
+    box-shadow: 2px 0px 0px 0px #afa2ea;
+    z-index: 1;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.title-section .marked::before{
+    background-color: #6c54f659;
+    border-radius: 25px;
+    z-index: 0;
+    box-shadow: 0px 2px 1px 1px #6c54f657;
+}
+
+.wrap-results-form {
+    background: #aea2ea;
+    border-radius: 0px 10px 10px 0px;
+    min-height: 39.4rem;
+}
+
+.secure-icons-images{
+    height: 2.7rem;
+    justify-content: space-between;
+}
+
+.content-result-image{
+    padding: 1px;
+    background: #6c54f6;
+    border: solid 1px;
+    border-color: #afa2ea;
+    height: 9rem !important;
+    width: 22% !important;
+}
+
+.info-persons{
+    min-height: 12rem;
+    max-height: 12rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width: 768px) {
+
+    .info-results{
+        background-color: transparent;
+        box-shadow: none;
+        
+    }
+
+    .content-result-image{
+        padding: 1rem;
+        background: #6c54f6;
+        border: solid 1px;
+        border-color: #afa2ea;
+        height: 16rem;
+        width: 15rem !important;
+    }
+
+    .content-result-image img{
+        width: 100% !important;
+    }
+
+    .rounded2x {
+        flex-flow: wrap-reverse; 
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+}
