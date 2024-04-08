@@ -20,7 +20,7 @@ function RootLayout( { children } ) {
 
     <html lang={metadata.lang}>
 
-      <head>
+      <Head>
             
           <meta charSet={metadata.charSet} />
           <meta name="description" content={metadata.description} />
@@ -35,7 +35,7 @@ function RootLayout( { children } ) {
           <link rel="stylesheet" type="text/css" href="/libs/font-awesome/css/all.min.css" />
           <link rel="stylesheet" type="text/css" href="/css/globals.css" />
           
-      </head>
+      </Head>
 
       <body>
 
