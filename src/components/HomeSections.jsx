@@ -40,7 +40,7 @@ const HomeSections = () => {
                     <div className="col-md-6 col-lg-4 py-3 wow fadeInUp">
                     <div className="d-flex flex-row">
                         <div className="img-fluid mx-3 w-25">
-                        <Image src="/images/ico_04.png" alt="" width={100} height={100} alt="service_1"/>
+                        <Image src="/images/ico_04.png" width={100} height={100} alt="service_1"/>
                         </div>
                         <div data-section="services" data-value="services1">
                         <h5>{language.services.title1}</h5>
@@ -54,7 +54,7 @@ const HomeSections = () => {
                     <div className="col-md-6 col-lg-4 py-3 wow fadeInUp">
                     <div className="d-flex flex-row">
                         <div className="img-fluid mx-3 w-25">
-                        <Image src="/images/ico_06.png" alt="" width={100} height={100} alt="service_2" />
+                        <Image src="/images/ico_06.png" width={100} height={100} alt="service_2" />
                         </div>
                         <div data-section="services" data-value="services2">
                         <h5>{language.services.title2}</h5>
@@ -68,7 +68,7 @@ const HomeSections = () => {
                     <div className="col-md-6 col-lg-4 py-3 wow fadeInUp">
                     <div className="d-flex flex-row">
                         <div className="img-fluid mx-3 w-25">
-                        <Image src="/images/ico_05.png" alt="" width={100} height={100} alt="service_3" />
+                        <Image src="/images/ico_05.png" width={100} height={100} alt="service_3" />
                         </div>
                         <div data-section="services" data-value="services3">
                         <h5>{language.services.title3}</h5>
