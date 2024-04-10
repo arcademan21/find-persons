@@ -38,8 +38,14 @@ const Payment = () => {
                         </div>
                         <div className="info-service d-flex flex-column p-4">
                             <div className="d-flex content-result-image shadow rounded m-auto justify-content-center">
-                                <Image src="/images/result_file.jpeg"
-                                alt="results-holder" className="img-fluid rounded" />
+                                <Image 
+                                    src="/images/result_file.jpeg" 
+                                    alt="results-holder" 
+                                    className="img-fluid rounded" 
+                                    width={100} 
+                                    height={100} 
+                                    layout="responsive"
+                                    />
                             </div>
                             <div className="d-flex flex-column p-3 m-auto w-100">
                                 <h3 className="text-center text-secondary title-section mb-4">
@@ -68,7 +74,7 @@ const Payment = () => {
                                 </div>
 
                                 <div className="d-flex justify-content-center">
-                                    <Image src="/images/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" />
+                                    <Image src="/images/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" width={100} height={100} layout="responsive"/>
                                 </div>
 
                             </div>
@@ -110,15 +116,15 @@ const Payment = () => {
                                 <div className="d-flex secure-icons-images">
                                     
                                     <div className="d-flex w-50 justify-content-start">
-                                        <Image src="/tefpay_resources/img/07V99000544/security.png" alt="security" className="img-fluid " />
+                                        <Image src="/tefpay_resources/img/07V99000544/security.png" alt="security" className="img-fluid " width={100} height={100} layout="responsive" />
                                     </div>
 
                                     <div className="d-flex w-25 justify-content-end">
-                                        <Image src="/tefpay_resources/img/07V99000544/tefpay-logo1.png" alt="verified by visa" className="img-fluid mx-3" />
+                                        <Image src="/tefpay_resources/img/07V99000544/tefpay-logo1.png" alt="verified by visa" className="img-fluid mx-3" width={100} height={100} layout="responsive" />
                                     </div>
                                 
                                     <div className="d-flex w-25 justify-content-end">
-                                        <Image src="/tefpay_resources/img/07V99000544/ssl.png" alt="ssl" className="img-fluid mx-3" />
+                                        <Image src="/tefpay_resources/img/07V99000544/ssl.png" alt="ssl" className="img-fluid mx-3" width={100} height={100} layout="responsive" />
                                     </div>
 
                                 </div>

@@ -215,7 +215,7 @@ const Results = () => {
                         </div>
                         <div className="info-service d-flex flex-column p-4">
                             <div className="d-flex content-result-image shadow rounded m-auto justify-content-center">
-                                <Image src="/images/no_user_image.jpeg" alt="results-holder" className="img-fluid rounded" />
+                                <Image src="/images/no_user_image.jpeg" alt="results-holder" className="img-fluid rounded" width={100} height={100} />
                             </div>
                             <div className="d-flex flex-column p-3 m-auto w-100">
                                 <h3 className="text-center text-secondary title-section mb-4">
@@ -235,7 +235,7 @@ const Results = () => {
                                     </div>
                                 </div>
                                 <div className="d-flex justify-content-center">
-                                    <Image src="/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" />
+                                    <Image src="/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" width={100} height={100} />
                                 </div>
                             </div>
                         </div>

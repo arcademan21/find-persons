@@ -23,7 +23,7 @@ const Footer = () => {
                 <div className="col-lg-4 py-3 d-flex flex-column align-content-center  align-items-center justify-content-center align-self-center">
                 
                 <div className="w-50 ">
-                    <Image src="/images/logo_find-persons.png" width="100%" alt="" />
+                    <Image src="/images/logo_find-persons.png" alt="logo" width={200} height={70} />
                 </div>
                 <p> {language.searcher_profecional}
                 </p>
@@ -68,7 +68,13 @@ const Footer = () => {
                 <div className="col-sm-6 py-2">
                 <center>
                     <p id="copyright">
-                        <Image src="/images/ADS-All-right.png" alt=""/>
+                        <Image 
+                            src="/images/ADS-All-right.png" 
+                            alt="rights" 
+                            width={200}
+                            height={30}
+                            
+                            />
                     </p>
                 </center>
                 </div>

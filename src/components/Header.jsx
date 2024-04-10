@@ -11,7 +11,7 @@ const Header = () => {
         <div className="d-flex w-100 justify-content-between px-5">
           <div className="d-flex w-25 content-link-logo">
             <a href="/" className="navbar-brand link-logo ">
-              <Image src="images/logo_find-persons.png" />
+              <Image src="/images/logo_find-persons.png" width={150} height={60} alt="logo" />
             </a>
           </div>
 

@@ -129,9 +129,9 @@ export const TefpayPaymentForm = () => {
 
                 {/* IMAGENES DE TARJETAS ACEPTADAS */}
                 <div className="cards-images my-2">
-                    <Image src="tefpay_resources/img/07V99000544/icon_visa.png" alt="visa" className="img-fluid " />
-                    <Image src="tefpay_resources/img/07V99000544/icon_mastercard.png" alt="mastercard" className="img-fluid mx-3" />
-                    <Image src="tefpay_resources/img/07V99000544/icon_jcb.png" alt="jbc" className="img-fluid" />
+                    <Image src="/tefpay_resources/img/07V99000544/icon_visa.png" alt="visa" className="img-fluid " width={50} height={50} />
+                    <Image src="/tefpay_resources/img/07V99000544/icon_mastercard.png" alt="mastercard" className="img-fluid mx-3" width={50} height={50} />
+                    <Image src="/tefpay_resources/img/07V99000544/icon_jcb.png" alt="jbc" className="img-fluid" width={50} height={50} />
                 </div>
 
                 {/* INFORMACION DE PAGO */}

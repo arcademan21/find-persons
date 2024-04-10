@@ -160,7 +160,7 @@ const Register = () => {
                     
                     <div className="col-sm-12 d-flex shadow p-0 rounded2x w-100">
                         
-                        <div className='d-flex '>
+                        <div className='d-flex w-100'>
 
                             <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 px-3 login-col">
                                 <div className="d-none w-75 m-auto logo-register-form">
@@ -172,7 +172,8 @@ const Register = () => {
                                     <Image
                                     src="/images/logo_find-persons.png"
                                     alt="Find Persons"
-                                    width="50%"
+                                    width={150}
+                                    height={60}
                                     />
                                 </Link>
                                 </div>
@@ -277,55 +278,57 @@ const Register = () => {
                             </div>
 
                             <div className="col-md-10 col-lg-6 col-xl-7 d-flex order-1 order-lg-2 col-register">
-                                <div className="d-flex flex-column justify-content-center">
-                                <div className="d-flex flex-column" id="image-register">
-                                    <Image
-                                    src="/images/bg_image_1.png"
-                                    className="img-fluid w-75 h-75 px-5 m-auto"
-                                    alt="Registrate gratis"
-                                    />
+                                <div className="d-flex flex-column justify-content-center w-100">
+                                    <div className="d-flex flex-column" id="image-register">
+                                        <Image
+                                        src="/images/bg_image_1.png"
+                                        className="img-fluid w-75 h-75 px-5 m-auto"
+                                        width={500}
+                                        height={500}
+                                        alt="Registrate gratis"
+                                        />
 
-                                    <div className="d-flex flex-column py-2">
-                                        
-
-                                        { search ?
-                                            
-                                            <div className="d-flex px-4 py-3">
-                                                <div className="d-flex flex-column w-25 bg-light rounded shadow border">
-                                                    <Image src="/images/no_user_image.jpeg" alt="results" className='w-100 p-1 h-100 rounded'/>
-                                                </div>
-                                                <div className="d-flex w-75 bg-light mx-2 rounded border shadow">
-                                                    <p className="p-4 text-secondary title-section">
-                                                        <b className='marked fs-5'>{ search }</b> <br />
-                                                        <b className='marked'>{language.we_founded} </b> {language.we_have_report} <b className='marked'>{language.complete_report}</b> {language.of_profile}
-                                                        <br />
-                                                        <b className='marked'> {language.register_to_see}</b>
-                                                        <br />
-                                                        {language.register_accept} <b className='marked'> {language.register_terms}</b>
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            : 
-
+                                        <div className="d-flex flex-column py-2">
                                             
 
-                                            <div className="d-flex px-4 py-3">
-                                                <div className="d-flex flex-column w-25 bg-light rounded shadow border">
-                                                    <Image src="/images/result_file.jpeg" alt="results" className='w-100 p-1 h-100 rounded'/>
+                                            { search ?
+                                                
+                                                <div className="d-flex px-4 py-3">
+                                                    <div className="d-flex flex-column w-25 bg-light rounded shadow border">
+                                                        <Image src="/images/no_user_image.jpeg" alt="results" className='w-100 p-1 h-100 rounded' width={100} height={100}/>
+                                                    </div>
+                                                    <div className="d-flex w-75 bg-light mx-2 rounded border shadow">
+                                                        <p className="p-4 text-secondary title-section">
+                                                            <b className='marked fs-5'>{ search }</b> <br />
+                                                            <b className='marked'>{language.we_founded} </b> {language.we_have_report} <b className='marked'>{language.complete_report}</b> {language.of_profile}
+                                                            <br />
+                                                            <b className='marked'> {language.register_to_see}</b>
+                                                            <br />
+                                                            {language.register_accept} <b className='marked'> {language.register_terms}</b>
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <div className="d-flex w-75 bg-light mx-2 rounded border shadow">
-                                                    <p className="p-4 fs-6 text-secondary">
-                                                        {language.register_no_user_holder}
-                                                    </p>
+
+                                                : 
+
+                                                
+
+                                                <div className="d-flex px-4 py-3">
+                                                    <div className="d-flex flex-column w-25 bg-light rounded shadow border">
+                                                        <Image src="/images/result_file.jpeg" alt="results" className='w-100 p-1 h-100 rounded' width={100} height={100}/>
+                                                    </div>
+                                                    <div className="d-flex w-75 bg-light mx-2 rounded border shadow">
+                                                        <p className="p-4 fs-6 text-secondary">
+                                                            {language.register_no_user_holder}
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                            </div>
 
 
-                                        }
+                                            }
 
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                             </div>
 

@@ -1,6 +1,6 @@
 import { GlobalProvider } from '../context/GlobalContext'
 import { ToastContainer } from 'react-toastify'
-import Head from 'next/head'
+
 import Loader from "../components/Loader"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -20,7 +20,7 @@ function RootLayout( { children } ) {
 
     <html lang={metadata.lang}>
 
-      <Head>
+      <head>
             
           <meta charSet={metadata.charSet} />
           <meta name="description" content={metadata.description} />
@@ -35,7 +35,7 @@ function RootLayout( { children } ) {
           <link rel="stylesheet" type="text/css" href="/libs/font-awesome/css/all.min.css" />
           <link rel="stylesheet" type="text/css" href="/css/globals.css" />
           
-      </Head>
+      </head>
 
       <body>
 
@@ -74,13 +74,8 @@ function RootLayout( { children } ) {
           <Script type="text/javascript" src="/libs/font-awesome/js/all.min.js"></Script>
           <Script type="text/javascript" src="/libs/vantajs/three.min.js"></Script>
           <Script type="text/javascript" src="/libs/vantajs/vanta.globe.min.js"></Script> 
-          <Script type="text/javascript" src="/libs/wow/wow.min.js"></Script>
+          <Script src="/libs/wow/wow.min.js" />
           <Script type="text/javascript" src="/js/theme.js"></Script>
-
-          <Script type="text/javascript" id='wowjs'>
-              {/* Initiate the wowjs animation library */}
-              new WOW().init() 
-          </Script>
 
       </body>
     </html>

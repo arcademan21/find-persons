@@ -103,9 +103,10 @@ const Login = ( ) => {
                             text-center"
                     >
                         <Image
-                        src="/images/logo_find-persons.pn"
+                        src="/images/logo_find-persons.png"
                         alt="Find Persons"
-                        width="50%"
+                        width={50}
+                        height={50}
                         />
                     </Link>
                     </div>

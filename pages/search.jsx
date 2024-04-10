@@ -45,15 +45,15 @@ const Search = () => {
                     })
                 })
 
-                await response.json().then( result => {
+                await response.json().then( async result => {
                     
                     if ( result.status !== 'error' ) {
                         setState( state => ({ ...state, suscription: result.data }) )
-                        router.push('/results')
+                        await router.push('/results')
                     }
 
                     else{
-                       router.push('/payment')
+                       await router.push('/payment')
                     }
 
                 } )
@@ -61,12 +61,12 @@ const Search = () => {
             }
 
             else{
-                router.push('/register')
+                await router.push('/register')
             }
 
         } catch( error ) { 
             setState( state => ({ ...state, suscription: null }) )
-            router.push('/payment')
+            await router.push('/payment')
 
         }
 
@@ -118,7 +118,9 @@ const Search = () => {
                 setStateIcon('fa-check')
                 setAwaitText('')
                 clearInterval(time)
-                document.getElementsByClassName('wrapper')[0].classList.add('active')
+                const wrapper = document.getElementsByClassName('wrapper')[0]
+                if( wrapper ) wrapper.classList.add('active')
+                
                 is_suscripted()
             }
     
@@ -222,7 +224,7 @@ const Search = () => {
                 <div className="col-lg-6 py-3">
         
                     <div className="img-place text-center">
-                        <Image src={`/images/bg_image_1_small.jpeg`} className="mt-0" alt="" />
+                        <Image src="/images/bg_image_1_small.jpeg" className="mt-0" alt="" width={100} height={100} />
                     </div>
         
                 </div>

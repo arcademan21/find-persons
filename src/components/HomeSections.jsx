@@ -40,7 +40,7 @@ const HomeSections = () => {
                     <div className="col-md-6 col-lg-4 py-3 wow fadeInUp">
                     <div className="d-flex flex-row">
                         <div className="img-fluid mx-3 w-25">
-                        <Image src="images/ico_04.png" alt="" width="100%"/>
+                        <Image src="/images/ico_04.png" alt="" width={100} height={100} alt="service_1"/>
                         </div>
                         <div data-section="services" data-value="services1">
                         <h5>{language.services.title1}</h5>
@@ -54,7 +54,7 @@ const HomeSections = () => {
                     <div className="col-md-6 col-lg-4 py-3 wow fadeInUp">
                     <div className="d-flex flex-row">
                         <div className="img-fluid mx-3 w-25">
-                        <Image src="images/ico_06.png" alt="" width="100%" />
+                        <Image src="/images/ico_06.png" alt="" width={100} height={100} alt="service_2" />
                         </div>
                         <div data-section="services" data-value="services2">
                         <h5>{language.services.title2}</h5>
@@ -68,7 +68,7 @@ const HomeSections = () => {
                     <div className="col-md-6 col-lg-4 py-3 wow fadeInUp">
                     <div className="d-flex flex-row">
                         <div className="img-fluid mx-3 w-25">
-                        <Image src="images/ico_05.png" alt="" width="100%"/>
+                        <Image src="/images/ico_05.png" alt="" width={100} height={100} alt="service_3" />
                         </div>
                         <div data-section="services" data-value="services3">
                         <h5>{language.services.title3}</h5>
@@ -89,7 +89,13 @@ const HomeSections = () => {
                 <div className="row">
                     <div className="col-lg-6 py-3 wow zoomIn">
                     <div className="img-place text-center">
-                        <Image src="images/bg_image_1_small.jpeg" alt=""/>
+                        <Image 
+                            src="/images/bg_image_1_small.jpeg" 
+                            alt="info_image" 
+                            layout="fill"
+                            className="w-100 h-auto"
+                            
+                        />
                     </div>
                     </div>
                     <div className="col-lg-6 py-3 wow fadeInRight" data-section="call_to_action" data-value="html"> 
@@ -158,7 +164,15 @@ const HomeSections = () => {
                     
                     <div className="col-md-12  wow zoomIn">
                         <div className="img-place text-center">
-                            <Image src="images/bg_image_3.jpeg" alt=""/>
+                            <Image 
+                                src="/images/bg_image_3.jpeg" 
+                                alt="info_image"  
+                                width={100} 
+                                height={100}
+                                layout='responsive'
+                                className="w-75 h-auto" 
+
+                            />
                         </div>
                     </div>
                     
@@ -183,14 +197,14 @@ const HomeSections = () => {
             <div className="row mt-5 text-center">
                 <div className="col-lg-4 py-3 wow fadeInUp">
                 <div className="display-3 w-25 mb-4 mx-auto mt-auto">
-                    <Image src="images/ico_03.png" width="100%" />
+                    <Image src="/images/ico_03.png" width={100} height={100} alt="icon_03" />
                 </div>
                 <h5>{language.why_us.high_performance}</h5>
                 <p> {language.why_us.in_seconds}</p>
                 </div>
                 <div className="col-lg-4 py-3 wow fadeInUp">
                 <div className="display-3 w-50 mb-4 mx-auto mt-auto">
-                    <Image src="images/ico_01.png" width="100%" />
+                    <Image src="/images/ico_01.png" width={160} height={160} alt="icon_01" />
                 </div>
                 <h5>
                     {language.why_us.efficiency}
@@ -201,7 +215,7 @@ const HomeSections = () => {
                 </div>
                 <div className="col-lg-4 py-3 wow fadeInUp">
                 <div className="display-3 w-25 mb-4 mx-auto mt-auto">
-                    <Image src="images/ico_02.png" width="90%" />    
+                    <Image src="/images/ico_02.png" width={100} height={100} alt="icon_02" />    
                 </div>
                 <h5>{language.why_us.unlimited_downloads}</h5>
                 <p>
@@ -223,7 +237,7 @@ const HomeSections = () => {
                 <div className="row align-items-center">
                     <div className="col-md-6 py-3">
                     <div className="testi-image">
-                        <Image src="images/person/person_1.jpg" alt=""/>
+                        <Image src="/images/person/person_1.jpg" width={100} height={100} alt="image_person_1" />
                     </div>
                     </div>
                     <div className="col-md-6 py-3">
@@ -246,7 +260,7 @@ const HomeSections = () => {
                 <div className="row align-items-center">
                     <div className="col-md-6 py-3">
                     <div className="testi-image">
-                        <Image src="images/person/person_2.jpg" alt=""/>
+                        <Image src="/images/person/person_2.jpg" alt="image_person_2" width={100} height={100}/>
                     </div>
                     </div>
                     <div className="col-md-6 py-3">
