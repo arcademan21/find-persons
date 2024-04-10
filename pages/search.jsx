@@ -5,6 +5,8 @@ import GlobalContext from '@/context/GlobalContext'
 import VantaGlobe from '@/components/VantaGlobe'
 import './css/search.css'
 import Image from 'next/image'
+import { redirect } from "next/dist/server/api-utils"
+import Loader from '@/components/Loader'
 
 const Search = () => {
     
@@ -15,6 +17,8 @@ const Search = () => {
     const search = localStorage.getItem('search').toString()
     const [text_search_info, setTextSearchInfo] = useState('')
     const [awaitText, setAwaitText] = useState('')
+    const [activeClass, setActiveClass] = useState('')
+    const [redirectTo, setRedirectTo] = useState('/')
 
     const [stateIcon, setStateIcon] = useState('fa-spinner')
     const [listOfSearchs, setListOfSearchs] = useState([])
@@ -26,8 +30,12 @@ const Search = () => {
         const user = JSON.parse( localStorage.getItem('user') )
 
         try{
-            
-            if( user ){
+
+            if( !user ) {
+                setRedirectTo('/register')
+            }
+
+            else {
                 
                 // Fetch to endpoint for get suscription
                 const response = await fetch( path_endpoint, {
@@ -45,28 +53,25 @@ const Search = () => {
                     })
                 })
 
-                await response.json().then( async result => {
+                await response.json().then( result => {
                     
                     if ( result.status !== 'error' ) {
                         setState( state => ({ ...state, suscription: result.data }) )
-                        await router.push('/results')
+                        setRedirectTo('/results')
                     }
 
                     else{
-                       await router.push('/payment')
+                        setRedirectTo('/payment')
                     }
 
                 } )
-                
-            }
 
-            else{
-                await router.push('/register')
             }
+    
 
         } catch( error ) { 
             setState( state => ({ ...state, suscription: null }) )
-            await router.push('/payment')
+            setRedirectTo('/payment')
 
         }
 
@@ -115,12 +120,10 @@ const Search = () => {
             setTextSearchInfo(listOfSearchs[count])
     
             if ( count === 5 ) {
+                clearInterval(time)
                 setStateIcon('fa-check')
                 setAwaitText('')
-                clearInterval(time)
-                const wrapper = document.getElementsByClassName('wrapper')[0]
-                if( wrapper ) wrapper.classList.add('active')
-                
+                setActiveClass('active')
                 is_suscripted()
             }
     
@@ -141,8 +144,20 @@ const Search = () => {
 
     }, [  is_suscripted, listOfSearchs ] )
 
+    if( !search ) {
+        //router.push('/')
+        window.location.replace('/')
+        return (<Loader/>)
+    }
+
+    else if( redirectTo !== '/' ) {
+        //router.push( redirectTo )
+        window.location.replace(redirectTo)
+        return (<Loader/>)
+    }
+
     return (<>
-        {search ? null : window.location.href = '/'}
+        
         <div className="container-fluid py-5" id="vanta-anime">
         
             <div className="row px-5 content-search-map-anime w-50 m-auto my-5 mb-3 border shadow rounded bg-white" id="vanta-bg">
@@ -156,7 +171,7 @@ const Search = () => {
 
                    
     
-                    <div className="wrapper">
+                    <div className={`wrapper ${activeClass}`}>
 
                         {awaitText ? awaitText : 
                         
