@@ -1,8 +1,8 @@
-import { GlobalProvider } from '../src/context/GlobalContext'
+import { GlobalProvider } from '@/context/GlobalContext'
 import { ToastContainer } from 'react-toastify'
-import Loader from "../src/components/Loader"
-import Header from "../src/components/Header"
-import Footer from "../src/components/Footer"
+import Loader from "@/components/Loader"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 import Script from 'next/script'
 import Head from 'next/head'
 

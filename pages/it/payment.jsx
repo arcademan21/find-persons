@@ -1,9 +1,9 @@
 'use client'
 import {useEffect, useContext, useState} from "react"
 import { useRouter } from "next/navigation"
-import TefpayPaymentForm from "../src/components/TefpayPaymentForm"
-import GlobalContext from "../src/context/GlobalContext"
-import VantaGlobe from '../src/components/VantaGlobe'
+import TefpayPaymentForm from "@/components/TefpayPaymentForm"
+import GlobalContext from "@/context/GlobalContext"
+import VantaGlobe from '@/components/VantaGlobe'
 import Image from "next/image"
 
 const Payment = () => {
