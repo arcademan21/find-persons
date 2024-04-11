@@ -3,14 +3,14 @@ import { useState, useEffect, useContext } from "react"
 import GlobalContext from "../context/GlobalContext"
 import './css/tefpay-payment-form.css'
 import Image from 'next/image'
-import e from "express"
+import sha1 from 'js-sha1'
 
 // Componente para obtener el formulario de pago de Tefpay
 export const TefpayPaymentForm = () => {
 
     const context = useContext( GlobalContext )
     const { state } = context
-    const user = state.user
+    //const user = state.user
     const hostname = window.location.hostname 
     const lang = window.localStorage.getItem('language')
 
@@ -19,7 +19,7 @@ export const TefpayPaymentForm = () => {
     const [ signature, setSignature ] = useState('')
     const [ suscription_account, setSuscriptionAccount ] = useState('')
     const [ user_name, setUserName ] = useState('')
-    const [ user_email, setUserEmail ] = useState(user.email)
+    const [ user_email, setUserEmail ] = useState('test@test.com')
     const [ search, setSearch ] = useState('')
     const [ iframe, setIframe ] = useState('')
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
@@ -44,16 +44,8 @@ export const TefpayPaymentForm = () => {
         CallbackUrl = ""
     ) => {
         const buffer = amount + merchantCode + SubscriptionAcctNo + CallbackUrl + merchantSharedkey;
-        const result = Sha1(buffer);
+        const result = sha1(buffer);
         return result;
-    }
-
-    const Sha1 = ( data ) => {
-        // Importa el módulo crypto para usar la función createHash
-        const crypto = require('crypto');
-        const hash = crypto.createHash('sha1');
-        hash.update(data);
-        return hash.digest('hex');
     }
 
     useEffect(() => {
@@ -92,7 +84,7 @@ export const TefpayPaymentForm = () => {
                     setSignature(signature)
                     setMatchingData(matchingData)
                     setSuscriptionAccount(matchingData)
-                    setPaymentId( matchingData )
+                    setPaymentId(matchingData)
 
                     TefpayIframe.configure("https://intepayments.tefpay.com/", "100%")
                     TefpayIframe.load()  
