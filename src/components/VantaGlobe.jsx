@@ -20,7 +20,8 @@ const VantaGlobe = ( { el }) => {
                 height: 1000.00
             }
         }
-        
+
+       
         window.VANTA.GLOBE({
             el: el,
             mouseControls: true,
@@ -34,8 +35,13 @@ const VantaGlobe = ( { el }) => {
             color2: '#5848f6',
             backgroundColor: 0xffffff,
         })
+        
+        
+       
 
     }, [el])
+
+   
 
 }
 

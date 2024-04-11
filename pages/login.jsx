@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation"
 import GlobalContext from '@/context/GlobalContext'
 import VantaGlobe from '@/components/VantaGlobe'
 import 'react-toastify/dist/ReactToastify.css'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Login = ( ) => {
 
@@ -203,9 +203,12 @@ const Login = ( ) => {
                     <div className="d-flex flex-column m-auto">
                     <div className="d-flex flex-column" id="image-register">
                         <Image
-                        src="/images/bg_image_2.png"
-                        className="img-fluid w-75 m-auto"
-                        alt="Registrate gratis"
+                            src="/images/bg_image_2.png"
+                            className="img-fluid w-75 m-auto"
+                            width={100}
+                            height={100}
+                            layout="responsive"
+                            alt="Registrate gratis"
                         />
 
                         <div className="d-flex flex-column py-5">

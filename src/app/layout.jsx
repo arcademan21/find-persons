@@ -72,8 +72,10 @@ function RootLayout( { children } ) {
           <Script type="text/javascript" src="/libs/google-maps/google-maps.js"></Script>
           <Script type="text/javascript" src="/libs/html2pdf/html2pdf.js"></Script>
           <Script type="text/javascript" src="/libs/font-awesome/js/all.min.js"></Script>
+
           <Script type="text/javascript" src="/libs/vantajs/three.min.js"></Script>
           <Script type="text/javascript" src="/libs/vantajs/vanta.globe.min.js"></Script> 
+
           <Script src="/libs/wow/wow.min.js" />
           <Script type="text/javascript" src="/js/theme.js"></Script>
 

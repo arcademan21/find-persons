@@ -266,9 +266,12 @@ const Register = () => {
                                     <p className="title-section text-center w-100">
                                     <span className="marked">{language.have_account}</span>
                                     <br />
-                                    <Link href="/login" className="link-primary my-1">
-                                        {language.login}
-                                        <i className="fas fa-sign-in-alt fs-5 mx-1"></i>
+                                    <Link href="/login" >
+                                        <a className="link-primary my-1">
+                                            {language.login}
+                                            <i className="fas fa-sign-in-alt fs-5 mx-1"></i>
+                                        </a>
+                                        
                                     </Link>
                                     </p>
                                 </div>
