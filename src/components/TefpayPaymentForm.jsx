@@ -3,57 +3,27 @@ import { useState, useEffect, useContext } from "react"
 import GlobalContext from "../context/GlobalContext"
 import './css/tefpay-payment-form.css'
 import Image from 'next/image'
+import e from "express"
 
 // Componente para obtener el formulario de pago de Tefpay
 export const TefpayPaymentForm = () => {
 
     const context = useContext( GlobalContext )
     const { state } = context
+    const user = state.user
+    const hostname = window.location.hostname 
+    const lang = window.localStorage.getItem('language')
 
     const [ paymentId, setPaymentId ] = useState('')
     const [ matching_data, setMatchingData ] = useState('')
     const [ signature, setSignature ] = useState('')
     const [ suscription_account, setSuscriptionAccount ] = useState('')
     const [ user_name, setUserName ] = useState('')
-    const [ user_email, setUserEmail ] = useState('')
+    const [ user_email, setUserEmail ] = useState(user.email)
     const [ search, setSearch ] = useState('')
     const [ iframe, setIframe ] = useState('')
-
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
-
-    useEffect(() => {
-        setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
-    }, [state])
-
-    useEffect(() => {
-        
-        const src = 'https://intepayments.tefpay.com/js/iframe.js'
-        const script = document.createElement('script')
-        
-        script.src = src
-        script.async = true
-        
-        document.body.appendChild(script).onload = () => {
-       
-            // Set Tefpay form
-            const TefpayIframe = window.TefpayIframe 
-            if( TefpayIframe ) {
-                if ( TefpayIframe.init() ) {
-                    TefpayIframe.configure("https://intepayments.tefpay.com/", "100%")
-                    TefpayIframe.load()  
-                }
-            }
-
-
-        }
-
-        return () => {
-            window.TefpayIframe = null
-        }
-
-    }, [])
-
-
+    
     // Funcion para limpiar el email de caracteres especiales
     const CleanStringForTefpay = ( { email } ) => {
     
@@ -65,6 +35,79 @@ export const TefpayPaymentForm = () => {
         return email
 
     }
+
+    const CreateSubscriptionSignature = (
+        merchantSharedkey, 
+        merchantCode, 
+        amount, 
+        SubscriptionAcctNo, 
+        CallbackUrl = ""
+    ) => {
+        const buffer = amount + merchantCode + SubscriptionAcctNo + CallbackUrl + merchantSharedkey;
+        const result = Sha1(buffer);
+        return result;
+    }
+
+    const Sha1 = ( data ) => {
+        // Importa el módulo crypto para usar la función createHash
+        const crypto = require('crypto');
+        const hash = crypto.createHash('sha1');
+        hash.update(data);
+        return hash.digest('hex');
+    }
+
+    useEffect(() => {
+        setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
+    }, [state])
+
+    useEffect(() => {
+        
+        
+        const src = 'https://intepayments.tefpay.com/js/iframe.js'
+        const script = document.createElement('script')
+        const matchingData = String(new Date().toISOString().replace(/[^0-9]/g, '')).padEnd(21, '0');
+        //const merchantURL = 'https://cvcreator.es/cv/editor/tefpay/subscr_notify.php';
+        const merchantURL = 'https://support-test-form.tefpay.com/log.php'
+        
+        script.src = src
+        script.async = true
+        
+        document.body.appendChild(script).onload = () => {
+       
+            // Set Tefpay form
+            const TefpayIframe = window.TefpayIframe 
+            if( TefpayIframe ) {
+                
+                if ( TefpayIframe.init() ) {
+
+                    // Para produccion
+                    const signature = CreateSubscriptionSignature(
+                        '5IA1oTnQgIMs60WDuNzDNhf',
+                        '992215285',
+                        '60',
+                        matchingData,
+                        merchantURL
+                    );
+
+                    setSignature(signature)
+                    setMatchingData(matchingData)
+                    setSuscriptionAccount(matchingData)
+                    setPaymentId( matchingData )
+
+                    TefpayIframe.configure("https://intepayments.tefpay.com/", "100%")
+                    TefpayIframe.load()  
+
+                }
+            }
+
+
+        }
+
+        return () => {
+            window.TefpayIframe = null
+        }
+
+    }, [])
 
     return (<>
 
@@ -82,22 +125,25 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodType" value="M"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodInterval" value="1"/>
             <input type="hidden" name="Ds_Merchant_Subscription_Iteration" value="0"/>
-            <input type="hidden" name="Ds_Merchant_Url" value={`https://${window.location.hostname}/secure/tefpay_notifycations`}/>
-            <input type="hidden" name="Ds_Merchant_UrlOK" value={`https://${window.location.hostname}/thank_page?id=${paymentId}`}/>
-            <input type="hidden" name="Ds_Merchant_UrlKO" value={`https://${window.location.hostname}/payment?search=${search}&error=true&error_message=tefpay-error-payment`} />
-            <input type="hidden" name="Ds_Merchant_MerchantCode" value="992215285" />
-            <input type="hidden" name="Ds_Merchant_MerchantCodeTemplate" value="V99000544" />
+            {/* <input type="hidden" name="Ds_Merchant_Url" value={`https://${hostname}/secure/tefpay_notifycations`}/>
+            <input type="hidden" name="Ds_Merchant_UrlOK" value={`https://${hostname}/thank_page?id=${paymentId}`}/>
+            <input type="hidden" name="Ds_Merchant_UrlKO" value={`https://${hostname}/payment?search=${search}&error=true&error_message=tefpay-error-payment`} /> */}
+            <input type="hidden" name="Ds_Merchant_Url" value="https://support-test-form.tefpay.com/log.php" />
+            <input type="hidden" name="Ds_Merchant_UrlOK" value="https://support-test-form.tefpay.com/ok.php" />
+            <input type="hidden" name="Ds_Merchant_UrlKO" value="https://support-test-form.tefpay.com/ko.php" />
+            <input type="hidden" name="Ds_Merchant_MerchantCode" value="V99000566" />
+            <input type="hidden" name="Ds_Merchant_MerchantCodeTemplate" value="V99000566" />
             <input type="hidden" name="Ds_Merchant_TemplateNumber" value="07" />
             <input type="hidden" name="Ds_Merchant_AdditionalData" value="1" />
             <input type="hidden" name="Ds_Merchant_MatchingData" id="Ds_Merchant_MatchingData"  value={matching_data}/>
             <input type="hidden" name="Ds_Merchant_MerchantSignature" id="Ds_Merchant_MerchantSignature"  value={signature}/>
             <input type="hidden" name="Ds_Merchant_Subscription_Account" id="Ds_Merchant_Subscription_Account" value={suscription_account} />
-            <input type="hidden" name="Ds_Merchant_Subscription_ClientName" id="Ds_Merchant_Subscription_ClientName" value={user_name} />
-            <input type="hidden" name="Ds_Merchant_Subscription_ClientEmail" id="Ds_Merchant_Subscription_ClientEmail" value={user_email} />
+            <input type="hidden" name="Ds_Merchant_Subscription_ClientName" id="Ds_Merchant_Subscription_ClientName" value={user_name} onChange={(e) => setUserName(e.target.value)} />
+            <input type="hidden" name="Ds_Merchant_Subscription_ClientEmail" id="Ds_Merchant_Subscription_ClientEmail" value={()=>CleanStringForTefpay({ email: user_email })} />
             <input type="hidden" name="Ds_Merchant_Subscription_Description" value="Find-persons new suscription" />
-            <input type="hidden" name="Ds_Merchant_Description" value={`${window.location.hostname} -- SUSCRIPTION -- `} />
+            <input type="hidden" name="Ds_Merchant_Description" value={`${hostname} -- SUSCRIPTION -- `} />
             <input type="hidden" name="Ds_Merchant_Subscription_NotifyCostumerByEmail" value="0" />
-            <input type="hidden" name="Ds_Merchant_Lang" value={window.localStorage.getItem('language')} />
+            <input type="hidden" name="Ds_Merchant_Lang" value={lang} />
             <input type="hidden" id="Ds_Merchant_Subscription_Enable" name="Ds_Merchant_Subscription_Enable" value="1" />
 
             {/* CAMPO NOMBRE DEL CLIENTE */}
