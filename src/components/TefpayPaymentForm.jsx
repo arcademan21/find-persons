@@ -40,10 +40,10 @@ export const TefpayPaymentForm = () => {
         merchantSharedkey, 
         merchantCode, 
         amount, 
-        SubscriptionAcctNo, 
+        matchingData, 
         CallbackUrl = ""
     ) => {
-        const buffer = amount + merchantCode + SubscriptionAcctNo + CallbackUrl + merchantSharedkey;
+        const buffer = amount + merchantCode + matchingData + CallbackUrl + merchantSharedkey;
         const result = sha1(buffer);
         return result;
     }
@@ -60,7 +60,7 @@ export const TefpayPaymentForm = () => {
         
         // Para produccion
         const signature = CreateSubscriptionSignature(
-            '5IA1oTnQgIMs60WDuNzDNhf',
+            'MCPnP1mviL7LSQ7mTLENpXP',
             'V99000566',
             '60',
             matchingData,
