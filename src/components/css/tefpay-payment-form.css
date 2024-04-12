@@ -79,7 +79,7 @@ small {
 }
 
 #tefpayBox{
-    max-height: 9.4rem;  
+    max-height: 15.4rem;  
 }
 
 #tefpayBox.loading::before{

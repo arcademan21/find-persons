@@ -70,21 +70,21 @@ export const TefpayPaymentForm = () => {
             const TefpayIframe = window.TefpayIframe 
             if( TefpayIframe ) {
                 
+                setSignature(signature)
+                setMatchingData(matchingData)
+                setSuscriptionAccount(matchingData)
+                setPaymentId(matchingData)
+                
                 if ( TefpayIframe.init() ) {
 
                     // Para produccion
                     const signature = CreateSubscriptionSignature(
-                        '5IA1oTnQgIMs60WDuNzDNhf',
-                        '992215285',
+                        'MCPnP1mviL7LSQ7mTLENpXP',
+                        'V99000566',
                         '60',
                         matchingData,
                         merchantURL
                     );
-
-                    setSignature(signature)
-                    setMatchingData(matchingData)
-                    setSuscriptionAccount(matchingData)
-                    setPaymentId(matchingData)
 
                     TefpayIframe.configure("https://intepayments.tefpay.com/", "100%")
                     TefpayIframe.load()  
@@ -112,7 +112,7 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_Currency" value="978"/>
             <input type="hidden" name="Ds_Merchant_Amount" value="60"/>
             <input type="hidden" name="Ds_Merchant_Subscription_ChargeAmount" value="4990"/>
-            {/* <input type="hidden" name="Ds_Merchant_Subscription_StartDate" value="'+data.start_date+'"/> */}
+            
             <input type="hidden" name="Ds_Merchant_Subscription_RelFirstCharge" value="02D"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodType" value="M"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodInterval" value="1"/>
