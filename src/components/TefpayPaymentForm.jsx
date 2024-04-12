@@ -52,14 +52,33 @@ export const TefpayPaymentForm = () => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
     }, [state])
 
-    useEffect(() => {
-        
-        
-        const src = 'https://intepayments.tefpay.com/js/iframe.js'
-        const script = document.createElement('script')
+    useEffect(() =>{
+
         const matchingData = String(new Date().toISOString().replace(/[^0-9]/g, '')).padEnd(21, '0');
         //const merchantURL = 'https://cvcreator.es/cv/editor/tefpay/subscr_notify.php';
         const merchantURL = 'https://support-test-form.tefpay.com/log.php'
+        
+        // Para produccion
+        const signature = CreateSubscriptionSignature(
+            '5IA1oTnQgIMs60WDuNzDNhf',
+            'V99000566',
+            '60',
+            matchingData,
+            merchantURL
+        );
+        
+        setSignature(signature)
+        setMatchingData(matchingData)
+        setSuscriptionAccount(matchingData)
+        setPaymentId(matchingData)
+
+    }, [])
+
+    useEffect(() => {
+        
+        const src = 'https://intepayments.tefpay.com/js/iframe.js'
+        const script = document.createElement('script')
+        
         
         script.src = src
         script.async = true
@@ -69,22 +88,8 @@ export const TefpayPaymentForm = () => {
             // Set Tefpay form
             const TefpayIframe = window.TefpayIframe 
             if( TefpayIframe ) {
-                
-                setSignature(signature)
-                setMatchingData(matchingData)
-                setSuscriptionAccount(matchingData)
-                setPaymentId(matchingData)
-                
-                if ( TefpayIframe.init() ) {
 
-                    // Para produccion
-                    const signature = CreateSubscriptionSignature(
-                        'MCPnP1mviL7LSQ7mTLENpXP',
-                        'V99000566',
-                        '60',
-                        matchingData,
-                        merchantURL
-                    );
+                if ( TefpayIframe.init() ) {
 
                     TefpayIframe.configure("https://intepayments.tefpay.com/", "100%")
                     TefpayIframe.load()  
