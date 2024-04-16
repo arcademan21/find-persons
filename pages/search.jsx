@@ -55,10 +55,12 @@ const Search = () => {
                     
                     if ( result.status !== 'error' ) {
                         setState( state => ({ ...state, suscription: result.data }) )
+                        localStorage.setItem('suscription', true)
                         setRedirectTo('/results')
                     }
 
                     else{
+                        localStorage.setItem('suscription', false)
                         setRedirectTo('/payment')
                     }
 
@@ -69,6 +71,7 @@ const Search = () => {
 
         } catch( error ) { 
             setState( state => ({ ...state, suscription: null }) )
+            localStorage.setItem('suscription', false)
             setRedirectTo('/payment')
         }
 

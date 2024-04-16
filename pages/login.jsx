@@ -16,7 +16,7 @@ const Login = ( ) => {
     
     const [ error, setError ] = useState( null )
     const [ success, setSuccess ] = useState( null )
-    
+    const search = localStorage.getItem('search').toString()
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).login )
     
     const loginUser = async () => {
@@ -55,7 +55,7 @@ const Login = ( ) => {
             }
 
             showSuccesToast().then(() => {
-                if ( state.search ) 
+                if ( search ) 
                     window.location.replace('/search')
                 else window.location.replace('/')
             })

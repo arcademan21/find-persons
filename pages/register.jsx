@@ -8,8 +8,6 @@ import 'react-toastify/dist/ReactToastify.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
-
-
 const Register = () => {
     
     const context = useContext( GlobalContext )
@@ -17,7 +15,8 @@ const Register = () => {
     const { auth } = state
 
     const user = JSON.parse( localStorage.getItem('user') )
-    const search = state.search 
+    const search = localStorage.getItem('search').toString()
+    const suscription = localStorage.getItem('suscription').toString()
 
     const [ error, setError ] = useState( null )
     const [ success, setSuccess ] = useState( null )
@@ -62,9 +61,9 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if ( state.search && state.suscription ) 
+                if ( search && suscription ) 
                     window.location.replace('/results')
-                else if( !state.suscription ) 
+                else if( !suscription ) 
                     window.location.replace('/payment')
             })
 
