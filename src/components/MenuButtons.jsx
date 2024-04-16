@@ -19,7 +19,7 @@ const MenuButtons = () => {
     useEffect(() => {
         
         setLanguage(JSON.parse(localStorage.getItem('language_file')))
-        console.log(pathname)
+        
         
         if( pathname === '/' ) {
             setIsHome(true)
