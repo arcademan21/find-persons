@@ -16,7 +16,7 @@ const Register = () => {
 
     const user = JSON.parse( localStorage.getItem('user') )
     const search = localStorage.getItem('search').toString()
-    const suscription = localStorage.getItem('suscription').toString()
+    const suscription = localStorage.getItem('suscription')
 
     const [ error, setError ] = useState( null )
     const [ success, setSuccess ] = useState( null )

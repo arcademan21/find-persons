@@ -30,6 +30,7 @@ const Search = () => {
         try{
 
             if( !user ) {
+                localStorage.setItem('suscription', false)
                 setRedirectTo('/register')
             }
 
