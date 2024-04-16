@@ -1,6 +1,5 @@
 'use client'
 import {useEffect, useContext, useState} from "react"
-import { useRouter } from "next/navigation"
 import TefpayPaymentForm from "../src/components/TefpayPaymentForm"
 import GlobalContext from "../src/context/GlobalContext"
 import VantaGlobe from '../src/components/VantaGlobe'
@@ -40,7 +39,6 @@ const IsSuscripted = async ( user ) => {
 
 const Payment = () => {
     
-    const router = useRouter()
     const context = useContext( GlobalContext )
     const { state } = context
 
@@ -194,7 +192,7 @@ const Payment = () => {
                                     </p>
                                     <div className="d-flex justify-content-center">
                                         <button className="btn btn-primary btn-lg decoration-none" onClick={
-                                            () => router.push('/#contact')   
+                                            () => window.location.replace('/#contact')   
                                         }>
                                             <i className="fas fa-envelope"></i>
                                             <b className="fs-4"> 

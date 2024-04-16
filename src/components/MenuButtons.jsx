@@ -4,12 +4,11 @@ import GlobalContext from '../context/GlobalContext'
 import { LogOutButton } from './LogOutButton'
 import GetLanguageSwitcher from './LanguageSwitcher'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 const MenuButtons = () => {
     
     const pathname = usePathname()
-    const router = useRouter()
     
     const { state } = useContext( GlobalContext )
 

@@ -2,13 +2,11 @@
 import { useContext, useState, useEffect, useCallback } from "react" 
 import GlobalContext from '@/context/GlobalContext'
 import { toast } from 'react-toastify'
-import { useRouter } from 'next/navigation'
 import 'react-toastify/dist/ReactToastify.css'
 import './css/searcher.css'
 
 const Searcher = () => {    
     
-    const router = useRouter()
     const context = useContext( GlobalContext )
     const { state, setState } = context
     
@@ -86,7 +84,7 @@ const Searcher = () => {
             }
                 
             else{ 
-                router.push('/search')
+                window.location.replace('/search')
             }
 
         }

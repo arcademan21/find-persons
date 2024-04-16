@@ -1,6 +1,5 @@
 'use client'
 import { useContext, useState, useEffect, useCallback } from "react"
-import { useRouter } from 'next/navigation'
 import GlobalContext from '@/context/GlobalContext'
 import VantaGlobe from '@/components/VantaGlobe'
 import './css/search.css'
@@ -10,7 +9,6 @@ import Loader from '@/components/Loader'
 
 const Search = () => {
     
-    const router = useRouter()
     const context = useContext( GlobalContext )
     const { state, setState } = context
 
@@ -142,13 +140,11 @@ const Search = () => {
     }, [  is_suscripted, listOfSearchs ] )
 
     if( !search ) {
-        //router.push('/')
         window.location.replace('/')
         return (<Loader/>)
     }
 
     else if( redirectTo !== '/' ) {
-        //router.push( redirectTo )
         window.location.replace( redirectTo )
         return (<Loader/>)
     }

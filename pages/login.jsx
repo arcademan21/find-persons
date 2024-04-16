@@ -2,7 +2,6 @@
 import {useState, useEffect, useContext} from 'react'
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { toast } from 'react-toastify'
-import { useRouter } from "next/navigation"
 import GlobalContext from '@/context/GlobalContext'
 import VantaGlobe from '@/components/VantaGlobe'
 import 'react-toastify/dist/ReactToastify.css'
@@ -11,7 +10,6 @@ import Link from 'next/link'
 
 const Login = ( ) => {
 
-    const router = useRouter()
     const context = useContext( GlobalContext )
     const { state, setState } = context
     const { auth } = state
@@ -58,8 +56,8 @@ const Login = ( ) => {
 
             showSuccesToast().then(() => {
                 if ( state.search ) 
-                    router.push('/search')
-                else router.push('/')
+                    window.location.replace('/search')
+                else window.location.replace('/')
             })
 
         }).catch((error) => {

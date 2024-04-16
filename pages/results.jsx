@@ -1,6 +1,5 @@
 'use client'
 import {useState, useEffect, useContext} from 'react'
-import {useRouter} from 'next/navigation'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 
@@ -10,7 +9,6 @@ import PDLJS from 'peopledatalabs';
 
 const Results = () => {
     
-    const router = useRouter()
     const context = useContext(GlobalContext)
     const { state } = context
     const suscription = state.suscription

@@ -8,7 +8,6 @@
 // update_suscription
 
 
-import { useRouter } from 'next/router'
 import { useEffect, useState, useContext } from 'react'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
@@ -122,8 +121,7 @@ const ThanksPage = () => {
     const { user } = context
     
     const language = JSON.parse(localStorage.getItem('language_file'))
-    const router = useRouter();
-
+    
     const { payment_id } = router.query;
     const [ counter, setCounter ] = useState( 5 )
 
@@ -209,7 +207,7 @@ const ThanksPage = () => {
                 </div>
             </div>
         </div>
-        {/* <VantaGlobe el="#vanta-anime" /> */}
+        <VantaGlobe el="#vanta-anime" />
         
     </>)
 
