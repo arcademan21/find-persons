@@ -115,10 +115,10 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if ( state.search && state.suscription ) 
-                    router.push('/results')
-                else if( !state.suscription ) 
-                    router.push('/payment')
+                if ( search && suscription ) 
+                    window.location.replace('/results')
+                else if( !suscription ) 
+                    window.location.replace('/payment')
             })
             
             // Todo: save user data
