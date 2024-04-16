@@ -17,14 +17,15 @@ const Results = () => {
 
     const [dataPerson, setDataPerson] = useState( dataPersonJson )
     const [error, setError] = useState( null )
-    const search = localStorage.getItem('search').toString()
-    const search_type = localStorage.getItem('search_type').toString()
-    const user = JSON.parse( localStorage.getItem('user') )
     const [loading, setLoading] = useState(true)
     const [region, setRegion] = useState('EUROPE')
     const [location, setLocation] = useState('Madrid, Spain')
     const [locality, setLocality] = useState('Spain')
-    const language = localStorage.getItem('language').toString()
+    const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
+    const search = localStorage.getItem('search').toString()
+    const search_type = localStorage.getItem('search_type').toString()
+    const user = JSON.parse( localStorage.getItem('user') )
+    const lang = localStorage.getItem('language').toString()
     
     const setRegionRegionHandler = (e) => {
         setRegion(e.target.value)
@@ -112,7 +113,7 @@ const Results = () => {
     
         try {
 
-            const PDLJSClient = new PDLJS({ apiKey: process.env.SEARCHS_API_KEY })
+            const PDLJSClient = new PDLJS({ apiKey: process.env.NEXT_PUBLIC_SEARCHS_API_KEY })
 
             let params = {
                 min_likelihood: 0,
@@ -153,7 +154,7 @@ const Results = () => {
                 console.log('Busqueda por direccion')
             }
 
-            console.log(params)
+            //console.log(params)
 
             // Pass the parameters object to the Person Search API
             PDLJSClient.person.enrichment( params ).then((data) => {
@@ -161,11 +162,12 @@ const Results = () => {
                 // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
                 // console.log(`${data["total"]} total PDL records exist matching this query.`)
                 setDataPerson(data.data)
+                console.log('Aqui ', data)
                 setLoading(false)
 
             }).catch((error) => {
-                console.log("NOTE: The carrier pigeons lost motivation in flight. See error and try again.")
-                console.log(error)
+                //console.log("NOTE: The carrier pigeons lost motivation in flight. See error and try again.")
+                //console.log(error)
                 setLoading(false)
             })
 
@@ -177,8 +179,13 @@ const Results = () => {
     }
 
     useEffect(() => {
+        
+        // Removiendo el token temporal
+        localStorage.removeItem('tefpay_token')
+
         getRegionAndLocality()
         fetchPersonData()
+        
     }, [] )
 
     if( loading ) return (<div className="container py-5 my-5 w-75">
@@ -186,11 +193,13 @@ const Results = () => {
             <div className="col-md-6">
                 <div className="card">
                     <div className="card-header">
-                        <h4>Resultados de {search}</h4>
+                        <h4>{language.results.results_of} {search}</h4>
                     </div>
                     <div className="card-body">
                         <div className="spinner-border text-primary" role="status">
-                            <span className="visually-hidden">Loading...</span>
+                            <span className="visually-hidden">
+                                {language.results.loading}
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -200,42 +209,45 @@ const Results = () => {
 
     return (<>
 
-            {/* {suscription ? null : window.location.href = '/payment'} */} 
+            {suscription ? null : window.location.href = '/payment'} 
             <div className="results-container">
                 <div className="container">
                     <div className="row mb-5 shadow p-0 rounded2x">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 info-results">
                         <div className="d-flex px-3 flex-column">
-                        <h2 className="text-center text-secondary title-section mt-4">Resultados</h2>
+                        <h2 className="text-center text-secondary title-section mt-4">
+                            {language.results.results} 
+                        </h2>
                         <p className="text-center text-secondary mb-0 ">
-                            ¿ Esta no es la persona que buscas ? <br/>
+                            {language.results.is_not_people} <br/>
                             <a href="/" className='btn btn-primary btn-sm rounded-pill m-3 decoration-none'
-                            >Volver a buscar <i className="fas fa-search mx-1"></i></a>
+                            >{language.results.try_search} <i className="fas fa-search mx-1"></i></a>
                         </p>
                         </div>
                         <div className="info-service d-flex flex-column p-4">
                             <div className="d-flex content-result-image shadow rounded m-auto justify-content-center">
-                                <Image src="/images/no_user_image.jpeg" alt="results-holder" className="img-fluid rounded" width={100} height={100} />
+                                <Image src="/images/no_user_image.jpeg" alt="results-holder" className="img-fluid rounded w-100" width={100} height={100} />
                             </div>
                             <div className="d-flex flex-column p-3 m-auto w-100">
                                 <h3 className="text-center text-secondary title-section mb-4">
                                 <span className="marked">
                                     {search}
                                 </span><br/>
-                                Descripcion general
+                                {language.results.general_description}
                                 </h3>
                                 <div className="text-secondary my-3">
                                     <div className="info-persons card shadow border rounded bg-white w-75 m-auto p-2">
+
                                         <p className='text-secondary title-section'>
-                                            { dataPerson.gender === "Male" ? 'Hombre ' : 'Mujer ' }
-                                            { dataPerson.gender === "Male" ? ' nacido ' : ' nacida ' } el 
+                                            { dataPerson.gender === "Male" ? language.results.male : language.results.famale }
+                                            { dataPerson.gender === "Male" ? language.results.burned_male : language.results.burned_famale } {language.results.he} 
                                             { dataPerson.birth_date }  
-                                            que actualmente recide en <span className='marked'> [  { dataPerson.location_name } ] </span> 
+                                            {language.results.actualy} <span className='marked'> [  { dataPerson.location_name } ] </span> 
                                         </p>
                                     </div>
                                 </div>
                                 <div className="d-flex justify-content-center">
-                                    <Image src="/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" width={100} height={100} />
+                                    <Image src="/images/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" width={100} height={100} layout='responsive' />
                                 </div>
                             </div>
                         </div>
@@ -243,7 +255,7 @@ const Results = () => {
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 wrap-results-form">
                         <div className="d-flex px-3 flex-column">
 
-                            <h2 className="text-center text-secondary title-section mt-4">
+                            {/* <h2 className="text-center text-secondary title-section mt-4">
                                 Sellecciona la <br/> ragion sobre la que deseas buscar
                             </h2>
 
@@ -258,48 +270,53 @@ const Results = () => {
                                     onChange={setLocalityHandler} className='form-select form-select-lg mb-3' aria-label=".form-select-lg example"
                                 ></select>
 
-                            </div>
+                            </div> */}
                             
                             <h2 className="text-center text-secondary title-section mt-4">
-                                Informacion de contacto
+                                {language.results.contact_info}
                             </h2>
                             <div className="person-contact-section">
                                
                                 <div className="info-contact-persons card shadow border rounded bg-white w-75 m-auto p-2">
                                     <p>
                                         <i className="fas fa-phone-alt mx-2"></i>
-                                        Telefono movil : <span className='marked'> { dataPerson.mobile_phone } </span><br/>
+                                        {language.results.mobile_phone} <span className='marked'> { dataPerson.mobile_phone } </span><br/>
 
                                         <i className="fas fa-phone-alt mx-2"></i>
-                                        Telefono fijo : <span className='marked'> { dataPerson.phone_numbers[0] } </span><br/>
+                                        {language.results.home_phone} <span className='marked'> { dataPerson.phone_numbers[0] } </span><br/>
 
                                         <i className="fas fa-envelope mx-2"></i> 
-                                        Correo personal : <span className='marked'> { dataPerson.recommended_personal_email } </span><br/>
+                                        {language.results.personal_email} <span className='marked'> { dataPerson.recommended_personal_email } </span><br/>
 
                                         <i className="fas fa-map-marker-alt mx-2"></i> 
-                                        Locacion: {dataPerson.location_locality}, {dataPerson.location_country}, 
-                                        {/* Direccion : {dataPerson.location_street_address}, {dataPerson.location_postal_code} */}
-
+                                        {language.results.location} {dataPerson.location_locality}, {dataPerson.location_country}, 
+                                        
                                     </p>
                                     
                                     
                                 </div>
                                 
-                            </div>
+                            </div> <br/>
 
                             <h2 className="text-center text-secondary title-section mt-4">
-                                Descargar un informe completo
+                                {language.results.download_complete_info}
                             </h2>
-                            <button className="btn btn-primary btn-sm rounded-pill m-auto w-50 fs-5" >
-                                <i className="fas fa-download mx-1"></i> Descargar informe
+                            <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
+                                <i className="fas fa-download mx-1"></i> {language.results.download_pdf}
                             </button>
+
+                            <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white">
+                                <i className="fas fa-info-circle fs-1 text-primary mx-2"></i>
+                                {language.results.download_text_info}
+                            </div>
                             
                         </div>
                     </div>
                     </div>
                 </div>
             </div>
-
+            
+            {/* PARA TEST */}
             <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
@@ -309,14 +326,16 @@ const Results = () => {
                                 <h4>Resultados de {search}</h4>
                             </div>
                             <div className="card-body">
-                                {dataPerson && <pre>{JSON.stringify(dataPerson, null, 2)}</pre>}
-                                {error && <p>Error: {error.message}</p>}
+                                {dataPerson && <pre>{ JSON.stringify( dataPerson, null, 2) }</pre>}
+                                {error && <p>Error: { error.message }</p>}
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
+
+
 
     </>)
 

@@ -1,6 +1,6 @@
+'is client'
 import { GlobalProvider } from '../context/GlobalContext'
 import { ToastContainer } from 'react-toastify'
-
 import Loader from "../components/Loader"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -63,21 +63,22 @@ function RootLayout( { children } ) {
                 <Footer />
           </GlobalProvider>
 
-          <Script type="text/javascript" src="/libs/jquery/jquery.min.js"></Script>
-          <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.min.js"></Script>
-          <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.bundle.min.js"></Script>
-          <Script type="text/javascript" src="/libs/owl-carousel/owl.carousel.min.js"></Script>
-          <Script type="text/javascript" src="/libs/waypoints/jquery.waypoints.min.js"></Script>
-          <Script type="text/javascript" src="/libs/animateNumber/jquery.animateNumber.min.js"></Script>
-          <Script type="text/javascript" src="/libs/google-maps/google-maps.js"></Script>
-          <Script type="text/javascript" src="/libs/html2pdf/html2pdf.js"></Script>
-          <Script type="text/javascript" src="/libs/font-awesome/js/all.min.js"></Script>
+          <Script type="text/javascript" src="/libs/jquery/jquery.min.js" />
+          <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.min.js" />
+          <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.bundle.min.js" />
+          <Script type="text/javascript" src="/libs/owl-carousel/owl.carousel.min.js" />
+          <Script type="text/javascript" src="/libs/waypoints/jquery.waypoints.min.js" />
+          <Script type="text/javascript" src="/libs/animateNumber/jquery.animateNumber.min.js"  />
+          <Script type="text/javascript" src="/libs/html2pdf/html2pdf.js" />
+          <Script type="text/javascript" src="/libs/font-awesome/js/all.min.js"  />
 
-          <Script type="text/javascript" src="/libs/vantajs/three.min.js"></Script>
-          <Script type="text/javascript" src="/libs/vantajs/vanta.globe.min.js"></Script> 
+          <Script type="text/javascript" src="/libs/vantajs/three.min.js" />
+          <Script type="text/javascript" src="/libs/vantajs/vanta.globe.min.js" /> 
+          <Script type="text/javascript" src="/js/theme.js" strategy='lazyOnload' />
 
-          <Script src="/libs/wow/wow.min.js" />
-          <Script type="text/javascript" src="/js/theme.js"></Script>
+          <Script type="text/javascript" src="/libs/wow/wow.min.js" strategy="beforeInteractive" />
+          <Script type="text/javascript" src="/libs/wow/wow.init.js" strategy="afterInteractive" />
+                   
 
       </body>
     </html>

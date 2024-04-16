@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from 'react'
 import GlobalContext from '../context/GlobalContext'
 import './css/home-sections.css'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const HomeSections = () => {
 
@@ -36,6 +37,8 @@ const HomeSections = () => {
         <div className="page-section features bg-light">
             <div className="container-fluid">
                 <div className="row justify-content-center">
+
+                
                     
                     <div className="col-md-6 col-lg-4 py-3 wow fadeInUp">
                     <div className="d-flex flex-row">
@@ -237,7 +240,7 @@ const HomeSections = () => {
                 <div className="row align-items-center">
                     <div className="col-md-6 py-3">
                     <div className="testi-image">
-                        <Image src="/images/person/person_1.jpg" width={100} height={100} alt="image_person_1" />
+                        <Image src="/images/person/person_1.jpg" width={100} height={100} alt="image_person_1" layout='responsive' />
                     </div>
                     </div>
                     <div className="col-md-6 py-3">
@@ -260,7 +263,7 @@ const HomeSections = () => {
                 <div className="row align-items-center">
                     <div className="col-md-6 py-3">
                     <div className="testi-image">
-                        <Image src="/images/person/person_2.jpg" alt="image_person_2" width={100} height={100}/>
+                        <Image src="/images/person/person_2.jpg" alt="image_person_2" width={100} height={100} layout='responsive' />
                     </div>
                     </div>
                     <div className="col-md-6 py-3">

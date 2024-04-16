@@ -49,6 +49,10 @@ a:hover {
     text-decoration: underline;
 }
 
+.link-primary{
+    cursor: pointer !important;
+}
+
 
 .shearching-input {
     font-size: 1.5rem;

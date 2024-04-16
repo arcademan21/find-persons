@@ -7,6 +7,14 @@
     border-radius: 5px;
 }
 
+.animate_search{
+    display: flex;
+    width: 633px;
+    height: 231px;
+    margin: auto;
+    margin-bottom: 12px;
+}
+
 
 
 @-webkit-keyframes loading {

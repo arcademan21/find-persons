@@ -26,7 +26,7 @@ const Search = () => {
     // Handdler para comprobar si el usuario esta suscrito
     const is_suscripted = useCallback( async () => {
 
-        const path_endpoint = process.env.PATH_END_POINT
+        const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
         const user = JSON.parse( localStorage.getItem('user') )
 
         try{
@@ -72,10 +72,7 @@ const Search = () => {
         } catch( error ) { 
             setState( state => ({ ...state, suscription: null }) )
             setRedirectTo('/payment')
-
         }
-
-        
 
     }, [] )
 
@@ -152,7 +149,7 @@ const Search = () => {
 
     else if( redirectTo !== '/' ) {
         //router.push( redirectTo )
-        window.location.replace(redirectTo)
+        window.location.replace( redirectTo )
         return (<Loader/>)
     }
 
@@ -162,18 +159,20 @@ const Search = () => {
         
             <div className="row px-5 content-search-map-anime w-50 m-auto my-5 mb-3 border shadow rounded bg-white" id="vanta-bg">
                 <div className="col-md-12" >
-                    
+
                     <h1 className="title-section fs-1 my-4 text-center">
                         <span data-section="search_page" data-value="we_searching">Estamos Buscando a</span> 
                         <span id="search" className="marked"> {state.search} </span>
                         <span data-section="search_page" data-value="in_the" >En todos los registros.</span>
                     </h1>
 
-                   
-    
+                    <div className="animate_search shadow border rounded">
+                        <Image src="/images/mapa_anime.gif" class="rounded" alt="" width={100} height={100} layout="responsive" />
+                    </div>
+
                     <div className={`wrapper ${activeClass}`}>
 
-                        {awaitText ? awaitText : 
+                        { awaitText ? awaitText : 
                         
                             <div className="bg">
                                 <div className="el"></div>
@@ -239,7 +238,7 @@ const Search = () => {
                 <div className="col-lg-6 py-3">
         
                     <div className="img-place text-center">
-                        <Image src="/images/bg_image_1_small.jpeg" className="mt-0" alt="" width={100} height={100} />
+                        <Image src="/images/bg_image_1_small.jpeg" className="mt-0" alt="" width={100} height={100} layout="responsive" />
                     </div>
         
                 </div>

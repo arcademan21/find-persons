@@ -79,7 +79,9 @@ small {
 }
 
 #tefpayBox{
-    max-height: 15.4rem;  
+    max-height: 15.4rem;
+    width: 400px;
+    margin: auto;
 }
 
 #tefpayBox.loading::before{

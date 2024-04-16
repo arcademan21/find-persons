@@ -3,11 +3,13 @@
     "data": "es",
     "alt": "Español",
     "nav_bar":{ 
-        "contact":"Contacto",
-        "login":"Iniciar sesion",
-        "register":"Registrarse <b class='marked'>Gratis</b>",
-        "logout":"Cerrar Sesión",
-        "profile":"<b class='marked'>Mi cuenta</b>"
+        "contact":" Contacto ",
+        "login":" Iniciar sesion ",
+        "register":" Registrarse ",
+        "free": " Gratis ",
+        "logout":" Cerrar Sesión ",
+        "profile":" Mi cuenta ",
+        "back": " Volver atras "
     },
     
     "hero": {
@@ -22,18 +24,18 @@
         "placeholder_name": " Ejemplo: Mariano Jose ",
         "placeholder_email": " Ejemplo: mariano@mail.com ",
         "placeholder_phone": " Ejemplo: +34 600 000 000 ",
-        "placeholder_address": "Ejemplo: Calle 123, Ciudad, Pais "
+        "placeholder_address": " Ejemplo: Calle 123, Ciudad, Pais "
     },
 
     "services":{
         "title1": " Tu búsqueda es anónima ",
         "services1": " No te preocupes nadie sabrá que has buscado información, la solicitud es anónima y confidencial, tus datos personales son tratados de forma privada 100%."
         ,
-        "title2": "¡Nuestra base de datos es actual!",
-        "services2": "Las bases de datos donde realizamos las consultas a través de nuestra API, se actualizan constantemente, para ofrecer la información más actual posible."
+        "title2": " ¡Nuestra base de datos es actual!",
+        "services2": " Las bases de datos donde realizamos las consultas a través de nuestra API, se actualizan constantemente, para ofrecer la información más actual posible."
         ,
-        "title3":"Buscamos en todos los archivos y bases de datos",
-        "services3": "Nuestra api es la más completa y extraemos datos de todos los registros,. archivos administración, redes sociales, empresas, registro de la propiedad, directorios…"
+        "title3":" Buscamos en todos los archivos y bases de datos",
+        "services3": " Nuestra api es la más completa y extraemos datos de todos los registros,. archivos administración, redes sociales, empresas, registro de la propiedad, directorios…"
         
     },
 
@@ -46,8 +48,8 @@
         "search_social": " Buscamos en todas las redes sociales.",
         "search_engines": " Rastreamos en todos los buscadores existentes.",
         "search_internet": " Revisamos internet de arriba abajo.",
-        "public_records": "Posibles registros públicos.",
-        "news": "Revisamos noticias y publicaciones aleatorias."
+        "public_records": " Posibles registros públicos.",
+        "news": " Revisamos noticias y publicaciones aleatorias."
     },
 
     "counter": {
@@ -89,7 +91,7 @@
 
     "contact":{
         "contact_whit_us": " Contacta con nosotros. ",
-        "contact_text": " Atenderemos tu petición con la mayor brevedad posible, <br/> Nuestro equipo de profesionales se encargará de estudiar tu solicitud. ",
+        "contact_text": " Atenderemos tu petición con la mayor brevedad posible, Nuestro equipo de profesionales se encargará de estudiar tu solicitud. ",
         "name": " Nombre ",
         "email": " Email ",
         "phone": " Teléfono ",
@@ -212,7 +214,42 @@
         "contact_info_email": "support@find-perdons.com",
         "btn_contact": " Contactar" 
     
+    },
+
+    "results": {
+        "results": " Resultados ",
+        "results_of": " Resultados de ",
+        "loading": " Cargando... ",
+        "is_not_people": " ¿ Esta no es la persona que buscas ? ",
+        "try_search": " Volver a buscar ",
+        "general_description": " Descripcion general ",
+        "male": " Hombre ",
+        "famale": " Mujer ",
+        "burned_male": " Nacido ",
+        "burned_famale": " Nacida ",
+        "he": " el ",
+        "actualy": " que actualmente recide en ",
+        "contact_info": " Informacion de contacto ",
+        "mobile_phone": " Telefono movil : ",
+        "home_phone": " Telefono fijo : ",
+        "personal_email": " Correo personal : ",
+        "location": " Locacion: ",
+        "download_complete_info": " Descargar informe completo ",
+        "download_pdf": " Descargar PDF ",
+        "download_text_info": " Al descargar un informe completo, aceptas los terminos y condiciones de uso de la informacion, asi como la politica de privacidad del servicio. "
+    },
+
+    "thanks_page": {
+        "thanks": " Hemos recibido tu solicitud, en breve te enviaremos un correo de confirmación. ",
+        "thanks_fp": " Gracias por confiar en Find-Persons. ",
+        "redirect_in": " Seras redirigido en ",
+        "seconds": " segundos... "
     }
+
+
+    
+
+
 
 
    

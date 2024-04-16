@@ -46,7 +46,7 @@ const Searcher = () => {
         let regex = null
 
         switch ( option ) {
-            case 'name': regex = /^[a-zA-Z\s]+$/
+            case 'name': regex = /^[a-zA-Z\s]{6,}$/
             break
             case 'email': regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
             break
@@ -75,7 +75,7 @@ const Searcher = () => {
             if( !data ){
                 
                 if( option === 'name' )
-                    toast.error('El nombre solo puede contener letras y espacios.')
+                    toast.error('El nombre solo puede contener letras y espacios, y debe tener al menos 6 caracteres.')
                 else if( option === 'email' )
                     toast.error('El correo electrónico no es válido.')
                 else if( option === 'phone' )

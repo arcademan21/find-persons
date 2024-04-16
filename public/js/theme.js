@@ -1,4 +1,5 @@
 /* Sticky Navigation */
+
 $(function() {
   
   let sticky = $('.sticky');
@@ -45,7 +46,7 @@ $(function() {
     }
   }
   
-  new WOW().init() 
+  
 });
 
 $('document').ready(function() {
@@ -97,8 +98,7 @@ $('document').ready(function() {
   // Popovers
   $('[data-toggle="popover"]').popover();
   
-  // Page scroll animate
-  new WOW().init();
+
 });
 
 $('#testimonials').owlCarousel({

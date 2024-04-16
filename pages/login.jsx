@@ -189,10 +189,10 @@ const Login = ( ) => {
                         <p className="title-section text-center w-100">
                         <span className="marked">{language.no_account}</span>
                         <br />
-                        <Link href="/register" className="link-primary my-1">
+                        <span className="link-primary my-1" onClick={()=>{window.location.replace('/register')}} >
                             <i className="fas fa-user-plus fa-2x mx-1"></i>
                             <span className='fs-4'>{language.register_link}</span>
-                        </Link>
+                        </span>
                         </p>
                     </div>
                     </div>

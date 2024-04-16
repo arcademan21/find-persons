@@ -6,6 +6,38 @@ import GlobalContext from "../src/context/GlobalContext"
 import VantaGlobe from '../src/components/VantaGlobe'
 import Image from "next/image"
 
+const IsSuscripted = async ( user ) => {
+    
+    try{
+
+        // Fetch to endpoint for get payment
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "get_suscription",
+                    "data": {
+                        "suscription": {
+                            "user_email": user.email,
+                            "payment_id": null
+                        }
+                    }
+                }
+            })
+        })
+        
+        const res = await req.json()
+        if( res.status === 'error' ) return false
+
+    } catch ( error ) {
+        return false
+    }
+    
+    return true
+
+}
+
 const Payment = () => {
     
     const router = useRouter()
@@ -20,7 +52,11 @@ const Payment = () => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
     }, [state])
     
-    //if( !user ) return router.push('/register')
+    if( !user ) window.location.replace('/register')
+    IsSuscripted( user ).then( res => {
+        if( res )
+            window.location.replace('/')
+    })
     
     return (<>
         
@@ -109,13 +145,13 @@ const Payment = () => {
                             
                         </div>
 
-                        <div className="form-info text-center bg-light rounded shadow p-2">
+                        <div className="form-info text-center bg-light rounded shadow p-5">
                                     
                             <div className="secure-icons">
                                 
-                                <div className="d-flex secure-icons-images">
+                                <div className="d-flex secure-icons-images mb-5">
                                     
-                                    <div className="d-flex w-50 justify-content-start">
+                                    <div className="d-flex w-25 justify-content-start">
                                         <Image src="/tefpay_resources/img/07V99000544/security.png" alt="security" className="img-fluid " width={100} height={100} layout="responsive" />
                                     </div>
 
@@ -146,7 +182,7 @@ const Payment = () => {
                             </div>
 
                             <div className="contact-info-panel d-flex justify-content-center">
-                                <div className="d-flex flex-column p-3">
+                                <div className="d-flex flex-column p-5">
                                     <p className="text-secondary text-center title-section">
                                         {language.contact_info}
                                         <span className="marked fs-5">
