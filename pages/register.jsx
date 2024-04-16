@@ -3,7 +3,6 @@ import { useEffect, useState, useContext } from 'react'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import GlobalContext from '@/context/GlobalContext'
 import { toast } from 'react-toastify'
-import { useRouter } from "next/navigation"
 import VantaGlobe from '@/components/VantaGlobe'
 import 'react-toastify/dist/ReactToastify.css'
 import Image from 'next/image'
@@ -13,7 +12,6 @@ import Link from 'next/link'
 
 const Register = () => {
     
-    const router = useRouter()
     const context = useContext( GlobalContext )
     const { state, setState } = context
     const { auth } = state
@@ -65,9 +63,9 @@ const Register = () => {
 
             showSuccesToast().then(() => {
                 if ( state.search && state.suscription ) 
-                    router.push('/results')
+                    window.location.replace('/results')
                 else if( !state.suscription ) 
-                    router.push('/payment')
+                    window.location.replace('/payment')
             })
 
         })
@@ -154,7 +152,7 @@ const Register = () => {
     }, [state])
 
     return (<>
-        { user ? navigate('/') : null }
+        { user ? window.location.replace('/') : null }
         <div className="container-fluid h-100 wow fadeInUp" id="vanta-anime">
                 <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75">
                     
