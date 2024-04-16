@@ -28,11 +28,9 @@ const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
-        console.log(res)
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
-        
         return false
     }
     
@@ -40,7 +38,7 @@ const ExistsPayment = async ( payment_id ) => {
 }
 
 const CreateNewUser = async ( user ) => {
-
+    
     try{
         
         // Fetch to endpoint for get payment
@@ -139,6 +137,7 @@ const ThanksPage = () => {
     }
 
     useEffect(()=>{
+        
         validatePayment().then(res => {
             
             if( !res ) {
@@ -147,7 +146,7 @@ const ThanksPage = () => {
             }
     
             CreateNewUser( user ).then( res => {
-                
+                console.log('CreateNewUser: ', res)
                 if( !res ) {
                     //window.location.replace('/')
                     return false
