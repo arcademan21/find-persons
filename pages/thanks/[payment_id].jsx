@@ -105,9 +105,9 @@ const UpdateSuscription = async ( user, suscription ) => {
 const ThanksPage = () => {
 
     const context = useContext( GlobalContext )
-    const { user } = context
     const router = useRouter()
     
+    const user = JSON.parse(localStorage.getItem('user'))
     const language = JSON.parse(localStorage.getItem('language_file'))
     
     const { payment_id } = router.query
