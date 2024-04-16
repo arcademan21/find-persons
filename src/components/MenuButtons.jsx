@@ -19,15 +19,20 @@ const MenuButtons = () => {
     useEffect(() => {
         
         setLanguage(JSON.parse(localStorage.getItem('language_file')))
-
+        console.log(pathname)
+        
         if( pathname === '/' ) {
             setIsHome(true)
         }
         
-        let pathArray = pathname.split('/')
-        if( pathArray.includes('thanks') ) {
-            setIsThanks(true)
+        if( pathname !== null ) {
+          let pathArray = pathname.split('/')
+          if( pathArray.includes('thanks') ) {
+               setIsThanks(true)
+          }
         }
+        
+        
         
     }, [state, pathname])
 

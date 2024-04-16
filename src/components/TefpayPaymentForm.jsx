@@ -147,8 +147,8 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodType" value="M"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodInterval" value="1"/>
             <input type="hidden" name="Ds_Merchant_Subscription_Iteration" value="0"/>
-            <input type="hidden" name="Ds_Merchant_Url" value={`${path_endpoint}?tefpay_notifications=true`}/>
-            <input type="hidden" name="Ds_Merchant_UrlOK" value={`https://${hostname}/thanks/${paymentId}`}/>
+            <input type="hidden" name="Ds_Merchant_Url" value={`${path_endpoint}?tefpay_notifications=true`} />
+            <input type="hidden" name="Ds_Merchant_UrlOK" value={`https://${hostname}/thanks/${paymentId}`} />
             <input type="hidden" name="Ds_Merchant_UrlKO" value={`https://${hostname}/payment?error=true`} />
             <input type="hidden" name="Ds_Merchant_MerchantCode" value="V99000566" />
             <input type="hidden" name="Ds_Merchant_MerchantCodeTemplate" value="V99000566" />

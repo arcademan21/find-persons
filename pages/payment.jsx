@@ -19,7 +19,7 @@ const IsSuscripted = async ( user ) => {
                     "data": {
                         "suscription": {
                             "user_email": user.email,
-                            "payment_id": null
+                            "payment_id": "null"
                         }
                     }
                 }
