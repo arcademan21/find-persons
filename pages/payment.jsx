@@ -52,8 +52,11 @@ const Payment = () => {
     
     if( !user ) window.location.replace('/register')
     IsSuscripted( user ).then( res => {
-        if( res )
-            window.location.replace('/')
+        console.log(typeof res)
+        if( res ){
+            console.log(' 2 : ', typeof res)
+            //window.location.replace('/')
+        }
     })
     
     return (<>

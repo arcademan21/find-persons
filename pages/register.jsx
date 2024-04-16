@@ -61,9 +61,9 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if ( search && suscription ) 
+                if ( search && suscription === 'true' ) 
                     window.location.replace('/results')
-                else if( !suscription ) 
+                else if( suscription === 'false') 
                     window.location.replace('/payment')
             })
 
@@ -115,9 +115,9 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if ( search && suscription ) 
+                if ( search && suscription === 'true' ) 
                     window.location.replace('/results')
-                else if( !suscription ) 
+                else if( suscription === 'false') 
                     window.location.replace('/payment')
             })
             
@@ -146,12 +146,18 @@ const Register = () => {
 
     }
 
+    useEffect(()=>{
+        if( user ){
+            window.location.replace('/')
+        }
+    }, [])
+
     useEffect(() => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).register )
     }, [state])
 
     return (<>
-        { user ? window.location.replace('/') : null }
+        
         <div className="container-fluid h-100 wow fadeInUp" id="vanta-anime">
                 <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75">
                     

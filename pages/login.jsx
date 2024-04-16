@@ -16,8 +16,9 @@ const Login = ( ) => {
     
     const [ error, setError ] = useState( null )
     const [ success, setSuccess ] = useState( null )
-    const search = localStorage.getItem('search').toString()
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).login )
+    const search = localStorage.getItem('search').toString()
+    const user = JSON.parse( localStorage.getItem('user') )
     
     const loginUser = async () => {
         
@@ -25,6 +26,7 @@ const Login = ( ) => {
         const password = document.getElementById('password').value
         const loadingButton = document.getElementById('btn-login')
         const terms = document.getElementById('register-terms')
+        
 
         loadingButton.setAttribute('disabled', 'true')
         loadingButton.innerHTML = `
@@ -49,6 +51,7 @@ const Login = ( ) => {
             // Signed in
             setSuccess(true)
             setState({ ...state, user: userCredential.user })
+            localStorage.setItem('user', JSON.stringify(userCredential.user))
 
             const showSuccesToast = async () => {
                 toast.success('Inicio de sesión exitoso.')
@@ -83,6 +86,12 @@ const Login = ( ) => {
         })
 
     }
+
+    useEffect(()=>{
+        if( user ){
+            window.location.replace('/')
+        }
+    }, [])
 
     useEffect(() => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).login )
