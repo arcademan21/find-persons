@@ -5,6 +5,7 @@ import GlobalContext from "../src/context/GlobalContext"
 import VantaGlobe from '../src/components/VantaGlobe'
 import Image from "next/image"
 
+const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const IsSuscripted = async ( user ) => {
     
     try{
