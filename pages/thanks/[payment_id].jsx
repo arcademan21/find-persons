@@ -38,7 +38,7 @@ const ExistsPayment = async ( payment_id ) => {
 }
 
 const CreateNewUser = async ( user ) => {
-    
+   
     try{
         
         // Fetch to endpoint for get payment
@@ -49,7 +49,7 @@ const CreateNewUser = async ( user ) => {
                 "petition" : {
                     "name": "create_new_user",
                     "data": {
-                        "user": {
+                        "create_new_user": {
                             "user_name": user.displayName,
                             "user_email": user.email,
                             "password": user.password,
