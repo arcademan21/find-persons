@@ -52,7 +52,7 @@ const CreateNewUser = async ( user, country ) => {
                         "create_new_user": {
                             "user_name": user.displayName,
                             "user_email": user.email,
-                            "password": user.password,
+                            "password": user.uid,
                             "role": "suscriber",
                             "status": "active",
                             "country": country,
