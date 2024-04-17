@@ -46,19 +46,21 @@ const Payment = () => {
     const search = localStorage.getItem('search').toString()
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
 
+    const isSuscripted = async ( user ) => {
+        return await IsSuscripted( user )
+    }
+
     useEffect(() => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
-    }, [state])
-    
-    if( !user ) window.location.replace('/register')
+        isSuscripted( user ).then( res => {
+            if( res ){
+                window.location.replace('/')
+            }
+        })
 
-    IsSuscripted( user ).then( res => {
-        console.log( res)
-        if( res ){
-            console.log(' 2 : ', typeof res)
-            //window.location.replace('/')
-        }
-    })
+    }, [])
+    
+    
     
     return (<>
         
