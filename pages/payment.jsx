@@ -17,7 +17,7 @@ const IsSuscripted = async ( user ) => {
                 "petition" : {
                     "name": "get_suscription",
                     "data": {
-                        "suscription": {
+                        "get_suscription": {
                             "user_email": user.email
                         }
                     }
