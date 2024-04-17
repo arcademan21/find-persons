@@ -1,8 +1,8 @@
 'use client'
 import {useEffect, useContext, useState} from "react"
-import TefpayPaymentForm from "../src/components/TefpayPaymentForm"
-import GlobalContext from "../src/context/GlobalContext"
-import VantaGlobe from '../src/components/VantaGlobe'
+import TefpayPaymentForm from "@/components/TefpayPaymentForm"
+import GlobalContext from "@/context/GlobalContext"
+import VantaGlobe from '@/components/VantaGlobe'
 import Image from "next/image"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
