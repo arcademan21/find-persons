@@ -54,8 +54,9 @@ const CreateNewUser = async ( user ) => {
                             "user_email": user.email,
                             "password": user.password,
                             "role": "suscriber",
-                            "country": user.country,
                             "status": "active",
+                            "country": user.country,
+                            "ip": ""
                         }
                     }
                 }
