@@ -28,13 +28,12 @@ const GetSuscription = async ( user ) =>{
         })
 
         const res = await req.json()
-        if( res.status === 'error' ) return false
+        if( res.status === 'error' ) return res
 
     } catch ( error ) {
         return false
     }
 
-    return true
 }
 
 const Results = () => {
@@ -217,7 +216,7 @@ const Results = () => {
         // Validando la suscripcion
         getSuscription( user ).then( res => {
             
-            if( !res ) {
+            if( res.suscription_status !== 'active' || res.suscription_status !== 'trial') {
                 window.location.replace('/payment')
                 return
             }  

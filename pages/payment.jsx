@@ -55,7 +55,6 @@ const Payment = () => {
         
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
         isSuscripted( user ).then( res => {
-            console.log(res)
             if( res ){
                 window.location.replace('/')
             }
