@@ -129,7 +129,6 @@ const ThanksPage = () => {
             if( counter === 0 ) {
                 
                 // Redirigiendo a la pagina de resultados
-                localStorage.removeItem('tefpay_token')
                 window.location.replace('/results')
                 clearInterval( time )
 
