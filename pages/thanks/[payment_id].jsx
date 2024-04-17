@@ -37,7 +37,7 @@ const ExistsPayment = async ( payment_id ) => {
     return true
 }
 
-const CreateNewUser = async ( user ) => {
+const CreateNewUser = async ( user, country ) => {
   
     try{
         
@@ -55,7 +55,7 @@ const CreateNewUser = async ( user ) => {
                             "password": user.password,
                             "role": "suscriber",
                             "status": "active",
-                            "country": user.country,
+                            "country": country,
                             "ip": ""
                         }
                     }
@@ -149,8 +149,8 @@ const ThanksPage = () => {
                 return false
             }
             
-            user.country = localStorage.getItem('language')
-            CreateNewUser( user ).then( res => {
+            const country = localStorage.getItem('language')
+            CreateNewUser( user, country ).then( res => {
                 console.log('CreateNewUser: ', res)
                 if( !res ) {
                     //window.location.replace('/')
