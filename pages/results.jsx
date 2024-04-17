@@ -216,9 +216,9 @@ const Results = () => {
 
         // Validando la suscripcion
         getSuscription( user ).then( res => {
-            console.log(res)
+            
             if( !res ) {
-                //window.location.replace('/payment')
+                window.location.replace('/payment')
                 return
             }  
 
