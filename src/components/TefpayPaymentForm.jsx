@@ -13,6 +13,8 @@ const iframe_configure_url = process.env.NEXT_PUBLIC_TEFPAY_TESTS_CONFIGURE_URL
 const trial_amount = process.env.NEXT_PUBLIC_TEFPAY_TRIAL_AMOUNT
 const suscription_amount = process.env.NEXT_PUBLIC_SUSCRIPTION_AMOUNT
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
+const tefpay_notyfi_url = process.env.NEXT_PUBLIC_TEFPAY_NOTYFI_URL
+
 
 
 // Componente para obtener el formulario de pago de Tefpay
@@ -147,9 +149,9 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodType" value="M"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodInterval" value="1"/>
             <input type="hidden" name="Ds_Merchant_Subscription_Iteration" value="0"/>
-            <input type="hidden" name="Ds_Merchant_Url" value={`${path_endpoint}?tefpay_notifications=true`} />
+            <input type="hidden" name="Ds_Merchant_Url" value={tefpay_notyfi_url} />
             <input type="hidden" name="Ds_Merchant_UrlOK" value={`https://${hostname}/thanks/${paymentId}`} />
-            <input type="hidden" name="Ds_Merchant_UrlKO" value={`https://${hostname}/payment?error=true`} />
+            <input type="hidden" name="Ds_Merchant_UrlKO" value={`https://${hostname}/payment/tefpay_error`} />
             <input type="hidden" name="Ds_Merchant_MerchantCode" value="V99000566" />
             <input type="hidden" name="Ds_Merchant_MerchantCodeTemplate" value="V99000566" />
             <input type="hidden" name="Ds_Merchant_TemplateNumber" value="07" />
