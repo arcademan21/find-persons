@@ -21,9 +21,9 @@ export const TefpayPaymentForm = () => {
     const context = useContext( GlobalContext )
     const { state } = context
     
-    const user = JSON.parse(localhost.getItem('user'))
+    const user = JSON.parse(localStorage.getItem('user'))
     const hostname = window.location.hostname 
-    const lang = window.localStorage.getItem('language')
+    const lang = localStorage.getItem('language')
 
     const [ matching_data, setMatchingData ] = useState('')
     const [ signature, setSignature ] = useState('')
