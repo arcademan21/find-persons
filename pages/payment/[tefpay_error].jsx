@@ -1,9 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
+import { useRouter } from "next/router"
 
 const TefpayError = () => {
 
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')).tefpay_error)
     const [counter, setCounter] = useState(5)
+    
+    const router = useRouter()
+    const { tefpay_error } = router.query
 
     useEffect(() => {
         setLanguage(JSON.parse(localStorage.getItem('language_file')).tefpay_error)
@@ -27,6 +31,10 @@ const TefpayError = () => {
                 <div className="col-12">
                     <h1 className="text-center">{language.title}</h1>
                     <p className="text-center">{language.text}</p>
+                    <p className="text-center">{language.error}</p>
+                    <pre className="text-center">
+                        {tefpay_error}
+                    </pre>
                     <span className="text-center">{language.please_weait} {counter} </span>
                 </div>
             </div>

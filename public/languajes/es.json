@@ -249,7 +249,8 @@
     "tefpay_error": {
         "title": "Error en el pago",
         "text": "Ha ocurrido un error en el pago, por favor intentelo de nuevo.",
-        "please_weait": "Por favor espere unos segundos, estamos procesando su solicitud."
+        "please_weait": "Por favor espere unos segundos, estamos procesando su solicitud.",
+        "error": "Error: "
     }
 
 
