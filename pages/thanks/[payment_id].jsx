@@ -38,7 +38,7 @@ const ExistsPayment = async ( payment_id ) => {
 }
 
 const CreateNewUser = async ( user ) => {
-   
+  
     try{
         
         // Fetch to endpoint for get payment
@@ -53,9 +53,9 @@ const CreateNewUser = async ( user ) => {
                             "user_name": user.displayName,
                             "user_email": user.email,
                             "password": user.password,
-                            "role": "",
-                            "status": "",
-                            "ip": ""
+                            "role": "suscriber",
+                            "country": user.country,
+                            "status": "active",
                         }
                     }
                 }
@@ -84,7 +84,7 @@ const UpdateSuscription = async ( user, suscription ) => {
                 "petition" : {
                     "name": "update_suscription",
                     "data": {
-                        "suscription": {
+                        "update_suscription": {
                             "user_email": user.email,
                             "payment_id": suscription.payment_id,
                             "status": "trial",
@@ -147,7 +147,8 @@ const ThanksPage = () => {
                 //window.location.replace('/')
                 return false
             }
-    
+            
+            user.country = localStorage.getItem('language')
             CreateNewUser( user ).then( res => {
                 console.log('CreateNewUser: ', res)
                 if( !res ) {
