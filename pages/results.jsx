@@ -217,7 +217,8 @@ const Results = () => {
         getSuscription( user ).then( res => {
             
             if( res.suscription_status !== 'active' || res.suscription_status !== 'trial') {
-                window.location.replace('/payment')
+                console.log(res)
+                //window.location.replace('/payment')
                 return
             }  
 
