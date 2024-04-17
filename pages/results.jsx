@@ -7,11 +7,41 @@ import './css/results.css'
 import * as dataPersonJson from './resources/dataPerson.json' 
 import PDLJS from 'peopledatalabs';
 
+const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
+const GetSuscription = async ( user ) =>{
+    try{
+
+        // Fetch to endpoint for update suscription
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "get_suscription",
+                    "data": {
+                        "get_suscription": {
+                            "user_email": user.email,
+                        }
+                    }
+                }
+            })
+        })
+
+        const res = await req.json()
+        if( res.status === 'error' ) return false
+
+    } catch ( error ) {
+        return false
+    }
+
+    return true
+}
+
 const Results = () => {
     
     const context = useContext(GlobalContext)
     const { state } = context
-    const suscription = state.suscription
+    const [suscription, setSuscription] = useState( false )
 
     const [dataPerson, setDataPerson] = useState( dataPersonJson )
     const [error, setError] = useState( null )
@@ -24,6 +54,10 @@ const Results = () => {
     const search_type = localStorage.getItem('search_type').toString()
     const user = JSON.parse( localStorage.getItem('user') )
     const lang = localStorage.getItem('language').toString()
+
+    const getSuscription = async ( user ) =>{
+        return GetSuscription( user )
+    }
     
     const setRegionRegionHandler = (e) => {
         setRegion(e.target.value)
@@ -177,12 +211,23 @@ const Results = () => {
     }
 
     useEffect(() => {
-        
+
         // Removiendo el token temporal
         localStorage.removeItem('tefpay_token')
 
-        getRegionAndLocality()
-        fetchPersonData()
+        // Validando la suscripcion
+        getSuscription( user ).then( res => {
+            
+            if( !res ) {
+                window.location.replace('/payment')
+                return
+            }  
+
+            getRegionAndLocality()
+            fetchPersonData()
+
+        })
+        
         
     }, [] )
 
@@ -207,7 +252,7 @@ const Results = () => {
 
     return (<>
 
-            {suscription ? null : window.location.href = '/payment'} 
+             
             <div className="results-container">
                 <div className="container">
                     <div className="row mb-5 shadow p-0 rounded2x">
