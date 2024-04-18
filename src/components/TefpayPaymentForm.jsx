@@ -23,9 +23,8 @@ export const TefpayPaymentForm = () => {
     
     const user = JSON.parse(localStorage.getItem('user'))
     const hostname = window.location.hostname 
-    const lang = localStorage.getItem('language')
     const extension = localStorage.getItem('extencion')
-
+    
     const [ matching_data, setMatchingData ] = useState('')
     const [ signature, setSignature ] = useState('')
     const [ paymentId, setPaymentId ] = useState('')
@@ -34,6 +33,7 @@ export const TefpayPaymentForm = () => {
     const [ suscription_description, setSuscriptionDescription ] = useState('')
     const [ user_name, setUserName ] = useState(user.displayName || user.email.split('@')[0])
     const [ user_email, setUserEmail ] = useState(user.email)
+    const [ lang, setLang ] = setState(localStorage.getItem('language'))
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
     
     const CleanStringForTefpay = ( email ) => {
@@ -74,6 +74,7 @@ export const TefpayPaymentForm = () => {
 
     useEffect(() =>{
 
+        const merchant_lang = localStorage.getItem('language')  
         const matchingData = String(new Date().toISOString().replace(/[^0-9]/g, '')).padEnd(21, '0')
         const merchantURL = merchantUrl
         const signature = CreateSubscriptionSignature(
@@ -83,7 +84,9 @@ export const TefpayPaymentForm = () => {
             matchingData,
             merchantURL
         )
-        
+
+
+        setLang( merchant_lang )
         setSignature( signature )
         setMatchingData( matchingData )
         setSuscriptionAccount( matchingData )
@@ -95,7 +98,7 @@ export const TefpayPaymentForm = () => {
         setPaymentDescription( `
             NEW PAYMENT - ( Find-persons ) : ${ hostname }
             Payment ID: ${ matchingData }
-            Country: ${ lang }
+            Country: ${ merchant_lang }
             User: ${ user_name }
             Email: ${ user_email }
             Amount: 0.60 EUR
@@ -104,7 +107,7 @@ export const TefpayPaymentForm = () => {
         setSuscriptionDescription(`
             NEW SUSCRIPTION - ( Find-persons ) : ${ hostname }
             Payment ID: ${ matchingData }
-            Country: ${ lang }
+            Country: ${ merchant_lang }
             User: ${ user_name }
             Email: ${ user_email }
             Amount: 49.90 EUR
