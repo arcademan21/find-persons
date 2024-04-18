@@ -31,15 +31,30 @@ const MenuButtons = () => {
     }
 
     const handle_register = () => {
+      if( extension !== null && extension !== '' && extension !== '/'){
         window.location.replace(`${extension}/register`)
+      }
+      else {
+        window.location.replace('/register')
+      }
     }
 
     const handle_login = () => {
+      if( extension !== null && extension !== '' && extension !== '/'){
         window.location.replace(`${extension}/login`)
+      }
+      else {
+        window.location.replace('/login')
+      }
     }
 
     const handle_profile = () => {
+      if( extension !== null && extension !== '' && extension !== '/'){
         window.location.replace(`${extension}/profile`)
+      }
+      else {
+        window.location.replace('/profile')
+      }
     }
   
 
