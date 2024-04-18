@@ -33,7 +33,7 @@ export const TefpayPaymentForm = () => {
     const [ suscription_description, setSuscriptionDescription ] = useState('')
     const [ user_name, setUserName ] = useState(user.displayName || user.email.split('@')[0])
     const [ user_email, setUserEmail ] = useState(user.email)
-    const [ lang, setLang ] = setState(localStorage.getItem('language'))
+    const [ lang, setLang ] = useState(localStorage.getItem('language'))
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
     
     const CleanStringForTefpay = ( email ) => {
