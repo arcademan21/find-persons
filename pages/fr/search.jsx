@@ -21,6 +21,8 @@ const Search = () => {
 
     const [stateIcon, setStateIcon] = useState('fa-spinner')
     const [listOfSearchs, setListOfSearchs] = useState([])
+
+    const language = JSON.parse( localStorage.getItem('language_file') ).search_page
     
     // Handdler para comprobar si el usuario esta suscrito
     const is_suscripted = useCallback( async () => {
@@ -162,9 +164,13 @@ const Search = () => {
                 <div className="col-md-12" >
 
                     <h1 className="title-section fs-1 my-4 text-center">
-                        <span data-section="search_page" data-value="we_searching">Estamos Buscando a</span> 
+                        <span data-section="search_page" data-value="we_searching">
+                            {language.we_searching}
+                        </span> 
                         <span id="search" className="marked"> {state.search} </span>
-                        <span data-section="search_page" data-value="in_the" >En todos los registros.</span>
+                        <span data-section="search_page" data-value="in_the" >
+                            {language.in_the}
+                        </span>
                     </h1>
 
                     <div className="animate_search shadow border rounded">
@@ -250,27 +256,33 @@ const Search = () => {
                         <div className="d-flex align-items-start my-2">
                             <i className="fas fa-user-check fa-2x mx-3" style={{minWidth: '40px'}}></i>
                             <div>
-                                <h6 className="mt-0 mb-1 fw-bold" data-section="search_page" data-value="title_accounts">Rastreo de Perfiles</h6>
+                                <h6 className="mt-0 mb-1 fw-bold" data-section="search_page" data-value="title_accounts">
+                                    {language.title_accounts}
+                                </h6>
                                 <p className="text-muted" data-section="search_page" data-value="accounts_description">
-                                Encuentre informes detallados sobre personas, incluyendo datos de contacto, historial personal, vínculos profesionales y registros públicos extensivos.
+                                    {language.accounts_description}
                                 </p>
                             </div>
                         </div>
                         <div className="d-flex align-items-start my-2">
                             <i className="fas fa-map-marker-alt fa-2x mx-3" style={{minWidth: '40px'}}></i>
                             <div>
-                                <h6 className="mt-0 mb-1 fw-bold" data-value="title_location" data-section="search_page">Localización de Direcciones</h6>
+                                <h6 className="mt-0 mb-1 fw-bold" data-value="title_location" data-section="search_page">
+                                    {language.title_location}
+                                </h6>
                                 <p className="text-muted" data-section="search_page" data-value="location_description">
-                                Acceda rápidamente a direcciones actuales y anteriores de individuos, determinando si son propietarios o inquilinos, mediante nuestra herramienta de búsqueda.
+                                    {language.location_description}
                                 </p>
                             </div>
                         </div>
                         <div className="d-flex align-items-start my-2">
                             <i className="fas fa-users fa-2x mx-3" style={{minWidth: '40px'}}></i>
                             <div>
-                                <h6 className="mt-0 mb-1 fw-bold" data-section="search_page" data-value="title_explore">Exploración en Redes Sociales</h6>
+                                <h6 className="mt-0 mb-1 fw-bold" data-section="search_page" data-value="title_explore">
+                                    {language.title_explore}
+                                </h6>
                                 <p className="text-muted" data-section="search_page" data-value="explore_description">
-                                Investigue perfiles online, incluyendo actividades en redes sociales y plataformas de citas, con nuestra herramienta de búsqueda de perfiles públicos y ocultos.
+                                    {language.explore_description}
                                 </p>
                             </div>
                         </div>
