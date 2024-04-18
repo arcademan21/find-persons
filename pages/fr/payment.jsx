@@ -52,6 +52,13 @@ const Payment = () => {
         return await IsSuscripted( user )
     }
 
+    useEffect(() => {
+        
+        setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
+        
+
+    }, [])
+
     if( !user ) {
         window.location.replace(extension)
         return null
@@ -59,7 +66,7 @@ const Payment = () => {
 
     else {
         let asyncRequest = async () => {
-            return await isSuscripted( user ).then( res => {
+            await isSuscripted( user ).then( res => {
                 if( res ){
                     window.location.replace(extension)
                     return null
@@ -68,13 +75,6 @@ const Payment = () => {
         }
         asyncRequest()
     }
-
-    useEffect(() => {
-        
-        setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
-        
-
-    }, [])
     
     
     
