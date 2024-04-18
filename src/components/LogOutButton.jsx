@@ -10,7 +10,7 @@ export const LogOutButton = () => {
     const { state, setState } = context
     const auth = state.auth
 
-   
+    const extension = localStorage.getItem('extencion') 
     
     const logOut = async () => {
         
@@ -19,13 +19,13 @@ export const LogOutButton = () => {
             // Sign-out successful.
             setState({ ...state, user: null })
             localStorage.removeItem('user')
-            window.location.replace('/')
+            window.location.replace(extension)
         })
         .catch((error) => {
             // An error happened.
             setState({ ...state, user: null, error: error, errorMessage: error.message, errorCode: error.code })
             localStorage.removeItem('user')
-            window.location.replace('/')
+            window.location.replace(extension)
 
         })
 

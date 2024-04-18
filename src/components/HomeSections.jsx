@@ -10,26 +10,14 @@ const HomeSections = () => {
     const context = useContext(GlobalContext)
     const { state, setState } = context
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
-
-    //Obteniendo el parametro de la url
-    const urlParams = new URLSearchParams(window.location.search)
-    const is_contact = urlParams.get('contact')
     
     useEffect(() => {
 
         setLanguage(JSON.parse(localStorage.getItem('language_file')))
         
-        if( is_contact ){
-            const intervalId = setInterval(() => {
-                const element = document.getElementById( 'contact' )
-                if ( element ) {
-                    element.scrollIntoView( { behavior: 'smooth' } )
-                    clearInterval( intervalId )
-                }
-            }, 100 ) 
-        }
+        
 
-    }, [ state, is_contact ] )
+    }, [ state ] )
 
     return (<>
 

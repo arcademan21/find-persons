@@ -1,0 +1,398 @@
+'use client'
+import {useState, useEffect, useContext} from 'react'
+import GlobalContext from '@/context/GlobalContext'
+import Image from 'next/image'
+
+import '../css/results.css'
+import * as dataPersonJson from './resources/dataPerson.json' 
+import PDLJS from 'peopledatalabs';
+
+const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
+const GetSuscription = async ( user ) =>{
+    try{
+
+        // Fetch to endpoint for update suscription
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "get_suscription",
+                    "data": {
+                        "get_suscription": {
+                            "user_email": user.email,
+                        }
+                    }
+                }
+            })
+        })
+
+        const res = await req.json()
+        return res
+
+    } catch ( error ) {
+        return false
+    }
+
+}
+
+const Results = () => {
+    
+    const context = useContext(GlobalContext)
+    const { state } = context
+    const extension = localStorage.getItem('extencion')
+    
+    const [dataPerson, setDataPerson] = useState( dataPersonJson )
+    const [error, setError] = useState( null )
+    const [loading, setLoading] = useState(true)
+    const [region, setRegion] = useState('EUROPE')
+    const [location, setLocation] = useState('Madrid, Spain')
+    const [locality, setLocality] = useState('Spain')
+    const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
+    const search = localStorage.getItem('search').toString()
+    const search_type = localStorage.getItem('search_type').toString()
+    const user = JSON.parse( localStorage.getItem('user') )
+    const lang = localStorage.getItem('language').toString()
+
+    const getSuscription = async ( user ) =>{
+        return await GetSuscription( user )
+    }
+    
+    const setRegionRegionHandler = (e) => {
+        setRegion(e.target.value)
+        getRegionAndLocality(e.target.value)
+    }
+
+    const setLocalityHandler = (e) => {
+        setLocation(e.target.value)
+        setLocality(e.target.value)
+        fetchPersonData()
+    }
+
+    const getRegionAndLocality = async ( slected_country=null ) => {
+        
+        const headers = {
+            "Accept": "application/json",
+            "api-token": "ntMSLDp1DAfusf5HPZNhCJsGmOhUr59i30q9PoFpJljQ5Trt1piMs_QgK9E8Hqekj2E",
+            "user-email": "hharoldypruebas@gmail.com"
+        }
+
+        await fetch('https://www.universal-tutorial.com/api/getaccesstoken', {
+            method: 'GET',
+            headers: headers
+        }).then( async res => {
+            const data = await res.json()
+            
+            if( data.auth_token ){
+                
+                const headers = {
+                    "Authorization": `Bearer ${data.auth_token}`,    
+                    "Accept": "application/json"
+                }
+                
+                await fetch('https://www.universal-tutorial.com/api/countries/', {
+                    method: 'GET',
+                    headers: headers
+                }).then( async res => {
+                    const data = await res.json()
+                    document.getElementById('countries-select').innerHTML = `<option value=${ slected_country ? slected_country : null }>${slected_country ? slected_country : 'Seleccione un pais '}</option>`
+                    data.map( async ( country ) => {
+                        document.getElementById('countries-select').innerHTML += `<option value="${country.country_name}">${country.country_name}</option>`  
+                    })
+                    
+                    await fetch(
+                        `https://www.universal-tutorial.com/api/states/${slected_country}`, 
+                    {
+                        method: 'GET',
+                        headers: headers
+
+                    }).then( async res => {
+                        const data = await res.json()
+                        
+                        document.getElementById('cities-select').innerHTML = `<option value="" disabled > Seleccione una ciudad </option>`
+                        data.map( async ( city ) => {
+                            document.getElementById('cities-select').innerHTML += `<option value="${city.state_name}">${city.state_name}</option>`
+                        })
+                        
+                    })
+
+                })
+
+            }
+
+            else{
+                console.log('No se pudo obtener el token de acceso')
+            }
+
+        }).catch( error => {
+            console.log(error)
+        })
+
+    }
+
+    // "message": "Does not meet minimum combination of required data points. Requests must include one of: 'lid' OR 
+    // 'pdl_id' OR 
+    // 'email_hash' OR 
+    // 'phone' OR 
+    // 'email' OR 
+    // 'profile' OR 
+    // 'name'. 
+    // If 'first_name' and 'last_name' or 'name' are used, 
+    // then one of the following is required: 'ip' OR 'country' OR 'postal_code' OR 'street_address' OR 'location' OR 'company' OR 'birth_date' OR 'school' OR 'locality' OR 'username' OR 'region'."
+
+    const fetchPersonData = async () => {
+    
+        try {
+
+            const PDLJSClient = new PDLJS({ apiKey: process.env.NEXT_PUBLIC_SEARCHS_API_KEY })
+
+            let params = {
+                min_likelihood: 0,
+                titlecase: true,
+                include_if_matched: false,
+                pretty: true
+            }
+            
+            // Validando el tipo de busqueda
+            if( search_type === 'name' ) {
+
+                /*
+                     min_likelihood : Este parámetro le permite equilibrar la precisión y la recuperación. En otras palabras, el uso de un valor min_likelihood alto solo arrojará coincidencias muy sólidas, pero corre el riesgo de no devolver ninguna coincidencia si no se puede encontrar ninguna por encima del umbral min_likelihood. Alternativamente, es más probable que el uso de un valor min_likelihood bajo le proporcione una coincidencia, pero a costa de devolver una coincidencia potencialmente más débil. De forma predeterminada, el recuerdo de coincidencias se mantiene muy alto, por lo que una respuesta que arroja una puntuación de probabilidad de 2 tendrá aproximadamente entre un 10 y un 30 % de posibilidades de ser la persona solicitada. Agregar más puntos de datos a sus solicitudes aumentará la probabilidad de una coincidencia exitosa (puntuación de alta probabilidad y en realidad es la persona solicitada). Algunas reglas generales para establecer este parámetro: Para casos de uso que dependen de un alto grado de precisión de los datos, utilice un valor de ≥ 6. Las solicitudes realizadas con solo unos pocos puntos de datos menos específicos arrojarán puntuaciones más bajas. Solicitudes realizadas con sólo unos pocos puntos de datos (por ejemplo, un nombre y unubicación), rara vez arrojará una puntuación de probabilidad > 4. Las solicitudes realizadas con solo un nombre arrojan una puntuación entre 2 y 5, según la calidad de la coincidencia. Las solicitudes realizadas con solo un correo electrónico rara vez arrojarán una puntuación de probabilidad > 6.
+                */
+
+                params = {
+                    ...params,
+                    name: search,
+                    first_name: search.split(' ')[0],
+                    middle_name: search.split(' ')[1],
+                    last_name: search.split(' ')[2] || search.split(' ')[3] || search.split(' ')[1],
+                    locality: locality,
+                    region: region,
+                    location: location, 
+                }
+
+            } 
+            
+            else if( search_type === 'phone' ) {
+                console.log('Busqueda por telefono')
+            }
+
+            else if( search_type === 'email' ) {
+                console.log('Busqueda por email')
+            }
+
+            else if( search_type === 'address' ) {
+                console.log('Busqueda por direccion')
+            }
+
+            //console.log(params)
+
+            // Pass the parameters object to the Person Search API
+            PDLJSClient.person.enrichment( params ).then((data) => {
+                
+                // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
+                // console.log(`${data["total"]} total PDL records exist matching this query.`)
+                setDataPerson(data.data)
+                
+                setLoading(false)
+
+            }).catch((error) => {
+                //console.log("NOTE: The carrier pigeons lost motivation in flight. See error and try again.")
+                //console.log(error)
+                setLoading(false)
+            })
+
+        } catch (error) {
+            setError(error)
+            setLoading(false)
+        }
+
+    }
+
+    useEffect(() => {
+
+        // Removiendo el token temporal
+        localStorage.removeItem('tefpay_token')
+
+        // Validando la suscripcion
+        getSuscription( user ).then( res => {
+            if( res.suscription_status !== 'active' && res.suscription_status !== 'trial') {
+                window.location.replace(`${extension}/payment`)
+                return
+            }  
+
+            getRegionAndLocality()
+            fetchPersonData()
+
+        })
+    
+    }, [] )
+
+    if( loading ) return (<div className="container py-5 my-5 w-75">
+        <div className="row px-5 content-search-map-anime">
+            <div className="col-md-6">
+                <div className="card">
+                    <div className="card-header">
+                        <h4>{language.results.results_of} {search}</h4>
+                    </div>
+                    <div className="card-body">
+                        <div className="spinner-border text-primary" role="status">
+                            <span className="visually-hidden">
+                                {language.results.loading}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>)
+
+    return (<>
+
+             
+            <div className="results-container">
+                <div className="container">
+                    <div className="row mb-5 shadow p-0 rounded2x">
+                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 info-results">
+                        <div className="d-flex px-3 flex-column">
+                        <h2 className="text-center text-secondary title-section mt-4">
+                            {language.results.results} 
+                        </h2>
+                        <p className="text-center text-secondary mb-0 ">
+                            {language.results.is_not_people} <br/>
+                            <a href={extension} className='btn btn-primary btn-sm rounded-pill m-3 decoration-none'
+                            >{language.results.try_search} <i className="fas fa-search mx-1"></i></a>
+                        </p>
+                        </div>
+                        <div className="info-service d-flex flex-column p-4">
+                            <div className="d-flex content-result-image shadow rounded m-auto justify-content-center">
+                                <Image src="/images/no_user_image.jpeg" alt="results-holder" className="img-fluid rounded w-100" width={100} height={100} />
+                            </div>
+                            <div className="d-flex flex-column p-3 m-auto w-100">
+                                <h3 className="text-center text-secondary title-section mb-4">
+                                <span className="marked">
+                                    {search}
+                                </span><br/>
+                                {language.results.general_description}
+                                </h3>
+                                <div className="text-secondary my-3">
+                                    <div className="info-persons card shadow border rounded bg-white w-75 m-auto p-2">
+
+                                        <p className='text-secondary title-section'>
+                                            { dataPerson.gender === "Male" ? language.results.male : language.results.famale }
+                                            { dataPerson.gender === "Male" ? language.results.burned_male : language.results.burned_famale } {language.results.he} 
+                                            { dataPerson.birth_date }  
+                                            {language.results.actualy} <span className='marked'> [  { dataPerson.location_name } ] </span> 
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="d-flex justify-content-center">
+                                    <Image src="/images/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" width={100} height={100} layout='responsive' />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 wrap-results-form">
+                        <div className="d-flex px-3 flex-column">
+
+                            {/* <h2 className="text-center text-secondary title-section mt-4">
+                                Sellecciona la <br/> ragion sobre la que deseas buscar
+                            </h2>
+
+                            <div className="d-flex flex-column justify-content-center w-50 vh-25 m-auto py-4">
+                            
+                                <select name="" id="countries-select" onChange={setRegionRegionHandler} className="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                    <option value="" disabled className='text-muted'>Selecciona un pais</option>
+                                    
+                                </select>
+
+                                <select name="" id="cities-select"
+                                    onChange={setLocalityHandler} className='form-select form-select-lg mb-3' aria-label=".form-select-lg example"
+                                ></select>
+
+                            </div> */}
+                            
+                            <h2 className="text-center text-secondary title-section mt-4">
+                                {language.results.contact_info}
+                            </h2>
+                            <div className="person-contact-section">
+                               
+                                <div className="info-contact-persons card shadow border rounded bg-white w-75 m-auto p-2">
+                                    <p>
+                                        <i className="fas fa-phone-alt mx-2"></i>
+                                        {language.results.mobile_phone} <span className='marked'> { dataPerson.mobile_phone } </span><br/>
+
+                                        <i className="fas fa-phone-alt mx-2"></i>
+                                        {language.results.home_phone} <span className='marked'> { dataPerson.phone_numbers[0] } </span><br/>
+
+                                        <i className="fas fa-envelope mx-2"></i> 
+                                        {language.results.personal_email} <span className='marked'> { dataPerson.recommended_personal_email } </span><br/>
+
+                                        <i className="fas fa-map-marker-alt mx-2"></i> 
+                                        {language.results.location} {dataPerson.location_locality}, {dataPerson.location_country}, 
+                                        
+                                    </p>
+                                    
+                                    
+                                </div>
+                                
+                            </div> <br/>
+
+                            <h2 className="text-center text-secondary title-section mt-4">
+                                {language.results.download_complete_info}
+                            </h2>
+                            <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
+                                <i className="fas fa-download mx-1"></i> {language.results.download_pdf}
+                            </button>
+
+                            <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white">
+                                <i className="fas fa-info-circle fs-1 text-primary mx-2"></i>
+                                {language.results.download_text_info}
+                            </div>
+                            
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            {/* PARA TEST */}
+            <div className="container py-5 my-5 w-75">
+                <div className="row px-5 content-search-map-anime">
+                
+                    <div className="col-md-12">
+                        <div className="card">
+                            <div className="card-header">
+                                <h4>Resultados de {search}</h4>
+                            </div>
+                            <div className="card-body">
+                                {dataPerson && <pre>{ JSON.stringify( dataPerson, null, 2) }</pre>}
+                                {error && <p>Error: { error.message }</p>}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+    </>)
+
+}
+
+export default Results
+
+
+
+
+
+
+
+
+
+
+
+
+    
+ 

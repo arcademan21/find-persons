@@ -4,12 +4,14 @@ import { initializeApp } from "firebase/app"
 import { getAnalytics, isSupported } from "firebase/analytics"
 import { getFirestore } from 'firebase/firestore/lite'
 import { getAuth } from "firebase/auth"
+import { usePathname } from 'next/navigation'
 import { createContext, useState, useEffect, useCallback } from 'react'
 
 const GlobalContext = createContext()
 
 export const GlobalProvider = ( { children } ) => {
   
+  const pathname = usePathname()
   const [ state, setState ] = useState( {
     menu: { active_links: true },
     language:  null,
@@ -20,8 +22,37 @@ export const GlobalProvider = ( { children } ) => {
     search_type: null
   } )
 
-  const SettingLanguage = useCallback( async () => {
+  const SettingExtencion = useCallback( async () => {
+
+    localStorage.setItem('menu', JSON.stringify( { menu: { active_links: true } } ) )
+    
+    const extension_list = [
+      'it', 'es', 'en', 'fr', 'de', 'pt', 'ru', 'zh', 'ja',
       
+    ]
+
+    const blocked_url_names = [
+      'thanks'
+    ]
+    
+    if( extension_list.includes( pathname.split('/')[1] ) ) {
+      localStorage.setItem('extencion', `/${pathname.split('/')[1]}`)
+    }
+
+    else {
+      localStorage.setItem('extencion', '/')
+    }
+
+    if( blocked_url_names.includes( pathname ) ) {
+      setState(prevState => ({ ...prevState, menu: { active_links: false } }))
+      localStorage.setItem('menu', JSON.stringify( { menu: { active_links: false } } ) )
+    }
+
+
+  }, [ pathname ])
+
+  const SettingLanguage = useCallback( async () => {
+     
       const language = localStorage.getItem('language') || window.navigator.language.split('-')[0]
       const req = await fetch(`/languajes/${language}.json`)
       const res = await req.json()
@@ -101,7 +132,8 @@ export const GlobalProvider = ( { children } ) => {
   }, [])
 
   useEffect(() => {
-
+    
+    SettingExtencion()
     SettingLanguage()
     SettinUser()
     SettingSearch()

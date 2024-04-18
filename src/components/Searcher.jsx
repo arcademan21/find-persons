@@ -9,6 +9,7 @@ const Searcher = () => {
     
     const context = useContext( GlobalContext )
     const { state, setState } = context
+    const extension = localStorage.getItem('extencion')
     
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')).hero)
     const [search, setSearch] = useState(null)
@@ -84,7 +85,7 @@ const Searcher = () => {
             }
                 
             else{ 
-                window.location.replace('/search')
+                window.location.replace(`${extension}/search`)
             }
 
         }

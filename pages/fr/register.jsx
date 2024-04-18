@@ -13,6 +13,7 @@ const Register = () => {
     const context = useContext( GlobalContext )
     const { state, setState } = context
     const { auth } = state
+    const extension = localStorage.getItem('extencion')
 
     const user = JSON.parse( localStorage.getItem('user') )
     const search = localStorage.getItem('search').toString()
@@ -62,9 +63,9 @@ const Register = () => {
 
             showSuccesToast().then(() => {
                 if ( search ) 
-                    window.location.replace('/results')
-                else 
-                    window.location.replace('/')
+                    window.location.replace(`${extension}/results`)
+                else  
+                    window.location.replace(extension)
             })
 
         })
@@ -115,10 +116,10 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if ( search && suscription === 'true' ) 
-                    window.location.replace('/results')
-                else if( suscription === 'false') 
-                    window.location.replace('/payment')
+                if ( search ) 
+                    window.location.replace(`${extension}/results`)
+                else 
+                    window.location.replace(extension)
             })
             
             // Todo: save user data
@@ -148,7 +149,7 @@ const Register = () => {
 
     useEffect(()=>{
         if( user ){
-            window.location.replace('/')
+            window.location.replace(extension)
         }
     }, [])
 
@@ -168,7 +169,7 @@ const Register = () => {
                             <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 px-3 login-col">
                                 <div className="d-none w-75 m-auto logo-register-form">
                                 <Link
-                                    href="/"
+                                    href={extension}
                                     className="navbar-brand link-logo 
                                         text-center"
                                 >
@@ -246,7 +247,7 @@ const Register = () => {
                                     htmlFor="register-terms"
                                     >
                                     {language.accept_the}
-                                    <Link href="/terms"> {language.terms_and_conditions} </Link>
+                                    <Link href={`${extension}/terms`} > {language.terms_and_conditions} </Link>
                                     {language.of_service}
                                     </label>
                                 </div>
@@ -269,8 +270,8 @@ const Register = () => {
                                     <p className="title-section text-center w-100">
                                     <span className="marked">{language.have_account}</span>
                                     <br />
-                                    <span href="/login" className="link-primary my-1" onClick={()=>{
-                                        window.location.replace('/login')
+                                    <span className="link-primary my-1" onClick={()=>{
+                                        window.location.replace(`${extension}/login`)
                                     }}>
                                       
                                         {language.login}

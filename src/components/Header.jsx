@@ -1,16 +1,22 @@
+'use client'
 import MenuButtons from "./MenuButtons"
 import ResponsiveMenu from "./ResponsiveMenu"
 import LanguageSwitcher from "./LanguageSwitcher"
+import { useEffect, useState } from "react"
 import "./css/header.css"
 import Image from "next/image"
 
 const Header = () => {
+
+
+  const [extension, setExtension] = useState(localStorage.getItem('extencion')) 
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light navbar-float p-0">
         <div className="d-flex w-100 justify-content-between px-5">
           <div className="d-flex w-25 content-link-logo">
-            <a href="/" className="navbar-brand link-logo ">
+            <a href={extension} className="navbar-brand link-logo ">
               <Image src="/images/logo_find-persons.png" width={150} height={60} alt="logo" />
             </a>
           </div>

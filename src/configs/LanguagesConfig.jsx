@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
 
+
+
 export const DefaultLanguage = () => {
 
     const clientLanguaje = navigator.language.split('-')[0]
+    
     const [ defaultLanguage, setDefaultLanguage ] = useState( clientLanguaje )
 
     const SetDefaultLanguageOnLocalStorage = ( language ) => {
@@ -27,7 +30,7 @@ export const DefaultLanguage = () => {
 
 }
 
-export const SetDefaultLanguageOnLocalStorage = ( language ) => {
+export const SetDefaultLanguageOnLocalStorage = ( language ) => {  
     window.localStorage.setItem('language', language)
 }
 

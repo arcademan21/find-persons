@@ -9,29 +9,49 @@ import { usePathname } from 'next/navigation'
 const MenuButtons = () => {
     
     const pathname = usePathname()
-    
+    const extension = localStorage.getItem('extencion')
     const { state } = useContext( GlobalContext )
 
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
     const [isHome, setIsHome ] = useState( null)
-    const [isThanks, setIsThanks ] = useState( null)
+    const activeMenu = JSON.parse(localStorage.getItem('menu')).menu.active_links
     
+    const handle_contact = () => {
+        
+        const intervalId = setInterval(() => {
+            const element = document.getElementById( 'contact' )
+            if ( element ) {
+                element.scrollIntoView( { behavior: 'smooth' } )
+                clearInterval( intervalId )
+            }
+        }, 100 ) 
+
+        return 
+       
+    }
+
+    const handle_register = () => {
+        window.location.replace(`${extension}/register`)
+    }
+
+    const handle_login = () => {
+        window.location.replace(`${extension}/login`)
+    }
+
+    const handle_profile = () => {
+        window.location.replace(`${extension}/profile`)
+    }
+  
+
     useEffect(() => {
         
+        if(  window.location.hash === '#contact' ){
+            handle_contact()
+        }
+
         setLanguage(JSON.parse(localStorage.getItem('language_file')))
-        
-        
-        if( pathname === '/' ) {
-            setIsHome(true)
-        }
-        
-        if( pathname !== null ) {
-          let pathArray = pathname.split('/')
-          if( pathArray.includes('thanks') ) {
-               setIsThanks(true)
-          }
-        }
-        
+
+        if( pathname === extension ) setIsHome(true) 
         
         
     }, [state, pathname])
@@ -42,7 +62,7 @@ const MenuButtons = () => {
           {!isHome ? 
               
               (<>
-              { !isThanks ? (
+              { !activeMenu ? (
                 <div className="d-flex">
                       
                       <button className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3" onClick={ () => router.back() }>
@@ -60,14 +80,14 @@ const MenuButtons = () => {
 
           : (<>
               
-              <Link href="/#contact" className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
+              <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
                 <i className="fas fa-envelope fs-6 mx-1"></i>
                 <span data-section="nav_bar" data-value="contact">
                   {language.nav_bar.contact}
                 </span>
-              </Link>
+              </button>
     
-              <Link href="/#account" className="btn btn-outline title-section py-2 px-3 rounded-pill decoration-none mx-3">
+              <button onClick={handle_profile} className="btn btn-outline title-section py-2 px-3 rounded-pill decoration-none mx-3">
                 <i className="fas fa-user fs-6 mx-1"></i>
                 <b className='marked'>
                   <span data-section="nav_bar" data-value="profile">
@@ -77,7 +97,7 @@ const MenuButtons = () => {
                     
                   </span>
                 </b>
-              </Link>
+              </button>
     
               <LogOutButton />
 
@@ -91,15 +111,14 @@ const MenuButtons = () => {
           
           { isHome ? 
             (<> 
-
-              <Link href="/#contact" className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
+              <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
                   <i className="fas fa-envelope fs-6 mx-1"></i>
                   <span data-section="nav_bar" data-value="contact">
                     {language.nav_bar.contact}
                   </span>
-              </Link>
+              </button>
 
-              <Link href="/register" className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
+              <button onClick={handle_register} className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
                 <i className="fas fa-user-plus fs-6 mx-1"></i>
                 <span data-section="nav_bar" data-value="register">
                     {language.nav_bar.register}
@@ -107,12 +126,12 @@ const MenuButtons = () => {
                       {language.nav_bar.free}
                     </b>
                 </span>
-              </Link>
+              </button>
       
-              <Link href="/login" className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
+              <button onClick={handle_login} className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
                 <i className="fas fa-sign-in-alt fs-6 mx-1"></i>
                 <span data-section="nav_bar" data-value="login">{language.nav_bar.login}</span>
-              </Link>
+              </button>
 
               <GetLanguageSwitcher />
 
@@ -120,7 +139,7 @@ const MenuButtons = () => {
             : 
             
             (<>
-            { !isThanks ? (
+            { !activeMenu ? (
               <div className="d-flex">
                     
                     <button className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3" onClick={ () => router.back() }>

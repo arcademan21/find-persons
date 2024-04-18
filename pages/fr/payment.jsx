@@ -42,6 +42,7 @@ const Payment = () => {
     
     const context = useContext( GlobalContext )
     const { state } = context
+    const extension = localStorage.getItem('extencion')
 
     const user = JSON.parse(localStorage.getItem('user'))
     const search = localStorage.getItem('search').toString()
@@ -50,9 +51,9 @@ const Payment = () => {
     const isSuscripted = async ( user ) => {
         return await IsSuscripted( user )
     }
-    
+
     if( !user ) {
-        window.location.replace('/')
+        window.location.replace(extension)
         return null
     }
 
@@ -60,18 +61,22 @@ const Payment = () => {
         let asyncRequest = async () => {
             return await isSuscripted( user ).then( res => {
                 if( res ){
-                    window.location.replace('/')
+                    window.location.replace(extension)
                     return null
                 }
             })  
         }
         asyncRequest()
     }
-    
+
     useEffect(() => {
+        
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
         
+
     }, [])
+    
+    
     
     return (<>
         
@@ -155,6 +160,7 @@ const Payment = () => {
                                 
                             </div>
 
+                            
                             { user ? 
                                 <TefpayPaymentForm  />
                             : null }
@@ -210,7 +216,7 @@ const Payment = () => {
                                     </p>
                                     <div className="d-flex justify-content-center">
                                         <button className="btn btn-primary btn-lg decoration-none" onClick={
-                                            () => window.location.replace('/#contact')   
+                                            () => window.location.replace(`${extension}/#contact`)    
                                         }>
                                             <i className="fas fa-envelope"></i>
                                             <b className="fs-4"> 

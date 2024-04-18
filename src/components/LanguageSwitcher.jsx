@@ -10,6 +10,7 @@ const LanguageSwitcher = () => {
 
         const context = useContext( GlobalContext )
         const { state, setState } = context
+        const extension = localStorage.getItem('extencion').split('/')[1]
 
         const [ language, setLanguage ] = useState( state.language )
         const [ loading, setLoading ] = useState( true )
@@ -21,6 +22,8 @@ const LanguageSwitcher = () => {
         const menuLanguagesBtn = $('.menu-languages-btn')
         const closeLanguagesBtn = $('.close-languages-btn')
         const languagesItems = $('.menu-languages-item')
+
+        
 
         const switchLanguage = async ( e, lang=null, selector=false ) => {
                 
@@ -105,6 +108,7 @@ const LanguageSwitcher = () => {
                                 onClick={ e => switchLanguage( e, null, true ) } width={50} height={39}
                                 src={`/languajes/flags/${language}.svg`} alt="language"
                             />
+                            
 
                         </div>  
                     </div>

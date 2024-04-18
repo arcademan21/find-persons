@@ -1,0 +1,252 @@
+{
+    "language": "it",
+    "data": "it",
+    "alt": "Italiano",
+    "nav_bar": {
+        "contact": " Contatto ",
+        "login": " Accedi ",
+        "register": " Registrati ",
+        "free": " Gratis ",
+        "logout": " Disconnetti ",
+        "profile": " Il mio account ",
+        "back": " Torna indietro "
+    },
+
+    "hero": {
+        "title": " Trova persone per il loro ",
+        "holder_title": " in tutto il mondo",
+        "sub_title": " Riceverai un rapporto completo sulla persona che stai cercando.",
+        "name": " Nome ",
+        "email": " Email ",
+        "phone": " Telefono ",
+        "address": " Indirizzo ",
+        "search_now": " Cerca ora ",
+        "placeholder_name": " Esempio: Mariano Jose ",
+        "placeholder_email": " Esempio: mariano@mail.com ",
+        "placeholder_phone": " Esempio: +34 600 000 000 ",
+        "placeholder_address": " Esempio: Via 123, Città, Paese "
+    },
+
+    "services": {
+        "title1": " La tua ricerca è anonima ",
+        "services1": " Non preoccuparti, nessuno saprà che hai cercato informazioni, la richiesta è anonima e confidenziale, i tuoi dati personali sono trattati in modo privato al 100%."
+        ,
+        "title2": " Il nostro database è aggiornato!",
+        "services2": " I database su cui effettuiamo le query tramite la nostra API vengono costantemente aggiornati per fornire le informazioni più attuali possibili."
+        ,
+        "title3": " Cerchiamo in tutti gli archivi e database ",
+        "services3": " La nostra API è la più completa ed estraiamo dati da tutti i registri, file amministrativi, social network, aziende, registro di proprietà, elenchi..."
+        
+    },
+
+    "call_to_action": {
+        "give_us": " Dacci un ",
+        "name": " nome ",
+        "and_we": " e faremo il resto ",
+        "we_search": " Ricerca in database aggiornati.",
+        "api_data": " Dati da API professionali per filtrare le informazioni sulla persona che stai cercando.",
+        "search_social": " Ricerca su tutti i social media.",
+        "search_engines": " Ricerca su tutti i motori di ricerca esistenti.",
+        "search_internet": " Esploriamo internet da cima a fondo.",
+        "public_records": " Possibili registri pubblici.",
+        "news": " Controlliamo notizie e pubblicazioni casuali."
+    },
+
+    "counter": {
+        "total_searchs": " Ricerche totali ",
+        "total_results": " Risultati totali ",
+        "success_rate": " Tasso di successo medio "
+    },
+
+    "why_us": {
+        "title": " Perché Find-Persons? ",
+        "find_person": " Trovare ",
+        "priority": " la persona che stai cercando ",
+        "is_our": " è la nostra priorità ",
+        "high_performance": " Prestazioni elevate ",
+        "in_seconds": " In pochi secondi ti mostreremo i risultati della tua ricerca. ",
+        "efficiency": " Efficienza e sicurezza ",
+        "person_found": " Troveremo la persona che stai cercando con una precisione media del 94%, otterrai sempre risultati ",
+        "unlimited_downloads": " Download e query illimitate",
+        "always_consult": " Puoi consultare i risultati delle tue ricerche ogni volta che vuoi e scaricare report in vari formati. "
+    },
+
+    "testimonials": {
+        "thanks1": " Grazie al servizio sono riuscito a trovare mia sorella biologica, grazie mille! ",
+        "thanks2": " Lo strumento mi ha fornito più informazioni di quanto mi aspettassi, sono rimasto sorpreso nel vedere tutti i dati che ho ottenuto. ",
+        "name1": "Ismael L. ",
+        "entry_footer1": " Ricerca di profili sui social media",
+        "name2": "Manuel G. ",
+        "entry_footer2": " Ricerca genealogica "
+    },
+
+    "prices": {
+        "ours": " Le nostre ",
+        "offers": " tariffe ",
+        "trial_price": " 0,60€ ",
+        "trial_text": " Prova di 24 ore | Mensile a ",
+        "subscription_price": " 49,90€ ",
+        "info_text": " Il nostro piano unico è un abbonamento mensile di 49,90€ con la possibilità di annullare entro 24 ore al costo di 0,60€ "
+    },
+
+    "contact": {
+        "contact_with_us": " Contattaci. ",
+        "contact_text": " Risponderemo alla tua richiesta nel più breve tempo possibile, Il nostro team di professionisti si occuperà di esaminare la tua richiesta. ",
+        "name": " Nome ",
+        "email": " Email ",
+        "phone": " Telefono ",
+        "message": " Messaggio ",
+        "please_confirm": " Si prega di confermare di accettare la nostra ",
+        "politics": " Politica sulla privacy ",
+        "and_the": " e i ",
+        "terms": " Termini e condizioni ",
+        "send": "Invia",
+        "do_reclaim": " HAI UN RECLAMO O UNA RICHIESTA TECNICA?",
+        "reclaim_info": " Contattaci direttamente, l'assistenza è diretta e molto rapida.",
+        "we_will_help": " Saremo lieti di assisterti, ",
+        "use_the": " usa questo modulo o scrivici a ",
+        "domain": " support@find-persons.com "
+    },
+
+    "footer": {
+        "professional_searcher": " Motore di ricerca professionale di persone. ",
+        "important_links": " Collegamenti importanti",
+        "privacy_policies": " Politiche sulla privacy ",
+        "cookies_policies": " Politiche sui cookie ",
+        "terms_and_conditions": " Termini e condizioni ",
+        "legal_notice": " Avviso legale ",
+        "right_to_be_forgotten": " Diritto all'oblio "
+    },
+
+    "search_page": {
+        "we_searching": " Stiamo cercando ",
+        "in_the": " In tutti i record. ",
+        "socials": " Social media ",
+        "work": " Dati aziendali ",
+        "address": " Indirizzo di residenza ",
+        "telephone": " Numeri di telefono ",
+        "email": " Indirizzi email ",
+        "news": " Notizie ",
+        "histories": " Ultime storie ",
+        "title_accounts": " Tracciamento di Profili ",
+        "accounts_description": " Trova report dettagliati sulle persone, inclusi dati di contatto, storia personale, collegamenti professionali e ampi registri pubblici. ",
+        "title_location": " Localizzazione degli Indirizzi ",
+        "location_description": " Accedi rapidamente agli indirizzi attuali e precedenti delle persone, determinando se sono proprietari o inquilini, tramite il nostro strumento di ricerca. ",
+        "title_explore": " Esplorazione sui Social Media ",
+        "explore_description": " Indaga sui profili online, inclusa l'attività sui social media e le piattaforme di incontri, con il nostro strumento di ricerca di profili pubblici e nascosti. "
+    },
+
+    "register": {
+        "title": "Registrati",
+        "subtitle": "Per ottenere il report.",
+        "free": "Gratis",
+        "accept_the": "Accetto i ",
+        "terms_and_conditions": "termini e condizioni",
+        "of_service": "del servizio.",
+        "placeholder_email": "Email",
+        "placeholder_password": "Password",
+        "example_email": "Esempio: miusuario@mail.com",
+        "min_password": "Almeno 6 caratteri",
+        "register_free": "Registrati gratuitamente",
+        "register_google": "Accedi con Google",
+        "have_account": "Hai già un account?",
+        "login": "Accedi",
+        "register_success": "Registrazione completata",
+        "register_error": "Devi accettare i termini e le condizioni del servizio.",
+        "register_error_email": "Email non valida",
+        "register_error_password": "Password non valida (minimo 6 caratteri)",
+        "register_error_email_in_use": "Questa email è già in uso",
+        "register_error_account_exists": "L'account esiste già con credenziali diverse.",
+        "we_founded": "L'abbiamo trovato! ",
+        "we_have_report": "abbiamo un",
+        "complete_report": "rapporto completo",
+        "of_profile": "del suo profilo.",
+        "register_to_see": "Registrati gratuitamente per visualizzare o scaricare il rapporto completo.",
+        "register_accept": "Registrandoti accetti i ",
+        "register_terms": "termini e condizioni del servizio.",
+        "register_no_user_holder": "Registrati gratuitamente per ottenere un rapporto, <br />di qualsiasi persona tu voglia cercare.<br />Registrandoti accetti i termini e condizioni del servizio."
+    },
+
+    "login": {
+        "title": "Accedi",
+        "session": "sessione",
+        "init_session": "Inizia sessione",
+        "subtitle": "Effettua l'accesso per continuare la ricerca.",
+        "email_placeholder": "Email",
+        "password_placeholder": "Password",
+        "accept_the": "Accetto i ",
+        "terms_and_conditions": " termini e condizioni ",
+        "of_service": "del servizio.",
+        "login": "Accedi",
+        "no_account": "Non hai un account?",
+        "register_link": "Registrati gratuitamente",
+        "example_email": "Esempio: miusuario@mail.com",
+        "password_min": "Almeno 6 caratteri",
+        "success": "Accesso riuscito.",
+        "error": "L'utente non esiste o la password è errata.",
+        "error_many_requests": "Troppi tentativi di accesso. Devi aspettare 20 minuti per riprovare.",
+        "login_info": "Effettua l'accesso per visualizzare il rapporto completo."
+    },
+
+    "payment": {
+        "title": "Tutto pronto!",
+        "sub_title": "Abbiamo preparato un rapporto completo su ciò che stai cercando, ora devi solo effettuare il pagamento per poterci accedere.",
+        "service_title": "Rapporto dei risultati",
+        "service_description1": "Il tuo rapporto di ricerca completo, disponibile online.",
+        "service_description2": "Sblocca tutte le informazioni sulla persona che stai cercando.",
+        "service_description3": "I nostri database sono aggiornati.",
+        "service_description4": "Ricerche illimitate.",
+        "total_to_pay": "Totale da pagare: ",
+        "total_price": " 0,60€",
+        "time_access": " Accesso al servizio per 24 ore.",
+        "name_placeholder": "Nome del titolare.",
+        "name_help": "Nome del titolare della carta.",
+        "cards_accept": "Accettiamo visa, mastercard e american express, il tuo pagamento è protetto da",
+        "secure_3ds": " 3Ds Secure",
+        "accept_terms": "Accettando il pagamento accetti il nostro servizio per un abbonamento mensile di 49,90€ con la possibilità di annullare entro 24 ore al costo di 0,60€, potendo annullare in qualsiasi momento.",
+        "secure_payment": "Pagamento sicuro",
+        "secure_payment_description": "Sul tuo estratto conto bancario apparirà ",
+        "domain_name": "find-persons.com",
+        "contact_info": "Puoi contattare il nostro servizio clienti le ",
+        "contact_info_hours": " 24 ore",
+        "contact_info_email": "support@find-perdons.com",
+        "btn_contact": " Contattare" 
+    },
+
+    "results": {
+        "results": " Risultati ",
+        "results_of": " Risultati di ",
+        "loading": " Caricamento... ",
+        "is_not_people": " Questa non è la persona che stai cercando? ",
+        "try_search": " Riprova la ricerca ",
+        "general_description": " Descrizione generale ",
+        "male": " Maschio ",
+        "female": " Femmina ",
+        "born_male": " Nato ",
+        "born_female": " Nata ",
+        "he": " lui ",
+        "actually": " che attualmente risiede a ",
+        "contact_info": " Informazioni di contatto ",
+        "mobile_phone": " Telefono cellulare: ",
+        "home_phone": " Telefono fisso: ",
+        "personal_email": " Email personale: ",
+        "location": " Posizione: ",
+        "download_complete_info": " Scarica il rapporto completo ",
+        "download_pdf": " Scarica PDF ",
+        "download_text_info": " Scaricando un rapporto completo, accetti i termini e le condizioni sull'uso delle informazioni, così come la politica sulla privacy del servizio. "
+    },
+
+    "thanks_page": {
+        "thanks": " Abbiamo ricevuto la tua richiesta, ti invieremo presto una email di conferma. ",
+        "thanks_fp": " Grazie per aver fiducia in Find-Persons. ",
+        "redirect_in": " Sarai reindirizzato in ",
+        "seconds": " secondi... "
+    },
+
+    "tefpay_error": {
+        "title": "Errore nel pagamento",
+        "text": "Si è verificato un errore nel pagamento, ti preghiamo di riprovare.",
+        "please_wait": "Per favore aspetta qualche secondo, stiamo elaborando la tua richiesta.",
+        "error": "Errore: "
+    }
+}
