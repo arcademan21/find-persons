@@ -85,7 +85,12 @@ const Searcher = () => {
             }
                 
             else{ 
-                window.location.replace(`${extension}/search`)
+                if( extension !== null && extension !== '' ){
+                    window.location.replace(`${extension}/search`)
+                }
+                else{
+                    window.location.replace('/search')
+                }
             }
 
         }
