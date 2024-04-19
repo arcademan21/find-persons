@@ -4,19 +4,93 @@ import GlobalContext from '../context/GlobalContext'
 import './css/home-sections.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import { toast } from 'react-toastify'
+import { set } from 'firebase/database'
 
 const HomeSections = () => {
 
     const context = useContext(GlobalContext)
     const { state, setState } = context
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
+    const [terms, setTerms] = useState(false)
+    const path_endpoint = process.env.NEXT_PUBLIC_PATH_ENDPOINT
+
+    const handle_contact_form_terms = ( element ) => {
+        if( element.checked ) {
+            element.setAttribute('value', '1')
+            setTerms(true)
+        } else {
+            element.setAttribute('value', '0')
+            setTerms(false)
+        }
+    }
+
+    const sendContactEmail = async (e) => {
+
+        e.preventDefault()
+
+        try{
+
+            if( !terms ) {
+                toast.error( language.contact.response_please_confirm )
+                return false
+            }
+
+            // Form data
+            const form = document.getElementById('contact-form')
+            const formData = new FormData(form)
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                message: formData.get('message')
+            }
+
+            // Fetch to endpoint for get payment
+            const req = await fetch( path_endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    "petition" : {
+                        "name": "send_email_contact",
+                        "data": {
+                            "send_email_contact": {
+                                "name": data.name,
+                                "phone": data.phone,
+                                "email": data.email,
+                                "message": data.message,
+                                "type": "contact"
+                            }
+                        }
+                    }
+                })
+            })
+            
+            const res = await req.json()
+            
+            form.reset()
+            
+            if( res.status === 'error' ) {
+                toast.error( language.contact.response_message_error )
+            }
+            
+            else if( res.status === 'success' ) {
+                toast.success( language.contact.response_message_success )
+            }
+    
+        } catch ( error ) {
+            form.reset()
+            toast.error( language.contact.response_message_error )
+        }
+        
+        return false
+
+    }
     
     useEffect(() => {
 
         setLanguage(JSON.parse(localStorage.getItem('language_file')))
         
-        
-
     }, [ state ] )
 
     return (<>
@@ -307,25 +381,27 @@ const HomeSections = () => {
                     
                 <div>
                     
-                    <form id="contact-form" method="post">
+                    <form id="contact-form" method="post" onSubmit={ async ( event ) => {
+                        return await sendContactEmail( event )
+                    }}>
                         
                         <div className="form-group mb-3">
-                            <input type="text" className="form-control" id="nombre" name="nombre" placeholder={`${language.contact.name}: `} required />
+                            <input type="text" className="form-control" id="name" name="name" placeholder={`${language.contact.name}: `} required />
                         </div>
                         
                         <div className="form-group mb-3">
-                            <input type="text" className="form-control" id="telefono" name="telefono" placeholder={`${language.contact.phone}: `}   
+                            <input type="text" className="form-control" id="phone" name="phone" placeholder={`${language.contact.phone}: `}   
                             required />
                         </div>
                         
                         <div className="form-group mb-3">
-                            <input type="email" className="form-control" id="correo" name="correo" 
+                            <input type="email" className="form-control" id="email" name="email" 
                             placeholder={`${language.contact.email}: `} 
                             required />
                         </div>
                         
                         <div className="form-group mb-3">
-                            <textarea className="form-control" id="mensaje" name="mensaje" rows="3" placeholder={`${language.contact.message}: `}
+                            <textarea className="form-control" id="message" name="message" rows="3" placeholder={`${language.contact.message}: `}
                             required>
 
                             </textarea>
@@ -338,7 +414,7 @@ const HomeSections = () => {
                                 
                             
                             <div>
-                                <input type="checkbox" name="terminos" className="m-1" required value="1" />
+                                <input type="checkbox" name="terminos" className="m-1" required value="1" id="terms_contact_form" onChange={( event )=>{ return handle_contact_form_terms( event.currentTarget ) } } />
                                 {language.contact.please_confirm}
                                 <a href="/privacy-policies"> {language.contact.politics}
                                 </a> 
