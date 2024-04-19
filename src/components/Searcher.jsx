@@ -113,6 +113,7 @@ const Searcher = () => {
     }, [state])
 
     useEffect(() => {
+        localStorage.setItem('search', null)
         setOption( localStorage.getItem('search_type'))
         setType( localStorage.getItem('search_type'))
     }, [setType, option, language])

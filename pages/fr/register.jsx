@@ -16,7 +16,7 @@ const Register = () => {
     const extension = localStorage.getItem('extencion')
 
     const user = JSON.parse( localStorage.getItem('user') )
-    const search = localStorage.getItem('search').toString()
+    const search = localStorage.getItem('search')
     const suscription = localStorage.getItem('suscription')
 
     const [ error, setError ] = useState( null )
@@ -153,8 +153,8 @@ const Register = () => {
             window.location.replace(extension)
         }
 
-        if( !search ) {
-            window.location.replace('/')
+        if( search === null ) {
+            window.location.replace(extension)
         }
 
     }, [])

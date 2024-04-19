@@ -152,9 +152,10 @@ const Register = () => {
             window.location.replace(extension)
         }
 
-        if( !search ) {
-            window.location.replace('/')
+        if( search === null ) {
+            window.location.replace(extension)
         }
+        
     }, [])
 
     useEffect(() => {

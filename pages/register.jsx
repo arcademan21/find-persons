@@ -151,8 +151,8 @@ const Register = () => {
             window.location.replace('/')
         }
 
-        if( !search ) {
-            window.location.replace('/')
+        if( search === null ) {
+            window.location.replace(extension)
         }
     }, [])
 
