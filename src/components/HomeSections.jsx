@@ -13,7 +13,7 @@ const HomeSections = () => {
     const { state, setState } = context
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
     const [terms, setTerms] = useState(false)
-    const path_endpoint = process.env.NEXT_PUBLIC_PATH_ENDPOINT
+    const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 
     const handle_contact_form_terms = ( element ) => {
         if( element.checked ) {
