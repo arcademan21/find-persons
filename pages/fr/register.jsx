@@ -32,14 +32,14 @@ const Register = () => {
 
         loadingButton.setAttribute('disabled', 'true')
         loadingButton.innerHTML = `
-            <i class="fas fa-spinner fa-spin fs-2 mx-2 fs-5 mx-1">
+            <i className="fas fa-spinner fa-spin fs-2 mx-2 fs-5 mx-1">
             </i>Porfavor espere...
         `
 
         if( !terms.checked ) {
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = `
-                <i class="fas fa-user-plus fs-2 mx-2 fs-5 mx-1"></i>
+                <i className="fas fa-user-plus fs-2 mx-2 fs-5 mx-1"></i>
                 Registrarse gratis
             `
             toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
@@ -51,7 +51,7 @@ const Register = () => {
         .then( ( UserCredential ) => { 
             loadingButton.setAttribute('disabled', 'true')
             loadingButton.innerHTML = `
-                <i class="fas fa-check fs-2 mx-2 fs-5 mx-1 text-success">
+                <i className="fas fa-check fs-2 mx-2 fs-5 mx-1 text-success">
                 </i>Registro exitoso
             `
             setSuccess( true )
@@ -89,7 +89,7 @@ const Register = () => {
 
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = `
-                <i class="fas fa-user-plus fs-2 mx-2 fs-5 mx-1"></i>
+                <i className="fas fa-user-plus fs-2 mx-2 fs-5 mx-1"></i>
                 Registrarse gratis
             `
 
@@ -148,9 +148,15 @@ const Register = () => {
     }
 
     useEffect(()=>{
+        
         if( user ){
             window.location.replace(extension)
         }
+
+        if( !search ) {
+            window.location.replace('/')
+        }
+
     }, [])
 
     useEffect(() => {

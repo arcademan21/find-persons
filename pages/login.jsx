@@ -30,7 +30,7 @@ const Login = ( ) => {
 
         loadingButton.setAttribute('disabled', 'true')
         loadingButton.innerHTML = `
-            <i class="fas fa-spinner fa-spin fs-2 mx-2 fs-5 mx-1">
+            <i className="fas fa-spinner fa-spin fs-2 mx-2 fs-5 mx-1">
             </i>Porfavor espere...
         `
         if( !terms.checked ) {
@@ -39,7 +39,7 @@ const Login = ( ) => {
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = `
                 Iniciar sesión
-                <i class="fas fa-sign-in-alt fs-2 mx-2 fs-5 mx-1"></i>
+                <i className="fas fa-sign-in-alt fs-2 mx-2 fs-5 mx-1"></i>
             `
 
             return false
@@ -58,9 +58,12 @@ const Login = ( ) => {
             }
 
             showSuccesToast().then(() => {
-                if ( search ) 
+                
+                /*if ( search ) 
                     window.location.replace('/search')
-                else window.location.replace('/')
+                else */
+                
+                window.location.replace('/')
             })
 
         }).catch((error) => {
@@ -80,7 +83,7 @@ const Login = ( ) => {
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = `
                 Iniciar sesión
-                <i class="fas fa-sign-in-alt fs-2 mx-2 fs-5 mx-1"></i>
+                <i className="fas fa-sign-in-alt fs-2 mx-2 fs-5 mx-1"></i>
             `
 
         })

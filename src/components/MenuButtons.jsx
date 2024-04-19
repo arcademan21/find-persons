@@ -106,7 +106,7 @@ const MenuButtons = () => {
                 <i className="fas fa-user fs-6 mx-1"></i>
                 <b className='marked'>
                   <span data-section="nav_bar" data-value="profile">
-                    <b class='marked'>
+                    <b className='marked'>
                       {language.nav_bar.profile}
                     </b>
                     

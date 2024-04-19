@@ -4,7 +4,6 @@ import GlobalContext from '@/context/GlobalContext'
 import VantaGlobe from '@/components/VantaGlobe'
 import './css/search.css'
 import Image from 'next/image'
-import { redirect } from "next/dist/server/api-utils"
 import Loader from '@/components/Loader'
 
 const Search = () => {
@@ -171,7 +170,7 @@ const Search = () => {
                     </h1>
 
                     <div className="animate_search shadow border rounded">
-                        <Image src="/images/mapa_anime.gif" class="rounded" alt="" width={100} height={100} layout="responsive" />
+                        <Image src="/images/mapa_anime.gif" className="rounded" alt="" width={100} height={100} layout="responsive" />
                     </div>
 
                     <div className={`wrapper ${activeClass}`}>

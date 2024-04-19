@@ -26,8 +26,8 @@ const LanguageSwitcher = () => {
         
 
         const switchLanguage = async ( e, lang=null, selector=false ) => {
-                
-                if( selector ) return false
+                //debugger
+                // if( selector ) return false
                 if( lang === null ) lang = e.target.getAttribute('data-language') 
                 if( lang === null ) return false
                 
@@ -127,42 +127,42 @@ const LanguageSwitcher = () => {
                     
                     <div className="menu-languages-item border shadow rounded ">
                         <div className='d-flex flex-column align-items-center image-content' >
-                            <Image src={`/languajes/flags/es.svg`} alt="Español" className="flag rounded w-100 px-1" data-language="es" onClick={ switchLanguage } width={100} height={100} />
+                            <Image src={`/languajes/flags/es.svg`} alt="Español" className="flag rounded w-100 px-1" data-language="es" onClick={ switchLanguage } width={100} height={70} />
                             Español
                         </div>
                     </div>
 
                     <div className="menu-languages-item border shadow rounded ">
                         <div className='d-flex flex-column align-items-center image-content'>
-                            <Image src={`/languajes/flags/us.svg`} alt="Ingles" className="flag rounded w-100 px-1" data-language="us" onClick={ switchLanguage } width={100} height={100} />
+                            <Image src={`/languajes/flags/us.svg`} alt="Ingles" className="flag rounded w-100 px-1" data-language="us" onClick={ switchLanguage } width={100} height={70} />
                             Ingles
                         </div>
                     </div>
 
                     <div className="menu-languages-item border shadow rounded ">
                         <div className='d-flex flex-column align-items-center image-content'>
-                            <Image src={`/languajes/flags/it.svg`} alt="Italiano" className="flag rounded w-100 px-1" data-language="it" onClick={ switchLanguage } width={100} height={100} />
+                            <Image src={`/languajes/flags/it.svg`} alt="Italiano" className="flag rounded w-100 px-1" data-language="it" onClick={ switchLanguage } width={100} height={70} />
                             Italiano
                         </div>  
                     </div>
 
                     <div className="menu-languages-item border shadow rounded ">
                         <div className='d-flex flex-column align-items-center image-content'>
-                            <Image src={`/languajes/flags/fr.svg`} alt="Frances" className="flag rounded w-100 px-1" data-language="fr" onClick={ switchLanguage } width={100} height={100} />
+                            <Image src={`/languajes/flags/fr.svg`} alt="Frances" className="flag rounded w-100 px-1" data-language="fr" onClick={ switchLanguage } width={100} height={70} />
                             Frances
                         </div>
                     </div>
 
                     <div className="menu-languages-item border shadow rounded ">
                         <div className='d-flex flex-column align-items-center image-content'>
-                            <Image src={`/languajes/flags/pt.svg`} alt="Portugues" className="flag rounded w-100 px-1" data-language="pt" onClick={ switchLanguage } width={100} height={100} />
+                            <Image src={`/languajes/flags/pt.svg`} alt="Portugues" className="flag rounded w-100 px-1" data-language="pt" onClick={ switchLanguage } width={100} height={70} />
                             Portugues
                         </div>
                     </div>
 
                     <div className="menu-languages-item border shadow rounded ">
                         <div className='d-flex flex-column align-items-center image-content'>
-                            <Image src={`/languajes/flags/de.svg`} alt="Aleman" className="flag rounded w-100 px-1" data-language="de" onClick={ switchLanguage } width={100} height={100} />
+                            <Image src={`/languajes/flags/de.svg`} alt="Aleman" className="flag rounded w-100 px-1" data-language="de" onClick={ switchLanguage } width={100} height={70} />
                             Aleman
                         </div>
                     </div>
