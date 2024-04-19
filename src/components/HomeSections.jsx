@@ -52,9 +52,9 @@ const HomeSections = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     "petition" : {
-                        "name": "send_email_contact",
+                        "name": "send_user_contact_email",
                         "data": {
-                            "send_email_contact": {
+                            "send_user_contact_email": {
                                 "name": data.name,
                                 "phone": data.phone,
                                 "email": data.email,
