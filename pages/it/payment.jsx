@@ -57,7 +57,7 @@ const Payment = () => {
     useEffect(() => {
         
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
-        
+        if( search === null ) window.location.replace('/')
 
     }, [])
 

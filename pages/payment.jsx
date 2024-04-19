@@ -44,7 +44,7 @@ const Payment = () => {
     const { state } = context
 
     const user = JSON.parse(localStorage.getItem('user'))
-    const search = localStorage.getItem('search').toString()
+    const search = localStorage.getItem('search')
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
 
     const isSuscripted = async ( user ) => {
@@ -54,6 +54,7 @@ const Payment = () => {
     
     
     useEffect(() => {
+        if( search === null ) window.location.replace('/')
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
         
     }, [])
