@@ -79,7 +79,6 @@ const HomeSections = () => {
             }
     
         } catch ( error ) {
-            form.reset()
             toast.error( language.contact.response_message_error )
         }
         
