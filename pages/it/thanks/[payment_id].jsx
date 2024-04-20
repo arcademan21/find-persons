@@ -130,7 +130,7 @@ const ThanksPage = () => {
             if( counter === 0 ) {
                 
                 // Redirigiendo a la pagina de resultados
-                window.location.replace(`${extension}/results`)
+                // window.location.replace(`${extension}/results`)
                 clearInterval( time )
 
             }
@@ -146,14 +146,14 @@ const ThanksPage = () => {
         validatePayment().then(res => {
             
             if( !res ) {
-                window.location.replace(extension)
+                //window.location.replace(extension)
                 return false
             }
             
             const country = localStorage.getItem('language')
             CreateNewUser( user, country ).then( res => {
                 if( !res ) {
-                    window.location.replace(extension)
+                    //window.location.replace(extension)
                     return false
                 }
     
@@ -161,7 +161,7 @@ const ThanksPage = () => {
                 .then( res => {
                     
                     if( !res ) {
-                        window.location.replace(extension)
+                        //window.location.replace(extension)
                         return false
                     }
     
@@ -188,7 +188,7 @@ const ThanksPage = () => {
     }, [counter])
 
     if( !tefpay_token ) {
-        window.location.replace(extension)
+        //window.location.replace(extension)
         return false
     }
 
