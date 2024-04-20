@@ -28,7 +28,6 @@ const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
-        console.log(res)
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
@@ -65,7 +64,6 @@ const CreateNewUser = async ( user, country ) => {
         })
         
         const res = await req.json()
-        console.log(res)
         if( res.status === 'error' ) return false
             
     } catch ( error ) {
@@ -98,7 +96,6 @@ const UpdateSuscription = async ( user, suscription ) => {
         })
 
         const res = await req.json()
-        console.log(res)
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
@@ -132,7 +129,7 @@ const ThanksPage = () => {
             if( counter === 0 ) {
                 
                 // Redirigiendo a la pagina de resultados
-                // window.location.replace('/results')
+                window.location.replace('/results')
                 clearInterval( time )
 
             }
@@ -148,8 +145,7 @@ const ThanksPage = () => {
         validatePayment().then(res => {
             
             if( !res ) {
-                console.log('1', res)
-                //window.location.replace('/')
+                window.location.replace('/')
                 return false
             }
             
@@ -157,16 +153,14 @@ const ThanksPage = () => {
             CreateNewUser( user, country ).then( res => {
                 
                 if( !res ) {
-                    console.log('2', res)
-                    //window.location.replace('/')
+                    window.location.replace('/')
                     return false
                 }
     
                 UpdateSuscription( user, { payment_id: payment_id } )
                 .then( res => {
-                    console.log('3', res)
                     if( !res ) {
-                        //window.location.replace('/')
+                        window.location.replace('/')
                         return false
                     }
     
