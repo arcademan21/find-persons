@@ -37,10 +37,10 @@ const ExistsPayment = async ( payment_id ) => {
     return true
 }
 
-const CreateNewUser = async ( user, country ) => {
+const CreateNewUser = async ( user ) => {
     
     const country = localStorage.getItem('language')
-    
+
     try{
         
         // Fetch to endpoint for get payment
