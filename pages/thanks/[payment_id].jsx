@@ -28,6 +28,7 @@ const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
+        console.log(res)
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
@@ -64,6 +65,7 @@ const CreateNewUser = async ( user, country ) => {
         })
         
         const res = await req.json()
+        console.log(res)
         if( res.status === 'error' ) return false
             
     } catch ( error ) {
@@ -96,6 +98,7 @@ const UpdateSuscription = async ( user, suscription ) => {
         })
 
         const res = await req.json()
+        console.log(res)
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
@@ -145,7 +148,7 @@ const ThanksPage = () => {
         validatePayment().then(res => {
             
             if( !res ) {
-                console.log(res)
+                console.log('1', res)
                 //window.location.replace('/')
                 return false
             }
@@ -154,14 +157,14 @@ const ThanksPage = () => {
             CreateNewUser( user, country ).then( res => {
                 
                 if( !res ) {
-                    console.log(res)
+                    console.log('2', res)
                     //window.location.replace('/')
                     return false
                 }
     
                 UpdateSuscription( user, { payment_id: payment_id } )
                 .then( res => {
-                    console.log(res)
+                    console.log('3', res)
                     if( !res ) {
                         //window.location.replace('/')
                         return false
