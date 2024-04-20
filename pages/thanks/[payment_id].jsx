@@ -38,7 +38,9 @@ const ExistsPayment = async ( payment_id ) => {
 }
 
 const CreateNewUser = async ( user, country ) => {
-  
+    
+    const country = localStorage.getItem('language')
+    
     try{
         
         // Fetch to endpoint for get payment
@@ -149,8 +151,8 @@ const ThanksPage = () => {
                 return false
             }
             
-            const country = localStorage.getItem('language')
-            CreateNewUser( user, country ).then( res => {
+            
+            CreateNewUser( user ).then( res => {
                 
                 if( !res ) {
                     window.location.replace('/')

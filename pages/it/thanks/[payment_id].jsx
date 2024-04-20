@@ -144,19 +144,18 @@ const ThanksPage = () => {
     useEffect(()=>{
         
         const country = localStorage.getItem('language')
-        console.log( country )
         
         validatePayment().then(res => {
             
             if( !res ) {
-                //window.location.replace(extension)
+                window.location.replace(extension)
                 return false
             }
             
             
             CreateNewUser( user, country ).then( res => {
                 if( !res ) {
-                    //window.location.replace(extension)
+                    window.location.replace(extension)
                     return false
                 }
     
@@ -164,7 +163,7 @@ const ThanksPage = () => {
                 .then( res => {
                     
                     if( !res ) {
-                        //window.location.replace(extension)
+                        window.location.replace(extension)
                         return false
                     }
     
@@ -191,7 +190,7 @@ const ThanksPage = () => {
     }, [counter])
 
     if( !tefpay_token ) {
-        //window.location.replace(extension)
+        window.location.replace(extension)
         return false
     }
 

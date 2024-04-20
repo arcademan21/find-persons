@@ -37,7 +37,9 @@ const ExistsPayment = async ( payment_id ) => {
     return true
 }
 
-const CreateNewUser = async ( user, country ) => {
+const CreateNewUser = async ( user ) => {
+
+    const country = localStorage.getItem('language')
   
     try{
         
@@ -150,8 +152,8 @@ const ThanksPage = () => {
                 return false
             }
             
-            const country = localStorage.getItem('language')
-            CreateNewUser( user, country ).then( res => {
+            
+            CreateNewUser( user ).then( res => {
                 if( !res ) {
                     window.location.replace(extension)
                     return false
