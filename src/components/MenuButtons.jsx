@@ -13,7 +13,7 @@ const MenuButtons = () => {
     const { state } = useContext( GlobalContext )
 
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
-    const [isHome, setIsHome ] = useState( null)
+    const [isHome, setIsHome ] = useState( null )
     const activeMenu = JSON.parse(localStorage.getItem('menu')).menu.active_links
     
     const handle_contact = () => {
@@ -66,7 +66,8 @@ const MenuButtons = () => {
 
         setLanguage(JSON.parse(localStorage.getItem('language_file')))
 
-        if( pathname === extension ) setIsHome(true) 
+        if( extension === '/es' ) setIsHome(true)
+        else if( pathname === extension ) setIsHome(true) 
         
         
     }, [state, pathname])
