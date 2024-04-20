@@ -51,30 +51,31 @@ const Payment = () => {
         return await IsSuscripted( user )
     }
     
-    
-    
     useEffect(() => {
-        if( search === null ) window.location.replace('/')
-        setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
         
+        setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
+        if( !user ) {
+            window.location.replace('/')
+            return null
+        }
+
+        else {
+            let asyncRequest = async () => {
+                return await isSuscripted( user ).then( res => {
+                    if( res ){
+                        window.location.replace('/')
+                        return null
+                    }
+                })  
+            }
+            asyncRequest()
+        }
+
     }, [])
 
-    if( !user ) {
-        window.location.replace('/')
-        return null
-    }
+    
 
-    else {
-        let asyncRequest = async () => {
-            return await isSuscripted( user ).then( res => {
-                if( res ){
-                    window.location.replace('/')
-                    return null
-                }
-            })  
-        }
-        asyncRequest()
-    }
+    
     
     return (<>
         

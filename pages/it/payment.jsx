@@ -57,26 +57,26 @@ const Payment = () => {
     useEffect(() => {
         
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
-        if( search === null ) window.location.replace('/')
+        if( !user ) {
+            window.location.replace(extension)
+            return null
+        }
+    
+        else {
+            let asyncRequest = async () => {
+                return await isSuscripted( user ).then( res => {
+                    if( res ){
+                        window.location.replace(extension)
+                        return null
+                    }
+                })  
+            }
+            asyncRequest()
+        }
 
     }, [])
 
-    if( !user ) {
-        window.location.replace(extension)
-        return null
-    }
-
-    else {
-        let asyncRequest = async () => {
-            return await isSuscripted( user ).then( res => {
-                if( res ){
-                    window.location.replace(extension)
-                    return null
-                }
-            })  
-        }
-        asyncRequest()
-    }
+    
     
     
     
