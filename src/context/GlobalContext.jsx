@@ -63,7 +63,7 @@ export const GlobalProvider = ( { children } ) => {
 
       return res
 
-  }, [localStorage])
+  }, [])
 
   const SettinUser = useCallback( async () => {
 
