@@ -58,11 +58,6 @@ const Login = ( ) => {
             }
 
             showSuccesToast().then(() => {
-                
-                /*if ( search ) 
-                    window.location.replace('/search')
-                else */
-                
                 window.location.replace('/')
             })
 

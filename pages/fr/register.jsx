@@ -153,7 +153,7 @@ const Register = () => {
             window.location.replace(extension)
         }
 
-        if( search === null ) {
+        if( search === 'null' ) {
             window.location.replace(extension)
         }
 

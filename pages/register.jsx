@@ -115,7 +115,7 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if ( search && suscription === 'true' ) 
+                if ( suscription === 'true' ) 
                     window.location.replace('/results')
                 else if( suscription === 'false') 
                     window.location.replace('/payment')
@@ -147,13 +147,15 @@ const Register = () => {
     }
 
     useEffect(()=>{
+        
         if( user ){
             window.location.replace('/')
         }
 
-        if( search === null ) {
-            window.location.replace(extension)
+        if( search === 'null' ) {
+            window.location.replace('/')
         }
+
     }, [])
 
     useEffect(() => {
