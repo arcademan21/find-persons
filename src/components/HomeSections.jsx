@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useContext, useRef } from 'react'
 import GlobalContext from '../context/GlobalContext'
 import './css/home-sections.css'
 import Image from 'next/image'
@@ -9,10 +9,12 @@ import ReCAPTCHA from 'react-google-recaptcha'
 
 const HomeSections = () => {
 
+    const recaptcha = useRef()
     const context = useContext(GlobalContext)
     const { state, setState } = context
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
     const [terms, setTerms] = useState(false)
+    const [type, setType] = useState('contact')
     const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 
     const handle_contact_form_terms = ( element ) => {
@@ -29,12 +31,18 @@ const HomeSections = () => {
 
         e.preventDefault()
 
-        try{
+        if( terms === '0' ) {
+            toast.error( language.contact.response_please_confirm )
+            return false
+        }
 
-            if( !terms ) {
-                toast.error( language.contact.response_please_confirm )
-                return false
-            }
+        const captchaValue = recaptcha.current.getValue()
+        if ( !captchaValue ) {
+            toast.error( language.contact.response_captcha_error )
+            return false
+        } 
+
+        try{
 
             // Form data
             const form = document.getElementById('contact-form')
@@ -59,7 +67,7 @@ const HomeSections = () => {
                                 "phone": data.phone,
                                 "email": data.email,
                                 "message": data.message,
-                                "type": "contact"
+                                "type": type
                             }
                         }
                     }
@@ -399,6 +407,16 @@ const HomeSections = () => {
                             placeholder={`${language.contact.email}: `} 
                             required />
                         </div>
+
+                        <div className="form-group mb-3">
+                            <select className="form-control" id="type" name="type" onChange={(e)=>{
+                                setType(e.target.value)
+                            }} required >
+                                <option value="contact">{language.contact.type_contact}</option>
+                                <option value="help">{language.contact.type_help}</option>
+                                <option value="claim">{language.contact.type_claim}</option>
+                            </select>
+                        </div>
                         
                         <div className="form-group mb-3">
                             <textarea className="form-control" id="message" name="message" rows="3" placeholder={`${language.contact.message}: `}
@@ -414,7 +432,7 @@ const HomeSections = () => {
                                 
                             
                                     <div>
-                                        <input type="checkbox" name="terminos" className="m-1" required value="1" id="terms_contact_form" onChange={( event )=>{ return handle_contact_form_terms( event.currentTarget ) } } />
+                                        <input type="checkbox" name="terminos" className="m-1"  value="0" id="terms_contact_form" onChange={( event )=>{ return handle_contact_form_terms( event.currentTarget ) } } required />
                                         {language.contact.please_confirm}
                                         <a href="/privacy-policies"> {language.contact.politics}
                                         </a> 
@@ -423,7 +441,10 @@ const HomeSections = () => {
                                         </a>.
                                         </div>
                                         <div className="d-flex justify-content-center">
-                                            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_GRECAPTCHA_SITE_PUBLIC_KEY} />
+                                            <ReCAPTCHA ref={recaptcha} sitekey={process.env.NEXT_PUBLIC_GRECAPTCHA_SITE_PUBLIC_KEY} />
+                                        </div>
+                                        <div className="d-flex justify-content-center">
+                                           
                                             <button type="submit" className="btn btn-primary w-50 my-3">
                                                 {language.contact.send}
                                             </button>
