@@ -11,6 +11,7 @@ const HomeSections = () => {
 
     const recaptcha = useRef()
     const context = useContext(GlobalContext)
+    const extension = localStorage.getItem('extencion')
     const { state, setState } = context
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
     const [terms, setTerms] = useState(false)
@@ -67,7 +68,8 @@ const HomeSections = () => {
                                 "phone": data.phone,
                                 "email": data.email,
                                 "message": data.message,
-                                "type": type
+                                "type": type, 
+                                "country": extension
                             }
                         }
                     }
