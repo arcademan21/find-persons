@@ -143,7 +143,7 @@ const ThanksPage = () => {
     useEffect(()=>{
         
         validatePayment().then(res => {
-            
+            debugger
             if( !res ) {
                 window.location.replace('/')
                 return false
