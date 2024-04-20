@@ -37,14 +37,10 @@ const ExistsPayment = async ( payment_id ) => {
     return true
 }
 
-const CreateNewUser = async ( user ) => {
+const CreateNewUser = async ( user, country ) => {
   
     try{
         
-        const country = localStorage.getItem('language')
-
-        console.log( country )
-
         // Fetch to endpoint for get payment
         const req = await fetch( path_endpoint, {
             method: 'POST',
@@ -147,6 +143,9 @@ const ThanksPage = () => {
 
     useEffect(()=>{
         
+        const country = localStorage.getItem('language')
+        console.log( country )
+        
         validatePayment().then(res => {
             
             if( !res ) {
@@ -155,7 +154,7 @@ const ThanksPage = () => {
             }
             
             
-            CreateNewUser( user ).then( res => {
+            CreateNewUser( user, country ).then( res => {
                 if( !res ) {
                     //window.location.replace(extension)
                     return false
