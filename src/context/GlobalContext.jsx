@@ -55,7 +55,6 @@ export const GlobalProvider = ( { children } ) => {
   const SettingLanguage = useCallback( async () => {
      
       const language = localStorage.getItem('language') || window.navigator.language.split('-')[0]
-      console.log(language)
       const req = await fetch(`/languajes/${language}.json`)
       const res = await req.json()
       localStorage.setItem('language', res.language)

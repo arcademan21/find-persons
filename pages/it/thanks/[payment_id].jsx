@@ -43,6 +43,8 @@ const CreateNewUser = async ( user ) => {
         
         const country = localStorage.getItem('language')
 
+        console.log( country )
+
         // Fetch to endpoint for get payment
         const req = await fetch( path_endpoint, {
             method: 'POST',
