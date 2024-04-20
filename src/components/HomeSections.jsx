@@ -3,9 +3,9 @@ import { useEffect, useState, useContext } from 'react'
 import GlobalContext from '../context/GlobalContext'
 import './css/home-sections.css'
 import Image from 'next/image'
-import Link from 'next/link'
 import { toast } from 'react-toastify'
 import { set } from 'firebase/database'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 const HomeSections = () => {
 
@@ -99,8 +99,6 @@ const HomeSections = () => {
             <div className="container-fluid">
                 <div className="row justify-content-center">
 
-                
-                    
                     <div className="col-md-6 col-lg-4 py-3 wow fadeInUp">
                     <div className="d-flex flex-row">
                         <div className="img-fluid mx-3 w-25">
@@ -222,6 +220,7 @@ const HomeSections = () => {
             </div> 
         </div> 
 
+        {/* INFO */}
         <div className="page-section pt-0 pb-0" style={{padding:"14px"}}>
             <div className="container">
                 <div className="row">
@@ -239,13 +238,12 @@ const HomeSections = () => {
                             />
                         </div>
                     </div>
-                    
-                    
-                    
+      
                 </div>
             </div> 
         </div> 
 
+        {/* WHY US */}
         <div className="page-section">
             <div className="container" data-section="why_us" data-value="html" >
 
@@ -292,6 +290,7 @@ const HomeSections = () => {
             </div> 
         </div> 
 
+        {/* TESTIMONIALS */}
         <div className="page-section bg-light w-100">
             <div className="container">
             
@@ -348,6 +347,7 @@ const HomeSections = () => {
             </div> 
         </div> 
 
+        {/* PRICES */}
         <div className="banner-pricing border rounded" data-section="prices" data-value="html">
             <center><h2 className="title-section text-center" style={{fontWeigth:"600", fontSize: "28px"}}>{language.prices.ours} <span className="marked">{language.prices.offers}
             </span></h2></center>
@@ -364,6 +364,7 @@ const HomeSections = () => {
             </p>
         </div>
 
+        {/* CONTACT */}
         <div className="page-section vh-100" id="contact">
             <div className="container">
             <div className="row align-items-start" data-section="contact" data-value="html">
@@ -412,28 +413,29 @@ const HomeSections = () => {
                             <div className="my-2">
                                 
                             
-                            <div>
-                                <input type="checkbox" name="terminos" className="m-1" required value="1" id="terms_contact_form" onChange={( event )=>{ return handle_contact_form_terms( event.currentTarget ) } } />
-                                {language.contact.please_confirm}
-                                <a href="/privacy-policies"> {language.contact.politics}
-                                </a> 
-                                {language.contact.and_the}
-                                <a href="/terms-and-conditions/"> {language.contact.terms}
-                                </a>.
-                                </div>
-                                <div className="d-flex justify-content-center">
-                                    <button type="submit" className="btn btn-primary w-50 my-3">
-                                        {language.contact.send}
-                                    </button>
-                                </div>
+                                    <div>
+                                        <input type="checkbox" name="terminos" className="m-1" required value="1" id="terms_contact_form" onChange={( event )=>{ return handle_contact_form_terms( event.currentTarget ) } } />
+                                        {language.contact.please_confirm}
+                                        <a href="/privacy-policies"> {language.contact.politics}
+                                        </a> 
+                                        {language.contact.and_the}
+                                        <a href="/terms-and-conditions/"> {language.contact.terms}
+                                        </a>.
+                                        </div>
+                                        <div className="d-flex justify-content-center">
+                                            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_GRECAPTCHA_SITE_PUBLIC_KEY} />
+                                            <button type="submit" className="btn btn-primary w-50 my-3">
+                                                {language.contact.send}
+                                            </button>
+                                        </div>
 
-                            </div>
+                                    </div>
 
+                                    
+                                <div>
+                                
                             
-                        <div>
-                        
-                    
-                    </div>
+                            </div>
                     
                         </div>
                     </form>
