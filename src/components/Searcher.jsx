@@ -103,6 +103,10 @@ const Searcher = () => {
     }
 
     useEffect(() => {
+        localStorage.setItem('search', null)
+    }, [])
+
+    useEffect(() => {
         
         const storedLanguage = JSON.parse(localStorage.getItem('language_file')).hero
         if ( storedLanguage ) {
@@ -110,12 +114,14 @@ const Searcher = () => {
             setSearchType(storedLanguage.name)
             setTextHolder(storedLanguage.placeholder_name) 
         }
+
     }, [state])
 
     useEffect(() => {
-        localStorage.setItem('search', null)
+        
         setOption( localStorage.getItem('search_type'))
         setType( localStorage.getItem('search_type'))
+
     }, [setType, option, language])
 
     return (<>

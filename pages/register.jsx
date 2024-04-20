@@ -115,10 +115,18 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if ( suscription === 'true' ) 
+                
+                if( search === 'null' ) {
+                    window.location.replace('/')
+                }
+
+                else if ( suscription === 'true' ) 
                     window.location.replace('/results')
                 else if( suscription === 'false') 
                     window.location.replace('/payment')
+                else 
+                    window.location.replace('/')
+
             })
             
             // Todo: save user data
@@ -149,10 +157,6 @@ const Register = () => {
     useEffect(()=>{
         
         if( user ){
-            window.location.replace('/')
-        }
-
-        if( search === 'null' ) {
             window.location.replace('/')
         }
 

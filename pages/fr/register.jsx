@@ -62,10 +62,16 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if ( search ) 
-                    window.location.replace(`${extension}/results`)
-                else  
+                if( search === 'null' ) {
                     window.location.replace(extension)
+                }
+
+                else if ( suscription === 'true' ) 
+                    window.location.replace(`${extension}/results`)
+                else if( suscription === 'false') 
+                    window.location.replace(`${extension}/payment`)
+                else 
+                    window.location.replace('/')
             })
 
         })
@@ -116,10 +122,16 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if ( search ) 
-                    window.location.replace(`${extension}/results`)
-                else 
+                if( search === 'null' ) {
                     window.location.replace(extension)
+                }
+
+                else if ( suscription === 'true' ) 
+                    window.location.replace(`${extension}/results`)
+                else if( suscription === 'false') 
+                    window.location.replace(`${extension}/payment`)
+                else 
+                    window.location.replace('/')
             })
             
             // Todo: save user data
@@ -150,10 +162,6 @@ const Register = () => {
     useEffect(()=>{
         
         if( user ){
-            window.location.replace(extension)
-        }
-
-        if( search === 'null' ) {
             window.location.replace(extension)
         }
 
