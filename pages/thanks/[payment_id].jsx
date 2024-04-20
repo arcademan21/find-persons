@@ -143,24 +143,27 @@ const ThanksPage = () => {
     useEffect(()=>{
         
         validatePayment().then(res => {
-            debugger
+            
             if( !res ) {
-                window.location.replace('/')
+                console.log(res)
+                //window.location.replace('/')
                 return false
             }
             
             const country = localStorage.getItem('language')
             CreateNewUser( user, country ).then( res => {
+                
                 if( !res ) {
-                    window.location.replace('/')
+                    console.log(res)
+                    //window.location.replace('/')
                     return false
                 }
     
                 UpdateSuscription( user, { payment_id: payment_id } )
                 .then( res => {
-                    
+                    console.log(res)
                     if( !res ) {
-                        window.location.replace('/')
+                        //window.location.replace('/')
                         return false
                     }
     
