@@ -410,7 +410,21 @@ const HomeSections = () => {
 
                         <div className="form-group mb-3">
                             <select className="form-control" id="type" name="type" onChange={(e)=>{
-                                setType(e.target.value)
+                                const type = e.target.value
+                                switch(type){
+                                    case 'contact':
+                                        setType('Contactar con soporte')
+                                        break
+                                    case 'help':
+                                        setType('Ayuda')
+                                        break
+                                    case 'claim':
+                                        setType('Reclamación')
+                                        break
+                                    default:
+                                        setType('Contactar con soporte')
+                                        break
+                                }
                             }} required >
                                 <option value="contact">{language.contact.type_contact}</option>
                                 <option value="help">{language.contact.type_help}</option>
