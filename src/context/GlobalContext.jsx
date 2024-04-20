@@ -34,18 +34,14 @@ export const GlobalProvider = ( { children } ) => {
       'thanks'
     ]
 
-    let path_to_split = pathname
     if( pathname === '/' ) {
-      path_to_split = '/es'
+      localStorage.setItem('extencion', pathname)
     }
 
-    
-    if( extension_list.includes( path_to_split.split('/')[1] ) ) {
-      localStorage.setItem('extencion', `/${path_to_split.split('/')[1]}`)
-    }
-
-    else {
-      localStorage.setItem('extencion', '/')
+    else{
+      if( extension_list.includes( pathname.split('/')[1] ) ) {
+        localStorage.setItem('extencion', `/${pathname.split('/')[1]}`)
+      }
     }
 
     if( blocked_url_names.includes( pathname ) ) {
