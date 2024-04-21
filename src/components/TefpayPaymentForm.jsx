@@ -114,6 +114,7 @@ export const TefpayPaymentForm = () => {
             merchantURL
         )
 
+        debugger
         CreatePaymentToken( `${matchingData}-${signature}`, user.email).then( res => {
             
             if( !res ){
