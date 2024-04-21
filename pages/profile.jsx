@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
 
+const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
+
 const GetUserData = async ( email ) => {
 
     try {
+        
         const req = await fetch( path_endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
