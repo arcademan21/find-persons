@@ -32,13 +32,41 @@ const GetUserData = async ( email ) => {
     }
 }
 
+const DownSuscription = async ( email ) => {
+
+    if( confirm('¿Estas seguro de que deseas darte de baja?') === false ) return false
+
+    try {
+
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "down_suscription",
+                    "data": {
+                        "down_suscription": {
+                            "user_email": email
+                        }
+                    }
+                }
+            })
+        })
+
+        const res = await req.json()
+        if( res.status === 'error' ) return false
+        return true
+
+    }
+    catch ( error ) {
+        return false
+    }
+
+}
+
 const Profile = () => {
 
     const [userData, setUserData] = useState( null )
-
-   
-
-   
 
     useEffect(() => {
         
@@ -48,75 +76,72 @@ const Profile = () => {
         }
 
         GetUserData( user.email ).then( res => { 
-            //if( !res ) window.location.replace('/')
+            if( !res ) window.location.replace('/')
             setUserData( res )
-            console.log(res)
         })
 
     }, [])
 
     return (
+
         <div className="profile-container">
             <div className="container">
                 <div className="row" style={{ marginTop: '50px' }}>
                     
-                    {/* <div className="col-12">
+                    <div className="col-md-6">
                         
-                        <div className="card">
-                            <div className="card-header">
-                                <h2>Personal Information</h2>
-                            </div>
-                            <div className="card-body">
-                                <div className="row">
-                                    <div className="col-6">
-                                        <h3>Name</h3>
-                                        <p>{ userData ? userData.name : 'Loading...' }</p>
-                                    </div>
-                                    <div className="col-6">
-                                        <h3>Email</h3>
-                                        <p>{ userData ? userData.email : 'Loading...' }</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <h2>Mi cuenta</h2>
+                        <div className="profile-data">
+                            <p><strong>Nombre:</strong> { userData ? userData.user_data.user_name : <i className="fas fa-spinner fa-spin"></i> }</p>
+                            <p><strong>Correo:</strong> { userData ? userData.user_data.user_email : <i className="fas fa-spinner fa-spin"></i> }</p>
                         </div>
 
-                        <div className="card">
-                            <div className="card-header">
-                                <h2>Suscripcion</h2>
-                            </div>
-                            <div className="card-body">
-                                <div className="row">
-                                    <div className="col-6">
-                                        <h3>Estado</h3>
-                                        <p>{ userData ? userData.subscription_status : 'Loading...' }</p>
-                                    </div>
-                                    <div className="col-6">
-                                        <h3>Fecha de inicio</h3>
-                                        <p>{ userData ? userData.subscription_start_date : 'Loading...' }</p>
-                                        <p>
-                                            Recuerda que puedes contactar a soporte para cancelar tu suscripcion.
-                                            Envianos un correo a { process.env.NEXT_PUBLIC_SUPPORT_EMAIL } si tienes 
-                                            algun problema , o dirigite a la seccion de soporte en la pagina principal.
-                                            <a href="/#contact">
-                                                Formulario de contacto con soporte
-                                            </a>
-                                        </p>
-                                        <button 
-                                            className="btn btn-secondary"
-                                            onClick={ handleSuscriptionDown }
-                                        >Dar de baja</button>
-                                    </div>
-                                    
-                                </div>
-                            </div>
+                        <h2>Suscription</h2>
+                        <div className="profile-data">
+                            <p>
+                                <strong>Estado de la suscripcion : </strong> 
+                                { userData ? userData.suscription_data.status : 
+                                <i className="fas fa-spinner fa-spin"></i> }
+                            </p>
+                            <p>
+                                <strong>Fin de prueba : </strong> 
+                                { userData ? userData.suscription_data.end_trial : 
+                                <i className="fas fa-spinner fa-spin"></i> }
+                            </p>
+
+                            { 
+                                userData.suscription_data.status !== 'canceled' ?
+                                <>
+                                <p>
+                                    Recuerda que si no deseas continuar con la suscripcion, puedes darte de baja en cualquier momento.
+                                    Si tienes alguna duda, puedes contactar con nosotros en {process.env.NEXT_PUBLIC_CONTACT_EMAIL}, envianos un correo y te responderemos lo antes posible.
+                                </p>
+                                <button className="btn btn-secondary"
+                                    onClick={ async ()=>{
+                                        const res = await DownSuscription( userData.user_data.user_email )
+                                        if( !res ) toast.error('Error al darse de baja, pongase en contacto con nosotros')
+                                        else {
+                                            toast.success('Se ha dado de baja correctamente')
+                                            window.location.replace('/')
+                                        }
+                                    } }
+                                >
+                                    Darse de baja
+                                </button>
+                                </>
+                                :
+                                null
+
+                            }
 
                         </div>
 
-                    </div> */}
+                    </div>
 
                 </div>
             </div>
         </div>
+
 
     )
 
