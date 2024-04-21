@@ -73,10 +73,6 @@ const Payment = () => {
 
     }, [])
 
-    
-
-    
-    
     return (<>
         
         <div className="payment-container" id="vanta-anime">

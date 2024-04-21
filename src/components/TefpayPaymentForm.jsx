@@ -4,6 +4,7 @@ import GlobalContext from "../context/GlobalContext"
 import './css/tefpay-payment-form.css'
 import Image from 'next/image'
 import sha1 from 'js-sha1'
+import { toast } from "react-toastify"
 
 const merchantCode = process.env.NEXT_PUBLIC_TEFPAY_TESTS_MERCHANT_CODE
 const merchantSharedkey = process.env.NEXT_PUBLIC_TEFPAY_TESTS_PASSWORD
@@ -14,6 +15,37 @@ const trial_amount = process.env.NEXT_PUBLIC_TEFPAY_TRIAL_AMOUNT
 const suscription_amount = process.env.NEXT_PUBLIC_SUSCRIPTION_AMOUNT
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const tefpay_notyfi_url = process.env.NEXT_PUBLIC_TEFPAY_NOTYFI_URL
+
+const CreatePaymentToken = async ( payment_id, user_email ) => {
+
+    try{
+
+        // Fetch to endpoint for get payment
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "create_payment_token",
+                    "data": {
+                        "create_payment_token": {
+                            "payment_id": payment_id,
+                            "user_email": user_email
+                        }
+                    }
+                }
+            })
+        })
+
+        const res = await req.json()
+        return res
+
+    } catch ( error ) {
+        console.error( error )
+        return false
+    }
+
+}
 
 // Componente para obtener el formulario de pago de Tefpay
 export const TefpayPaymentForm = () => {
@@ -28,6 +60,7 @@ export const TefpayPaymentForm = () => {
     const [ matching_data, setMatchingData ] = useState('')
     const [ signature, setSignature ] = useState('')
     const [ paymentId, setPaymentId ] = useState('')
+    const [ paymentToken, setPaymentToken ] = useState('')
     const [ payment_description, setPaymentDescription ] = useState('')
     const [ suscription_account, setSuscriptionAccount ] = useState('')
     const [ suscription_description, setSuscriptionDescription ] = useState('')
@@ -59,10 +92,6 @@ export const TefpayPaymentForm = () => {
         return result
     }
 
-    const CreateTemporalToken = ( signature ) =>{
-        localStorage.setItem('tefpay_token', signature)
-    }
-
     const handle_user_name = ( value ) => {
         setUserName(value)
         return value
@@ -85,33 +114,41 @@ export const TefpayPaymentForm = () => {
             merchantURL
         )
 
+        CreatePaymentToken( `${matchingData}-${signature}`, user.email).then( res => {
+            
+            if( !res ){
+                toast.error( 'Ha ocurrido un error al cargar el token de pago' )
+                // redirecionar
+                return false
+            }
 
-        setLang( merchant_lang )
-        setSignature( signature )
-        setMatchingData( matchingData )
-        setSuscriptionAccount( matchingData )
-        setPaymentId( matchingData )
-        setUserEmail( user.email )
+            setPaymentToken(`${matchingData}-${signature}`)
+            setLang( merchant_lang )
+            setSignature( signature )
+            setMatchingData( matchingData )
+            setSuscriptionAccount( matchingData )
+            setPaymentId( matchingData )
+            setUserEmail( user.email )
 
-        CreateTemporalToken( signature )
-        
-        setPaymentDescription( `
-            NEW PAYMENT - ( Find-persons ) : ${ hostname }
-            Payment ID: ${ matchingData }
-            Country: ${ merchant_lang }
-            User: ${ user_name }
-            Email: ${ user_email }
-            Amount: 0.60 EUR
-        `)
-        
-        setSuscriptionDescription(`
-            NEW SUSCRIPTION - ( Find-persons ) : ${ hostname }
-            Payment ID: ${ matchingData }
-            Country: ${ merchant_lang }
-            User: ${ user_name }
-            Email: ${ user_email }
-            Amount: 49.90 EUR
-        `)
+            setPaymentDescription( `
+                NEW PAYMENT - ( Find-persons ) : ${ hostname }
+                Payment ID: ${ matchingData }
+                Country: ${ merchant_lang }
+                User: ${ user_name }
+                Email: ${ user_email }
+                Amount: 0.60 EUR
+            `)
+            
+            setSuscriptionDescription(`
+                NEW SUSCRIPTION - ( Find-persons ) : ${ hostname }
+                Payment ID: ${ matchingData }
+                Country: ${ merchant_lang }
+                User: ${ user_name }
+                Email: ${ user_email }
+                Amount: 49.90 EUR
+            `)
+
+        } )
 
     }, [])
 
@@ -155,9 +192,9 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodType" value="M"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodInterval" value="1"/>
             <input type="hidden" name="Ds_Merchant_Subscription_Iteration" value="0"/>
-            <input type="hidden" name="Ds_Merchant_Url" value={tefpay_notyfi_url} />
-            <input type="hidden" name="Ds_Merchant_UrlOK" value={`https://${hostname}${extension}/thanks/${paymentId}`} />
-            <input type="hidden" name="Ds_Merchant_UrlKO" value={`https://${hostname}${extension}/tefpay_error/error`} />
+            <input type="hidden" name="Ds_Merchant_Url" value={ tefpay_notyfi_url } />
+            <input type="hidden" name="Ds_Merchant_UrlOK" value={ `https://${hostname}${extension}/thanks/${paymentToken}` } />
+            <input type="hidden" name="Ds_Merchant_UrlKO" value={ `https://${hostname}${extension}/tefpay_error/error` } />
             <input type="hidden" name="Ds_Merchant_MerchantCode" value="V99000566" />
             <input type="hidden" name="Ds_Merchant_MerchantCodeTemplate" value="V99000566" />
             <input type="hidden" name="Ds_Merchant_TemplateNumber" value="07" />
@@ -165,10 +202,10 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_MatchingData" id="Ds_Merchant_MatchingData"  value={ matching_data } />
             <input type="hidden" name="Ds_Merchant_MerchantSignature" id="Ds_Merchant_MerchantSignature"  value={ signature } />
             <input type="hidden" name="Ds_Merchant_Subscription_Account" id="Ds_Merchant_Subscription_Account" value={ suscription_account } />
-            <input type="hidden" name="Ds_Merchant_Subscription_ClientName" id="Ds_Merchant_Subscription_ClientName" value={ user_name } onChange={(e) => handle_user_name(e.currentTarget.value)} />
-            <input type="hidden" name="Ds_Merchant_Subscription_ClientEmail" id="Ds_Merchant_Subscription_ClientEmail" value={CleanStringForTefpay(user_email)} />
-            <input type="hidden" name="Ds_Merchant_Subscription_Description" value={suscription_description} />
-            <input type="hidden" name="Ds_Merchant_Description" value={payment_description} />
+            <input type="hidden" name="Ds_Merchant_Subscription_ClientName" id="Ds_Merchant_Subscription_ClientName" value={ user_name } onChange={ ( e ) => handle_user_name( e.currentTarget.value ) } />
+            <input type="hidden" name="Ds_Merchant_Subscription_ClientEmail" id="Ds_Merchant_Subscription_ClientEmail" value={ CleanStringForTefpay( user_email ) } />
+            <input type="hidden" name="Ds_Merchant_Subscription_Description" value={ suscription_description } />
+            <input type="hidden" name="Ds_Merchant_Description" value={ payment_description } />
             <input type="hidden" name="Ds_Merchant_Subscription_NotifyCostumerByEmail" value="0" />
             <input type="hidden" name="Ds_Merchant_Lang" value={ lang } />
             <input type="hidden" id="Ds_Merchant_Subscription_Enable" name="Ds_Merchant_Subscription_Enable" value="1" />

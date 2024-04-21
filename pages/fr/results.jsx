@@ -211,8 +211,7 @@ const Results = () => {
 
     useEffect(() => {
 
-        // Removiendo el token temporal
-        localStorage.removeItem('tefpay_token')
+       
 
         // Validando la suscripcion
         getSuscription( user ).then( res => {
