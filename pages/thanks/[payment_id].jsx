@@ -174,12 +174,12 @@ const UpdateSuscription = async ( user, suscription ) => {
 const ThanksPage = () => {
 
     const context = useContext( GlobalContext )
-    const router = useRouter()
+    
     
     const user = JSON.parse(localStorage.getItem('user'))
     const language = JSON.parse(localStorage.getItem('language_file'))
+    const router = useRouter()
     
-    const { payment_id } = router.query
     const [ counter, setCounter ] = useState( 5 )
 
     const validatePayment = async () => {
@@ -192,7 +192,7 @@ const ThanksPage = () => {
             setCounter((prevCounter) => {
                 if (prevCounter === 0) {
                     // Redirigiendo a la pagina de resultados
-                    window.location.replace('/results')
+                    //window.location.replace('/results')
                     clearInterval(time)
                     return prevCounter
                 } else {
@@ -204,6 +204,9 @@ const ThanksPage = () => {
     
     useLayoutEffect(() => {
         
+        
+        const { payment_id } = router.query
+
         let result = false
     
         CheckTokenValidity(payment_id)
@@ -215,29 +218,35 @@ const ThanksPage = () => {
                 return validatePayment()
             })
             .then(res => {
+                result = res
                 if (!res) {
                     throw new Error('invalid_payment_id')
                 }
                 return CreateNewUser(user)
             })
             .then(res => {
+                result = res
                 if (!res) {
                     throw new Error('create_user_error')
                 }
                 return UpdateSuscription(user, { payment_id: payment_id })
             })
             .then(res => {
+                result = res
                 if (!res) {
                     throw new Error('update_suscription_error')
                 }
             })
             .catch( error => {
                 InvalidateToken(payment_id)
-                window.location.replace(`/tefpay_error/${error.message}`)
+                //window.location.replace(`/tefpay_error/${error.message}`)
                 return false
             })
             .finally(() => {
                 
+                // Invalidando token
+                InvalidateToken(payment_id)
+
                 if ( !result ) return false
     
                 // Cargando script de converciones en la cavecera
@@ -246,8 +255,7 @@ const ThanksPage = () => {
                 script.innerHTML = convertions_gtag
                 document.head.appendChild(script)
 
-                // Invalidando token
-                InvalidateToken(payment_id)
+                
 
             })
 
