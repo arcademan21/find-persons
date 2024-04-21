@@ -193,7 +193,7 @@ const ThanksPage = () => {
             setCounter((prevCounter) => {
                 if (prevCounter === 0) {
                     // Redirigiendo a la pagina de resultados
-                    //window.location.replace('/results')
+                    window.location.replace('/results')
                     clearInterval(time)
                     return prevCounter
                 } else {
@@ -204,20 +204,14 @@ const ThanksPage = () => {
     }
 
     useLayoutEffect(() => {
-        debugger
-        const referrer = document.referrer
-        console.log('REFERER: ', referrer)
-        if (!referrer.includes(process.env.NEXT_PUBLIC_TEFPAY_REFFERER_URL)) {
-            //window.location.replace('/')
-        }
-    }, [])
-    
-    useLayoutEffect(() => {
-        
-        
 
+        const referrer = document.referrer
+        if (!referrer.includes(process.env.NEXT_PUBLIC_TEFPAY_REFFERER_URL)) {
+            InvalidateToken(payment_id)
+            window.location.replace('/')
+        }
+        
         let result = false
-    
         CheckTokenValidity(payment_id)
             .then(res => {
                 result = res
@@ -248,7 +242,7 @@ const ThanksPage = () => {
             })
             .catch( error => {
                 InvalidateToken(payment_id)
-                //window.location.replace(`/tefpay_error/${error.message}`)
+                window.location.replace(`/tefpay_error/${error.message}`)
                 return false
             })
             .finally(() => {
@@ -257,7 +251,7 @@ const ThanksPage = () => {
                 InvalidateToken(payment_id)
 
                 if ( !result ) {
-                    //window.location.replace(`/tefpay_error/error`)
+                    window.location.replace(`/tefpay_error/error`)
                     return false
                 }
     

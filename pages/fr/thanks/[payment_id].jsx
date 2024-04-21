@@ -17,10 +17,10 @@ const CheckTokenValidity = async ( token ) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 "petition" : {
-                    "name": "validate_token",
+                    "name": "validate_payment_token",
                     "data": {
-                        "validate_token": {
-                            "token": token
+                        "validate_payment_token": {
+                            "payment_id": token
                         }
                     }
                 }
@@ -48,10 +48,10 @@ const InvalidateToken = async ( token ) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 "petition" : {
-                    "name": "invalidate_token",
+                    "name": "invalidate_payment_token",
                     "data": {
-                        "invalidate_token": {
-                            "token": token
+                        "invalidate_payment_token": {
+                            "payment_id": token
                         }
                     }
                 }
@@ -99,6 +99,7 @@ const ExistsPayment = async ( payment_id ) => {
     
     return true
 }
+
 
 const CreateNewUser = async ( user ) => {
 
@@ -174,13 +175,14 @@ const UpdateSuscription = async ( user, suscription ) => {
 const ThanksPage = () => {
 
     const context = useContext( GlobalContext )
-    const router = useRouter()
-    const extension = localStorage.getItem('extencion')
-    
+
     const user = JSON.parse(localStorage.getItem('user'))
     const language = JSON.parse(localStorage.getItem('language_file'))
     
+    const router = useRouter()
     const { payment_id } = router.query
+    const extension = localStorage.getItem('extencion')
+
     const [ counter, setCounter ] = useState( 5 )
 
     const validatePayment = async () => {
@@ -202,11 +204,16 @@ const ThanksPage = () => {
             })
         }, 1000)
     }
-    
+
     useLayoutEffect(() => {
+
+        const referrer = document.referrer
+        if (!referrer.includes(process.env.NEXT_PUBLIC_TEFPAY_REFFERER_URL)) {
+            InvalidateToken(payment_id)
+            window.location.replace(extension)
+        }
         
         let result = false
-    
         CheckTokenValidity(payment_id)
             .then(res => {
                 result = res
@@ -216,18 +223,21 @@ const ThanksPage = () => {
                 return validatePayment()
             })
             .then(res => {
+                result = res
                 if (!res) {
                     throw new Error('invalid_payment_id')
                 }
                 return CreateNewUser(user)
             })
             .then(res => {
+                result = res
                 if (!res) {
                     throw new Error('create_user_error')
                 }
                 return UpdateSuscription(user, { payment_id: payment_id })
             })
             .then(res => {
+                result = res
                 if (!res) {
                     throw new Error('update_suscription_error')
                 }
@@ -239,7 +249,13 @@ const ThanksPage = () => {
             })
             .finally(() => {
                 
-                if ( !result ) return false
+                // Invalidando token
+                InvalidateToken(payment_id)
+
+                if ( !result ) {
+                    window.location.replace(`${extension}/tefpay_error/error`)
+                    return false
+                }
     
                 // Cargando script de converciones en la cavecera
                 const script = document.createElement('script')
@@ -247,15 +263,10 @@ const ThanksPage = () => {
                 script.innerHTML = convertions_gtag
                 document.head.appendChild(script)
 
-                // Invalidando token
-                InvalidateToken(payment_id)
+                timer()
 
             })
 
-    }, [])
-    
-    useEffect(() => {
-        timer()
     }, [])
 
     return (<>
