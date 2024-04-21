@@ -17,10 +17,10 @@ const CheckTokenValidity = async ( token ) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 "petition" : {
-                    "name": "validate_token",
+                    "name": "validate_payment_token",
                     "data": {
-                        "validate_token": {
-                            "token": token
+                        "validate_payment_token": {
+                            "payment_id": token
                         }
                     }
                 }
@@ -48,10 +48,10 @@ const InvalidateToken = async ( token ) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 "petition" : {
-                    "name": "invalidate_token",
+                    "name": "invalidate_payment_token",
                     "data": {
-                        "invalidate_token": {
-                            "token": token
+                        "invalidate_payment_token": {
+                            "payment_id": token
                         }
                     }
                 }
@@ -174,8 +174,7 @@ const UpdateSuscription = async ( user, suscription ) => {
 const ThanksPage = () => {
 
     const context = useContext( GlobalContext )
-    
-    
+
     const user = JSON.parse(localStorage.getItem('user'))
     const language = JSON.parse(localStorage.getItem('language_file'))
     const router = useRouter()

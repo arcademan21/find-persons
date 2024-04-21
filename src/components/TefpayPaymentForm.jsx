@@ -113,9 +113,7 @@ export const TefpayPaymentForm = () => {
             matchingData,
             merchantURL
         )
-
         
-
         setPaymentToken(`${matchingData}-${signature}`)
         setLang( merchant_lang )
         setSignature( signature )
