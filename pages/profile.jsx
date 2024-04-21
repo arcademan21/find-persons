@@ -45,11 +45,11 @@ const Profile = () => {
         }
 
         GetUserData( user.email ).then( res => { 
-            if( !res ) window.location.replace('/')
+            //if( !res ) window.location.replace('/')
             setUserData( res )
             console.log(res)
         })
-        
+
     }, [])
 
     return (
