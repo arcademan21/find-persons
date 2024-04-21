@@ -114,9 +114,10 @@ export const TefpayPaymentForm = () => {
             merchantURL
         )
 
-        debugger
+        
         CreatePaymentToken( `${matchingData}-${signature}`, user.email).then( res => {
-            
+            console.log(`${matchingData}-${signature}`)
+            console.log( res )
             if( !res ){
                 toast.error( 'Ha ocurrido un error al cargar el token de pago' )
                 // redirecionar
