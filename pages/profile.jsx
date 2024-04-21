@@ -93,25 +93,33 @@ const Profile = () => {
     return (
 
         <div className="profile-container">
-            <div className="container">
+            <div className="container py-5 vh-100">
                 <div className="row py-5">
                     
                     <div className="col-md-6">
                         
                         <h2>Mi cuenta</h2>
-                        <div className="card profile-data mb-3 ">
-                            <p><strong>Nombre:</strong> { userData ? userData.user_data.user_name : <i className="fas fa-spinner fa-spin"></i> }</p>
-                            <p><strong>Correo:</strong> { userData ? userData.user_data.user_email : <i className="fas fa-spinner fa-spin"></i> }</p>
+                        <div className="card profile-data mb-3 p-3">
+                            <p className="mb-1">
+                                <strong>Nombre:</strong> 
+                                { userData ? userData.user_data.user_name : 
+                                <i className="fas fa-spinner fa-spin"></i> }
+                            </p>
+                            <p className="mb-1">
+                                <strong>Correo:</strong> 
+                                { userData ? userData.user_data.user_email : 
+                                <i className="fas fa-spinner fa-spin"></i> }
+                            </p>
                         </div>
 
                         <h2>Suscription</h2>
-                        <div className="card profile-data mb-3 ">
-                            <p>
+                        <div className="card profile-data mb-3 p-3">
+                            <p className="mb-1">
                                 <strong>Estado de la suscripcion : </strong> 
                                 { userData ? userData.suscription_data.status : 
                                 <i className="fas fa-spinner fa-spin"></i> }
                             </p>
-                            <p>
+                            <p className="mb-1">
                                 <strong>Fin de prueba : </strong> 
                                 { userData ? userData.suscription_data.end_trial : 
                                 <i className="fas fa-spinner fa-spin"></i> }
