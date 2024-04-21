@@ -205,8 +205,9 @@ const ThanksPage = () => {
 
     useLayoutEffect(() => {
         const referrer = document.referrer
+        console.log(referrer)
         if (!referrer.includes(process.env.NEXT_PUBLIC_TEFPAY_REFFERER_URL)) {
-            window.location.replace('/')
+            //window.location.replace('/')
         }
     }, [])
     
