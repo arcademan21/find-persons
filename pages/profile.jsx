@@ -1,3 +1,40 @@
+
+
+/* 
+    {
+        "status": "success",
+        "message": "User data found",
+        "user_data": {
+            "id": "30",
+            "user_name": "find-persons find-persons",
+            "user_email": "info.findpersons@gmail.com",
+            "password": "IAAPxGefnbdQjjMlhue5vj5M9Um2",
+            "status": "active",
+            "country": "es",
+            "role": "suscriber",
+            "created_at": "2024-04-21 20:21:57",
+            "searchs": null,
+            "downloads": null,
+            "ip": "81.35.117.26"
+        },
+        "suscription_data": {
+            "id": "29",
+            "user_id": "30",
+            "payment_id": "202404211821270830000-fe730721bf3e4c8bef7863d8fe4e6082bcb5b5f8",
+            "created_at": "2024-04-21 20:21:58",
+            "user_name": "find-persons find-persons",
+            "user_email": "info.findpersons@gmail.com",
+            "status": "trial",
+            "end_trial": "2024-04-22 20:21:58",
+            "country": "es",
+            "canceled_date": null,
+            "reason": null
+        }
+    }
+*/
+
+
+     
 import { useEffect, useState } from "react"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
@@ -80,7 +117,7 @@ const Profile = () => {
             setUserData( res )
         })
 
-    }, [])
+    }, [userData])
 
     return (
 
