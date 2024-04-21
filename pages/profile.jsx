@@ -42,6 +42,7 @@ import { useEffect, useState } from "react"
 const Profile = () => {
 
     const [userData, setUserData] = useState( null )
+    const [loading, setLoading] = useState( true )
     const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 
     const getUserData = async ( email ) => {
@@ -65,7 +66,7 @@ const Profile = () => {
 
             const res = await req.json()
             if( res.status === 'error' ) return false
-
+            
             return res
 
         }
@@ -120,10 +121,12 @@ const Profile = () => {
             }
 
             setUserData( res )
-            
+            setLoading( false )
         })
 
     }, [])
+
+    if( loading ) return <div className="loading"><i className="fas fa-spinner fa-spin"></i></div>
 
     return (
 
