@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^3.4.2",
     "bootstrap": "^5.3.3",
     "express": "^4.19.2",
     "firebase": "^9.23.0",

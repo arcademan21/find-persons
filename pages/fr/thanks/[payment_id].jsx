@@ -186,7 +186,7 @@ const ThanksPage = () => {
     const [ counter, setCounter ] = useState( 5 )
 
     const validatePayment = async () => {
-        let res = await ExistsPayment( payment_id )
+        let res = await ExistsPayment( payment_id.split('-')[0] )
         return res
     }
 

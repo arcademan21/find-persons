@@ -2,6 +2,9 @@
 import {useState, useEffect, useContext} from 'react'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
+import PdfRenderer from '@/components/PdfRenderer'
+import { PDFDownloadLink } from '@react-pdf/renderer'
+
 
 import './css/results.css'
 import * as dataPersonJson from './resources/dataPerson.json' 
@@ -127,6 +130,10 @@ const Results = () => {
             console.log(error)
         })
 
+    }
+
+    const handleDownloadPdf = () => {
+        console.log('Descargando pdf')
     }
 
     // "message": "Does not meet minimum combination of required data points. Requests must include one of: 'lid' OR 
@@ -337,9 +344,22 @@ const Results = () => {
                             <h2 className="text-center text-secondary title-section mt-4">
                                 {language.results.download_complete_info}
                             </h2>
-                            <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
-                                <i className="fas fa-download mx-1"></i> {language.results.download_pdf}
-                            </button>
+
+                            <PDFDownloadLink document={<PdfRenderer dataPerson={dataPerson} />} fileName="data_person.pdf">
+                                {({ blob, url, loading, error }) => (loading ? 
+                                    <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
+                                        <i className="fas fa-spinner mx-1"></i>
+                                        {language.results.download_pdf}
+                                    </button> 
+                                : 
+                                    <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5">
+                                        <i className="fas fa-download mx-1"></i> {language.results.download_pdf}
+                                    </button>
+                                )
+                                }
+                            </PDFDownloadLink>
+
+                           
 
                             <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white">
                                 <i className="fas fa-info-circle fs-1 text-primary mx-2"></i>
@@ -353,7 +373,7 @@ const Results = () => {
             </div>
             
             {/* PARA TEST */}
-            <div className="container py-5 my-5 w-75">
+            {/* <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
                     <div className="col-md-12">
@@ -369,7 +389,7 @@ const Results = () => {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
 
 
 
