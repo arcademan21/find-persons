@@ -43,6 +43,7 @@ const Profile = () => {
     }, [])
 
     useEffect(() => {
+        const email = JSON.parse(localStorage.getItem('user')).email
         GetUserData( email ).then( res => { 
             if( !res ) window.location.replace('/')
             setUserData( res )
