@@ -191,7 +191,7 @@ const ThanksPage = () => {
             setCounter((prevCounter) => {
                 if (prevCounter === 0) {
                     // Redirigiendo a la pagina de resultados
-                    //window.location.replace('/results')
+                    window.location.replace('/results')
                     clearInterval(time)
                     return prevCounter
                 } else {
@@ -202,7 +202,6 @@ const ThanksPage = () => {
     }
     
     useLayoutEffect(() => {
-        
         
         const { payment_id } = router.query
 
@@ -238,7 +237,7 @@ const ThanksPage = () => {
             })
             .catch( error => {
                 InvalidateToken(payment_id)
-                //window.location.replace(`/tefpay_error/${error.message}`)
+                window.location.replace(`/tefpay_error/${error.message}`)
                 return false
             })
             .finally(() => {
@@ -246,7 +245,10 @@ const ThanksPage = () => {
                 // Invalidando token
                 InvalidateToken(payment_id)
 
-                if ( !result ) return false
+                if ( !result ) {
+                    window.location.replace(`/tefpay_error/error`)
+                    return false
+                }
     
                 // Cargando script de converciones en la cavecera
                 const script = document.createElement('script')
@@ -254,14 +256,10 @@ const ThanksPage = () => {
                 script.innerHTML = convertions_gtag
                 document.head.appendChild(script)
 
-                
+                timer()
 
             })
 
-    }, [])
-    
-    useEffect(() => {
-        timer()
     }, [])
 
     return (<>
