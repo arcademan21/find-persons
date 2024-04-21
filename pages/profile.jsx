@@ -94,18 +94,18 @@ const Profile = () => {
 
         <div className="profile-container">
             <div className="container">
-                <div className="row" style={{ marginTop: '50px' }}>
+                <div className="row py-5">
                     
                     <div className="col-md-6">
                         
                         <h2>Mi cuenta</h2>
-                        <div className="profile-data">
+                        <div className="card profile-data mb-3 ">
                             <p><strong>Nombre:</strong> { userData ? userData.user_data.user_name : <i className="fas fa-spinner fa-spin"></i> }</p>
                             <p><strong>Correo:</strong> { userData ? userData.user_data.user_email : <i className="fas fa-spinner fa-spin"></i> }</p>
                         </div>
 
                         <h2>Suscription</h2>
-                        <div className="profile-data">
+                        <div className="card profile-data mb-3 ">
                             <p>
                                 <strong>Estado de la suscripcion : </strong> 
                                 { userData ? userData.suscription_data.status : 
