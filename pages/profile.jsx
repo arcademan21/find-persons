@@ -1,4 +1,4 @@
-import { useEffect, useState, useLayoutEffect } from "react"
+import { useEffect, useState } from "react"
 
 const GetUserData = async ( email ) => {
 
@@ -35,20 +35,21 @@ const Profile = () => {
 
    
 
-    useLayoutEffect(() => {
+   
+
+    useEffect(() => {
+        
         const user = JSON.parse(localStorage.getItem('user'))
         if( !user ) {
             window.location.replace('/')
         }
-    }, [])
 
-    useEffect(() => {
-        const email = JSON.parse(localStorage.getItem('user')).email
-        GetUserData( email ).then( res => { 
+        GetUserData( user.email ).then( res => { 
             if( !res ) window.location.replace('/')
             setUserData( res )
             console.log(res)
         })
+        
     }, [])
 
     return (
