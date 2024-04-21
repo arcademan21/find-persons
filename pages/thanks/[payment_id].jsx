@@ -193,7 +193,7 @@ const ThanksPage = () => {
             setCounter((prevCounter) => {
                 if (prevCounter === 0) {
                     // Redirigiendo a la pagina de resultados
-                    window.location.replace('/results')
+                    //window.location.replace('/results')
                     clearInterval(time)
                     return prevCounter
                 } else {
@@ -247,7 +247,7 @@ const ThanksPage = () => {
             })
             .catch( error => {
                 InvalidateToken(payment_id)
-                window.location.replace(`/tefpay_error/${error.message}`)
+                //window.location.replace(`/tefpay_error/${error.message}`)
                 return false
             })
             .finally(() => {
@@ -256,7 +256,7 @@ const ThanksPage = () => {
                 InvalidateToken(payment_id)
 
                 if ( !result ) {
-                    window.location.replace(`/tefpay_error/error`)
+                    //window.location.replace(`/tefpay_error/error`)
                     return false
                 }
     
