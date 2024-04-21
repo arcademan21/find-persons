@@ -7,8 +7,7 @@ import {
     StyleSheet,
 } from '@react-pdf/renderer'
 
-import no_user_image from '/images/no_user_image.jpeg'
-import logo from '/images/logo_find-persons.png'
+
 
 const PdfRenderer = ( { dataPerson } ) => {
     
@@ -16,15 +15,16 @@ const PdfRenderer = ( { dataPerson } ) => {
     return (
         <Document>
             <Page size="A4" style={styles.page}>
+            
 
                 {/* Logo */}
                 <View style={styles.section}>
-                    <Image style={styles.logo} src={logo} />
+                    <Image style={styles.logo} src="/images/logo_find-persons.png" />
                 </View>
 
                 {/* Image people */}
                 <View style={styles.section}>
-                    <Image style={styles.no_user_image} src={dataPerson.image} />
+                    <Image style={styles.no_user_image} src={"/images/no_user_image.jpeg"} />
                 </View>
 
                 {/* Data contact */}
