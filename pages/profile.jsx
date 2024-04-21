@@ -36,6 +36,7 @@
 
      
 import { useEffect, useState } from "react"
+import { toast } from "react-toastify"
 
 
 
@@ -156,24 +157,23 @@ const Profile = () => {
                             </p>
 
                             { 
+                                
                                 userData.suscription_data.status !== 'canceled' ?
                                 <>
-                                <p>
-                                    Recuerda que si no deseas continuar con la suscripcion, puedes darte de baja en cualquier momento.
-                                    Si tienes alguna duda, puedes contactar con nosotros en {process.env.NEXT_PUBLIC_CONTACT_EMAIL}, envianos un correo y te responderemos lo antes posible.
-                                </p>
-                                <button className="btn btn-secondary"
-                                    onClick={ async ()=>{
-                                        const res = await downSuscription( userData.user_data.user_email )
-                                        if( !res ) toast.error('Error al darse de baja, por favor pongase en contacto con nosotros.')
-                                        else {
-                                            toast.success('Se ha dado de baja correctamente')
-                                            window.location.replace('/')
-                                        }
-                                    } }
-                                >
-                                    Darse de baja
-                                </button>
+                                    <p>
+                                        Recuerda que si no deseas continuar con la suscripcion, puedes darte de baja en cualquier momento.
+                                        Si tienes alguna duda, puedes contactar con nosotros en { process.env.NEXT_PUBLIC_CONTACT_EMAIL }, envianos un correo y te responderemos lo antes posible.
+                                    </p>
+                                    <button className="btn btn-secondary"
+                                        onClick={ async ()=>{
+                                            const res = await downSuscription( userData.user_data.user_email )
+                                            if( !res ) toast.error( 'Error al darse de baja, por favor pongase en contacto con nosotros.' )
+                                            else {
+                                                toast.success( 'Se ha dado de baja correctamente' )
+                                                window.location.replace( '/' )
+                                            }
+                                        } }
+                                    > Darse de baja </button>
                                 </>
                                 :
                                 null
