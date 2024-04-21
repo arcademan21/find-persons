@@ -11,7 +11,7 @@ import {
 
 const PdfRenderer = ( { dataPerson } ) => {
     
-    const language = JSON.parse(localStorage.getItem('language_file')).result_pdf
+    const language = JSON.parse(localStorage.getItem('language_file')).results_pdf
     return (
         <Document>
             <Page size="A4" style={styles.page}>
