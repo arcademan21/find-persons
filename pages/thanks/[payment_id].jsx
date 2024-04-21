@@ -177,8 +177,10 @@ const ThanksPage = () => {
 
     const user = JSON.parse(localStorage.getItem('user'))
     const language = JSON.parse(localStorage.getItem('language_file'))
-    const router = useRouter()
     
+    const router = useRouter()
+    const { payment_id } = router.query
+
     const [ counter, setCounter ] = useState( 5 )
 
     const validatePayment = async () => {
@@ -203,7 +205,7 @@ const ThanksPage = () => {
     
     useLayoutEffect(() => {
         
-        const { payment_id } = router.query
+        
 
         let result = false
     
