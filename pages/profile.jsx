@@ -1,6 +1,6 @@
 import { useEffect, useState, useLayoutEffect } from "react"
 
-GetUserData = async ( email ) => {
+const GetUserData = async ( email ) => {
 
     try {
         const req = await fetch( path_endpoint, {
@@ -33,6 +33,8 @@ const Profile = () => {
 
     const [userData, setUserData] = useState( null )
 
+   
+
     useLayoutEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'))
         if( !user ) {
@@ -41,7 +43,6 @@ const Profile = () => {
     }, [])
 
     useEffect(() => {
-        const email = JSON.parse(localStorage.getItem('user')).user_email
         GetUserData( email ).then( res => { 
             if( !res ) window.location.replace('/')
             setUserData( res )
