@@ -202,6 +202,13 @@ const ThanksPage = () => {
             })
         }, 1000)
     }
+
+    useLayoutEffect(() => {
+        const referrer = document.referrer
+        if (!referrer.includes(process.env.NEXT_PUBLIC_TEFPAY_REFFERER_URL)) {
+            window.location.replace('/')
+        }
+    }, [])
     
     useLayoutEffect(() => {
         
