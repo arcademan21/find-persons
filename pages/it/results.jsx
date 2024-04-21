@@ -2,10 +2,12 @@
 import {useState, useEffect, useContext} from 'react'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
-
-import '../css/results.css'
-import * as dataPersonJson from '../resources/dataPerson.json' 
+import PdfRenderer from '@/components/PdfRenderer'
+import { PDFDownloadLink } from '@react-pdf/renderer'
+import * as dataPersonJson from './resources/dataPerson.json' 
 import PDLJS from 'peopledatalabs';
+import { toast } from 'react-toastify'
+import './css/results.css'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -36,11 +38,39 @@ const GetSuscription = async ( user ) =>{
 
 }
 
+const SaveDownload = async ( user, data ) => {
+    try{
+
+        // Fetch to endpoint for update suscription
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "save_download",
+                    "data": {
+                        "save_download": {
+                            "user_email": user.email,
+                            "data": data
+                        }
+                    }
+                }
+            })
+        })
+
+        const res = await req.json()
+        return res
+
+    } catch ( error ) {
+        return false
+    }
+
+}
+
 const Results = () => {
     
     const context = useContext(GlobalContext)
     const { state } = context
-    const extension = localStorage.getItem('extencion')
     
     const [dataPerson, setDataPerson] = useState( dataPersonJson )
     const [error, setError] = useState( null )
@@ -49,10 +79,11 @@ const Results = () => {
     const [location, setLocation] = useState('Madrid, Spain')
     const [locality, setLocality] = useState('Spain')
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
-    const search = localStorage.getItem('search').toString()
-    const search_type = localStorage.getItem('search_type').toString()
+    const search = localStorage.getItem('search')
+    const search_type = localStorage.getItem('search_type')
     const user = JSON.parse( localStorage.getItem('user') )
-    const lang = localStorage.getItem('language').toString()
+    const lang = localStorage.getItem('language')
+    const extension = localStorage.getItem('extencion')
 
     const getSuscription = async ( user ) =>{
         return await GetSuscription( user )
@@ -130,6 +161,20 @@ const Results = () => {
 
     }
 
+    const handleDownloadClick = () => {
+        SaveDownload( user, dataPerson ).then( res => {
+            
+            if( !res ) {
+                toast.error('Error al guardar la descarga')
+                return false
+            }
+
+            toast.success('Descarga guardada con exito')
+            return true
+
+        })
+    }
+
     // "message": "Does not meet minimum combination of required data points. Requests must include one of: 'lid' OR 
     // 'pdl_id' OR 
     // 'email_hash' OR 
@@ -193,7 +238,7 @@ const Results = () => {
                 // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
                 // console.log(`${data["total"]} total PDL records exist matching this query.`)
                 setDataPerson(data.data)
-                
+                console.log('Aqui ', data)
                 setLoading(false)
 
             }).catch((error) => {
@@ -338,9 +383,29 @@ const Results = () => {
                             <h2 className="text-center text-secondary title-section mt-4">
                                 {language.results.download_complete_info}
                             </h2>
-                            <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
-                                <i className="fas fa-download mx-1"></i> {language.results.download_pdf}
-                            </button>
+
+                            <PDFDownloadLink 
+                                document={<PdfRenderer dataPerson={dataPerson} />} 
+                                fileName="data_person.pdf" 
+                                style={{ textAlign: "center" }} 
+                                onClick={handleDownloadClick}
+                            >
+                                {({ blob, url, loading, error }) => {
+                                    if (!loading) {
+                                        setDocumentChanged(true);
+                                    }
+
+                                    return loading ? 
+                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
+                                            <i className="fas fa-spinner mx-1"></i>
+                                            {language.results.download_pdf}
+                                        </button> 
+                                    : 
+                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5">
+                                            <i className="fas fa-download mx-1"></i> {language.results.download_pdf}
+                                        </button>
+                                }}
+                            </PDFDownloadLink>
 
                             <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white">
                                 <i className="fas fa-info-circle fs-1 text-primary mx-2"></i>
@@ -354,7 +419,7 @@ const Results = () => {
             </div>
             
             {/* PARA TEST */}
-            <div className="container py-5 my-5 w-75">
+            {/* <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
                     <div className="col-md-12">
@@ -370,7 +435,7 @@ const Results = () => {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
 
 
 
@@ -379,17 +444,3 @@ const Results = () => {
 }
 
 export default Results
-
-
-
-
-
-
-
-
-
-
-
-
-    
- 

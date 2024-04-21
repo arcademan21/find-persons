@@ -9,6 +9,7 @@ import { PDFDownloadLink } from '@react-pdf/renderer'
 import './css/results.css'
 import * as dataPersonJson from './resources/dataPerson.json' 
 import PDLJS from 'peopledatalabs';
+import { toast } from 'react-toastify'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -24,6 +25,35 @@ const GetSuscription = async ( user ) =>{
                     "data": {
                         "get_suscription": {
                             "user_email": user.email,
+                        }
+                    }
+                }
+            })
+        })
+
+        const res = await req.json()
+        return res
+
+    } catch ( error ) {
+        return false
+    }
+
+}
+
+const SaveDownload = async ( user, data ) => {
+    try{
+
+        // Fetch to endpoint for update suscription
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "save_download",
+                    "data": {
+                        "save_download": {
+                            "user_email": user.email,
+                            "data": data
                         }
                     }
                 }
@@ -132,8 +162,18 @@ const Results = () => {
 
     }
 
-    const handleDownloadPdf = () => {
-        console.log('Descargando pdf')
+    const handleDownloadClick = () => {
+        SaveDownload( user, dataPerson ).then( res => {
+            
+            if( !res ) {
+                toast.error('Error al guardar la descarga')
+                return false
+            }
+
+            toast.success('Descarga guardada con exito')
+            return true
+
+        })
     }
 
     // "message": "Does not meet minimum combination of required data points. Requests must include one of: 'lid' OR 
@@ -345,21 +385,28 @@ const Results = () => {
                                 {language.results.download_complete_info}
                             </h2>
 
-                            <PDFDownloadLink document={<PdfRenderer dataPerson={dataPerson} />} fileName="data_person.pdf">
-                                {({ blob, url, loading, error }) => (loading ? 
-                                    <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
-                                        <i className="fas fa-spinner mx-1"></i>
-                                        {language.results.download_pdf}
-                                    </button> 
-                                : 
-                                    <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5">
-                                        <i className="fas fa-download mx-1"></i> {language.results.download_pdf}
-                                    </button>
-                                )
-                                }
-                            </PDFDownloadLink>
+                            <PDFDownloadLink 
+                                document={<PdfRenderer dataPerson={dataPerson} />} 
+                                fileName="data_person.pdf" 
+                                style={{ textAlign: "center" }} 
+                                onClick={handleDownloadClick}
+                            >
+                                {({ blob, url, loading, error }) => {
+                                    if (!loading) {
+                                        setDocumentChanged(true);
+                                    }
 
-                           
+                                    return loading ? 
+                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
+                                            <i className="fas fa-spinner mx-1"></i>
+                                            {language.results.download_pdf}
+                                        </button> 
+                                    : 
+                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5">
+                                            <i className="fas fa-download mx-1"></i> {language.results.download_pdf}
+                                        </button>
+                                }}
+                            </PDFDownloadLink>
 
                             <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white">
                                 <i className="fas fa-info-circle fs-1 text-primary mx-2"></i>
