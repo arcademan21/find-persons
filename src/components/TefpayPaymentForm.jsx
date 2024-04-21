@@ -115,40 +115,44 @@ export const TefpayPaymentForm = () => {
         )
 
         
+
+        setPaymentToken(`${matchingData}-${signature}`)
+        setLang( merchant_lang )
+        setSignature( signature )
+        setMatchingData( matchingData )
+        setSuscriptionAccount( matchingData )
+        setPaymentId( matchingData )
+        setUserEmail( user.email )
+
+        setPaymentDescription( `
+            NEW PAYMENT - ( Find-persons ) : ${ hostname }
+            Payment ID: ${ matchingData }
+            Country: ${ merchant_lang }
+            User: ${ user_name }
+            Email: ${ user_email }
+            Amount: 0.60 EUR
+        `)
+        
+        setSuscriptionDescription(`
+            NEW SUSCRIPTION - ( Find-persons ) : ${ hostname }
+            Payment ID: ${ matchingData }
+            Country: ${ merchant_lang }
+            User: ${ user_name }
+            Email: ${ user_email }
+            Amount: 49.90 EUR
+        `)
+
+        let paymentToken = `${matchingData}-${signature}`
         CreatePaymentToken( `${matchingData}-${signature}`, user.email).then( res => {
-            console.log(`${matchingData}-${signature}`)
-            console.log( res )
+            
             if( !res ){
                 toast.error( 'Ha ocurrido un error al cargar el token de pago' )
+                paymentToken = ''
                 // redirecionar
                 return false
             }
 
-            setPaymentToken(`${matchingData}-${signature}`)
-            setLang( merchant_lang )
-            setSignature( signature )
-            setMatchingData( matchingData )
-            setSuscriptionAccount( matchingData )
-            setPaymentId( matchingData )
-            setUserEmail( user.email )
-
-            setPaymentDescription( `
-                NEW PAYMENT - ( Find-persons ) : ${ hostname }
-                Payment ID: ${ matchingData }
-                Country: ${ merchant_lang }
-                User: ${ user_name }
-                Email: ${ user_email }
-                Amount: 0.60 EUR
-            `)
             
-            setSuscriptionDescription(`
-                NEW SUSCRIPTION - ( Find-persons ) : ${ hostname }
-                Payment ID: ${ matchingData }
-                Country: ${ merchant_lang }
-                User: ${ user_name }
-                Email: ${ user_email }
-                Amount: 49.90 EUR
-            `)
 
         } )
 
