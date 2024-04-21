@@ -4,7 +4,7 @@ import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import PdfRenderer from '@/components/PdfRenderer'
 import { PDFDownloadLink } from '@react-pdf/renderer'
-import * as dataPersonJson from './resources/dataPerson.json' 
+import * as dataPersonJson from '../resources/dataPerson.json'
 import PDLJS from 'peopledatalabs';
 import { toast } from 'react-toastify'
 import './css/results.css'
