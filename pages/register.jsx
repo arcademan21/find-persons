@@ -154,6 +154,7 @@ const Register = () => {
             
                     if( !suscripted && !search ) window.location.replace('/')
                     else if( !suscripted && search ) window.location.replace('/payment')
+                    else if( suscripted && !search ) window.location.replace('/')
                     else if( suscripted && search ) window.location.replace('/results')
                     
         
