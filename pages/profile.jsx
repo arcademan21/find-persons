@@ -135,10 +135,10 @@ const Profile = () => {
                                     <button className="btn btn-secondary"
                                         onClick={ async ()=>{
                                             const res = await downSuscription( userData.user_data.user_email, userData.suscription_data.payment_id )
-                                            if( !res ) console.log('Error al darse de baja')
+                                            if( !res ) console.log('Error al darse de baja : ', res)
                                             else {
-                                                console.log('Dado de baja correctamente')
-                                                window.location.replace( '/' )
+                                                console.log('Dado de baja correctamente : ', res)
+                                                //window.location.replace( '/' )
                                             }
                                         } }
                                     > Darse de baja </button>
