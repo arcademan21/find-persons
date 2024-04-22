@@ -83,6 +83,11 @@ const Profile = () => {
             setUserData( res )
         })
 
+        // Limpiando 
+        return () => {
+            setUserData( null )
+        }
+
     }, [])
 
 

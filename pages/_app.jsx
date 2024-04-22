@@ -47,7 +47,6 @@ function PersonsFinder({ Component, pageProps }) {
     <Script type="text/javascript" src="/libs/jquery/jquery.min.js" />
     <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.min.js" />
     <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.bundle.min.js" />
-    <Script type="text/javascript" src="/libs/html2pdf/html2pdf.js" />
     <Script type="text/javascript" src="/libs/font-awesome/js/all.min.js"  />
     <Script type="text/javascript" src="/libs/vantajs/three.min.js" strategy='beforeInteractive' />
     <Script type="text/javascript" src="/libs/vantajs/vanta.globe.min.js" strategy='beforeInteractive' /> 
