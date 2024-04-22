@@ -249,7 +249,7 @@ const Results = () => {
 
     useEffect(() => {
         GetSuscription( user ).then( suscripted => {
-            
+            console.log('Suscripted: ', suscripted)
             if( user && !suscripted && !search ) window.location.replace('/')
             else if( !user ) window.location.replace('/register')
 
