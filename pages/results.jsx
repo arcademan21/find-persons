@@ -250,6 +250,8 @@ const Results = () => {
     useEffect(() => {
         GetSuscription( user ).then( suscripted => {
             console.log('Suscripted: ', suscripted)
+            console.log('User: ', user)
+            console.log('Search: ', search)
             if( user && !suscripted && !search ) window.location.replace('/')
             else if( !user ) window.location.replace('/register')
 
