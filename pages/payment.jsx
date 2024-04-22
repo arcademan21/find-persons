@@ -1,5 +1,5 @@
 'use client'
-import {useEffect, useContext, useState} from "react"
+import {useEffect, useContext, useState, useLayoutEffect} from "react"
 import TefpayPaymentForm from "@/components/TefpayPaymentForm"
 import GlobalContext from "@/context/GlobalContext"
 import VantaGlobe from '@/components/VantaGlobe'
