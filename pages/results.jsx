@@ -259,6 +259,7 @@ const Results = () => {
 
         // Validando la suscripcion
         getSuscription( user ).then( res => {
+            
             if( res.suscription_status !== 'active' && res.suscription_status !== 'trial') {
                 window.location.replace('/payment')
                 return
@@ -392,10 +393,7 @@ const Results = () => {
                                 onClick={handleDownloadClick}
                             >
                                 {({ blob, url, loading, error }) => {
-                                    if (!loading) {
-                                        setDocumentChanged(true);
-                                    }
-
+                                    
                                     return loading ? 
                                         <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
                                             <i className="fas fa-spinner mx-1"></i>
@@ -405,6 +403,7 @@ const Results = () => {
                                         <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5">
                                             <i className="fas fa-download mx-1"></i> {language.results.download_pdf}
                                         </button>
+                                        
                                 }}
                             </PDFDownloadLink>
 
