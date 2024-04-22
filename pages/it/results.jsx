@@ -238,7 +238,6 @@ const Results = () => {
                 // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
                 // console.log(`${data["total"]} total PDL records exist matching this query.`)
                 setDataPerson(data.data)
-                console.log('Aqui ', data)
                 setLoading(false)
 
             }).catch((error) => {

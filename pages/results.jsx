@@ -53,7 +53,7 @@ const SaveDownload = async ( user, data ) => {
                     "data": {
                         "save_download": {
                             "user_email": user.email,
-                            "data": data
+                            "data": JSON.stringify(data)
                         }
                     }
                 }
