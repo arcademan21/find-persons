@@ -91,7 +91,7 @@ const Profile = () => {
     }, [])
 
 
-    return (
+    return ( <>
 
         <div className="profile-container">
             <div className="container py-5 vh-100">
@@ -156,8 +156,30 @@ const Profile = () => {
             </div>
         </div>
 
+        {/* PARA TEST */}
+        <div className="container py-5 my-5 w-75">
+            <div className="row px-5 content-search-map-anime">
+            
+                <div className="col-md-12">
+                    <div className="card">
+                        <div className="card-header">
+                            <h4>Resultados de {search}</h4>
+                        </div>
+                        <div className="card-body">
+                            {dataPerson && <pre>{ JSON.stringify( userData, null, 2) }</pre>}
+                            {error && <p>Error: { error.message }</p>}
+                        </div>
+                    </div>
+                </div>
 
-    )
+            </div>
+        </div>
+
+
+
+
+
+    </>)
 
 
 
