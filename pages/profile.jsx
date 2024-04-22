@@ -96,20 +96,18 @@ const Profile = () => {
         <div className="profile-container">
             <div className="container py-5 vh-100">
                 <div className="row py-5">
-                    MI CUENTA
-                    {/* <div className="col-md-6">
+                    
+                    <div className="col-md-6">
                         
                         <h2>Mi cuenta</h2>
                         <div className="card profile-data mb-3 p-3">
                             <p className="mb-1">
                                 <strong>Nombre:</strong> 
-                                { userData ? userData.user_data.user_name : 
-                                <i className="fas fa-spinner fa-spin"></i> }
+                                { userData.user_data.user_name }
                             </p>
                             <p className="mb-1">
                                 <strong>Correo:</strong> 
-                                { userData ? userData.user_data.user_email : 
-                                <i className="fas fa-spinner fa-spin"></i> }
+                                { userData.user_data.user_email }
                             </p>
                         </div>
 
@@ -117,16 +115,14 @@ const Profile = () => {
                         <div className="card profile-data mb-3 p-3">
                             <p className="mb-1">
                                 <strong>Estado de la suscripcion : </strong> 
-                                { userData ? userData.suscription_data.status : 
-                                <i className="fas fa-spinner fa-spin"></i> }
+                                { userData.suscription_data.status }
                             </p>
                             <p className="mb-1">
                                 <strong>Fin de prueba : </strong> 
-                                { userData ? userData.suscription_data.end_trial : 
-                                <i className="fas fa-spinner fa-spin"></i> }
+                                { userData.suscription_data.end_trial }
                             </p>
 
-                            { userData && userData.suscription_data.status !== 'canceled' ?
+                            { userData.suscription_data.status !== 'canceled' ?
                                 <>
                                     <p>
                                         Recuerda que si no deseas continuar con la suscripcion, puedes darte de baja en cualquier momento.
@@ -150,14 +146,14 @@ const Profile = () => {
 
                         </div>
 
-                    </div> */}
+                    </div>
 
                 </div>
             </div>
         </div>
 
         {/* PARA TEST */}
-        <div className="container py-5 my-5 w-75">
+        {/* <div className="container py-5 my-5 w-75">
             <div className="row px-5 content-search-map-anime">
             
                 <div className="col-md-12">
@@ -173,7 +169,7 @@ const Profile = () => {
                 </div>
 
             </div>
-        </div>
+        </div> */}
 
 
 
