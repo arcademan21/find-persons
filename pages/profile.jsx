@@ -97,7 +97,7 @@ const Profile = () => {
             <div className="container py-5 vh-100">
                 <div className="row py-5">
                     
-                    <div className="col-md-6">
+                    {/* <div className="col-md-6">
                         
                         <h2>Mi cuenta</h2>
                         <div className="card profile-data mb-3 p-3">
@@ -146,14 +146,14 @@ const Profile = () => {
 
                         </div>
 
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
         </div>
 
         {/* PARA TEST */}
-        {/* <div className="container py-5 my-5 w-75">
+        <div className="container py-5 my-5 w-75">
             <div className="row px-5 content-search-map-anime">
             
                 <div className="col-md-12">
@@ -169,7 +169,7 @@ const Profile = () => {
                 </div>
 
             </div>
-        </div> */}
+        </div>
 
 
 
