@@ -47,7 +47,7 @@ const Payment = () => {
         GetSuscription( user ).then( suscripted => {
             
             if( !user ) window.location.replace('/register')
-            if( user && suscripted ) window.location.replace('/results')
+            else if( user && suscripted ) window.location.replace('/results')
 
         })
     }, [])

@@ -248,7 +248,7 @@ const Results = () => {
         GetSuscription( user ).then( suscripted => {
             
             if( user && !suscripted && !search ) window.location.replace('/')
-            if( !user ) window.location.replace('/register')
+            else if( !user ) window.location.replace('/register')
 
         })
     }, [])

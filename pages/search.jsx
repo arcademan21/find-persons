@@ -85,7 +85,7 @@ const Search = () => {
                 GetSuscription( user ).then( suscripted => {
             
                     if( !user ) window.location.replace('/register')
-                    if( !suscripted ) window.location.replace('/payment')
+                    else if( !suscripted ) window.location.replace('/payment')
                     else window.location.replace('/results')
         
                 })
