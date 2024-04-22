@@ -43,19 +43,15 @@ const Payment = () => {
     const search = localStorage.getItem('search')
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
     
-    useLayoutEffect(() => {
+    useEffect(() => {
+        
+        setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
         GetSuscription( user ).then( suscripted => {
             
             if( !user ) window.location.replace('/register')
             else if( user && suscripted ) window.location.replace('/results')
 
         })
-    }, [])
-    
-    useEffect(() => {
-        
-        setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
-
     }, [])
 
     return (<>

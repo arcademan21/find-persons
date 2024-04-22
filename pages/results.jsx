@@ -244,7 +244,7 @@ const Results = () => {
 
     }
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         GetSuscription( user ).then( suscripted => {
             
             if( user && !suscripted && !search ) window.location.replace('/')

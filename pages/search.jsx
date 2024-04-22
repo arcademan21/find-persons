@@ -48,13 +48,9 @@ const Search = () => {
     const [activeClass, setActiveClass] = useState('')
     const [stateIcon, setStateIcon] = useState('fa-spinner')
     const [listOfSearchs, setListOfSearchs] = useState([])
-    
-    useLayoutEffect(() => {
-        if( !search ) window.location.replace('/')
-    }, [])
 
     useEffect(() => {
-
+        if( !search ) window.location.replace('/')
         setListOfSearchs([
             language.socials, 
             language.work,

@@ -85,7 +85,7 @@ const Login = ( ) => {
 
     }
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if( user ) window.location.replace('/')
     }, [])
 
