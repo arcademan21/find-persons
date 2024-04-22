@@ -29,6 +29,9 @@ const GetSuscription = async ( user ) =>{
         })
 
         const res = await req.json()
+
+        if(res.status === 'error') return false
+
         return res
 
     } catch ( error ) {

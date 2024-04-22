@@ -1,5 +1,5 @@
 'use client'
-import { useContext, useState, useEffect, useCallback, useLayoutEffect } from "react"
+import { useContext, useState, useEffect } from "react"
 import GlobalContext from '@/context/GlobalContext'
 import VantaGlobe from '@/components/VantaGlobe'
 import Image from 'next/image'
@@ -26,6 +26,7 @@ const GetSuscription = async ( user ) =>{
         })
 
         const res = await req.json()
+        if(res.status === 'error') return false
         return res
 
     } catch ( error ) {

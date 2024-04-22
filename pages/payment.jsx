@@ -1,5 +1,5 @@
 'use client'
-import {useEffect, useContext, useState, useLayoutEffect} from "react"
+import {useEffect, useContext, useState} from "react"
 import TefpayPaymentForm from "@/components/TefpayPaymentForm"
 import GlobalContext from "@/context/GlobalContext"
 import VantaGlobe from '@/components/VantaGlobe'
@@ -26,6 +26,9 @@ const GetSuscription = async ( user ) =>{
         })
 
         const res = await req.json()
+
+        if(res.status === 'error') return false
+
         return res
 
     } catch ( error ) {
