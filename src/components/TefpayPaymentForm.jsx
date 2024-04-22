@@ -4,7 +4,6 @@ import GlobalContext from "../context/GlobalContext"
 import './css/tefpay-payment-form.css'
 import Image from 'next/image'
 import sha1 from 'js-sha1'
-import { toast } from "react-toastify"
 
 const merchantCode = process.env.NEXT_PUBLIC_TEFPAY_TESTS_MERCHANT_CODE
 const merchantSharedkey = process.env.NEXT_PUBLIC_TEFPAY_TESTS_PASSWORD
@@ -113,7 +112,7 @@ export const TefpayPaymentForm = () => {
             matchingData,
             merchantURL
         )
-        
+
         setPaymentToken(`${matchingData}-${signature}`)
         setLang( merchant_lang )
         setSignature( signature )
@@ -144,9 +143,9 @@ export const TefpayPaymentForm = () => {
         CreatePaymentToken( `${matchingData}-${signature}`, user.email).then( res => {
             
             if( !res ){
-                toast.error( 'Ha ocurrido un error al cargar el token de pago' )
+                
                 paymentToken = ''
-                // redirecionar
+                window.location.replace(`${extension}/tefpay_error/error_token`)
                 return false
             }
 

@@ -164,15 +164,8 @@ const Results = () => {
 
     const handleDownloadClick = () => {
         SaveDownload( user, dataPerson ).then( res => {
-            
-            if( !res ) {
-                toast.error('Error al guardar la descarga')
-                return false
-            }
-
-            toast.success('Descarga guardada con exito')
+            if( !res ) return false
             return true
-
         })
     }
 

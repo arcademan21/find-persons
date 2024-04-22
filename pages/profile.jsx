@@ -76,18 +76,17 @@ const Profile = () => {
         }
 
         getUserData( user.email ).then( res => { 
+            
             if( !res ) {
                 window.location.replace('/')
                 return false
             }
 
             setUserData( res )
+
         })
 
-        // Limpiando 
-        return () => {
-            setUserData( null )
-        }
+        
 
     }, [])
 
@@ -97,8 +96,8 @@ const Profile = () => {
         <div className="profile-container">
             <div className="container py-5 vh-100">
                 <div className="row py-5">
-                    
-                    <div className="col-md-6">
+                    MI CUENTA
+                    {/* <div className="col-md-6">
                         
                         <h2>Mi cuenta</h2>
                         <div className="card profile-data mb-3 p-3">
@@ -151,7 +150,7 @@ const Profile = () => {
 
                         </div>
 
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
