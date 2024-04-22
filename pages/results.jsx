@@ -250,7 +250,7 @@ const Results = () => {
     useEffect(() => {
         GetSuscription( user ).then( suscripted => {
             
-            if(!search) window.location.replace('/')
+            if(search === 'null') window.location.replace('/')
             else if( user && !suscripted ) window.location.replace('/payment')
             else if( !user ) window.location.replace('/register')
 

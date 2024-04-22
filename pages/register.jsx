@@ -93,9 +93,9 @@ const Register = () => {
                 
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && !search ) window.location.replace('/')
-                    else if( !suscripted && search ) window.location.replace('/payment')
-                    else if( suscripted && search ) window.location.replace('/results')
+                    if( !suscripted && search === 'null' ) window.location.replace('/')
+                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
+                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
                     
         
                 })
@@ -152,10 +152,10 @@ const Register = () => {
                 
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && !search ) window.location.replace('/')
-                    else if( !suscripted && search ) window.location.replace('/payment')
-                    else if( suscripted && !search ) window.location.replace('/')
-                    else if( suscripted && search ) window.location.replace('/results')
+                    if( !suscripted && search === 'null' ) window.location.replace('/')
+                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
+                    else if( suscripted && search === 'null' ) window.location.replace('/')
+                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
                     
         
                 })
@@ -190,7 +190,7 @@ const Register = () => {
         GetSuscription( user ).then( suscripted => {
             
             if( user && !suscripted ) window.location.replace('/payment')
-            else if( user && suscripted && search ) window.location.replace('/results')
+            else if( user && suscripted && search !== 'null' ) window.location.replace('/results')
 
         })
     }, [])
