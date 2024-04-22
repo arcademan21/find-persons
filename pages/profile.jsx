@@ -36,7 +36,7 @@ const Profile = () => {
         }
     }
 
-    const downSuscription = async ( email ) => {
+    const downSuscription = async ( email, payment_id ) => {
 
         if( confirm('¿Estas seguro de que deseas darte de baja?') === false ) return false
 
@@ -50,7 +50,9 @@ const Profile = () => {
                         "name": "down_suscription",
                         "data": {
                             "down_suscription": {
-                                "user_email": email
+                                "user_email": email,
+                                "payment_id": payment_id,
+                                "reason": "user request"
                             }
                         }
                     }
@@ -98,16 +100,17 @@ const Profile = () => {
             <div className="container py-5 vh-100">
                 <div className="row py-5">
                     
+                    {/* USER INFO */}
                     <div className="col-md-6">
                         
                         <h2>Mi cuenta</h2>
                         <div className="card profile-data mb-3 p-3">
                             <p className="mb-1">
-                                <strong>Nombre:</strong> 
+                                <strong>Nombre : </strong> 
                                 { userData && userData.user_data.user_name }
                             </p>
                             <p className="mb-1">
-                                <strong>Correo:</strong> 
+                                <strong>Correo : </strong> 
                                 { userData && userData.user_data.user_email }
                             </p>
                         </div>
@@ -115,7 +118,7 @@ const Profile = () => {
                         <h2>Suscription</h2>
                         <div className="card profile-data mb-3 p-3">
                             <p className="mb-1">
-                                <strong>Estado de la suscripcion : </strong> 
+                                <strong> Estado de la suscripcion : </strong> 
                                 { userData && userData.suscription_data.status }
                             </p>
                             <p className="mb-1">
@@ -131,7 +134,7 @@ const Profile = () => {
                                     </p>
                                     <button className="btn btn-secondary"
                                         onClick={ async ()=>{
-                                            const res = await downSuscription( userData.user_data.user_email )
+                                            const res = await downSuscription( userData.user_data.user_email, userData.suscription_data.payment_id )
                                             if( !res ) console.log('Error al darse de baja')
                                             else {
                                                 console.log('Dado de baja correctamente')
@@ -171,9 +174,6 @@ const Profile = () => {
 
             </div>
         </div> */}
-
-
-
 
 
     </>)
