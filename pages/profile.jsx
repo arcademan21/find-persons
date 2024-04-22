@@ -166,7 +166,7 @@ const Profile = () => {
                             <h4>Resultados</h4>
                         </div>
                         <div className="card-body">
-                            {dataPerson && <pre>{ JSON.stringify( userData, null, 2) }</pre>}
+                            {userData && <pre>{ JSON.stringify( userData, null, 2) }</pre>}
                             {error && <p>Error: { error.message }</p>}
                         </div>
                     </div>
