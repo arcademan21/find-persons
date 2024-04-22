@@ -419,7 +419,7 @@ const Results = () => {
             </div>
             
             {/* PARA TEST */}
-            {/* <div className="container py-5 my-5 w-75">
+            <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
                     <div className="col-md-12">
@@ -435,7 +435,7 @@ const Results = () => {
                     </div>
 
                 </div>
-            </div> */}
+            </div>
 
 
 

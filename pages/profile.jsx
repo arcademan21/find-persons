@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 const Profile = () => {
 
     const [userData, setUserData] = useState( null )
-    const [loading, setLoading] = useState( true )
     const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 
     const getUserData = async ( email ) => {
@@ -82,12 +81,10 @@ const Profile = () => {
             }
 
             setUserData( res )
-            setLoading( false )
         })
 
     }, [])
 
-    if( loading ) return <div className="loading"><i className="fas fa-spinner fa-spin"></i></div>
 
     return (
 
@@ -124,9 +121,7 @@ const Profile = () => {
                                 <i className="fas fa-spinner fa-spin"></i> }
                             </p>
 
-                            { 
-                                
-                                userData.suscription_data.status !== 'canceled' ?
+                            { userData && userData.suscription_data.status !== 'canceled' ?
                                 <>
                                     <p>
                                         Recuerda que si no deseas continuar con la suscripcion, puedes darte de baja en cualquier momento.
