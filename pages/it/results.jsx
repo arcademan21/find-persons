@@ -258,6 +258,7 @@ const Results = () => {
 
         // Validando la suscripcion
         getSuscription( user ).then( res => {
+            
             if( res.suscription_status !== 'active' && res.suscription_status !== 'trial') {
                 window.location.replace(`${extension}/payment`)
                 return
