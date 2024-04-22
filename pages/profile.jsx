@@ -98,17 +98,17 @@ const Profile = () => {
             <div className="container py-5 vh-100">
                 <div className="row py-5">
                     
-                    {/* <div className="col-md-6">
+                    <div className="col-md-6">
                         
                         <h2>Mi cuenta</h2>
                         <div className="card profile-data mb-3 p-3">
                             <p className="mb-1">
                                 <strong>Nombre:</strong> 
-                                { userData.user_data.user_name }
+                                { userData && userData.user_data.user_name }
                             </p>
                             <p className="mb-1">
                                 <strong>Correo:</strong> 
-                                { userData.user_data.user_email }
+                                { userData && userData.user_data.user_email }
                             </p>
                         </div>
 
@@ -116,14 +116,14 @@ const Profile = () => {
                         <div className="card profile-data mb-3 p-3">
                             <p className="mb-1">
                                 <strong>Estado de la suscripcion : </strong> 
-                                { userData.suscription_data.status }
+                                { userData && userData.suscription_data.status }
                             </p>
                             <p className="mb-1">
                                 <strong>Fin de prueba : </strong> 
-                                { userData.suscription_data.end_trial }
+                                { userData && userData.suscription_data.end_trial }
                             </p>
 
-                            { userData.suscription_data.status !== 'canceled' ?
+                            { userData && userData.suscription_data.status !== 'canceled' ?
                                 <>
                                     <p>
                                         Recuerda que si no deseas continuar con la suscripcion, puedes darte de baja en cualquier momento.
@@ -147,14 +147,14 @@ const Profile = () => {
 
                         </div>
 
-                    </div> */}
+                    </div>
 
                 </div>
             </div>
         </div>
 
         {/* PARA TEST */}
-        <div className="container py-5 my-5 w-75">
+        {/* <div className="container py-5 my-5 w-75">
             <div className="row px-5 content-search-map-anime">
             
                 <div className="col-md-12">
@@ -170,7 +170,7 @@ const Profile = () => {
                 </div>
 
             </div>
-        </div>
+        </div> */}
 
 
 
