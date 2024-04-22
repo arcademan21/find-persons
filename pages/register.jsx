@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useContext, useLayoutEffect } from 'react'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import GlobalContext from '@/context/GlobalContext'
 import { toast } from 'react-toastify'
@@ -7,6 +7,36 @@ import VantaGlobe from '@/components/VantaGlobe'
 import 'react-toastify/dist/ReactToastify.css'
 import Image from 'next/image'
 import Link from 'next/link'
+
+const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
+const GetSuscription = async ( user ) =>{
+    try{
+
+        // Fetch to endpoint for update suscription
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "get_suscription",
+                    "data": {
+                        "get_suscription": {
+                            "user_email": user.email,
+                        }
+                    }
+                }
+            })
+        })
+
+        const res = await req.json()
+        return res
+
+    } catch ( error ) {
+        return false
+    }
+
+}
+
 
 const Register = () => {
     
@@ -16,11 +46,11 @@ const Register = () => {
 
     const user = JSON.parse( localStorage.getItem('user') )
     const search = localStorage.getItem('search').toString()
-    const suscription = localStorage.getItem('suscription')
-
+    
+    const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     const [ error, setError ] = useState( null )
     const [ success, setSuccess ] = useState( null )
-    const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
+    const [ suscription, setSuscription ] = useState( false )
     
     const newUser = async () => { 
         
@@ -61,10 +91,17 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if ( search ) 
-                    window.location.replace('/results')
-                else 
+                if( search === 'null' ) {
                     window.location.replace('/')
+                    return false
+                }
+
+                if( !suscription ) {
+                    window.location.replace('/payment')
+                    return false
+                }
+
+                window.location.replace('/results')
             })
 
         })
@@ -118,14 +155,15 @@ const Register = () => {
                 
                 if( search === 'null' ) {
                     window.location.replace('/')
+                    return false
                 }
 
-                else if ( suscription === 'true' ) 
-                    window.location.replace('/results')
-                else if( suscription === 'false') 
+                if( !suscription ) {
                     window.location.replace('/payment')
-                else 
-                    window.location.replace('/')
+                    return false
+                }
+
+                window.location.replace('/results')
 
             })
             
@@ -153,6 +191,12 @@ const Register = () => {
         
 
     }
+
+    useLayoutEffect(() => {
+        GetSuscription( user ).then( res => {
+            if( res ) setSuscription( true )
+        })
+    }, [])
 
     useEffect(()=>{
         
