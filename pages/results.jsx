@@ -1,5 +1,5 @@
 'use client'
-import {useState, useEffect, useContext} from 'react'
+import {useState, useEffect, useContext, useLayoutEffect} from 'react'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import PdfRenderer from '@/components/PdfRenderer'
