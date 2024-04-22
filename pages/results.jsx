@@ -252,7 +252,8 @@ const Results = () => {
             console.log('Suscripted: ', suscripted)
             console.log('User: ', user)
             console.log('Search: ', search)
-            if( user && !suscripted && !search ) window.location.replace('/')
+            if(!search) window.location.replace('/')
+            else if( user && !suscripted ) window.location.replace('/payment')
             else if( !user ) window.location.replace('/register')
 
         })
