@@ -167,7 +167,7 @@ const Profile = () => {
                         </div>
                         <div className="card-body">
                             {userData && <pre>{ JSON.stringify( userData, null, 2) }</pre>}
-                            {error && <p>Error: { error.message }</p>}
+                            
                         </div>
                     </div>
                 </div>
