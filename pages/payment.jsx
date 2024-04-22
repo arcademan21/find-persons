@@ -6,11 +6,10 @@ import VantaGlobe from '@/components/VantaGlobe'
 import Image from "next/image"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
-const IsSuscripted = async ( user ) => {
-    
+const GetSuscription = async ( user ) =>{
     try{
 
-        // Fetch to endpoint for get payment
+        // Fetch to endpoint for update suscription
         const req = await fetch( path_endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -19,22 +18,19 @@ const IsSuscripted = async ( user ) => {
                     "name": "get_suscription",
                     "data": {
                         "get_suscription": {
-                            "user_email": user.email
+                            "user_email": user.email,
                         }
                     }
                 }
             })
         })
-        
+
         const res = await req.json()
-        if( res.status === 'error' ) return false
+        return res
 
     } catch ( error ) {
-        console.log( error )
         return false
     }
-    
-    return true
 
 }
 
@@ -46,30 +42,19 @@ const Payment = () => {
     const user = JSON.parse(localStorage.getItem('user'))
     const search = localStorage.getItem('search')
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
+    
+    useLayoutEffect(() => {
+        GetSuscription( user ).then( suscripted => {
+            
+            if( !user ) window.location.replace('/register')
+            if( user && suscripted ) window.location.replace('/results')
 
-    const isSuscripted = async ( user ) => {
-        return await IsSuscripted( user )
-    }
+        })
+    }, [])
     
     useEffect(() => {
         
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
-        if( !user ) {
-            window.location.replace('/')
-            return null
-        }
-
-        else {
-            let asyncRequest = async () => {
-                return await isSuscripted( user ).then( res => {
-                    if( res ){
-                        window.location.replace('/')
-                        return null
-                    }
-                })  
-            }
-            asyncRequest()
-        }
 
     }, [])
 

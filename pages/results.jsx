@@ -73,23 +73,18 @@ const Results = () => {
     
     const context = useContext(GlobalContext)
     const { state } = context
+
+    const search = localStorage.getItem('search')
+    const search_type = localStorage.getItem('search_type')
+    const user = JSON.parse( localStorage.getItem('user') )
+    const lang = localStorage.getItem('language')
     
     const [dataPerson, setDataPerson] = useState( dataPersonJson )
-    const [error, setError] = useState( null )
     const [loading, setLoading] = useState(true)
     const [region, setRegion] = useState('EUROPE')
     const [location, setLocation] = useState('Madrid, Spain')
     const [locality, setLocality] = useState('Spain')
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
-    const search = localStorage.getItem('search').toString()
-    const search_type = localStorage.getItem('search_type').toString()
-    const user = JSON.parse( localStorage.getItem('user') )
-    const lang = localStorage.getItem('language').toString()
-    const [suscription, setSuscription] = useState( false )
-
-    const getSuscription = async ( user ) =>{
-        return await GetSuscription( user )
-    }
     
     const setRegionRegionHandler = (e) => {
         setRegion(e.target.value)
@@ -250,25 +245,20 @@ const Results = () => {
     }
 
     useLayoutEffect(() => {
-        GetSuscription( user ).then( res => {
-            if( res ) setSuscription( true )
+        GetSuscription( user ).then( suscripted => {
+            
+            if( user && !suscripted && !search ) window.location.replace('/')
+            if( !user ) window.location.replace('/register')
+
         })
     }, [])
 
     useEffect(() => {
 
-        // Validando la suscripcion
-        if( !suscription ) {
-            window.location.replace('/')
-        }
+        getRegionAndLocality()
+        fetchPersonData()
 
-        else{
-            getRegionAndLocality()
-            fetchPersonData()
-        }
 
-        
-    
     }, [] )
 
     if( loading ) return (<div className="container py-5 my-5 w-75">

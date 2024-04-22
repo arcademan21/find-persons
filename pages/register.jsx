@@ -37,7 +37,6 @@ const GetSuscription = async ( user ) =>{
 
 }
 
-
 const Register = () => {
     
     const context = useContext( GlobalContext )
@@ -46,11 +45,8 @@ const Register = () => {
 
     const user = JSON.parse( localStorage.getItem('user') )
     const search = localStorage.getItem('search').toString()
-    
+
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
-    const [ error, setError ] = useState( null )
-    const [ success, setSuccess ] = useState( null )
-    const [ suscription, setSuscription ] = useState( false )
     
     const newUser = async () => { 
         
@@ -83,7 +79,7 @@ const Register = () => {
                 <i className="fas fa-check fs-2 mx-2 fs-5 mx-1 text-success">
                 </i>Registro exitoso
             `
-            setSuccess( true )
+            
             setState({ ...state, user: UserCredential.user })
 
             const showSuccesToast = async () => {
@@ -91,17 +87,16 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if( search === 'null' ) {
-                    window.location.replace('/')
-                    return false
-                }
+                
+                GetSuscription( user ).then( suscripted => {
+            
+                    if( !suscripted && !search ) window.location.replace('/')
+                    if( !suscripted && search ) window.location.replace('/payment')
+                    if( suscripted && search ) window.location.replace('/results')
+                    
+        
+                })
 
-                if( !suscription ) {
-                    window.location.replace('/payment')
-                    return false
-                }
-
-                window.location.replace('/results')
             })
 
         })
@@ -144,7 +139,6 @@ const Register = () => {
             
             // The signed-in user info.
             const user = result.user
-            setSuccess( true )
             setState({ ...state, user: user })
 
             const showSuccesToast = async () => {
@@ -153,23 +147,19 @@ const Register = () => {
 
             showSuccesToast().then(() => {
                 
-                if( search === 'null' ) {
-                    window.location.replace('/')
-                    return false
-                }
-
-                if( !suscription ) {
-                    window.location.replace('/payment')
-                    return false
-                }
-
-                window.location.replace('/results')
+                GetSuscription( user ).then( suscripted => {
+            
+                    if( !suscripted && !search ) window.location.replace('/')
+                    if( !suscripted && search ) window.location.replace('/payment')
+                    if( suscripted && search ) window.location.replace('/results')
+                    
+        
+                })
 
             })
             
             // Todo: save user data
         
-
         }).catch(( error ) => {
             
             // Handle Errors here.
@@ -193,17 +183,12 @@ const Register = () => {
     }
 
     useLayoutEffect(() => {
-        GetSuscription( user ).then( res => {
-            if( res ) setSuscription( true )
+        GetSuscription( user ).then( suscripted => {
+            
+            if( user && !suscripted ) window.location.replace('/payment')
+            if( user && suscripted && search ) window.location.replace('/results')
+
         })
-    }, [])
-
-    useEffect(()=>{
-        
-        if( user ){
-            window.location.replace('/')
-        }
-
     }, [])
 
     useEffect(() => {
