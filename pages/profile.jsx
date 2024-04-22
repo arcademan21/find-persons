@@ -163,7 +163,7 @@ const Profile = () => {
                 <div className="col-md-12">
                     <div className="card">
                         <div className="card-header">
-                            <h4>Resultados de {search}</h4>
+                            <h4>Resultados</h4>
                         </div>
                         <div className="card-body">
                             {dataPerson && <pre>{ JSON.stringify( userData, null, 2) }</pre>}
