@@ -85,6 +85,7 @@ const Results = () => {
     const search_type = localStorage.getItem('search_type').toString()
     const user = JSON.parse( localStorage.getItem('user') )
     const lang = localStorage.getItem('language').toString()
+    const [suscription, setSuscription] = useState( false )
 
     const getSuscription = async ( user ) =>{
         return await GetSuscription( user )
@@ -248,20 +249,25 @@ const Results = () => {
 
     }
 
+    useLayoutEffect(() => {
+        GetSuscription( user ).then( res => {
+            if( res ) setSuscription( true )
+        })
+    }, [])
+
     useEffect(() => {
 
         // Validando la suscripcion
-        getSuscription( user ).then( res => {
-            
-            if( res.data.status !== 'active' && res.data.status !== 'trial') {
-                window.location.replace('/')
-                return false
-            }  
+        if( !suscription ) {
+            window.location.replace('/')
+        }
 
+        else{
             getRegionAndLocality()
             fetchPersonData()
+        }
 
-        })
+        
     
     }, [] )
 
