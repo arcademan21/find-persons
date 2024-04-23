@@ -296,12 +296,12 @@ const Register = () => {
                                 <div className="d-flex flex-column align-items-center justify-content-center mx-4 mb-3 mb-lg-2">
 
                                     <button className="btn btn-primary btn-lg mb-2 fs-6 w-75" id="btn-register"  onClick={newUser}>
-                                        <FaUserPlus />
+                                        <FaUserPlus className='fs-5 mx-2' />
                                         <span>{language.register_free}</span>
                                     </button>
 
                                     <button className="btn btn-danger btn-lg mb-2 fs-6 w-75" id="btn-google" onClick={newUserGoogle}>
-                                        <FaGoogle />
+                                        <FaGoogle className='fs-5 mx-2' />
                                         <span>{language.register_google}</span>
                                     </button>
 
