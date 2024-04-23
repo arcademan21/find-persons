@@ -66,30 +66,30 @@ const Terms = () => {
                         <div className="divider"></div>
                         <h2 className="title-section">1.Conceptos y definiciones del sitio web:</h2>
                         En este documento,
-                        "CGV": Se refiere a estas condiciones generales de venta.
-                        "Empresa": significa el editor y propietario del sitio web.
-                        "Sitio web": significa el servicio electrónico en línea publicado por la Compañía, accesible en la
+                        &quot;CGV&quot;: Se refiere a estas condiciones generales de venta.
+                        &quot;Empresa&quot;: significa el editor y propietario del sitio web.
+                        &quot;Sitio web&quot;: significa el servicio electrónico en línea publicado por la Compañía, accesible en la
                         dirección www.find-persons.com, y todos los elementos asociados al mismo.
-                        "Servicios": significa todos los servicios, productos, contenido, funcionalidad, tecnología y
-                        "Miembro": significa cualquier persona física o jurídica que tenga una cuenta en el Sitio.
-                        "Espacio personal": es un espacio personal proporcionado a los miembros donde los miembros
+                        &quot;Servicios&quot;: significa todos los servicios, productos, contenido, funcionalidad, tecnología y
+                        &quot;Miembro&quot;: significa cualquier persona física o jurídica que tenga una cuenta en el Sitio.
+                        &quot;Espacio personal&quot;: es un espacio personal proporcionado a los miembros donde los miembros
                         pueden obtener información personal y contactar con www.find-persons.com.
                         
-                        "Soporte en línea": significa todos los servicios de soporte disponibles para los Miembros, por
+                        &quot;Soporte en línea&quot;: significa todos los servicios de soporte disponibles para los Miembros, por
                         ejemplo, operadores cuya tarea es ayudar a los Miembros con cualquier solicitud realizada a
                         través de centrales telefónicas, correo electrónico o a través de las páginas de contacto de
                         nuestro sitio web.
                         
-                        "Suscripción": significa una suscripción paga mensual a la que un Miembro puede suscribirse en
+                        &quot;Suscripción&quot;: significa una suscripción paga mensual a la que un Miembro puede suscribirse en
                         el Sitio. El socio se suscribe al servicio de forma indefinida a partir de la fecha de confirmación
                         por parte de la empresa. No hay ningún compromiso con esta suscripción y el agente puede
                         cancelar en cualquier momento.
                         
-                        "Período de prueba": significa el período de veinticuatro (24) horas durante el cual el Miembro
+                        &quot;Período de prueba&quot;: significa el período de veinticuatro (24) horas durante el cual el Miembro
                         puede tener acceso ilimitado a los servicios del Sitio sin pagar una tarifa de suscripción. Dichos
                         períodos de prueba siempre se incluyen en las ofertas promocionales.
                         
-                        "Oferta Promocional": significa acceso ilimitado a los Servicios ofrecidos en el Sitio durante el
+                        &quot;Oferta Promocional&quot;: significa acceso ilimitado a los Servicios ofrecidos en el Sitio durante el
                         Período de Prueba. El registro de afiliados para ofertas promocionales requiere
                         automáticamente una suscripción. Las ofertas promocionales permiten a los miembros probar el
                         servicio antes de pagar la suscripción.
@@ -259,11 +259,11 @@ const Terms = () => {
                         Empresa y solicitar la cancelación de cualquier Suscripción mensual.
                         
                         Si un Socio no está satisfecho con los servicios ofrecidos por la Empresa, puede utilizar la
-                        opción "Satisfecho o Reembolsado" y solicitar el reembolso de una o varias mensualidades de
+                        opción &quot;Satisfecho o Reembolsado&quot; y solicitar el reembolso de una o varias mensualidades de
                         su Suscripción poniéndose en contacto con la Empresa por teléfono, chat o correo electrónico.
                         
                         Tras la finalización de la Suscripción mensual antes de que termine el periodo de prueba de
-                        cuarenta y ocho horas o en caso de ejercer la opción "Satisfecho o le devolvemos su dinero", la
+                        cuarenta y ocho horas o en caso de ejercer la opción &quot;Satisfecho o le devolvemos su dinero&quot;, la
                         Empresa reembolsará al Socio a través del mismo medio de pago que utilizó para el Pedido
                         inicial. Si el reembolso del Socio es imposible debido a un cambio en los datos bancarios del
                         Socio desde la fecha del Pedido inicial, la Compañía no será responsable. En caso de que se
@@ -392,7 +392,7 @@ const Terms = () => {
                         El Afiliado reconoce que antes de emprender cualquier procedimiento de mediación, debe
                         ponerse en contacto con la Compañía por teléfono, chat o correo electrónico en la siguiente
                         dirección: suppor@find-persons.com para hacer valer su derecho al Reembolso (véase 10.
-                        Ejercicio de la opción "Satisfecho o Reembolsado").
+                        Ejercicio de la opción &quot;Satisfecho o Reembolsado&quot;).
                         
                         Si este procedimiento de mediación fracasa o si el diputado desea llevar el asunto a los
                         tribunales, se aplicarán las normas del Código de Procedimiento Civil.
