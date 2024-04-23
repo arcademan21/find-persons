@@ -44,16 +44,16 @@ function PersonsFinder({ Component, pageProps }) {
         <Footer />
     </GlobalProvider>
     
-    <Script type="text/javascript" src="/libs/jquery/jquery.min.js" />
-    <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.min.js" />
-    <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.bundle.min.js" />
+    <Script type="text/javascript" src="/libs/jquery/jquery.min.js" strategy='beforeInteractive'/>
+    <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.min.js" strategy='beforeInteractive'/>
+    <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.bundle.min.js" strategy='beforeInteractive'/>
     <Script type="text/javascript" src="/libs/owl-carousel/owl.carousel.min.js" strategy='beforeInteractive'/>
     <Script type="text/javascript" src="/libs/waypoints/jquery.waypoints.min.js" strategy='beforeInteractive'/>
     <Script type="text/javascript" src="/libs/animateNumber/jquery.animateNumber.min.js"  strategy='beforeInteractive'/>
-    <Script type="text/javascript" src="/libs/font-awesome/js/all.min.js"  />
+    <Script type="text/javascript" src="/libs/font-awesome/js/all.min.js" strategy='beforeInteractive'/>
     <Script type="text/javascript" src="/libs/vantajs/three.min.js" strategy='beforeInteractive' />
     <Script type="text/javascript" src="/libs/vantajs/vanta.globe.min.js" strategy='beforeInteractive' /> 
-    <Script type="text/javascript" src="/libs/wow/wow.min.js" />
+    <Script type="text/javascript" src="/libs/wow/wow.min.js" strategy='beforeInteractive' />
     <Script type="text/javascript" src="/libs/wow/wow.init.js" />
     
     
