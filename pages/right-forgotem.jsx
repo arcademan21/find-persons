@@ -62,13 +62,13 @@ const RightForGotem = () => {
 
             <main className='vh-100'>
 
-                <div className="page-section">
+                <div className="page-section pt-0">
                     <div className="container">
                     <div className="row align-items-center">
                         
                         <div className="col-md-6 m-auto">
 
-                            <div className="card vh-100 my-5">
+                            <div className="card vh-100 mb-5">
 
                                 <div className="card-body">
 
