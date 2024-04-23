@@ -202,7 +202,8 @@ const Search = () => {
                     <div className="d-flex flex-column list-media py-5">
                         <div className="d-flex align-items-start my-2">
                             
-                            <FaUser className="mx-3" style={{fontSize: '1.7rem'}} />
+                            <FaUser className="mx-3" style={{fontSize: '3rem',
+                            color: '#6b53f2'}} />
                             <div>
                                 <h6 className="mt-0 mb-1 fw-bold" data-section="search_page" data-value="title_accounts">
                                     {language.title_accounts}
@@ -214,7 +215,8 @@ const Search = () => {
                         </div>
                         <div className="d-flex align-items-start my-2">
                             
-                            <FaMapMarkedAlt className="mx-3" style={{fontSize: '1.7rem'}} />
+                            <FaMapMarkedAlt className="mx-3" style={{fontSize: '3rem',
+                            color: '#6b53f2'}} />
                             <div>
                                 <h6 className="mt-0 mb-1 fw-bold" data-value="title_location" data-section="search_page">
                                     {language.title_location}
@@ -226,7 +228,8 @@ const Search = () => {
                         </div>
                         <div className="d-flex align-items-start my-2">
                 
-                            <FaUsers className="mx-3" style={{fontSize: '1.7rem'}} />
+                            <FaUsers className="mx-3" style={{fontSize: '3rem',
+                            color: '#6b53f2'}} />
                             <div>
                                 <h6 className="mt-0 mb-1 fw-bold" data-section="search_page" data-value="title_explore">
                                     {language.title_explore}
