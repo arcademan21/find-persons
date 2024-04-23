@@ -1,5 +1,7 @@
 'use client'
-import Head from 'next/head';
+import Head from 'next/head'
+import { FaSquare }
+from 'react-icons/fa'
 
 const host_name = process.env.NEXT_PUBLIC_HOST_NAME
 
@@ -42,11 +44,11 @@ const Cookies = () => {
 
                         <ul>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Cookies propias: Son aquellas enviadas y gestionadas directamente por ADS DIGITAL
                             </li>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Cookies de terceros: Son aquellas que se envían al usuario desde un dominio ajeno a ADS DIGITAL
                             </li>
                         </ul>
@@ -54,15 +56,15 @@ const Cookies = () => {
                         <p>Según su finalidad</p>
                         <ul>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Cookies técnicas: Son aquellas que permiten a los usuarios registrados navegar a través del sitio Web, del área restringida y a utilizar sus diferentes funciones, como por ejemplo, el sistema de comentarios o el buscador o llevar a cabo el proceso de compra de un Producto o Servicio.
                             </li>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Cookies de personalización: Son aquellas que permiten a los usuarios acceder al Servicio con algunas características de carácter general predefinidas en función de una serie de criterios establecidos por el usuario como, por ejemplo, el idioma o el tipo de navegador a través del cual se conecta a este sitio Web.
                             </li>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Cookies de análisis o medición: Son aquellas que, bien tratadas por el sitio Web o por terceros, permiten cuantificar el número de usuarios y así realizar la medición y análisis estadístico de la utilización que hacen los usuarios del sitio Web. Para ello se analiza la navegación que realizas en este sitio Web con el fin de mejorarlo.
                             </li>
                         </ul>
@@ -70,11 +72,11 @@ const Cookies = () => {
                         <p>Según su duración</p>
                         <ul>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Cookies de sesión: Son aquellas diseñadas para recabar y almacenar datos mientras el usuario accede al sitio Web.
                             </li>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Cookies persistentes: Son aquellas en las que los datos siguen almacenados en el terminal del usuario y pueden ser accedidos y tratados durante un período definido por el responsable de la cookie.
                             </li>
                         </ul>
@@ -85,11 +87,11 @@ const Cookies = () => {
                         <p>Cookies técnicas</p>
                         <ul>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 wp-settings-user_id: Cookie técnica que se usa para mantener la configuración del usuario en wp-admin. Es persistente y tiene una duración de 1 año.
                             </li>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 hasConsent: Cookie técnica que almacena el consentimiento del usuario. Es persistente y tiene una duración de 1 año.
                             </li>
                         </ul>
@@ -97,15 +99,15 @@ const Cookies = () => {
                         <p>Cookies de análisis o medición</p>
                         <ul>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 _ga: Cookie Analítica que habilita la función de control de visitas únicas. Es persistente y tiene una duración de 2 años.
                             </li>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 _gat: Cookie Analítica para limitar el número de solicitudes. Su ámbito es la sesión y tiene una duración de 1 minuto.
                             </li>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 _gid: Cookie Analítica para distinguir usuarios. Su ámbito es la sesión y tiene una duración de 24 horas.
                             </li>
                         </ul>
@@ -121,23 +123,23 @@ const Cookies = () => {
 
                         <ul>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Firefox http://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we
                             </li>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Google Chrome https://support.google.com/chrome/answer/95647?hl=es
                             </li>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Internet Explorer https://support.microsoft.com/es-es/help/17442/windows-internet-explorer-delete-manage-cookies#ie=»ie-10″
                             </li>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Microsoft Edge https://support.microsoft.com/es-es/help/4468242/microsoft-edge-browsing-data-and-privacy
                             </li>
                             <li>
-                                <i className="fas fa-square"></i>
+                                <FaSquare className='mx-2' />
                                 Safari http://support.apple.com/kb/HT1677?viewlocale=es_ES
                             </li>
                         </ul>

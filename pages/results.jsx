@@ -1,15 +1,15 @@
 'use client'
-import {useState, useEffect, useContext, useLayoutEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import PdfRenderer from '@/components/PdfRenderer'
 import { PDFDownloadLink } from '@react-pdf/renderer'
-
+import * as dataPersonJson from './resources/dataPerson.json' 
+import PDLJS from 'peopledatalabs'
+import { FaSearch, FaPhone, FaEnvelope, FaSpinner, FaDownload, FaInfoCircle, FaMapMarked }
+from 'react-icons/fa'
 
 import './css/results.css'
-import * as dataPersonJson from './resources/dataPerson.json' 
-import PDLJS from 'peopledatalabs';
-import { toast } from 'react-toastify'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -298,7 +298,8 @@ const Results = () => {
                         <p className="text-center text-secondary mb-0 ">
                             {language.results.is_not_people} <br/>
                             <a href="/" className='btn btn-primary btn-sm rounded-pill m-3 decoration-none'
-                            >{language.results.try_search} <i className="fas fa-search mx-1"></i></a>
+                            >{language.results.try_search} <FaSearch className='mx-2' />
+                            </a>
                         </p>
                         </div>
                         <div className="info-service d-flex flex-column p-4">
@@ -356,16 +357,16 @@ const Results = () => {
                                
                                 <div className="info-contact-persons card shadow border rounded bg-white w-75 m-auto p-2">
                                     <p>
-                                        <i className="fas fa-phone-alt mx-2"></i>
+                                        <FaPhone className="mx-2" />
                                         {language.results.mobile_phone} <span className='marked'> { dataPerson.mobile_phone } </span><br/>
 
-                                        <i className="fas fa-phone-alt mx-2"></i>
+                                        <FaPhone className="mx-2" />
                                         {language.results.home_phone} <span className='marked'> { dataPerson.phone_numbers[0] } </span><br/>
 
-                                        <i className="fas fa-envelope mx-2"></i> 
+                                        <FaEnvelope className="mx-2" />
                                         {language.results.personal_email} <span className='marked'> { dataPerson.recommended_personal_email } </span><br/>
 
-                                        <i className="fas fa-map-marker-alt mx-2"></i> 
+                                        <FaMapMarked className="mx-2" />
                                         {language.results.location} {dataPerson.location_locality}, {dataPerson.location_country}, 
                                         
                                     </p>
@@ -389,19 +390,20 @@ const Results = () => {
                                     
                                     return loading ? 
                                         <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
-                                            <i className="fas fa-spinner mx-1"></i>
+                                            <FaSpinner className="mx-1" />
                                             {language.results.download_pdf}
                                         </button> 
                                     : 
                                         <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5">
-                                            <i className="fas fa-download mx-1"></i> {language.results.download_pdf}
+                                            <FaDownload className="mx-1" />
+                                            {language.results.download_pdf}
                                         </button>
 
                                 }}
                             </PDFDownloadLink>
 
                             <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white">
-                                <i className="fas fa-info-circle fs-1 text-primary mx-2"></i>
+                                <FaInfoCircle className="mx-2" />
                                 {language.results.download_text_info}
                             </div>
                             

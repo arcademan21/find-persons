@@ -30,13 +30,13 @@ const Terms = () => {
                         
                         <p>
                         Los siguientes términos y condiciones legales están disponibles en el pie de página de la
-                        portada en www.find-persons.com (web o página web) y establecen tanto las condiciones de uso y
+                        portada en www.{process.env.NEXT_PUBLIC_HOST_NAME} (web o página web) y establecen tanto las condiciones de uso y
                         acceso a los servicios ofrecidos a los usuarios por la página web con respecto a la marca, como
                         los productos y los servicios propiedad de MONTAUP PUBLICISTES SLU con nombre comercial
                         ADS DIGITAL, NRT L-714323-H inscrita en el registro mercantil de Andorra con núm. de registro
                         societario 19221.
                         
-                        Los servicios disponibles en nuestro portal (o la web www.find-persons.com) son proporcionados por
+                        Los servicios disponibles en nuestro portal (o la web www.{process.env.NEXT_PUBLIC_HOST_NAME}) son proporcionados por
                         la web, una marca que es propiedad y por tanto es gestionada por completo por ADS DIGITAL
                         (la empresa), desde su sede en Carrer Esteve Albert, R. la Roureda, bloc A, 1-2a AD500 Santa
                         Coloma, Andorra La Vella, PRINCIPAT D’ANDORRA.
@@ -48,7 +48,7 @@ const Terms = () => {
                         
                         <br />
                         
-                        Usted acepta asumir la responsabilidad total y eximir a find-persons.com y a sus propietarios, empleados y afiliados de cualquier responsabilidad, reclamo, demanda, litigio o acción legal que pueda surgir debido al incumplimiento de las leyes y regulaciones de privacidad y protección de datos aplicables, incluyendo el RGPD, en relación con el uso de los datos obtenidos a través de nuestro sitio web.
+                        Usted acepta asumir la responsabilidad total y eximir a {process.env.NEXT_PUBLIC_HOST_NAME} y a sus propietarios, empleados y afiliados de cualquier responsabilidad, reclamo, demanda, litigio o acción legal que pueda surgir debido al incumplimiento de las leyes y regulaciones de privacidad y protección de datos aplicables, incluyendo el RGPD, en relación con el uso de los datos obtenidos a través de nuestro sitio web.
                         
                         
                         Es necesario que el usuario lea atentamente este documento y que tenga conocimiento de que
@@ -69,11 +69,11 @@ const Terms = () => {
                         &quot;CGV&quot;: Se refiere a estas condiciones generales de venta.
                         &quot;Empresa&quot;: significa el editor y propietario del sitio web.
                         &quot;Sitio web&quot;: significa el servicio electrónico en línea publicado por la Compañía, accesible en la
-                        dirección www.find-persons.com, y todos los elementos asociados al mismo.
+                        dirección www.{process.env.NEXT_PUBLIC_HOST_NAME}, y todos los elementos asociados al mismo.
                         &quot;Servicios&quot;: significa todos los servicios, productos, contenido, funcionalidad, tecnología y
                         &quot;Miembro&quot;: significa cualquier persona física o jurídica que tenga una cuenta en el Sitio.
                         &quot;Espacio personal&quot;: es un espacio personal proporcionado a los miembros donde los miembros
-                        pueden obtener información personal y contactar con www.find-persons.com.
+                        pueden obtener información personal y contactar con www.{process.env.NEXT_PUBLIC_HOST_NAME}.
                         
                         &quot;Soporte en línea&quot;: significa todos los servicios de soporte disponibles para los Miembros, por
                         ejemplo, operadores cuya tarea es ayudar a los Miembros con cualquier solicitud realizada a
@@ -323,7 +323,7 @@ const Terms = () => {
                         datos personales, así como su derecho de oposición por motivos legítimos, en las condiciones
                         previstas por la ley, enviando un correo electrónico a la Sociedad a la dirección
                         
-                        suppor@find-persons.com, especificando sus apellidos, nombre, dirección de correo
+                        {process.env.NEXT_PUBLIC_HOST_NAME}, especificando sus apellidos, nombre, dirección de correo
                         electrónico y número de pedido.
                         
                         La información relativa al Socio sólo será transmitida por la Sociedad a los proveedores de
@@ -391,7 +391,7 @@ const Terms = () => {
                         Método de resolución de conflictos. El diputado puede acudir a los Tribunales Andorranos, (Principat d&apos; Andorra)
                         El Afiliado reconoce que antes de emprender cualquier procedimiento de mediación, debe
                         ponerse en contacto con la Compañía por teléfono, chat o correo electrónico en la siguiente
-                        dirección: suppor@find-persons.com para hacer valer su derecho al Reembolso (véase 10.
+                        dirección: {process.env.NEXT_PUBLIC_SUPPORT_EMAIL} para hacer valer su derecho al Reembolso (véase 10.
                         Ejercicio de la opción &quot;Satisfecho o Reembolsado&quot;).
                         
                         Si este procedimiento de mediación fracasa o si el diputado desea llevar el asunto a los
