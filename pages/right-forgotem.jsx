@@ -2,51 +2,7 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
-const SendForGotemForm = async ( e ) => {
-    
-    e.preventDefault()
 
-    try {
-        const req = await fetch( process.env.NEXT_PUBLIC_PATH_END_POINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                "petition" : {
-                    "name": "create_right_to_beforgotten",
-                    "data": {
-                        "create_right_to_beforgotten": {
-                            "user_email": user.email,
-                            "phone": document.getElementById('phone').value,
-                            "forgotem_name": document.getElementById('forgotem-name').value,
-                            "forgotem_email": document.getElementById('forgotem-email').value,
-                            "forgotem_phone": document.getElementById('forgotem-phone').value,
-                            "forgotem_address": document.getElementById('forgotem-address').value
-                        }
-                    }
-                }
-            })
-        })
-
-        const res = await req.json()
-        
-        if( res.status === 'error') {
-            toast.error('Error al enviar el formulario')
-            setSendFormErrorMessage(true)
-            return false
-        }
-        
-        setSendFormSuccessMessage(true)
-        return res
-
-    } 
-    
-    catch ( error ) {
-        return false
-    }
-
-   
-
-}
 
 const RightForGotem = () => {
 
@@ -54,24 +10,62 @@ const RightForGotem = () => {
     const [sendFormErrorMessage, setSendFormErrorMessage] = useState( null )
     const [sendFormSuccessMessage, setSendFormSuccessMessage] = useState( null )
 
+    const sendForGotemForm = async ( e ) => {
+    
+        e.preventDefault()
+    
+        try {
+            const req = await fetch( process.env.NEXT_PUBLIC_PATH_END_POINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    "petition" : {
+                        "name": "create_right_to_beforgotten",
+                        "data": {
+                            "create_right_to_beforgotten": {
+                                "user_email": user.email,
+                                "phone": document.getElementById('phone').value,
+                                "forgotem_name": document.getElementById('forgotem-name').value,
+                                "forgotem_email": document.getElementById('forgotem-email').value,
+                                "forgotem_phone": document.getElementById('forgotem-phone').value,
+                                "forgotem_address": document.getElementById('forgotem-address').value
+                            }
+                        }
+                    }
+                })
+            })
+    
+            const res = await req.json()
+            
+            if( res.status === 'error') {
+                
+                setSendFormErrorMessage('Error al enviar el formulario')
+                return false
+            }
+            
+            setSendFormSuccessMessage('Formulario enviado correctamente')
+            return res
+    
+        } 
+        
+        catch ( error ) {
+            return false
+        }
+    
+       
+    
+    }
+
     useEffect(()=>{
 
         const user = JSON.parse( localStorage.getItem('user') )
    
         if ( !user ) {
-            sendSessionErrorMessage('Debes iniciar sesion para enviar el formulario')
-        }
-
-        if( sendFormErrorMessage ) {
-            setSendFormErrorMessage('Error al enviar el formulario')
-        }
-
-        if( sendFormSuccessMessage ) {
-            setSendFormSuccessMessage('Formulario enviado correctamente')
+            setSendSessionErrorMessage('Debes iniciar sesion para enviar el formulario')
         }
 
 
-    }, [sendFormErrorMessage, sendFormSuccessMessage, sendSessionErrorMessage])
+    }, [sendSessionErrorMessage])
 
     return (<>
 
@@ -108,8 +102,8 @@ const RightForGotem = () => {
 
                                 <div className="card-body">
 
-                                    <form onSubmit={( e )=>{
-                                        SendForGotemForm( e )
+                                    <form onSubmit={e=>{
+                                        sendForGotemForm( e )
                                     }} method="post" className="form">
                             
                             
