@@ -7,6 +7,7 @@ import VantaGlobe from '@/components/VantaGlobe'
 import 'react-toastify/dist/ReactToastify.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import { FaUserPlus, FaEnvelope, FaLock } from 'react-icons/fa'
 
 const Login = ( ) => {
 
@@ -25,23 +26,17 @@ const Login = ( ) => {
         const email = document.getElementById('email').value
         const password = document.getElementById('password').value
         const loadingButton = document.getElementById('btn-login')
+        const loadingButtonHtml = loadingButton.innerHTML 
         const terms = document.getElementById('register-terms')
         
-
         loadingButton.setAttribute('disabled', 'true')
-        loadingButton.innerHTML = `
-            <i className="fas fa-spinner fa-spin fs-2 mx-2 fs-5 mx-1">
-            </i>Porfavor espere...
-        `
+        loadingButton.innerHTML = `Porfavor espere...`
+
         if( !terms.checked ) {
             toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
             setError(true)
             loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = `
-                Iniciar sesión
-                <i className="fas fa-sign-in-alt fs-2 mx-2 fs-5 mx-1"></i>
-            `
-
+            loadingButton.innerHTML = loadingButtonHtml
             return false
         }
 
@@ -76,10 +71,7 @@ const Login = ( ) => {
             }
 
             loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = `
-                Iniciar sesión
-                <i className="fas fa-sign-in-alt fs-2 mx-2 fs-5 mx-1"></i>
-            `
+            loadingButton.innerHTML = loadingButtonHtml
 
         })
 
@@ -127,7 +119,7 @@ const Login = ( ) => {
                         <div className="form-outline flex-fill mb-0">
 
                         <div className="input-icon">
-                            <i className="fas fa-envelope"></i>
+                            <FaEnvelope />
                             <input
                                 type="email"
                                 id="email"
@@ -147,7 +139,7 @@ const Login = ( ) => {
                         <div className="form-outline flex-fill mb-0">
                         
                         <div className="input-icon">
-                            <i className="fa fa-lock"></i>
+                            <FaLock />
                             <input
                                 type="password"
                                 id="password"
@@ -193,7 +185,7 @@ const Login = ( ) => {
                         <span className="marked">{language.no_account}</span>
                         <br />
                         <span className="link-primary my-1" onClick={()=>{window.location.replace('/register')}} >
-                            <i className="fas fa-user-plus fa-2x mx-1"></i>
+                            <FaUserPlus />
                             <span className='fs-4'>{language.register_link}</span>
                         </span>
                         </p>
