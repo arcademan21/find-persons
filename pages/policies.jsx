@@ -5,9 +5,9 @@ import Image from "next/image"
 const Policies = () => {
 
     return (<>
-        <div class="container mt-5">
+        <div class="container py-5">
             
-            <div class="page-banner">
+            <div class="page-banner my-5">
                 <div class="row justify-content-center align-items-center h-100">
                     <div class="col-md-6">
                     <h1 class="text-center">Politicas de privacidad</h1>
@@ -26,7 +26,7 @@ const Policies = () => {
                             <h3>Información sobre protección de datos</h3>
                             <p>
                                 <Image 
-                                    src="/wp-public/theme_search_persons/assets/img/empresa-politicas.png"
+                                    src="/images/empresa-politicas.png"
                                     alt="Find Persons"
                                     width={100}
                                     height={100}
