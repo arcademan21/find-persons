@@ -99,7 +99,7 @@ const Legal = () => {
 
                         <p>
                             Los datos personales que facilites al Titular pueden ser almacenados en bases de
-                            datos automatizadas o no, cuya titularidad corresponde en exclusiva a <!--Ads Digital --><img src="/wp-public/theme_search_persons/assets/img/ads.png"/>,
+                            datos automatizadas o no, cuya titularidad corresponde en exclusiva a Ads Digital,
                             que asume todas las medidas de índole técnica, organizativa y de seguridad que
                             garantizan la confidencialidad, integridad y calidad de la información contenida en
                             las mismas de acuerdo con lo establecido en la normativa vigente en protección de
