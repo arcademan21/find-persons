@@ -6,11 +6,10 @@ import VantaGlobe from '@/components/VantaGlobe'
 import Image from "next/image"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
-const IsSuscripted = async ( user ) => {
-    
+const GetSuscription = async ( user ) =>{
     try{
 
-        // Fetch to endpoint for get payment
+        // Fetch to endpoint for update suscription
         const req = await fetch( path_endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -19,22 +18,22 @@ const IsSuscripted = async ( user ) => {
                     "name": "get_suscription",
                     "data": {
                         "get_suscription": {
-                            "user_email": user.email
+                            "user_email": user.email,
                         }
                     }
                 }
             })
         })
-        
+
         const res = await req.json()
-        if( res.status === 'error' ) return false
+
+        if(res.status === 'error') return false
+
+        return res
 
     } catch ( error ) {
-        console.log( error )
         return false
     }
-    
-    return true
 
 }
 
@@ -42,44 +41,24 @@ const Payment = () => {
     
     const context = useContext( GlobalContext )
     const { state } = context
-    const extension = localStorage.getItem('extencion')
 
     const user = JSON.parse(localStorage.getItem('user'))
-    const search = localStorage.getItem('search').toString()
+    const search = localStorage.getItem('search')
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
 
-    const isSuscripted = async ( user ) => {
-        return await IsSuscripted( user )
-    }
-
+    const extension = localStorage.getItem('extencion')
     
-
     useEffect(() => {
         
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
-        if( !user ) {
-            window.location.replace(extension)
-            return null
-        }
-    
-        else {
-            let asyncRequest = async () => {
-                return await isSuscripted( user ).then( res => {
-                    if( res ){
-                        window.location.replace(extension)
-                        return null
-                    }
-                })  
-            }
-            asyncRequest()
-        }
+        GetSuscription( user ).then( suscripted => {
+            
+            if( !user ) window.location.replace(`${extension}/register`)
+            else if( user && suscripted ) window.location.replace(`${extension}/results`)
 
+        })
     }, [])
 
-    
-    
-    
-    
     return (<>
         
         <div className="payment-container" id="vanta-anime">
@@ -162,7 +141,6 @@ const Payment = () => {
                                 
                             </div>
 
-                            
                             { user ? 
                                 <TefpayPaymentForm  />
                             : null }
@@ -218,7 +196,7 @@ const Payment = () => {
                                     </p>
                                     <div className="d-flex justify-content-center">
                                         <button className="btn btn-primary btn-lg decoration-none" onClick={
-                                            () => window.location.replace(`${extension}/#contact`)    
+                                            () => window.location.replace(`${extension}/#contact`)   
                                         }>
                                             <i className="fas fa-envelope"></i>
                                             <b className="fs-4"> 

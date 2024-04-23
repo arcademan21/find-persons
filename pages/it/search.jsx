@@ -1,115 +1,70 @@
 'use client'
-import { useContext, useState, useEffect, useCallback } from "react"
+import { useContext, useState, useEffect } from "react"
 import GlobalContext from '@/context/GlobalContext'
 import VantaGlobe from '@/components/VantaGlobe'
-import '../css/search.css'
 import Image from 'next/image'
-import { redirect } from "next/dist/server/api-utils"
-import Loader from '@/components/Loader'
+import './css/search.css'
 
-const Search = () => {
+const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
+const GetSuscription = async ( user ) =>{
+    try{
+
+        // Fetch to endpoint for update suscription
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "get_suscription",
+                    "data": {
+                        "get_suscription": {
+                            "user_email": user.email,
+                        }
+                    }
+                }
+            })
+        })
+
+        const res = await req.json()
+        if(res.status === 'error') return false
+        return res
+
+    } catch ( error ) {
+        return false
+    }
+
+}
+
+const Search = () => {  
     
     const context = useContext( GlobalContext )
     const { state, setState } = context
-    const extension = localStorage.getItem('extencion')
 
-    const search = localStorage.getItem('search').toString()
+    const search = localStorage.getItem('search')
+    const language = JSON.parse( localStorage.getItem('language_file') ).search_page
+    const user = JSON.parse( localStorage.getItem('user') )
+    
     const [text_search_info, setTextSearchInfo] = useState('')
     const [awaitText, setAwaitText] = useState('')
     const [activeClass, setActiveClass] = useState('')
-    const [redirectTo, setRedirectTo] = useState(null)
-
     const [stateIcon, setStateIcon] = useState('fa-spinner')
     const [listOfSearchs, setListOfSearchs] = useState([])
 
-    const language = JSON.parse( localStorage.getItem('language_file') ).search_page
-    
-    // Handdler para comprobar si el usuario esta suscrito
-    const is_suscripted = useCallback( async () => {
-
-        const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
-        const user = JSON.parse( localStorage.getItem('user') )
-
-        try{
-
-            if( !user ) {
-                localStorage.setItem('suscription', false)
-                setRedirectTo(`${extension}/register`)
-            }
-
-            else {
-                
-                // Fetch to endpoint for get suscription
-                const response = await fetch( path_endpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        "petition" : {
-                            "name": "get_suscription",
-                            "data": {
-                                "get_suscription": {
-                                    "user_email": user.email
-                                }
-                            }
-                        }
-                    })
-                })
-
-                await response.json().then( result => {
-                    
-                    if ( result.status !== 'error' ) {
-                        setState( state => ({ ...state, suscription: result.data }) )
-                        localStorage.setItem('suscription', true)
-                        setRedirectTo(`${extension}/results`)
-                    }
-
-                    else{
-                        localStorage.setItem('suscription', false)
-                        setRedirectTo(`${extension}/payment`)
-                    }
-
-                } )
-
-            }
-    
-
-        } catch( error ) { 
-            setState( state => ({ ...state, suscription: null }) )
-            localStorage.setItem('suscription', false)
-            setRedirectTo(`${extension}/payment`)
-        }
-
-    }, [] )
-
-    const getLanguageFile = useCallback( async () => {
-        
-        const language = state.language
-        const req = await fetch(`/languajes/${language}.json`).then( res => res )
-        .catch( err => console.error( err ) )
-        const res = await req.json()
-        const { search_page } = res
-
-        return search_page
-
-        
-    }, [  state.language ] )
+    const extension = localStorage.getItem('extencion')
 
     useEffect(() => {
-        
-        getLanguageFile().then( (res) => {
+        if( !search ) window.location.replace(extension)
+        setListOfSearchs([
+            language.socials, 
+            language.work,
+            language.address, 
+            language.telephone, 
+            language.email, 
+            language.news, 
+            language.histories
+        ])
 
-            setListOfSearchs([
-                res.socials, 
-                res.work,
-                res.address, 
-                res.telephone, 
-                res.email, 
-                res.news, 
-                res.histories
-            ])
-
-        })
-    }, [ getLanguageFile ])
+    }, [])
 
     useEffect(() => { 
 
@@ -126,7 +81,14 @@ const Search = () => {
                 setStateIcon('fa-check')
                 setAwaitText('')
                 setActiveClass('active')
-                is_suscripted()
+                GetSuscription( user ).then( suscripted => {
+            
+                    if( !user ) window.location.replace(`${extension}/register`)
+                    else if( !suscripted ) window.location.replace(`${extension}/payment`)
+                    else window.location.replace(`${extension}/results`)
+        
+                })
+                
             }
     
             count++
@@ -139,22 +101,10 @@ const Search = () => {
                 random_item.classList.add('fa-check')
             }
 
-            
-
         }, 5000)
          
 
-    }, [  is_suscripted, listOfSearchs ] )
-
-    if( !search ) {
-        window.location.replace(extension)
-        return (<Loader/>)
-    }
-
-    if( redirectTo ) {
-        window.location.replace( redirectTo )
-        return (<Loader/>)
-    }
+    }, [ listOfSearchs ] )
 
     return (<>
         
@@ -165,11 +115,11 @@ const Search = () => {
 
                     <h1 className="title-section fs-1 my-4 text-center">
                         <span data-section="search_page" data-value="we_searching">
-                            {language.we_searching}
+                        {language.we_searching}
                         </span> 
-                        <span id="search" className="marked"> {state.search} </span>
+                        <span id="search" className="marked"> {search} </span>
                         <span data-section="search_page" data-value="in_the" >
-                            {language.in_the}
+                        {language.in_the}
                         </span>
                     </h1>
 
@@ -240,8 +190,6 @@ const Search = () => {
             <div className="divider w-100 m-0"></div>
             <div className="row px-5 w-75 m-auto bg-white m-3 my-3 border shadow rounded">
 
-                
-
                 <div className="col-lg-6 py-3">
         
                     <div className="img-place text-center">
@@ -291,7 +239,6 @@ const Search = () => {
                    
                     
                 </div>
-
         
             </div>
 

@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useContext, useLayoutEffect } from 'react'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import GlobalContext from '@/context/GlobalContext'
 import { toast } from 'react-toastify'
@@ -8,19 +8,47 @@ import 'react-toastify/dist/ReactToastify.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
+const GetSuscription = async ( user ) =>{
+    try{
+
+        // Fetch to endpoint for update suscription
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "get_suscription",
+                    "data": {
+                        "get_suscription": {
+                            "user_email": user.email,
+                        }
+                    }
+                }
+            })
+        })
+
+        const res = await req.json()
+
+        if(res.status === 'error') return false
+
+        return res
+
+    } catch ( error ) {
+        return false
+    }
+
+}
+
 const Register = () => {
     
     const context = useContext( GlobalContext )
     const { state, setState } = context
     const { auth } = state
-    const extension = localStorage.getItem('extencion')
 
     const user = JSON.parse( localStorage.getItem('user') )
     const search = localStorage.getItem('search').toString()
-    const suscription = localStorage.getItem('suscription')
 
-    const [ error, setError ] = useState( null )
-    const [ success, setSuccess ] = useState( null )
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     
     const newUser = async () => { 
@@ -29,6 +57,8 @@ const Register = () => {
         const password = document.getElementById('password').value
         const loadingButton = document.getElementById('btn-register')
         const terms = document.getElementById('register-terms')
+
+        const extension = localStorage.getItem('extencion')
 
         loadingButton.setAttribute('disabled', 'true')
         loadingButton.innerHTML = `
@@ -54,7 +84,7 @@ const Register = () => {
                 <i className="fas fa-check fs-2 mx-2 fs-5 mx-1 text-success">
                 </i>Registro exitoso
             `
-            setSuccess( true )
+            
             setState({ ...state, user: UserCredential.user })
 
             const showSuccesToast = async () => {
@@ -62,16 +92,16 @@ const Register = () => {
             }
 
             showSuccesToast().then(() => {
-                if( search === 'null' ) {
-                    window.location.replace(extension)
-                }
+                
+                GetSuscription( user ).then( suscripted => {
+            
+                    if( !suscripted && search === 'null' ) window.location.replace('/')
+                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
+                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
+                    
+        
+                })
 
-                else if ( suscription === 'true' ) 
-                    window.location.replace(`${extension}/results`)
-                else if( suscription === 'false') 
-                    window.location.replace(`${extension}/payment`)
-                else 
-                    window.location.replace('/')
             })
 
         })
@@ -95,7 +125,7 @@ const Register = () => {
 
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = `
-                <i className="fas fa-user-plus fs-2 mx-2 fs-5 mx-1"></i>
+                <i class="fas fa-user-plus fs-2 mx-2 fs-5 mx-1"></i>
                 Registrarse gratis
             `
 
@@ -114,7 +144,6 @@ const Register = () => {
             
             // The signed-in user info.
             const user = result.user
-            setSuccess( true )
             setState({ ...state, user: user })
 
             const showSuccesToast = async () => {
@@ -123,23 +152,20 @@ const Register = () => {
 
             showSuccesToast().then(() => {
                 
-                if( search === 'null' ) {
-                    window.location.replace(extension)
-                }
+                GetSuscription( user ).then( suscripted => {
+            
+                    if( !suscripted && search === 'null' ) window.location.replace('/')
+                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
+                    else if( suscripted && search === 'null' ) window.location.replace('/')
+                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
+                    
+        
+                })
 
-                else if ( suscription === 'true' ) 
-                    window.location.replace(`${extension}/results`)
-                else if( suscription === 'false') 
-                    window.location.replace(`${extension}/payment`)
-                else 
-                    window.location.replace('/')
-                
-                
             })
             
             // Todo: save user data
         
-
         }).catch(( error ) => {
             
             // Handle Errors here.
@@ -162,14 +188,13 @@ const Register = () => {
 
     }
 
-    useEffect(()=>{
-        
-        if( user ){
-            window.location.replace(extension)
-        }
+    useEffect(() => {
+        GetSuscription( user ).then( suscripted => {
+            
+            if( user && !suscripted ) window.location.replace(`${extension}/payment`)
+            else if( user && suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
 
-       
-
+        })
     }, [])
 
     useEffect(() => {
@@ -188,7 +213,7 @@ const Register = () => {
                             <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 px-3 login-col">
                                 <div className="d-none w-75 m-auto logo-register-form">
                                 <Link
-                                    href={extension}
+                                    href="/"
                                     className="navbar-brand link-logo 
                                         text-center"
                                 >
@@ -266,7 +291,7 @@ const Register = () => {
                                     htmlFor="register-terms"
                                     >
                                     {language.accept_the}
-                                    <Link href={`${extension}/terms`} > {language.terms_and_conditions} </Link>
+                                    <Link href="/terms"> {language.terms_and_conditions} </Link>
                                     {language.of_service}
                                     </label>
                                 </div>
@@ -289,7 +314,7 @@ const Register = () => {
                                     <p className="title-section text-center w-100">
                                     <span className="marked">{language.have_account}</span>
                                     <br />
-                                    <span className="link-primary my-1" onClick={()=>{
+                                    <span href="/login" className="link-primary my-1" onClick={()=>{
                                         window.location.replace(`${extension}/login`)
                                     }}>
                                       

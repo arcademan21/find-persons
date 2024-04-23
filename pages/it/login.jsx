@@ -17,10 +17,11 @@ const Login = ( ) => {
     const [ error, setError ] = useState( null )
     const [ success, setSuccess ] = useState( null )
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).login )
-    const search = localStorage.getItem('search').toString()
+    const search = localStorage.getItem('search')
     const user = JSON.parse( localStorage.getItem('user') )
-    const extension = localStorage.getItem('extencion')
 
+    const extension = localStorage.getItem('extencion')
+    
     const loginUser = async () => {
         
         const email = document.getElementById('email').value
@@ -59,9 +60,6 @@ const Login = ( ) => {
             }
 
             showSuccesToast().then(() => {
-                /*if ( search ) 
-                    window.location.replace(`${extension}/search`)
-                else window.location.replace(extension)*/
                 window.location.replace(extension)
             })
 
@@ -89,10 +87,8 @@ const Login = ( ) => {
 
     }
 
-    useEffect(()=>{
-        if( user ){
-            window.location.replace(extension)
-        }
+    useEffect(() => {
+        if( user ) window.location.replace(extension)
     }, [])
 
     useEffect(() => {
@@ -107,7 +103,7 @@ const Login = ( ) => {
                 <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 px-3 login-col">
                     <div className="d-none w-75 m-auto logo-register-form">
                     <Link
-                        href={extension}
+                        href="/"
                         className="navbar-brand link-logo 
                             text-center"
                     >
@@ -182,7 +178,7 @@ const Login = ( ) => {
                         htmlFor="register-terms"
                         >
                         {language.accept_the}
-                        <Link href={`${extension}/terms`}> {language.terms_and_conditions}</Link>
+                        <Link href="/terms"> {language.terms_and_conditions}</Link>
                         {language.of_service}
                         </label>
                     </div>

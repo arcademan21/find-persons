@@ -1,13 +1,15 @@
 'use client'
-import {useState, useEffect, useContext} from 'react'
+import {useState, useEffect, useContext, useLayoutEffect} from 'react'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import PdfRenderer from '@/components/PdfRenderer'
 import { PDFDownloadLink } from '@react-pdf/renderer'
-import * as dataPersonJson from '../resources/dataPerson.json'
+
+
+import './css/results.css'
+import * as dataPersonJson from './resources/dataPerson.json' 
 import PDLJS from 'peopledatalabs';
 import { toast } from 'react-toastify'
-import '../css/results.css'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -30,6 +32,9 @@ const GetSuscription = async ( user ) =>{
         })
 
         const res = await req.json()
+
+        if(res.status === 'error') return false
+
         return res
 
     } catch ( error ) {
@@ -51,7 +56,7 @@ const SaveDownload = async ( user, data ) => {
                     "data": {
                         "save_download": {
                             "user_email": user.email,
-                            "data": data
+                            "data": JSON.stringify(data)
                         }
                     }
                 }
@@ -71,23 +76,20 @@ const Results = () => {
     
     const context = useContext(GlobalContext)
     const { state } = context
+
+    const search = localStorage.getItem('search')
+    const search_type = localStorage.getItem('search_type')
+    const user = JSON.parse( localStorage.getItem('user') )
+    const lang = localStorage.getItem('language')
     
     const [dataPerson, setDataPerson] = useState( dataPersonJson )
-    const [error, setError] = useState( null )
     const [loading, setLoading] = useState(true)
     const [region, setRegion] = useState('EUROPE')
     const [location, setLocation] = useState('Madrid, Spain')
     const [locality, setLocality] = useState('Spain')
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
-    const search = localStorage.getItem('search')
-    const search_type = localStorage.getItem('search_type')
-    const user = JSON.parse( localStorage.getItem('user') )
-    const lang = localStorage.getItem('language')
-    const extension = localStorage.getItem('extencion')
 
-    const getSuscription = async ( user ) =>{
-        return await GetSuscription( user )
-    }
+    const extension = localStorage.getItem('extencion')
     
     const setRegionRegionHandler = (e) => {
         setRegion(e.target.value)
@@ -231,6 +233,7 @@ const Results = () => {
                 // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
                 // console.log(`${data["total"]} total PDL records exist matching this query.`)
                 setDataPerson(data.data)
+                console.log('Aqui ', data)
                 setLoading(false)
 
             }).catch((error) => {
@@ -247,20 +250,21 @@ const Results = () => {
     }
 
     useEffect(() => {
-
-        // Validando la suscripcion
-        getSuscription( user ).then( res => {
+        GetSuscription( user ).then( suscripted => {
             
-            if( res.data.status !== 'active' && res.data.status !== 'trial') {
-                window.location.replace(`${extension}/payment`)
-                return false
-            }  
-
-            getRegionAndLocality()
-            fetchPersonData()
+            if(search === 'null') window.location.replace(extension)
+            else if( user && !suscripted ) window.location.replace(`${extension}/payment`)
+            else if( !user ) window.location.replace(`${extension}/register`)
 
         })
-    
+    }, [])
+
+    useEffect(() => {
+
+        getRegionAndLocality()
+        fetchPersonData()
+
+
     }, [] )
 
     if( loading ) return (<div className="container py-5 my-5 w-75">
@@ -295,7 +299,7 @@ const Results = () => {
                         </h2>
                         <p className="text-center text-secondary mb-0 ">
                             {language.results.is_not_people} <br/>
-                            <a href={extension} className='btn btn-primary btn-sm rounded-pill m-3 decoration-none'
+                            <a href="/" className='btn btn-primary btn-sm rounded-pill m-3 decoration-none'
                             >{language.results.try_search} <i className="fas fa-search mx-1"></i></a>
                         </p>
                         </div>
@@ -384,10 +388,7 @@ const Results = () => {
                                 onClick={handleDownloadClick}
                             >
                                 {({ blob, url, loading, error }) => {
-                                    if (!loading) {
-                                        setDocumentChanged(true);
-                                    }
-
+                                    
                                     return loading ? 
                                         <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
                                             <i className="fas fa-spinner mx-1"></i>
@@ -397,6 +398,7 @@ const Results = () => {
                                         <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5">
                                             <i className="fas fa-download mx-1"></i> {language.results.download_pdf}
                                         </button>
+
                                 }}
                             </PDFDownloadLink>
 
@@ -412,7 +414,7 @@ const Results = () => {
             </div>
             
             {/* PARA TEST */}
-            <div className="container py-5 my-5 w-75">
+            {/* <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
                     <div className="col-md-12">
@@ -428,7 +430,7 @@ const Results = () => {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
 
 
 
@@ -437,3 +439,17 @@ const Results = () => {
 }
 
 export default Results
+
+
+
+
+
+
+
+
+
+
+
+
+    
+ 

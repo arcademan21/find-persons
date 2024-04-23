@@ -1,10 +1,12 @@
 'use client'
 import { useEffect, useState } from "react"
+import { toast } from "react-toastify"
 
 const Profile = () => {
 
     const [userData, setUserData] = useState( null )
     const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
+    const extension = localStorage.getItem('extencion')
 
     const getUserData = async ( email ) => {
 
@@ -74,7 +76,7 @@ const Profile = () => {
         
         const user = JSON.parse(localStorage.getItem('user'))
         if( !user ) {
-            window.location.replace('/')
+            window.location.replace(extension)
         }
 
         getUserData( user.email ).then( res => { 
@@ -154,7 +156,7 @@ const Profile = () => {
                                                     }
 
                                                     success_message().then( () => {
-                                                        window.location.replace( '/' )
+                                                        window.location.replace( extension )
                                                     })
 
                                                 }
