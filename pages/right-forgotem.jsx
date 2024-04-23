@@ -85,9 +85,9 @@ const RightForGotem = () => {
                                                 <input type="text" name="phone" id="ohone" className="form-control rounded border my-2" required />
                                             </div>
 
-                                            <div className='divider w-75'></div>
+                                            <div className='divider w-75 m-auto my-3'></div>
 
-                                            <h3>Informacion a eliminar</h3>
+                                            <h3 className='m-auto'>Informacion a eliminar</h3>
                                             <div className="form-group">
                                                 <label htmlFor="name">Nombre</label>
                                                 <input type="text" name="forgotem-name" id="forgotem-name" className="form-control rounded border my-2" required />
@@ -111,7 +111,7 @@ const RightForGotem = () => {
 
                                             <p>
                                                 <small>
-                                                <strong>Nota:</strong> 
+                                                <strong>Nota: </strong> 
                                                     Al enviar este formulario, usted acepta que sus datos personales sean procesados por nosotros.
                                                     <br />
                                                     Solo los usuarios registrados y suscritos al servicio pueden enviar este formulario.
@@ -119,7 +119,7 @@ const RightForGotem = () => {
                                             </p>
 
                             
-                                            <button type="submit" className="btn btn-primary">Enviar</button>
+                                            <button type="submit" className="btn btn-secondary">Enviar</button>
                                         </form>
 
                                 </div>
