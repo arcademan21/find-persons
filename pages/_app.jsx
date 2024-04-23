@@ -53,6 +53,8 @@ function PersonsFinder({ Component, pageProps }) {
     <Script type="text/javascript" src="/libs/font-awesome/js/all.min.js" />
     <Script type="text/javascript" src="/libs/vantajs/three.min.js" strategy='beforeInteractive' />
     <Script type="text/javascript" src="/libs/vantajs/vanta.globe.min.js" strategy='beforeInteractive' /> 
+
+    <Script type="text/javascript" src="/js/theme.js" strategy='lazyOnload' />
     <Script type="text/javascript" src="/libs/wow/wow.min.js" />
     <Script type="text/javascript" src="/libs/wow/wow.init.js" />
     
