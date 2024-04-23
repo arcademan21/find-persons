@@ -20,13 +20,13 @@ const Legal = () => {
             </div>
 
             <main>
-                <div class="page-section">
-                    <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-12 py-3">
+                <div className="page-section">
+                    <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-lg-12 py-3">
                         
-                        <h2 class="title-section">Identificación y Titularidad</h2>
-                        <div class="divider"></div>
+                        <h2 className="title-section">Identificación y Titularidad</h2>
+                        <div className="divider"></div>
                         <p>
                             En cumplimiento del artículo 10 de la Ley 34/2002,
                             de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico,
@@ -46,8 +46,10 @@ const Legal = () => {
                             </li>
                         </ul>
 
-                        <h2 class="title-section">Finalidad</h2>
-                        <div class="divider"></div>
+                        <br />
+
+                        <h2 className="title-section">Finalidad</h2>
+                        <div className="divider"></div>
 
                         <p>
                             La finalidad del sitio Web <a href="https://find-persons.com">find-persons.com</a> es realizar consultas a
@@ -55,8 +57,8 @@ const Legal = () => {
                             relevantes sobre una persona o individuo.
                         </p>  
 
-                        <h2 class="title-section">Condiciones de Uso</h2>
-                        <div class="divider"></div>
+                        <h2 className="title-section">Condiciones de Uso</h2>
+                        <div className="divider"></div>
 
                         <p>
                             La utilización del sitio Web te otorga la condición de Usuario, e implica la aceptación
@@ -94,8 +96,8 @@ const Legal = () => {
                             contratados por Ads Digital, de otros usuarios o de cualquier usuario de Internet.
                         </p>
 
-                        <h2 class="title-section">Medidas de seguridad</h2>
-                        <div class="divider"></div>
+                        <h2 className="title-section">Medidas de seguridad</h2>
+                        <div className="divider"></div>
 
                         <p>
                             Los datos personales que facilites al Titular pueden ser almacenados en bases de
@@ -116,16 +118,16 @@ const Legal = () => {
                             la presencia de estos elementos dañinos.
                         </p>
 
-                        <h2 class="title-section">Tratamiento de Datos Personales</h2>
-                        <div class="divider"></div>
+                        <h2 className="title-section">Tratamiento de Datos Personales</h2>
+                        <div className="divider"></div>
 
                         <p>
                             Puedes consultar toda la información relativa al tratamiento de datos personales que
                             recoge el Titular en la página de <a href="https://find-persons.com/politicas-privacidad">Política de Privacidad.</a>
                         </p>  
 
-                        <h2 class="title-section">Contenidos</h2>
-                        <div class="divider"></div>
+                        <h2 className="title-section">Contenidos</h2>
+                        <div className="divider"></div>
 
                         <p>
                             El Titular ha obtenido la información, el contenido multimedia y los materiales
