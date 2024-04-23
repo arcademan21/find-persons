@@ -35,7 +35,13 @@ const SendForGotemForm = async ( e ) => {
         })
 
         const res = await req.json()
-        if( res.status === 'error' ) return false
+        
+        if( res.status === 'error') {
+            toast.error('Error al enviar el formulario')
+            return false
+        }
+        
+        toast.success('Formulario enviado correctamente')
         return res
 
     } 
@@ -79,10 +85,7 @@ const RightForGotem = () => {
                                 <div className="card-body">
 
                                     <form onSubmit={( e )=>{
-                                        SendForGotemForm( e ).then(( res )=>{
-                                            if( !res ) toast.error('Error al enviar el formulario')
-                                            else toast.success('Formulario enviado correctamente')
-                                        })
+                                        SendForGotemForm( e )
                                     }} method="post" className="form">
                             
                             
