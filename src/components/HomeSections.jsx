@@ -482,7 +482,11 @@ const HomeSections = () => {
                     
                 </div>
                 <div className="col-lg-6 py-3 wow fadeInUp text-center">
-                    <FaPaperPlane />
+                    <FaPaperPlane style={{
+                        fontSize: '10rem',
+                        margin: '22px',
+                        color: '#6b53f2'
+                    }} />
                     <h3 className="title-section">		  
                         <span className="marked">
                             {language.contact.do_reclaim}
