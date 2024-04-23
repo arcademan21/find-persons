@@ -15,9 +15,9 @@ const GetSuscription = async ( user ) =>{
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 "petition" : {
-                    "name": "get_user_data",
+                    "name": "get_suscription",
                     "data": {
-                        "get_user_data": {
+                        "get_suscription": {
                             "user_email": user.email,
                         }
                     }
