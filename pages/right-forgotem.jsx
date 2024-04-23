@@ -61,7 +61,6 @@ const RightForGotem = () => {
 
         if ( !user ) {
             toast.error('Debes iniciar sesion para enviar el formulario')
-            setSessionErrorMessage(true)
         }
 
         if( sendFormErrorMessage ) {
