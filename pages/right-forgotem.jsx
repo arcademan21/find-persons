@@ -58,7 +58,6 @@ const RightForGotem = () => {
 
         const user = JSON.parse( localStorage.getItem('user') )
    
-
         if ( !user ) {
             toast.error('Debes iniciar sesion para enviar el formulario')
         }

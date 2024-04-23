@@ -456,6 +456,7 @@ const HomeSections = () => {
                                         <a href="/terms-and-conditions/"> {language.contact.terms}
                                         </a>.
                                         </div>
+                                        <br />
                                         <div className="d-flex justify-content-center">
                                             <ReCAPTCHA ref={recaptcha} sitekey={process.env.NEXT_PUBLIC_GRECAPTCHA_SITE_PUBLIC_KEY} />
                                         </div>
