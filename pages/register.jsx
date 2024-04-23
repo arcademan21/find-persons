@@ -7,7 +7,7 @@ import VantaGlobe from '@/components/VantaGlobe'
 import 'react-toastify/dist/ReactToastify.css'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaUserPlus, FaEnvelope, FaLock, FaSign, FaGoogle } from 'react-icons/fa'
+import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt, FaGoogle } from 'react-icons/fa'
 
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
@@ -316,7 +316,7 @@ const Register = () => {
                                     }}>
                                       
                                         {language.login}
-                                        <FaSign />
+                                        <FaSignInAlt />
                                     
                                         
                                     </span>

@@ -2,6 +2,7 @@
 import { useContext } from "react"
 import GlobalContext from "../context/GlobalContext"
 import { signOut } from "firebase/auth"
+import { FaSignOutAlt } from 'react-icons/fa'
 
 // Cerrar sesión con un botón
 export const LogOutButton = () => {
@@ -37,7 +38,7 @@ export const LogOutButton = () => {
             <span data-section="nav_bar" data-value="logout">
                 Cerrar Sesión 
             </span>
-            <i className="fas fa-sign-out-alt fs-6 mx-1"></i>
+            <FaSignOutAlt className="fs-6 mx-1" />
         </button>
 
     </>)
