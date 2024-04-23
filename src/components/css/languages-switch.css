@@ -86,6 +86,7 @@
 .image-content{
     width: 100%;
     cursor: pointer;
+    font-size: 0.8rem;
 }
 
 .image-content:hover{
