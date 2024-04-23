@@ -9,23 +9,23 @@ const Policies = () => {
             <meta name="robots" content="noindex" />
         </Head>
 
-        <div class="container py-5">
+        <div className="container py-5">
             
-            <div class="page-banner my-5">
-                <div class="row justify-content-center align-items-center h-100">
-                    <div class="col-md-6">
-                    <h1 class="text-center">Politicas de privacidad</h1>
+            <div className="page-banner my-5">
+                <div className="row justify-content-center align-items-center h-100">
+                    <div className="col-md-6">
+                    <h1 className="text-center">Politicas de privacidad</h1>
                     </div>
                 </div>
             </div>
 
             <main>
-                <div class="page-section">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-lg-12 py-3">
-                            <h2 class="title-section">Políticas de privacidad e información legal</h2>
-                            <div class="divider"></div>
+                <div className="page-section">
+                    <div className="container">
+                        <div className="row align-items-center">
+                            <div className="col-lg-12 py-3">
+                            <h2 className="title-section">Políticas de privacidad e información legal</h2>
+                            <div className="divider"></div>
                         
                             <h3>Información sobre protección de datos</h3>
                             <p>

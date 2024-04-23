@@ -9,24 +9,24 @@ const Terms = () => {
             <meta name="robots" content="noindex" />
         </Head>
 
-        <div class="container py-5">
+        <div className="container py-5">
             
-            <div class="page-banner my-5">
-                <div class="row justify-content-center align-items-center h-100">
-                    <div class="col-md-6">
-                    <h1 class="text-center">Terminos y condiciones</h1>
+            <div className="page-banner my-5">
+                <div className="row justify-content-center align-items-center h-100">
+                    <div className="col-md-6">
+                    <h1 className="text-center">Terminos y condiciones</h1>
                     </div>
                 </div>
             </div>
 
             <main>
-                <div class="page-section">
-                <div class="container">
-                    <div class="row align-items-center">
-                    <div class="col-lg-12 py-3">
+                <div className="page-section">
+                <div className="container">
+                    <div className="row align-items-center">
+                    <div className="col-lg-12 py-3">
                     
-                        <h2 class="title-section">Términos y condiciones del servicio y el sitio web:</h2>
-                        <div class="divider"></div>
+                        <h2 className="title-section">Términos y condiciones del servicio y el sitio web:</h2>
+                        <div className="divider"></div>
                         
                         <p>
                         Los siguientes términos y condiciones legales están disponibles en el pie de página de la
@@ -63,8 +63,8 @@ const Terms = () => {
                         A continuación les especificamos las definiciones pertinentes de los elementos y expresiones
                         usados en estos términos y en el contenido de la web y sus correspondientes aplicaciones y
                         derechos:
-                        <div class="divider"></div>
-                        <h2 class="title-section">1.Conceptos y definiciones del sitio web:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">1.Conceptos y definiciones del sitio web:</h2>
                         En este documento,
                         "CGV": Se refiere a estas condiciones generales de venta.
                         "Empresa": significa el editor y propietario del sitio web.
@@ -93,18 +93,18 @@ const Terms = () => {
                         Período de Prueba. El registro de afiliados para ofertas promocionales requiere
                         automáticamente una suscripción. Las ofertas promocionales permiten a los miembros probar el
                         servicio antes de pagar la suscripción.
-                        <div class="divider"></div>
-                        <h2 class="title-section">2.Apertura de cuenta y consentimiento de socios:</h2>
-                        <div class="divider"></div>
-                        <h2 class="title-section">3.1 Condiciones</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">2.Apertura de cuenta y consentimiento de socios:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">3.1 Condiciones</h2>
                         Debe tener al menos 18 años para acceder a nuestros Servicios y, si corresponde, debe
                         demostrarlo al abrir una cuenta.
                         
                         En lo que a usted concierne, debe tener la autoridad para obligar a la empresa que representa.
                         Usted certifica que tiene la autoridad para vincular a la empresa o entidad en cuyo nombre
                         accede a nuestros servicios y que acepta plenamente los T&amp;C
-                        <div class="divider"></div>
-                        <h2 class="title-section">3. Cuentas de usuario:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">3. Cuentas de usuario:</h2>
                         La empresa proporciona servicios a los miembros en el sitio web de conformidad con el artículo.
                         
                         Para suscribirse al servicio, los socios deben seguir los pasos del procedimiento indicado en
@@ -121,8 +121,8 @@ const Terms = () => {
                         
                         Será imposible el acceso a nuestros Servicios para cualquier persona que no sea un Miembro.
                         
-                        <div class="divider"></div>
-                        <h2 class="title-section">
+                        <div className="divider"></div>
+                        <h2 className="title-section">
                         4.Descripción de los servicios:
                         </h2>
                         
@@ -148,8 +148,8 @@ const Terms = () => {
                         
                         Todos los servicios anteriores sólo están disponibles para los miembros del sitio, lo que significa
                         suscribirse a nuestro paquete de suscripción.
-                        <div class="divider"></div>
-                        <h2 class="title-section">5.Precios y planes:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">5.Precios y planes:</h2>
                         El Miembro debe pagar el importe de la Suscripción mensual o sólo el del Período de Prueba, tal
                         y como se describe en el Sitio, para poder acceder a los Servicios ofrecidos por el Sitio. Los
                         precios de la Suscripción y del Período de Prueba se indican en el Sitio con todos los impuestos
@@ -178,8 +178,8 @@ const Terms = () => {
                         
                         El Socio garantiza a la Empresa que dispone de las autorizaciones necesarias para utilizar el
                         medio de pago al realizar el Pedido.
-                        <div class="divider"></div>
-                        <h2 class="title-section">6.Suscripción a los servicios:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">6.Suscripción a los servicios:</h2>
                         Todos los Servicios ofrecidos por el Sitio se describen con la mayor exactitud posible más arriba.
                         Nos reservamos el derecho de cambiar el contenido del Sitio en cualquier momento sin previo
                         aviso a los Miembros.
@@ -198,8 +198,8 @@ const Terms = () => {
                         La Empresa enviará al Socio una confirmación de pedido por correo electrónico en la que se
                         resumen todos los detalles de su pedido, así como sus identificadores que permiten acceder a
                         su espacio personal.
-                        <div class="divider"></div>
-                        <h2 class="title-section">7.Acceso a los servicios y a la cuenta de usuario:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">7.Acceso a los servicios y a la cuenta de usuario:</h2>
                         La Empresa se compromete a proporcionar al Socio el acceso a los Servicios según lo acordado
                         en estas CGU. Servicios.
                         
@@ -212,18 +212,18 @@ const Terms = () => {
                         
                         La Empresa no será responsable si la inaccesibilidad de los Servicios se debe a un tercero
                         ajeno a su voluntad.
-                        <div class="divider"></div>
-                        <h2 class="title-section">8.Atención al cliente:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">8.Atención al cliente:</h2>
                         Tras la suscripción de un periodo de prueba o de un abono, el usuario tendrá la posibilidad de
                         ponerse en contacto con el servicio de asistencia en línea para obtener información o presentar
                         una reclamación.
-                        <div class="divider"></div>
-                        <h2 class="title-section">9.Contraseña:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">9.Contraseña:</h2>
                         Usted es responsable de la contraseña de su cuenta y la mantiene confidencial. Además, acepta
                         notificarnos cualquier acceso no autorizado a su cuenta o cualquier violación de la seguridad de
                         su cuenta. Esto incluye la pérdida o el robo de su información de acceso.
-                        <div class="divider"></div>
-                        <h2 class="title-section">10.Obligaciones de los miembros</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">10.Obligaciones de los miembros</h2>
                         El Socio se compromete a respetar los términos de estas CGV.
                         El Usuario se compromete a utilizar el Sitio y los Servicios de acuerdo con las instrucciones de
                         la Empresa.
@@ -248,8 +248,8 @@ const Terms = () => {
                         La Empresa se reserva el derecho de retirar el acceso de un Miembro al Sitio y de tomar todas
                         las medidas legales y penales contra él si, por cualquier motivo, la Empresa considera que el
                         Miembro no respeta las presentes CGV.
-                        <div class="divider"></div>
-                        <h2 class="title-section">11.Derecho de desistimiento y abonos.</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">11.Derecho de desistimiento y abonos.</h2>
                         El Socio reconoce que la ejecución de los Servicios prestados por la Empresa tendrá lugar antes
                         de que finalice el plazo legal de desistimiento y, por tanto, renuncia expresamente a su derecho
                         legal de desistimiento.
@@ -272,8 +272,8 @@ const Terms = () => {
                         en una declaración falsa de pérdida o robo de su tarjeta bancaria tras la compra de un Servicio
                         en el Sitio, la Empresa no estará obligada a reembolsar al Socio. Además, el Socio seguirá
                         siendo responsable del pago de todas las sumas debidas a la Sociedad.
-                        <div class="divider"></div>
-                        <h2 class="title-section">12.Cancelación de suscripción:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">12.Cancelación de suscripción:</h2>
                         La Suscripción contratada por el Afiliado es una suscripción que no incluye un compromiso de
                         tiempo, por lo que el Afiliado sólo tiene que notificar a la Compañía por correo electrónico, chat o
                         teléfono su deseo de terminar la Suscripción para que ésta termine. El Socio también puede dar
@@ -282,8 +282,8 @@ const Terms = () => {
                         Cualquier rescisión surtirá efecto al final del mes de la suscripción en curso, que sigue siendo
                         exigible. A partir de la fecha efectiva de rescisión, el usuario dejará de tener acceso a la zona de
                         usuarios y a los servicios.
-                        <div class="divider"></div>
-                        <h2 class="title-section">13.Responsabilidad</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">13.Responsabilidad</h2>
                         La empresa pondrá en marcha todas las medidas necesarias para la correcta ejecución del
                         servicio. No obstante, la Sociedad no podrá ser considerada responsable de la mala ejecución o
                         de la no ejecución de la totalidad o de una parte del Servicio si ello se debe al Socio, al hecho
@@ -309,8 +309,8 @@ const Terms = () => {
                         mensajes de correo electrónico enviados por la Empresa, y en particular la copia del recibo de
                         pago o el resumen del Pedido o, más generalmente, cualquier otro mensaje de correo
                         electrónico de la Empresa, ésta no será responsable en modo alguno.
-                        <div class="divider"></div>
-                        <h2 class="title-section">14.Datos personales:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">14.Datos personales:</h2>
                         Para que el proceso de pedido se desarrolle sin problemas, es imprescindible que el Sitio tenga
                         acceso a la siguiente información: apellido, nombre, dirección electrónica (e-mail).
                         
@@ -358,8 +358,8 @@ const Terms = () => {
                         
                         o si hace clic en el enlace del banner que le permite configurar las cookies y, en su caso,
                         rechaza el depósito de cookies.
-                        <div class="divider"></div>
-                        <h2 class="title-section">15.Propiedad intelectual:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">15.Propiedad intelectual:</h2>
                         Este Sitio es operado por la Compañía y sus afiliados.
                         
                         Elementos como logotipos, marcas, nombres comerciales, imágenes, textos, ilustraciones,
@@ -379,8 +379,8 @@ const Terms = () => {
                         Queda terminantemente prohibida la utilización por parte del Socio de las denominaciones
                         sociales, marcas y signos distintivos pertenecientes a la Sociedad, sin el previo y expreso
                         consentimiento de la misma.
-                        <div class="divider"></div>
-                        <h2 class="title-section">16.Ley y jurisdicciones aplicables:</h2>
+                        <div className="divider"></div>
+                        <h2 className="title-section">16.Ley y jurisdicciones aplicables:</h2>
                         Estos términos y condiciones se regirán e interpretarán de acuerdo con la legislación español,
                         sin tener en cuenta los principios de conflicto de leyes.
                         
