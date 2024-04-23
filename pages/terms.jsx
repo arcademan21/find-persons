@@ -44,7 +44,7 @@ const Terms = () => {
                     
                         <br />
                         
-                        Al utilizar nuestro servicio, usted declara y garantiza que es el titular de los datos personales que está buscando o que tiene el consentimiento explícito del titular de dichos datos para buscar y obtener esta información. Usted entiende que la información que proporcionamos se obtiene de fuentes de acceso público y está destinada únicamente para el uso consentido y legal. Al hacer clic en 'Acepto', usted acepta que ha leído y entendido esta declaración y que se compromete a cumplir con todas las leyes y regulaciones de privacidad y protección de datos aplicables, incluyendo el Reglamento General de Protección de Datos (RGPD).
+                        Al utilizar nuestro servicio, usted declara y garantiza que es el titular de los datos personales que está buscando o que tiene el consentimiento explícito del titular de dichos datos para buscar y obtener esta información. Usted entiende que la información que proporcionamos se obtiene de fuentes de acceso público y está destinada únicamente para el uso consentido y legal. Al hacer clic en &apos;Acepto&apos;, usted acepta que ha leído y entendido esta declaración y que se compromete a cumplir con todas las leyes y regulaciones de privacidad y protección de datos aplicables, incluyendo el Reglamento General de Protección de Datos (RGPD).
                         
                         <br />
                         
@@ -388,7 +388,7 @@ const Terms = () => {
                         estos Términos y Condiciones, el Miembro puede elegir someter la disputa con la Compañía a
                         un procedimiento de mediación convencional o cualquier otro procedimiento alternativo.
                         
-                        Método de resolución de conflictos. El diputado puede acudir a los Tribunales Andorranos, (Principat d' Andorra)
+                        Método de resolución de conflictos. El diputado puede acudir a los Tribunales Andorranos, (Principat d&apos; Andorra)
                         El Afiliado reconoce que antes de emprender cualquier procedimiento de mediación, debe
                         ponerse en contacto con la Compañía por teléfono, chat o correo electrónico en la siguiente
                         dirección: suppor@find-persons.com para hacer valer su derecho al Reembolso (véase 10.
