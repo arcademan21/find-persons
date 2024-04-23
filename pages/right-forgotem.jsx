@@ -1,20 +1,11 @@
 'use client'
-import { set } from 'firebase/database';
-import Head from 'next/head';
-import { useEffect } from 'react';
-import { toast } from 'react-toastify';
+import Head from 'next/head'
+import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 const SendForGotemForm = async ( e ) => {
     
     e.preventDefault()
-
-    const user = JSON.parse( localStorage.getItem('user') )
-   
-
-    if ( !user ) {
-        setSessionErrorMessage(true)
-        return false
-    }
 
     try {
         const req = await fetch( process.env.NEXT_PUBLIC_PATH_END_POINT, {
@@ -60,15 +51,17 @@ const SendForGotemForm = async ( e ) => {
 
 const RightForGotem = () => {
 
-    const [sessionErrorMessage, setSessionErrorMessage] = useState( null )
     const [sendFormErrorMessage, setSendFormErrorMessage] = useState( null )
     const [sendFormSuccessMessage, setSendFormSuccessMessage] = useState( null )
 
     useEffect(()=>{
-        
-        if( sessionErrorMessage ) {
+
+        const user = JSON.parse( localStorage.getItem('user') )
+   
+
+        if ( !user ) {
             toast.error('Debes iniciar sesion para enviar el formulario')
-            setSessionErrorMessage(false)
+            setSessionErrorMessage(true)
         }
 
         if( sendFormErrorMessage ) {
@@ -82,7 +75,7 @@ const RightForGotem = () => {
         }
 
 
-    }, [sessionErrorMessage, sendFormErrorMessage, sendFormSuccessMessage])
+    }, [sendFormErrorMessage, sendFormSuccessMessage])
 
     return (<>
 
