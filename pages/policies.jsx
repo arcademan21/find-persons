@@ -25,7 +25,7 @@ const Policies = () => {
                         
                             <h3>Información sobre protección de datos</h3>
                             <p>
-                                <Img 
+                                <Image 
                                     src="/wp-public/theme_search_persons/assets/img/empresa-politicas.png"
                                     alt="Find Persons"
                                     width={100}
