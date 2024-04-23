@@ -1,6 +1,8 @@
 'use client'
 import Head from 'next/head';
 
+const host_name = process.env.NEXT_PUBLIC_HOST_NAME
+
 const Cookies = () => {
 
     return (<>
@@ -35,7 +37,7 @@ const Cookies = () => {
 
                         <h2 class="title-section">Cookies utilizadas en el sitio Web</h2>
                         <div class="divider"></div>
-                        <p>A continuación se clasifican las cookies utilizadas por el sitio Web {proccess.env.NEXT_PUBLIC_HOST_NAME} </p>
+                        <p>A continuación se clasifican las cookies utilizadas por el sitio Web {host_name} </p>
                         <p>Según la entidad que las gestiona</p>
 
                         <ul>
