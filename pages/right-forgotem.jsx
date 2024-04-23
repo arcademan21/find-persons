@@ -1,7 +1,6 @@
 'use client'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
 
 const SendForGotemForm = async ( e ) => {
     
@@ -51,6 +50,7 @@ const SendForGotemForm = async ( e ) => {
 
 const RightForGotem = () => {
 
+    const [sendSessionErrorMessage, setSendSessionErrorMessage] = useState( null )
     const [sendFormErrorMessage, setSendFormErrorMessage] = useState( null )
     const [sendFormSuccessMessage, setSendFormSuccessMessage] = useState( null )
 
@@ -59,21 +59,19 @@ const RightForGotem = () => {
         const user = JSON.parse( localStorage.getItem('user') )
    
         if ( !user ) {
-            toast.error('Debes iniciar sesion para enviar el formulario')
+            sendSessionErrorMessage('Debes iniciar sesion para enviar el formulario')
         }
 
         if( sendFormErrorMessage ) {
-            toast.error('Error al enviar el formulario')
-            setSendFormErrorMessage(false)
+            setSendFormErrorMessage('Error al enviar el formulario')
         }
 
         if( sendFormSuccessMessage ) {
-            toast.success('Formulario enviado correctamente')
-            setSendFormSuccessMessage(false)
+            setSendFormSuccessMessage('Formulario enviado correctamente')
         }
 
 
-    }, [sendFormErrorMessage, sendFormSuccessMessage])
+    }, [sendFormErrorMessage, sendFormSuccessMessage, sendSessionErrorMessage])
 
     return (<>
 
@@ -81,12 +79,8 @@ const RightForGotem = () => {
             <meta name="robots" content="noindex" />
         </Head>
 
-        <ToastContainer 
-            position="top-center"
-            theme="colored"
-            limit={1}
-        />
-
+        
+        
         <div className="container py-5">
             
             <div className="page-banner my-5">
@@ -103,6 +97,11 @@ const RightForGotem = () => {
                     <div className="container">
                     <div className="row align-items-center">
                         
+                        { sendSessionErrorMessage && <div className="alert alert-danger">{ sendSessionErrorMessage }</div> }
+                        { sendFormErrorMessage && <div className="alert alert-danger">{ sendFormErrorMessage }</div> }
+                        { sendFormSuccessMessage && <div className="alert alert-success">{ sendFormSuccessMessage }</div> }
+
+
                         <div className="col-md-6 m-auto">
 
                             <div className="card vh-100 mb-5">
