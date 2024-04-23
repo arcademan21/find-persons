@@ -71,7 +71,6 @@ const Register = () => {
                 Registrarse gratis
             `
             toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
-            setError(true)
             return false
         }
 
@@ -138,7 +137,6 @@ const Register = () => {
         if( !terms.checked ) {
             
             toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
-            setError(true)
             return false
         }
         

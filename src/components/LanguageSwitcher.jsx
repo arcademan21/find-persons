@@ -134,13 +134,6 @@ const LanguageSwitcher = () => {
 
                     <div className="menu-languages-item border shadow rounded ">
                         <div className='d-flex flex-column align-items-center image-content'>
-                            <Image src={`/languajes/flags/us.svg`} alt="Ingles" className="flag rounded w-100 px-1" data-language="us" onClick={ switchLanguage } width={100} height={70} />
-                            Ingles
-                        </div>
-                    </div>
-
-                    <div className="menu-languages-item border shadow rounded ">
-                        <div className='d-flex flex-column align-items-center image-content'>
                             <Image src={`/languajes/flags/it.svg`} alt="Italiano" className="flag rounded w-100 px-1" data-language="it" onClick={ switchLanguage } width={100} height={70} />
                             Italiano
                         </div>  
@@ -155,18 +148,39 @@ const LanguageSwitcher = () => {
 
                     <div className="menu-languages-item border shadow rounded ">
                         <div className='d-flex flex-column align-items-center image-content'>
-                            <Image src={`/languajes/flags/pt.svg`} alt="Portugues" className="flag rounded w-100 px-1" data-language="pt" onClick={ switchLanguage } width={100} height={70} />
-                            Portugues
-                        </div>
-                    </div>
-
-                    <div className="menu-languages-item border shadow rounded ">
-                        <div className='d-flex flex-column align-items-center image-content'>
                             <Image src={`/languajes/flags/de.svg`} alt="Aleman" className="flag rounded w-100 px-1" data-language="de" onClick={ switchLanguage } width={100} height={70} />
                             Aleman
                         </div>
                     </div>
 
+                    <div className="menu-languages-item border shadow rounded ">
+                        <div className='d-flex flex-column align-items-center image-content'>
+                            <Image src={`/languajes/flags/ie.svg`} alt="Irlandes" className="flag rounded w-100 px-1" data-language="ie" onClick={ switchLanguage } width={100} height={70} />
+                            Irlandes
+                        </div>
+                    </div>
+
+                    <div className="menu-languages-item border shadow rounded ">
+                        <div className='d-flex flex-column align-items-center image-content'>
+                            <Image src={`/languajes/flags/uk.svg`} alt="Ingles" className="flag rounded w-100 px-1" data-language="uk" onClick={ switchLanguage } width={100} height={70} />
+                            Inglés (Reino Unido)
+                        </div>
+                    </div>
+
+                    <div className="menu-languages-item border shadow rounded ">
+                        <div className='d-flex flex-column align-items-center image-content'>
+                            <Image src={`/languajes/flags/nl.svg`} alt="Holandes" className="flag rounded w-100 px-1" data-language="nl" onClick={ switchLanguage } width={100} height={70} />
+                            Holandes
+                        </div>
+                    </div>
+
+                    
+                    
+                    
+                    
+                    nl
+
+                    
                     
                 </div>
 
