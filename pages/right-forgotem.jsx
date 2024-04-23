@@ -2,7 +2,9 @@
 import Head from 'next/head';
 import { toast } from 'react-toastify';
 
-const SendForGotemForm = async () => {
+const SendForGotemForm = async ( e ) => {
+    
+    e.preventDefault()
 
     const user = JSON.parse( localStorage.getItem('user') )
 
@@ -36,9 +38,13 @@ const SendForGotemForm = async () => {
         if( res.status === 'error' ) return false
         return res
 
-    } catch ( error ) {
+    } 
+    
+    catch ( error ) {
         return false
     }
+
+   
 
 }
 
@@ -72,8 +78,8 @@ const RightForGotem = () => {
 
                                 <div className="card-body">
 
-                                    <form onSubmit={()=>{
-                                        SendForGotemForm().then((res)=>{
+                                    <form onSubmit={( e )=>{
+                                        SendForGotemForm( e ).then(( res )=>{
                                             if( !res ) toast.error('Error al enviar el formulario')
                                             else toast.success('Formulario enviado correctamente')
                                         })
