@@ -4,8 +4,8 @@ import GlobalContext from '../context/GlobalContext'
 import './css/home-sections.css'
 import Image from 'next/image'
 import { toast } from 'react-toastify'
-import { set } from 'firebase/database'
 import ReCAPTCHA from 'react-google-recaptcha'
+import { FaPaperPlane, FaCircleCheck } from 'react-icons/fa'
 
 const HomeSections = () => {
 
@@ -177,25 +177,25 @@ const HomeSections = () => {
                     </h2>
                     <div className="divider"></div>
                         <ul className="m-0 list_home_info">
-                            <li><i className="fa-regular fa-circle-check mr-3"></i> 
+                            <li><FaCircleCheck className="mx-2" />
                                 {language.call_to_action.we_search}
                             </li>
-                            <li><i className="fa-regular fa-circle-check mr-3"></i> 
+                            <li><FaCircleCheck className="mx-2" />
                                 {language.call_to_action.api_data}
                             </li>
-                            <li><i className="fa-regular fa-circle-check mr-3"></i> 
+                            <li><FaCircleCheck className="mx-2" />
                                 {language.call_to_action.search_social}
                             </li>
-                            <li><i className="fa-regular fa-circle-check mr-3"></i> 
+                            <li><FaCircleCheck className="mx-2" />
                                 {language.call_to_action.search_engines}
                             </li>
-                            <li><i className="fa-regular fa-circle-check mr-3"></i> 
+                            <li><FaCircleCheck className="mx-2" />
                                 {language.call_to_action.search_internet}
                             </li>
-                            <li><i className="fa-regular fa-circle-check mr-3"></i> 
+                            <li><FaCircleCheck className="mx-2" />
                                 {language.call_to_action.public_records}
                             </li>
-                            <li><i className="fa-regular fa-circle-check mr-3"></i> 
+                            <li><FaCircleCheck className="mx-2" />
                                 {language.call_to_action.news}
                             </li>
                         </ul>
@@ -482,7 +482,7 @@ const HomeSections = () => {
                     
                 </div>
                 <div className="col-lg-6 py-3 wow fadeInUp text-center">
-                    <i className="fas fa-paper-plane"></i>
+                    <FaPaperPlane />
                     <h3 className="title-section">		  
                         <span className="marked">
                             {language.contact.do_reclaim}
