@@ -79,12 +79,6 @@ const Profile = () => {
 
         getUserData( user.email ).then( res => { 
             
-            if( !res ) {
-                window.location.replace('/')
-                return false
-            }
-            console.log(res)
-            console.log(typeof res)
             setUserData( res )
 
         })
