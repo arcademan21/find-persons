@@ -5,8 +5,7 @@ import { LogOutButton } from './LogOutButton'
 import GetLanguageSwitcher from './LanguageSwitcher'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FaUser, FaUserPlus, FaSignInAlt, FaEnvelope } from 'react-icons/fa6'
-import { FaArrowCircleLeft } from "react-icons/fa"
+import { FaUser, FaUserPlus, FaSignInAlt, FaEnvelope, FaArrowCircleLeft } from 'react-icons/fa'
 
 const MenuButtons = () => {
     
