@@ -50,6 +50,8 @@ const Register = () => {
     const search = localStorage.getItem('search').toString()
 
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
+
+    const extension = localStorage.getItem('extencion')
     
     const newUser = async () => { 
         
@@ -95,9 +97,9 @@ const Register = () => {
                 
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && search === 'null' ) window.location.replace('/')
-                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
-                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
+                    if( !suscripted && search === 'null' ) window.location.replace(extension)
+                    else if( !suscripted && search !== 'null' ) window.location.replace(`${extension}/payment`)
+                    else if( suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
                     
         
                 })
@@ -154,10 +156,10 @@ const Register = () => {
                 
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && search === 'null' ) window.location.replace('/')
-                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
-                    else if( suscripted && search === 'null' ) window.location.replace('/')
-                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
+                    if( !suscripted && search === 'null' ) window.location.replace(extension)
+                    else if( !suscripted && search !== 'null' ) window.location.replace(`${extension}/payment`)
+                    else if( suscripted && search === 'null' ) window.location.replace(extension)
+                    else if( suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
                     
         
                 })
