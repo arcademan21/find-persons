@@ -315,8 +315,7 @@ const Register = () => {
                                         window.location.replace('/login')
                                     }}>
                                       
-                                        {language.login}
-                                        <FaSignInAlt />
+                                        {language.login} <FaSignInAlt className='fs-5 mx-2' />
                                     
                                         
                                     </span>

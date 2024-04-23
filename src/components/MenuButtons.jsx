@@ -136,7 +136,7 @@ const MenuButtons = () => {
               </button>
 
               <button onClick={handle_register} className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
-                <FaUserPlus className="fs-6 mx-1" />
+                <FaUserPlus className="fs-5 mx-1" />
                 <span data-section="nav_bar" data-value="register">
                     {language.nav_bar.register}
                     <b className='marked'>
