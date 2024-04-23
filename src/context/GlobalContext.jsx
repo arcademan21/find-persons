@@ -63,7 +63,7 @@ export const GlobalProvider = ( { children } ) => {
       
       
       const language = localStorage.getItem('language') ? localStorage.getItem('language') : window.navigator.language.split('-')[0]
-      const req = await fetch(`/languajes/${extension}.json`)
+      const req = await fetch(`/languajes/${extension || 'es' }.json`)
       const res = await req.json()
       localStorage.setItem('language', res.language)
       localStorage.setItem('language_file', JSON.stringify(res))
