@@ -7,7 +7,12 @@ const Footer = () => {
 
     const context = useContext(GlobalContext)
     const { state } = context
-    const extension = localStorage.getItem('extencion')
+    let extension = localStorage.getItem('extencion')
+
+    if( extension !== '/' ){
+        extension = `${extension}/`
+    }
+
 
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')).footer)
         
@@ -35,25 +40,25 @@ const Footer = () => {
                 </h5>
                 <ul className="footer-menu d-flex justify-content-center">
                     <li>
-                    <a href={`${extension}/policies`}>
+                    <a href={`${extension}policies`}>
                         {language.privacy_policies} 
                     </a>
                     </li>
                     <li>
-                    <a href={`${extension}/cookies`}>
+                    <a href={`${extension}cookies`}>
                         {language.cookies_policies}
                     </a>
                     </li>
                     <li>
-                    <a href={`${extension}/terms`}>
+                    <a href={`${extension}terms`}>
                         {language.terms_and_conditions}  
                     </a> 
                     </li>
                     <li>
-                    <a href={`${extension}/legal`}>
+                    <a href={`${extension}legal`}>
                         {language.legal_loan}
                     </a> </li>
-                    <li><a href={`${extension}/right-forgotem`}>
+                    <li><a href={`${extension}right-forgotem`}>
                         {language.right_forgotem}
                     </a>  </li> 
                 </ul>
