@@ -28,9 +28,11 @@ const Policies = () => {
                             <div class="divider"></div>
                         
                             <h3>Información sobre protección de datos</h3>
-                            <p>Denominación social: Identidad: Montaup Publicities, SLU en adelante, Find Persons.</p>
-                            <p>Carrer Esteve Albert, R. la Roureda, bloc A, 1-2a, AD500, Andorra la Vella, Andorra </p>
-                            <p>Email Delegado Protección de Datos: support@find-persons.com.</p>
+                            <p>
+                                Denominación social: Identidad: Montaup Publicities, SLU en adelante, Find Persons.
+                                Carrer Esteve Albert, R. la Roureda, bloc A, 1-2a, AD500, Andorra la Vella, Andorra 
+                                Email Delegado Protección de Datos: support@find-persons.com.
+                            </p>
 
                             <h3>Sobre nuestro servicio</h3>
 
