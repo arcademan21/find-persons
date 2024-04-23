@@ -60,21 +60,15 @@ const RightForGotem = () => {
                 </div>
             </div>
 
-            <main>
+            <main className='vh-100'>
 
                 <div className="page-section">
                     <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-lg-12 py-3">
                         
-                            <h2 className="title-section">Rellene el formulario a continuacion</h2>
-                            <div className="divider"></div>
-
-                        </div>
-
                         <div className="col-md-6 m-auto">
 
-                            <div className="card">
+                            <div className="card vh-100 my-5">
 
                                 <div className="card-body">
 
@@ -88,7 +82,7 @@ const RightForGotem = () => {
                             
                                             <div className="form-group">
                                                 <label htmlFor="phone">Telefono</label>
-                                                <input type="text" name="phone" id="ohone" className="form-control" required />
+                                                <input type="text" name="phone" id="ohone" className="form-control rounded border my-2" required />
                                             </div>
 
                                             <div className='divider w-75'></div>
@@ -96,23 +90,23 @@ const RightForGotem = () => {
                                             <h3>Informacion a eliminar</h3>
                                             <div className="form-group">
                                                 <label htmlFor="name">Nombre</label>
-                                                <input type="text" name="forgotem-name" id="forgotem-name" className="form-control" required />
+                                                <input type="text" name="forgotem-name" id="forgotem-name" className="form-control rounded border my-2" required />
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="email">Email</label>
-                                                <input type="email" name="forgotem-email" id="forgotem-email" className="form-control" required />
+                                                <input type="email" name="forgotem-email" id="forgotem-email" className="form-control rounded border my-2" required />
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="phone">Telefono</label>
-                                                <input type="text" name="forgotem-phone" id="forgotem-phone" className="form-control" required />
+                                                <input type="text" name="forgotem-phone" id="forgotem-phone" className="form-control rounded border my-2" required />
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="address">Direccion</label>
-                                                <input type="text" name="forgotem-address" id="forgotem-address" className="form-control" required />
+                                                <input type="text" name="forgotem-address" id="forgotem-address" className="form-control rounded border my-2" required />
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="message">Razon</label>
-                                                <textarea name="message" id="reason" className="form-control" required></textarea>
+                                                <textarea name="message" id="reason" className="form-control rounded border my-2" required></textarea>
                                             </div>
 
                                             <p>
