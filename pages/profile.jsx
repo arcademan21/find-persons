@@ -107,7 +107,7 @@ const Profile = () => {
                         { userData && !userData.user_data ?
                             <div className="alert alert-danger">
                                 Aun no tienes una cuenta, por favor registrate.
-                                <a href="/register">Registrarse gratis</a>
+                                <a href={"/register"}>Registrarse gratis</a>
                             </div>
                             :
                         
