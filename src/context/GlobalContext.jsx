@@ -55,7 +55,7 @@ export const GlobalProvider = ( { children } ) => {
   const SettingLanguage = useCallback( async () => {
 
       let extension = 'es'
-      const language = localStorage.getItem('language') ? localStorage.getItem('language') : window.navigator.language.split('-')[0]
+      const language = localStorage.getItem('language')
       
       if( pathname !== '/' ) {
           extension = localStorage.getItem('extencion').split('/')[1]

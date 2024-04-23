@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react'
 export const DefaultLanguage = () => {
 
     let extension = localStorage.getItem('extencion')
-    
+    const language = localStorage.getItem('language')
+
+
     if( extension !== '/' ) {
          if( extension === '' ) {
             extension = 'es'
@@ -15,6 +17,10 @@ export const DefaultLanguage = () => {
 
     else{
         extension = 'es'
+    }
+
+    if( extension !== language ) {
+        extension = language
     }
 
     // Para usar el idioma del cliente
