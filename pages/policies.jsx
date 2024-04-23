@@ -94,6 +94,8 @@ const Policies = () => {
                                 <li>Portabilidad de tus datos.</li>
                             </ul>
 
+                            <br />
+
                             <p>Tienes la opción de solicitarnos a través de <a href={'/right-forgotem'} >este formulario</a>  que tus datos personales no aparezcan como resultado de búsquedas realizadas en FIND PERSONS; para ello, deberás facilitarnos información que permita verificar tu identidad, así como la dirección URL donde apareces actualmente y el motivo por el que deseas que no aparezcas. La respuesta a tu solicitud se te comunicará en el plazo máximo de un mes desde su recepción.</p>
 
                             <p> -Se eliminará exactamente como resultado de la búsqueda, los términos que nos hayas solicitada, no combinaciones distintas que también podrían identificarte. En consecuencia, realiza tantas peticiones como combinaciones de tu nombre no quieras que aparezcan. Todas las peticiones se admiten sin excepciones con el fin de darte la mayor protección.
