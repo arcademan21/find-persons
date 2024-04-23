@@ -5,6 +5,8 @@ import { LogOutButton } from './LogOutButton'
 import GetLanguageSwitcher from './LanguageSwitcher'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faUser, faUserPlus, faSignInAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 const MenuButtons = () => {
     
@@ -82,7 +84,7 @@ const MenuButtons = () => {
                 <div className="d-flex">
                       
                       <button className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3" onClick={ () => router.back() }>
-                          <i className="fas fa-arrow-left fs-5 mx-1"></i>
+                          <FontAwesomeIcon icon={faArrowLeft} className="fs-5 mx-1" />
                           <span className="marked">
                             {language.nav_bar.back}
                           </span>
@@ -97,14 +99,14 @@ const MenuButtons = () => {
           : (<>
               
               <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
-                <i className="fas fa-envelope fs-6 mx-1"></i>
+                <FontAwesomeIcon icon={faEnvelope} className="fs-6 mx-1" />
                 <span data-section="nav_bar" data-value="contact">
                   {language.nav_bar.contact}
                 </span>
               </button>
     
               <button onClick={handle_profile} className="btn btn-outline title-section py-2 px-3 rounded-pill decoration-none mx-3">
-                <i className="fas fa-user fs-6 mx-1"></i>
+                <FontAwesomeIcon icon={faUser} className="fs-6 mx-1" />
                 <b className='marked'>
                   <span data-section="nav_bar" data-value="profile">
                     <b className='marked'>
@@ -128,14 +130,14 @@ const MenuButtons = () => {
           { isHome ? 
             (<> 
               <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
-                  <i className="fas fa-envelope fs-6 mx-1"></i>
+                  <FontAwesomeIcon icon={faEnvelope} className="fs-6 mx-1" />
                   <span data-section="nav_bar" data-value="contact">
                     {language.nav_bar.contact}
                   </span>
               </button>
 
               <button onClick={handle_register} className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
-                <i className="fas fa-user-plus fs-6 mx-1"></i>
+                <FontAwesomeIcon icon={faUserPlus} className="fs-6 mx-1" />
                 <span data-section="nav_bar" data-value="register">
                     {language.nav_bar.register}
                     <b className='marked'>
@@ -145,7 +147,7 @@ const MenuButtons = () => {
               </button>
       
               <button onClick={handle_login} className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
-                <i className="fas fa-sign-in-alt fs-6 mx-1"></i>
+                <FontAwesomeIcon icon={faSignInAlt} className="fs-6 mx-1" />
                 <span data-section="nav_bar" data-value="login">{language.nav_bar.login}</span>
               </button>
 
@@ -159,7 +161,7 @@ const MenuButtons = () => {
               <div className="d-flex">
                     
                     <button className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3" onClick={ () => router.back() }>
-                        <i className="fas fa-arrow-left fs-5 mx-1"></i>
+                        <FontAwesomeIcon icon={faArrowLeft} className="fs-5 mx-1" />
                         <span className="marked">
                           {language.nav_bar.back}
                         </span>
