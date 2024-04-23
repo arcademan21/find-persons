@@ -86,7 +86,7 @@ const Cookies = () => {
                         <ul>
                             <li>
                                 <i class="fas fa-square"></i>
-                                wp-settings-{user_id}: Cookie técnica que se usa para mantener la configuración del usuario en wp-admin. Es persistente y tiene una duración de 1 año.
+                                wp-settings-user_id: Cookie técnica que se usa para mantener la configuración del usuario en wp-admin. Es persistente y tiene una duración de 1 año.
                             </li>
                             <li>
                                 <i class="fas fa-square"></i>
