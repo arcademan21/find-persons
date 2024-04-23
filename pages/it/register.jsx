@@ -346,7 +346,7 @@ const Register = () => {
                                         <div className="d-flex flex-column py-2">
                                             
 
-                                            { search ?
+                                            { search !== 'null' ?
                                                 
                                                 <div className="d-flex px-4 py-3">
                                                     <div className="d-flex flex-column w-25 bg-light rounded shadow border">
