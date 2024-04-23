@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react"
 import GlobalContext from '@/context/GlobalContext'
 import VantaGlobe from '@/components/VantaGlobe'
 import Image from 'next/image'
-import './css/search.css'
+import '../css/search.css'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{

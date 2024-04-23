@@ -6,7 +6,7 @@ import PdfRenderer from '@/components/PdfRenderer'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 
 
-import './css/results.css'
+import '../css/results.css'
 import * as dataPersonJson from './resources/dataPerson.json' 
 import PDLJS from 'peopledatalabs';
 import { toast } from 'react-toastify'
