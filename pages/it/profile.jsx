@@ -109,7 +109,7 @@ const Profile = () => {
                         { userData && !userData.user_data ?
                             <div className="alert alert-danger">
                                 Aun no suscrito, por favor realiza el pago para poder acceder a tu cuenta.
-                                <a href={"/payment"}> Suscribirse </a>
+                                <a href={`${extension}/payment`}> Suscribirse </a>
                             </div>
                             :
                         
