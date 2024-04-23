@@ -21,8 +21,6 @@ const SendForGotemForm = async () => {
                     "data": {
                         "create_right_to_beforgotten": {
                             "user_email": user.email,
-                            "name": document.getElementById('name').value,
-                            "email": document.getElementById('email').value,
                             "phone": document.getElementById('phone').value,
                             "forgotem_name": document.getElementById('forgotem-name').value,
                             "forgotem_email": document.getElementById('forgotem-email').value,
@@ -69,59 +67,83 @@ const RightForGotem = () => {
                     <div className="row align-items-center">
                         <div className="col-lg-12 py-3">
                         
-                        <h2 className="title-section">Rellene el formulario a continuacion</h2>
-                        <div className="divider"></div>
+                            <h2 className="title-section">Rellene el formulario a continuacion</h2>
+                            <div className="divider"></div>
 
-
-                        <form onSubmit={()=>{
-                            SendForGotemForm().then((res)=>{
-                                if( !res ) toast.error('Error al enviar el formulario')
-                                else toast.success('Formulario enviado correctamente')
-                            })
-                        }} method="post" className="form">
-                            
-                            <div className="form-group">
-                                <label htmlFor="name">Nombre</label>
-                                <input type="text" name="name" id="name" className="form-control" required />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="email">Email</label>
-                                <input type="email" name="email" id="email" className="form-control" required />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="phone">Telefono</label>
-                                <input type="text" name="phone" id="ohone" className="form-control" required />
-                            </div>
-
-                            <div className='divider w-75'></div>
-
-                            <h3>Informacion a eliminar</h3>
-                            <div className="form-group">
-                                <label htmlFor="name">Nombre</label>
-                                <input type="text" name="forgotem-name" id="forgotem-name" className="form-control" required />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="email">Email</label>
-                                <input type="email" name="forgotem-email" id="forgotem-email" className="form-control" required />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="phone">Telefono</label>
-                                <input type="text" name="forgotem-phone" id="forgotem-phone" className="form-control" required />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="address">Direccion</label>
-                                <input type="text" name="forgotem-address" id="forgotem-address" className="form-control" required />
-                            </div>
-
-                            <button type="submit" className="btn btn-primary">Enviar</button>
-                        </form>
-
-                        <p>
-                            <small>
-                            <strong>Nota:</strong> Al enviar este formulario, usted acepta que sus datos personales sean procesados por nosotros.
-                            </small>
-                        </p>
                         </div>
+
+                        <div className="col-md-6 m-auto">
+
+                            <div className="card">
+
+                                <div className="card-body">
+
+                                    <form onSubmit={()=>{
+                                        SendForGotemForm().then((res)=>{
+                                            if( !res ) toast.error('Error al enviar el formulario')
+                                            else toast.success('Formulario enviado correctamente')
+                                        })
+                                    }} method="post" className="form">
+                            
+                            
+                                            <div className="form-group">
+                                                <label htmlFor="phone">Telefono</label>
+                                                <input type="text" name="phone" id="ohone" className="form-control" required />
+                                            </div>
+
+                                            <div className='divider w-75'></div>
+
+                                            <h3>Informacion a eliminar</h3>
+                                            <div className="form-group">
+                                                <label htmlFor="name">Nombre</label>
+                                                <input type="text" name="forgotem-name" id="forgotem-name" className="form-control" required />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="email">Email</label>
+                                                <input type="email" name="forgotem-email" id="forgotem-email" className="form-control" required />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="phone">Telefono</label>
+                                                <input type="text" name="forgotem-phone" id="forgotem-phone" className="form-control" required />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="address">Direccion</label>
+                                                <input type="text" name="forgotem-address" id="forgotem-address" className="form-control" required />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="message">Razon</label>
+                                                <textarea name="message" id="reason" className="form-control" required></textarea>
+                                            </div>
+
+                                            <p>
+                                                <small>
+                                                <strong>Nota:</strong> 
+                                                    Al enviar este formulario, usted acepta que sus datos personales sean procesados por nosotros.
+                                                    <br />
+                                                    Solo los usuarios registrados y suscritos al servicio pueden enviar este formulario.
+                                                </small>
+                                            </p>
+
+                            
+                                            <button type="submit" className="btn btn-primary">Enviar</button>
+                                        </form>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
                     </div>
                     </div>
                 </div>
