@@ -1,6 +1,5 @@
 'use client'
 import Head from 'next/head';
-import Image from "next/image"
 
 const Policies = () => {
 
@@ -29,8 +28,8 @@ const Policies = () => {
                             <div class="divider"></div>
                         
                             <h3>Información sobre protección de datos</h3>
-                            <p>Denominación social: Identidad: Montaup Publicities, SLU (en adelante, "Find Persons").</p>
-                            <p>Carrer Esteve Albert, R. la Roureda, bloc A, 1-2a, AD500, Andorra la Vella, (Andorra)</p>
+                            <p>Denominación social: Identidad: Montaup Publicities, SLU en adelante, Find Persons.</p>
+                            <p>Carrer Esteve Albert, R. la Roureda, bloc A, 1-2a, AD500, Andorra la Vella, Andorra </p>
                             <p>Email Delegado Protección de Datos: support@find-persons.com.</p>
 
                             <h3>Sobre nuestro servicio</h3>
@@ -49,11 +48,11 @@ const Policies = () => {
 
                             <p>FIND PERSONS trata los siguientes datos personales con las finalidades a continuación indicadas:</p>
 
-                            <p>a) Registro de usuarios: los datos personales recogidos a través de este formulario se utilizarán exclusivamente para gestionar el alta como usuario registrado y en caso de que nos otorgues tu consentimiento, para el envío de correos electrónicos promocionales de nuestras actividades y servicios, sin perjuicio del uso de tus datos con este fin, de acuerdo a nuestro interés legítimo.</p>
+                            <p> a - Registro de usuarios: los datos personales recogidos a través de este formulario se utilizarán exclusivamente para gestionar el alta como usuario registrado y en caso de que nos otorgues tu consentimiento, para el envío de correos electrónicos promocionales de nuestras actividades y servicios, sin perjuicio del uso de tus datos con este fin, de acuerdo a nuestro interés legítimo.</p>
 
-                            <p>b) Formulario de contacto: los datos personales recogidos a través de este formulario se utilizarán exclusivamente para gestionar tu solicitud y en caso de que nos otorgues tu consentimiento para el envío de correos electrónicos promocionales de nuestras actividades y servicios.</p>
+                            <p> b - Formulario de contacto: los datos personales recogidos a través de este formulario se utilizarán exclusivamente para gestionar tu solicitud y en caso de que nos otorgues tu consentimiento para el envío de correos electrónicos promocionales de nuestras actividades y servicios.</p>
 
-                            <p>c) Resultados de búsquedas: los datos personales que puedan aparecer en las búsquedas realizadas en nuestro sistema, son simplemente mostrados a los usuarios registrados, sin que Find Persons los almacenen, copien o en ningún caso archiven, para ninguna finalidad.</p>
+                            <p> c - Resultados de búsquedas: los datos personales que puedan aparecer en las búsquedas realizadas en nuestro sistema, son simplemente mostrados a los usuarios registrados, sin que Find Persons los almacenen, copien o en ningún caso archiven, para ninguna finalidad.</p>
 
                             <h3>¿Cuánto tiempo custodiamos los datos?</h3>
                             <p>A continuación, y de acuerdo con la normativa vigente, te informamos del tiempo que mantendremos sus datos, que depende del tipo de uso al que sean destinados:</p>
@@ -113,11 +112,6 @@ const Policies = () => {
                             <h3>Modificaciones en la política de privacidad</h3>
                             <p>Nos reservamos el derecho de modificar la presente política para adaptarla a novedades legislativas o jurisprudenciales que se encuentren vigentes en el momento de acceso al sitio web. En caso de introducir modificaciones significativas, se comunicará a los interesados mediante un aviso en la web o a través de cualquier otro medio adecuado según las circunstancias.</p>
 
-
-                        
-                        
-
-                        
                             </div>
                         
                         </div>
