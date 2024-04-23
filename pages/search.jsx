@@ -4,6 +4,7 @@ import GlobalContext from '@/context/GlobalContext'
 import VantaGlobe from '@/components/VantaGlobe'
 import Image from 'next/image'
 import './css/search.css'
+import { FaSpinner, FaCheck, FaUser, FaMapMarkedAlt, FaUsers } from 'react-icons/fa'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -47,7 +48,7 @@ const Search = () => {
     const [text_search_info, setTextSearchInfo] = useState('')
     const [awaitText, setAwaitText] = useState('')
     const [activeClass, setActiveClass] = useState('')
-    const [stateIcon, setStateIcon] = useState('fa-spinner')
+    const [stateIcon, setStateIcon] = useState(true)
     const [listOfSearchs, setListOfSearchs] = useState([])
 
     useEffect(() => {
@@ -76,7 +77,7 @@ const Search = () => {
     
             if ( count === 5 ) {
                 clearInterval(time)
-                setStateIcon('fa-check')
+                setStateIcon(false)
                 setAwaitText('')
                 setActiveClass('active')
                 GetSuscription( user ).then( suscripted => {
@@ -148,32 +149,32 @@ const Search = () => {
                             <ul className="checks-animate">
                     
                                 <li className="item-check">
-                                    <i className={`fa ${stateIcon} mx-2`} id="0"></i>
+                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="socials">{listOfSearchs[0]}</b>
                                 </li>
 
                                 <li className="item-check">
-                                    <i className={`fa ${stateIcon} mx-2`} id="1"></i>
+                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="address">{listOfSearchs[1]}</b>
                                 </li>
 
                                 <li className="item-check">
-                                    <i className={`fa ${stateIcon} mx-2`} id="2"></i>
+                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="telephone">{listOfSearchs[2]}</b>
                                 </li>
 
                                 <li className="item-check">
-                                    <i className={`fa ${stateIcon} mx-2`} id="3"></i>
+                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="email">{listOfSearchs[3]}</b>
                                 </li>
 
                                 <li className="item-check">
-                                    <i className={`fa ${stateIcon} mx-2`} id="4"></i>
+                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="news">{listOfSearchs[4]}</b>
                                 </li>
 
                                 <li className="item-check">
-                                    <i className={`fa ${stateIcon} mx-2`} id="5"></i>
+                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="histories">{listOfSearchs[5]}</b>
                                 </li>
 
@@ -200,7 +201,8 @@ const Search = () => {
                     
                     <div className="d-flex flex-column list-media py-5">
                         <div className="d-flex align-items-start my-2">
-                            <i className="fas fa-user-check fa-2x mx-3" style={{minWidth: '40px'}}></i>
+                            
+                            <FaUser className="fa-2x mx-3" />
                             <div>
                                 <h6 className="mt-0 mb-1 fw-bold" data-section="search_page" data-value="title_accounts">
                                     {language.title_accounts}
@@ -211,7 +213,8 @@ const Search = () => {
                             </div>
                         </div>
                         <div className="d-flex align-items-start my-2">
-                            <i className="fas fa-map-marker-alt fa-2x mx-3" style={{minWidth: '40px'}}></i>
+                            
+                            <FaMapMarkedAlt className="fa-2x mx-3" />
                             <div>
                                 <h6 className="mt-0 mb-1 fw-bold" data-value="title_location" data-section="search_page">
                                     {language.title_location}
@@ -222,7 +225,8 @@ const Search = () => {
                             </div>
                         </div>
                         <div className="d-flex align-items-start my-2">
-                            <i className="fas fa-users fa-2x mx-3" style={{minWidth: '40px'}}></i>
+                
+                            <FaUsers className="fa-2x mx-3" />
                             <div>
                                 <h6 className="mt-0 mb-1 fw-bold" data-section="search_page" data-value="title_explore">
                                     {language.title_explore}

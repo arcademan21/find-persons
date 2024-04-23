@@ -185,7 +185,7 @@ const Login = ( ) => {
                         <span className="marked">{language.no_account}</span>
                         <br />
                         <span className="link-primary my-1" onClick={()=>{window.location.replace('/register')}} >
-                            <FaUserPlus />
+                            <FaUserPlus className='fs-4 mx-1' />
                             <span className='fs-4'>{language.register_link}</span>
                         </span>
                         </p>
