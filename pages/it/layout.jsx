@@ -1,4 +1,4 @@
-'use client'
+
 import { GlobalProvider } from '../context/GlobalContext'
 import { ToastContainer } from 'react-toastify'
 import Loader from "../components/Loader"
