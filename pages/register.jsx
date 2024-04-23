@@ -7,10 +7,7 @@ import VantaGlobe from '@/components/VantaGlobe'
 import 'react-toastify/dist/ReactToastify.css'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserPlus, faEnvelope, faLock, faSign, faGoogle } from '@fortawesome/free-solid-svg-icons'
-
-
+import { FaUserPlus, FaEnvelope, FaLock, FaSign, FaGoogle, FaU } from 'react-icons/fa6'
 
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
@@ -241,7 +238,7 @@ const Register = () => {
                                         <div className="form-outline flex-fill mb-0">
 
                                         <div className="input-icon">
-                                            <FontAwesomeIcon icon={faEnvelope} />
+                                            <FaEnvelope />
                                             <input
                                                 type="email"
                                                 id="email"
@@ -262,7 +259,7 @@ const Register = () => {
                                     <div className="form-outline flex-fill mb-0">
                                     
                                     <div className="input-icon">
-                                        <FontAwesomeIcon icon={faLock} />
+                                        <FaLock />
                                         <input
                                             type="password"
                                             id="password"
@@ -299,12 +296,12 @@ const Register = () => {
                                 <div className="d-flex flex-column align-items-center justify-content-center mx-4 mb-3 mb-lg-2">
 
                                     <button className="btn btn-primary btn-lg mb-2 fs-6 w-75" id="btn-register"  onClick={newUser}>
-                                        <FontAwesomeIcon icon={faUserPlus} />
+                                        <FaUserPlus />
                                         <span>{language.register_free}</span>
                                     </button>
 
                                     <button className="btn btn-danger btn-lg mb-2 fs-6 w-75" id="btn-google" onClick={newUserGoogle}>
-                                        <FontAwesomeIcon icon={faGoogle} />
+                                        <FaGoogle />
                                         <span>{language.register_google}</span>
                                     </button>
 
