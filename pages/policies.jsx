@@ -1,10 +1,15 @@
 'use client'
-
+import Head from 'next/head';
 import Image from "next/image"
 
 const Policies = () => {
 
     return (<>
+
+        <Head>
+            <meta name="robots" content="noindex" />
+        </Head>
+
         <div class="container py-5">
             
             <div class="page-banner my-5">
@@ -24,15 +29,9 @@ const Policies = () => {
                             <div class="divider"></div>
                         
                             <h3>Información sobre protección de datos</h3>
-                            <p>
-                                <Image 
-                                    src="/images/empresa-politicas.png"
-                                    alt="Find Persons"
-                                    width={100}
-                                    height={100}
-                                    layout="responsive"
-                                />
-                            </p>
+                            <p>Denominación social: Identidad: Montaup Publicities, SLU (en adelante, "Find Persons").</p>
+                            <p>Carrer Esteve Albert, R. la Roureda, bloc A, 1-2a, AD500, Andorra la Vella, (Andorra)</p>
+                            <p>Email Delegado Protección de Datos: support@find-persons.com.</p>
 
                             <h3>Sobre nuestro servicio</h3>
 
