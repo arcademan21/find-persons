@@ -1,5 +1,7 @@
 'use client'
 
+import Image from "next/image"
+
 const Policies = () => {
 
     return (<>
@@ -23,7 +25,13 @@ const Policies = () => {
                         
                             <h3>Información sobre protección de datos</h3>
                             <p>
-                                <img src="/wp-public/theme_search_persons/assets/img/empresa-politicas.png"/>
+                                <Img 
+                                    src="/wp-public/theme_search_persons/assets/img/empresa-politicas.png"
+                                    alt="Find Persons"
+                                    width={100}
+                                    height={100}
+                                    layout="responsive"
+                                />
                             </p>
 
                             <h3>Sobre nuestro servicio</h3>
