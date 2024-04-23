@@ -5,7 +5,7 @@ import './css/home-sections.css'
 import Image from 'next/image'
 import { toast } from 'react-toastify'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { FaCircleCheck, FaPaperPlane } from 'react-icons/fa'
+import { FaCircleCheck, FaPaperPlane } from 'react-icons/fa6'
 
 const HomeSections = () => {
 
