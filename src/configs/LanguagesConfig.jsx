@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react'
 export const DefaultLanguage = () => {
 
     const extension = localStorage.getItem('extencion').split('/')[1]
-    //const clientLanguaje = navigator.language.split('-')[0]
+    // Para usar el idioma del cliente
+    // const clientLanguaje = navigator.language.split('-')[0]
     const clientLanguaje = extension
     
     const [ defaultLanguage, setDefaultLanguage ] = useState( clientLanguaje )
