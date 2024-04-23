@@ -44,7 +44,7 @@ function PersonsFinder({ Component, pageProps }) {
         <Footer />
     </GlobalProvider>
     
-    <Script type="text/javascript" src="/libs/jquery/jquery.min.js" />
+    {/* <Script type="text/javascript" src="/libs/jquery/jquery.min.js" />
     <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.min.js" />
     <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.bundle.min.js" />
     
@@ -59,7 +59,7 @@ function PersonsFinder({ Component, pageProps }) {
     
     <Script type="text/javascript" src="/js/theme.js" strategy='lazyOnload' />
     <Script type="text/javascript" src="/libs/wow/wow.min.js" strategy="beforeInteractive" />
-    <Script type="text/javascript" src="/libs/wow/wow.init.js" strategy="afterInteractive" />
+    <Script type="text/javascript" src="/libs/wow/wow.init.js" strategy="afterInteractive" /> */}
 
     
 
