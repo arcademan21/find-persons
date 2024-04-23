@@ -15,9 +15,9 @@ const Profile = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     "petition" : {
-                        "name": "get_suscription",
+                        "name": "get_user_data",
                         "data": {
-                            "get_suscription": {
+                            "get_user_data": {
                                 "user_email": email
                             }
                         }
