@@ -142,7 +142,7 @@ const Search = () => {
                         <b id="text-search-info">{text_search_info}</b>
                     </h1>
 
-                    <div className="content-checks-animate mb-3">
+                    {/* <div className="content-checks-animate mb-3">
                         
                         <div className="container text-center">
                             
@@ -182,7 +182,7 @@ const Search = () => {
 
                         </div>
                     
-                    </div>
+                    </div> */}
         
                 </div>
             </div>
@@ -202,7 +202,7 @@ const Search = () => {
                     <div className="d-flex flex-column list-media py-5">
                         <div className="d-flex align-items-start my-2">
                             
-                            <FaUser className="fa-2x mx-3" />
+                            <FaUser className="fs-3 mx-3" />
                             <div>
                                 <h6 className="mt-0 mb-1 fw-bold" data-section="search_page" data-value="title_accounts">
                                     {language.title_accounts}
@@ -214,7 +214,7 @@ const Search = () => {
                         </div>
                         <div className="d-flex align-items-start my-2">
                             
-                            <FaMapMarkedAlt className="fa-2x mx-3" />
+                            <FaMapMarkedAlt className="fs-3 mx-3" />
                             <div>
                                 <h6 className="mt-0 mb-1 fw-bold" data-value="title_location" data-section="search_page">
                                     {language.title_location}
@@ -226,7 +226,7 @@ const Search = () => {
                         </div>
                         <div className="d-flex align-items-start my-2">
                 
-                            <FaUsers className="fa-2x mx-3" />
+                            <FaUsers className="fs-3 mx-3" />
                             <div>
                                 <h6 className="mt-0 mb-1 fw-bold" data-section="search_page" data-value="title_explore">
                                     {language.title_explore}
