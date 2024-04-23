@@ -1,7 +1,7 @@
 'use client'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 
 const SendForGotemForm = async ( e ) => {
     
@@ -80,6 +80,12 @@ const RightForGotem = () => {
         <Head>
             <meta name="robots" content="noindex" />
         </Head>
+
+        <ToastContainer 
+            position="top-center"
+            theme="colored"
+            limit={1}
+        />
 
         <div className="container py-5">
             
