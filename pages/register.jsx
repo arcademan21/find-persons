@@ -7,6 +7,11 @@ import VantaGlobe from '@/components/VantaGlobe'
 import 'react-toastify/dist/ReactToastify.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserPlus, faEnvelope, faLock, faSign, faGoogle } from '@fortawesome/free-solid-svg-icons'
+
+
+
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -56,20 +61,15 @@ const Register = () => {
         const email = document.getElementById('email').value
         const password = document.getElementById('password').value
         const loadingButton = document.getElementById('btn-register')
+        const loadingButtonHtml = loadingButton.innerHTML
         const terms = document.getElementById('register-terms')
 
         loadingButton.setAttribute('disabled', 'true')
-        loadingButton.innerHTML = `
-            <i className="fas fa-spinner fa-spin fs-2 mx-2 fs-5 mx-1">
-            </i>Porfavor espere...
-        `
+        loadingButton.innerHTML = `Porfavor espere...`
 
         if( !terms.checked ) {
             loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = `
-                <i className="fas fa-user-plus fs-2 mx-2 fs-5 mx-1"></i>
-                Registrarse gratis
-            `
+            loadingButton.innerHTML = loadingButtonHtml
             toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
             return false
         }
@@ -77,11 +77,9 @@ const Register = () => {
         // Registrando un usuario de firebase.
         createUserWithEmailAndPassword( auth, email, password )
         .then( ( UserCredential ) => { 
+            
             loadingButton.setAttribute('disabled', 'true')
-            loadingButton.innerHTML = `
-                <i className="fas fa-check fs-2 mx-2 fs-5 mx-1 text-success">
-                </i>Registro exitoso
-            `
+            loadingButton.innerHTML = `Registro exitoso`
             
             setState({ ...state, user: UserCredential.user })
 
@@ -122,10 +120,7 @@ const Register = () => {
             }
 
             loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = `
-                <i class="fas fa-user-plus fs-2 mx-2 fs-5 mx-1"></i>
-                Registrarse gratis
-            `
+            loadingButton.innerHTML = loadingButtonHtml
 
         })
     
@@ -246,7 +241,7 @@ const Register = () => {
                                         <div className="form-outline flex-fill mb-0">
 
                                         <div className="input-icon">
-                                            <i className="fas fa-envelope"></i>
+                                            <FontAwesomeIcon icon={faEnvelope} />
                                             <input
                                                 type="email"
                                                 id="email"
@@ -267,7 +262,7 @@ const Register = () => {
                                     <div className="form-outline flex-fill mb-0">
                                     
                                     <div className="input-icon">
-                                        <i className="fa fa-lock"></i>
+                                        <FontAwesomeIcon icon={faLock} />
                                         <input
                                             type="password"
                                             id="password"
@@ -304,12 +299,12 @@ const Register = () => {
                                 <div className="d-flex flex-column align-items-center justify-content-center mx-4 mb-3 mb-lg-2">
 
                                     <button className="btn btn-primary btn-lg mb-2 fs-6 w-75" id="btn-register"  onClick={newUser}>
-                                        <i className="fas fs-4 fa-user-plus mx-1"></i>
+                                        <FontAwesomeIcon icon={faUserPlus} />
                                         <span>{language.register_free}</span>
                                     </button>
 
                                     <button className="btn btn-danger btn-lg mb-2 fs-6 w-75" id="btn-google" onClick={newUserGoogle}>
-                                        <i className="fab fs-4 fa-google mx-1"></i>
+                                        <FontAwesomeIcon icon={faGoogle} />
                                         <span>{language.register_google}</span>
                                     </button>
 
@@ -324,7 +319,7 @@ const Register = () => {
                                     }}>
                                       
                                         {language.login}
-                                        <i className="fas fa-sign-in-alt fs-5 mx-1"></i>
+                                        <FontAwesomeIcon icon={faSign} />
                                     
                                         
                                     </span>
@@ -368,8 +363,6 @@ const Register = () => {
                                                 </div>
 
                                                 : 
-
-                                                
 
                                                 <div className="d-flex px-4 py-3">
                                                     <div className="d-flex flex-column w-25 bg-light rounded shadow border">
