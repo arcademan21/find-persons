@@ -137,6 +137,14 @@ const Register = () => {
     }
 
     const newUserGoogle = async () => {
+
+        const terms = document.getElementById('register-terms')
+        if( !terms.checked ) {
+            
+            toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
+            setError(true)
+            return false
+        }
         
         // Registrando un usuario con google
         signInWithPopup( auth, new GoogleAuthProvider() ).then(( result ) => {
