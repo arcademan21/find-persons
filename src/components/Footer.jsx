@@ -2,6 +2,7 @@
 import { useEffect, useState, useContext  } from "react"
 import GlobalContext from '../context/GlobalContext'
 import Image from 'next/image'
+import AllRight from './AllRight'
 
 const Footer = () => {
 
@@ -74,13 +75,7 @@ const Footer = () => {
                 <div className="col-sm-6 py-2">
                 <center>
                     <p id="copyright">
-                        <Image 
-                            src="/images/ADS-All-right.png" 
-                            alt="rights" 
-                            width={200}
-                            height={30}
-                            
-                            />
+                        <AllRight/>
                     </p>
                 </center>
                 </div>
