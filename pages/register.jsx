@@ -47,7 +47,7 @@ const Register = () => {
     const { auth } = state
 
     const user = JSON.parse( localStorage.getItem('user') )
-    const search = localStorage.getItem('search').toString()
+    const search = localStorage.getItem('search')
 
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     
@@ -72,6 +72,7 @@ const Register = () => {
             `
             toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
             setError(true)
+            return false
         }
 
         // Registrando un usuario de firebase.
@@ -132,6 +133,14 @@ const Register = () => {
     }
 
     const newUserGoogle = async () => {
+
+        const terms = document.getElementById('register-terms')
+        if( !terms.checked ) {
+            
+            toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
+            setError(true)
+            return false
+        }
         
         // Registrando un usuario con google
         signInWithPopup( auth, new GoogleAuthProvider() ).then(( result ) => {
