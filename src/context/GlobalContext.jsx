@@ -55,14 +55,15 @@ export const GlobalProvider = ( { children } ) => {
   const SettingLanguage = useCallback( async () => {
 
       let extension = 'es'
+      const language = localStorage.getItem('language') ? localStorage.getItem('language') : window.navigator.language.split('-')[0]
+      
       if( pathname !== '/' ) {
           extension = localStorage.getItem('extencion').split('/')[1]
       }
 
       if( !extension || extension == '' ) extension = 'es'
 
-      const language = localStorage.getItem('language') ? localStorage.getItem('language') : window.navigator.language.split('-')[0]
-      const req = await fetch(`/languajes/${extension}.json`)
+      const req = await fetch(`/languajes/${language}.json`)
       const res = await req.json()
       localStorage.setItem('language', res.language)
       localStorage.setItem('language_file', JSON.stringify(res))
