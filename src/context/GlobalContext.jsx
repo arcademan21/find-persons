@@ -60,6 +60,8 @@ export const GlobalProvider = ( { children } ) => {
       }
 
       if( !extension || extension == '' ) extension = 'es'
+
+      console.log('extension', extension)
       
       
       const language = localStorage.getItem('language') ? localStorage.getItem('language') : window.navigator.language.split('-')[0]
