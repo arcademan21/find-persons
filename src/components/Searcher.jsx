@@ -4,6 +4,7 @@ import GlobalContext from '@/context/GlobalContext'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './css/searcher.css'
+import { FaSearch } from "react-icons/fa"
 
 const Searcher = () => {    
     
@@ -161,7 +162,8 @@ const Searcher = () => {
                         <span data-section="hero" data-value="search_now">
                             {language.search_now}
                         </span>
-                        <i className="fas fa-search fs-1 mx-2"></i>
+                        
+                        <FaSearch className="fs-1 mx-2" />
                     </button>
                     <p className="text-lg text-center my-2" data-section="hero" data-value="sub_title">
                         {language.sub_title}
