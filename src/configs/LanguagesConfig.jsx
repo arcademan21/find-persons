@@ -5,23 +5,20 @@ export const DefaultLanguage = () => {
     let extension = localStorage.getItem('extencion')
     const language = localStorage.getItem('language')
 
-
     if( extension !== '/' ) {
-         if( extension === '' ) {
-            extension = 'es'
-         }
+        if( extension === '' ) {
+            extension = language
+        }
         else{
             extension = extension.split('/')[1]
         }
     }
 
     else{
-        extension = 'es'
-    }
-
-    if( extension !== language ) {
         extension = language
     }
+
+    
 
     // Para usar el idioma del cliente
     // const clientLanguaje = navigator.language.split('-')[0]
