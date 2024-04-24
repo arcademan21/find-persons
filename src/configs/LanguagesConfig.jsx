@@ -2,21 +2,18 @@ import { useState, useEffect } from 'react'
 
 export const DefaultLanguage = () => {
 
-    let extension = localStorage.getItem('extencion')
+    let extension = localStorage.getItem('extencion').split('/')[1]
     const language = localStorage.getItem('language')
 
-    if( extension !== '/' ) {
-        if( extension === '' ) {
-            extension = language
-        }
-        else{
-            extension = extension.split('/')[1]
-        }
+    if( extension === '' ) {
+        extension = language
     }
 
     else{
-        extension = language
+        if( extension !== language ) extension = language
     }
+
+    
 
     
 
