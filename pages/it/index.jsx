@@ -3,11 +3,10 @@ import HomeSections from '@/components/HomeSections'
 import styles from "@/app/css/page.module.css"
 
 const Home = () => {
-
+    
     return (<>
         <Hero />
         <HomeSections />
-        
     </>)
 
 }
