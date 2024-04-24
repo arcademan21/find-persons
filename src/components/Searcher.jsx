@@ -18,6 +18,8 @@ const Searcher = () => {
     const [textHolder, setTextHolder] = useState(null)
     const [option, setOption] = useState(null)
 
+    const language_toast = JSON.parse(localStorage.getItem('language_file')).toast
+
     const setType = useCallback( ( type ) => {
         
         const placeholders = {
@@ -66,7 +68,7 @@ const Searcher = () => {
     const handleSearch = () => {
 
         if( search === null || search === '' ) 
-            toast.warning('Por favor, ingrese un valor para comenzar la búsqueda.')
+            toast.warning(language_toast.empty_search_error_message)
         else{
 
             setState({ ...state, search })
@@ -75,14 +77,14 @@ const Searcher = () => {
             if( !data ){
                 
                 if( option === 'name' )
-                    toast.error('El nombre solo puede contener letras y espacios, y debe tener al menos 6 caracteres.')
+                    toast.error(language_toast.name_error_message)
                 else if( option === 'email' )
-                    toast.error('El correo electrónico no es válido.')
+                    toast.error(language_toast.email_error_message)
                 else if( option === 'phone' )
-                    toast.error('El número de teléfono no es válido.')
+                    toast.error(language_toast.phone_error_message)
                 else if( option === 'address' )
-                    toast.error('La dirección no es válida.')
-                
+                    toast.error(language_toast.address_error_message)
+
             }
                 
             else{ 
@@ -176,4 +178,3 @@ const Searcher = () => {
 }
 
 export default Searcher
-

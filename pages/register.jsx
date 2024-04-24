@@ -52,6 +52,7 @@ const Register = () => {
     const search = localStorage.getItem('search')
 
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
+    const language_toast = JSON.parse( localStorage.getItem('language_file') ).toast
     
     const newUser = async () => { 
         
@@ -81,7 +82,7 @@ const Register = () => {
             setState({ ...state, user: UserCredential.user })
 
             const showSuccesToast = async () => {
-                toast.success('Registro exitoso')
+                toast.success( language_toast.success_register_message )
             }
 
             showSuccesToast().then(() => {
@@ -102,17 +103,17 @@ const Register = () => {
             
             // Validadndo errors de autenticacion de firebase
             if( error.code === 'auth/email-already-in-use' ) {
-                toast.error( 'El correo ya esta en uso' )
+                toast.error( language_toast.error_register_email_message )
                 setError(true)
             }
 
             else if( error.code === 'auth/invalid-email' ) {
-                toast.error( 'El correo no es valido' )
+                toast.error( language_toast.error_register_email_no_valid_message )
                 setError(true)
             }
 
             else if( error.code === 'auth/weak-password' ) {
-                toast.error( 'La contraseña no es valida, ( minimo 7 caracteres )' )
+                toast.error( language_toast.error_register_password_message )
                 setError(true)
             }
 
@@ -143,8 +144,10 @@ const Register = () => {
             const user = result.user
             setState({ ...state, user: user })
 
+            
+
             const showSuccesToast = async () => {
-                toast.success('Sesion inicioada con Google')
+                toast.success( language_toast.success_google_session_message )
             }
 
             showSuccesToast().then(() => {
@@ -177,10 +180,12 @@ const Register = () => {
 
             // Todo: validate error and save error data
             if( errorCode === 'auth/account-exists-with-different-credential' ) 
-                toast.error('La cuenta ya existe con diferentes credenciales.')
+                toast.error( language_toast.error_google_session_message )
             // more validations
             
         })
+
+        
         
 
     }

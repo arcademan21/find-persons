@@ -15,11 +15,11 @@ const Login = ( ) => {
     const { state, setState } = context
     const { auth } = state
     
-    const [ error, setError ] = useState( null )
-    const [ success, setSuccess ] = useState( null )
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).login )
-    const search = localStorage.getItem('search').toString()
+    const search = localStorage.getItem('search')
     const user = JSON.parse( localStorage.getItem('user') )
+
+    const language_toats = JSON.parse( localStorage.getItem('language_file') ).toast
     
     const loginUser = async () => {
         
@@ -33,7 +33,7 @@ const Login = ( ) => {
         loadingButton.innerHTML = `Porfavor espere...`
 
         if( !terms.checked ) {
-            toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
+            toast.error( language_toats.error_acept_terms_message )
             setError(true)
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = loadingButtonHtml
@@ -49,7 +49,7 @@ const Login = ( ) => {
             localStorage.setItem('user', JSON.stringify(userCredential.user))
 
             const showSuccesToast = async () => {
-                toast.success('Inicio de sesión exitoso.')
+                toast.success( language_toats.succes_session_init_message )
             }
 
             showSuccesToast().then(() => {
@@ -65,8 +65,7 @@ const Login = ( ) => {
             }
 
             if ( error.code === 'auth/too-many-requests') {
-                toast.error(`Demasiados intentos de inicio de sesión.
-                Debes esperar 20 minutos para volver a intentar.`)
+                toast.error( language_toats.error_mush_session_message )
                 setError(true)
             }
 
