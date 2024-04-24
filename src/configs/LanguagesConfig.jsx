@@ -13,10 +13,6 @@ export const DefaultLanguage = () => {
         if( extension !== language ) extension = language
     }
 
-    
-
-    
-
     // Para usar el idioma del cliente
     // const clientLanguaje = navigator.language.split('-')[0]
     const clientLanguaje = extension
