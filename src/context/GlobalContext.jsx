@@ -27,7 +27,7 @@ export const GlobalProvider = ( { children } ) => {
     localStorage.setItem('menu', JSON.stringify( { menu: { active_links: true } } ) )
     
     const extension_list = [
-      'it', 'es', 'en', 'fr', 'de', 'pt', 'ru', 'zh', 'ja',
+      'es', 'it', 'fr', 'uk', 'de', 'ae', 'ie', 'nl'
     ]
 
     const blocked_url_names = [
@@ -54,23 +54,23 @@ export const GlobalProvider = ( { children } ) => {
 
   const SettingLanguage = useCallback( async () => {
 
+    debugger
       let extension = 'es'
       const language = localStorage.getItem('language')
       
-      if( pathname !== '/' || pathname !== '' ) {
+      if( pathname !== '/' ) {
           extension = localStorage.getItem('extencion').split('/')[1]
       }
 
-      if( extension === '' ) {
+      if( extension !== language && language !== null ) {
           extension = language
       }
 
-      else if( extension !== language ) extension = language
-      
+      if( language === null && pathname !== '/' ) {
+          extension = localStorage.getItem('extencion').split('/')[1]
+      }
 
-
-
-      const req = await fetch(`/languajes/${language}.json`)
+      const req = await fetch(`/languajes/${extension}.json`)
       const res = await req.json()
       localStorage.setItem('language', res.language)
       localStorage.setItem('language_file', JSON.stringify(res))

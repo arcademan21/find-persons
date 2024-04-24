@@ -172,7 +172,7 @@ const Cookies = () => {
                         </p>
 
                         <h2 className="title-section"> 
-                            {language.title_9} { proccess.env.NEXT_PUBLIC_SUPPORT_EMAIL }
+                            {language.title_9} { process.env.NEXT_PUBLIC_SUPPORT_EMAIL }
                         </h2>
                         <div className="divider"></div>
                         <p>
