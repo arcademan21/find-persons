@@ -377,7 +377,49 @@
         "title_8": " Tratamiento de Datos Personales ",
         "paragraph_12": " ADS DIGITAL es el Responsable del tratamiento de los datos personales del usuario. Puedes consultar toda la información relativa al tratamiento de datos personales que recoge el Titular en la página de Política de Privacidad.",
         "title_9": " Contacto ",
-        "paragraph_13": " En caso de que tengas cualquier duda acerca de esta Política de Cookies o quieras realizar cualquier comentario sobre este sitio Web, puedes enviar un mensaje de correo electrónico a la dirección support@find-persons.com "
+        "paragraph_13": " En caso de que tengas cualquier duda acerca de esta Política de Cookies o quieras realizar cualquier comentario sobre este sitio Web, puedes enviar un mensaje de correo electrónico a la dirección "
+    },
+
+    "legal": {
+        "title_1": "Aviso legal",
+        "title_2": "Identificación y Titularidad",
+        "paragraph_1": "En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico, el Titular expone sus datos identificativos.",
+        "list_1": {
+            "item_1": "Titular: MONTAUP PUBLICISTES S.L.U.",
+            "item_2": "Nombre comercial: ADS DIGITAL",
+            "item_3": "NRT: L-714323-H",
+            "item_4": "NUM. REGISTRO SOCIEDAD: 19221",
+            "item_5": "Sitio Web: www.find-persons.com",
+            "item_6": "Correo electrónico: support@find-persons.com",
+            "item_7": "Domicilio: Carrer Esteve Albert, R. la Roureda, bloc A, 1-2a AD500 Santa Coloma, Andorra La Vella, PRINCIPAT D’ANDORRA"
+        },
+        "title_3": "Finalidad",
+        "paragraph_2": "La finalidad del sitio Web ",
+        "paragraph_2b": " es realizar consultas a distintas bases de datos a la vez con el fin de obtener el máximo de datos relevantes sobre una persona o individuo.", 
+        "title_4": "Condiciones de Uso",
+        "paragraph_3": "La utilización del sitio Web te otorga la condición de Usuario, e implica la aceptación completa de todas las cláusulas y condiciones de uso incluidas en las páginas:",
+        "list_2": {
+            "item_1": "Términos y condiciones",
+            "item_2": "Política de Privacidad",
+            "item_3": "Política de Cookies"
+        },
+        "paragraph_4": "Si no estás conforme con todas y cada una de estas cláusulas y condiciones te abstendrás de utilizar este sitio Web.",
+        "paragraph_5": "El acceso a este sitio Web no supone, en modo alguno, el inicio de una relación comercial con Ads Digital.",
+        "paragraph_6": "A través de este sitio Web, el Titular te facilita el acceso y la utilización de diversos contenidos que el Titular o sus colaboradores han publicado por medio de Internet.",
+        "title_5": "Medidas de seguridad",
+        "paragraph_7": "Los datos personales que facilites al Titular pueden ser almacenados en bases de datos automatizadas o no, cuya titularidad corresponde en exclusiva a Ads Digital, que asume todas las medidas de índole técnica, organizativa y de seguridad que garantizan la confidencialidad, integridad y calidad de la información contenida en las mismas de acuerdo con lo establecido en la normativa vigente en protección de datos.",
+        "paragraph_8": "No obstante, debes ser consciente de que las medidas de seguridad de los sistemas informáticos en Internet no son enteramente fiables y que, por tanto el Titular no puede garantizar la inexistencia de virus u otros elementos que puedan producir alteraciones en los sistemas informáticos (software y hardware) del Usuario o en sus documentos electrónicos y ficheros contenidos en los mismos aunque el Titular pone todos los medios necesarios y toma las medidas de seguridad oportunas para evitar la presencia de estos elementos dañinos.",
+        "title_6": "Tratamiento de Datos Personales",
+        "paragraph_9": "Puedes consultar toda la información relativa al tratamiento de datos personales que recoge el Titular en la página de ",
+        "paragraph_9b": " Política de Privacidad ",
+        "title_7": "Contenidos",
+        "paragraph_10": "El Titular ha obtenido la información, el contenido multimedia y los materiales incluidos en el sitio Web de fuentes que considera fiables, pero, si bien ha tomado todas las medidas razonables para asegurar que la información contenida es correcta, el Titular no garantiza que sea exacta, completa o actualizada. Ads Digital declina expresamente cualquier responsabilidad por error u omisión en la información contenida en las páginas de este sitio Web.",
+        "paragraph_11": "Queda prohibido transmitir o enviar a través del sitio Web cualquier contenido ilegal o ilícito, virus informáticos, o mensajes que, en general, afecten o violen derechos de el Titular o de terceros.",
+        "paragraph_11b": "Los contenidos de find-persons.com tienen únicamente una finalidad informativa y bajo ninguna circunstancia deben usarse ni considerarse como oferta de venta, solicitud de una oferta de compra ni recomendación para realizar cualquier otra operación, salvo que así se indique expresamente.",
+        "paragraph_12": " de venta, solicitud de una oferta de compra ni recomendación para realizar cualquier otra operación, salvo que así se indique expresamente.",
+        "paragraph_13": "Ads Digital se reserva el derecho a modificar, suspender, cancelar o restringir el contenido de find-persons.com, los vínculos o la información obtenida a través del sitio Web, sin necesidad de previo aviso.",
+        "paragraph_14": "Ads Digital no es responsable de los daños y perjuicios que pudieran derivarse de la utilización de la información del sitio Web."
+        
     }
 
 }

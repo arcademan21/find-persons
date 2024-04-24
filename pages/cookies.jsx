@@ -107,11 +107,6 @@ const Cookies = () => {
                             {language.paragraph_7}
                         </p>
 
-
-                        
-
-
-
                         <ul>
                             <li>
                                 <FaSquare className='mx-2' />
@@ -128,6 +123,7 @@ const Cookies = () => {
                         </ul>
 
                         <h3>{language.title_6}</h3>
+                        <br />
                         <p>{ language.paragraph_8 } <br />
                         { language.paragraph_9 } </p>
 
@@ -165,6 +161,8 @@ const Cookies = () => {
                             </li>
                         </ul>
 
+                        <br />
+
                         <h2 className="title-section">  
                             {language.title_8}
                         </h2>
@@ -174,7 +172,7 @@ const Cookies = () => {
                         </p>
 
                         <h2 className="title-section"> 
-                            {language.title_9}
+                            {language.title_9} { proccess.env.NEXT_PUBLIC_SUPPORT_EMAIL }
                         </h2>
                         <div className="divider"></div>
                         <p>
@@ -182,8 +180,6 @@ const Cookies = () => {
                         </p>
 
 
-
-            
                         
                     </div>
                     
