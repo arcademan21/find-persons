@@ -1,0 +1,53 @@
+User-agent: Googlebot
+Disallow: /languages/
+Disallow: /public/languages/
+Disallow: /languages/*.json
+Disallow: /public/languages/*.json
+
+User-agent: Googlebot-Image
+Disallow: /languages/
+Disallow: /public/languages/
+Disallow: /languages/*.json
+Disallow: /public/languages/*.json
+
+User-agent: Googlebot-News
+Disallow: /languages/
+Disallow: /public/languages/
+Disallow: /languages/*.json
+Disallow: /public/languages/*.json
+
+User-agent: Googlebot-Video
+Disallow: /languages/
+Disallow: /public/languages/
+Disallow: /languages/*.json
+Disallow: /public/languages/*.json
+
+User-agent: Storebot-Google
+Disallow: /languages/
+Disallow: /public/languages/
+Disallow: /languages/*.json
+Disallow: /public/languages/*.json
+
+User-agent: Google-InspectionTool
+Disallow: /languages/
+Disallow: /public/languages/
+Disallow: /languages/*.json
+Disallow: /public/languages/*.json
+
+User-agent: GoogleOther
+Disallow: /languages/
+Disallow: /public/languages/
+Disallow: /languages/*.json
+Disallow: /public/languages/*.json
+
+User-agent: Google-Extended
+Disallow: /languages/
+Disallow: /public/languages/
+Disallow: /languages/*.json
+Disallow: /public/languages/*.json
+
+User-agent: *
+Disallow: /languages/
+Disallow: /public/languages/
+Disallow: /languages/*.json
+Disallow: /public/languages/*.json
