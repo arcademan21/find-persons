@@ -1,5 +1,4 @@
 {
-
     "language": "es",
     "data": "es",
     "alt": "Español",
@@ -10,7 +9,7 @@
         "free": " Gratis ",
         "logout":" Cerrar Sesión ",
         "profile":" Mi cuenta ",
-        "back": " Volver atrás "
+        "back": " Volver atras "
     },
     
     "hero": {
@@ -25,9 +24,8 @@
         "placeholder_name": " Ejemplo: Mariano Jose ",
         "placeholder_email": " Ejemplo: mariano@mail.com ",
         "placeholder_phone": " Ejemplo: +34 600 000 000 ",
-        "placeholder_address": " Ejemplo: Calle 123, Ciudad, País "
+        "placeholder_address": " Ejemplo: Calle 123, Ciudad, Pais "
     },
-
 
     "services":{
         "title1": " Tu búsqueda es anónima ",
@@ -40,7 +38,6 @@
         "services3": " Nuestra api es la más completa y extraemos datos de todos los registros,. archivos administración, redes sociales, empresas, registro de la propiedad, directorios…"
         
     },
-
 
     "call_to_action": {
         "give_us": " Danos un ",
@@ -55,16 +52,14 @@
         "news": " Revisamos noticias y publicaciones aleatorias."
     },
 
-
     "counter": {
         "total_searchs": " Total búsquedas ",
         "total_results": " Total resultados ",
         "success_rate": " Media de aciertos "
     },
 
-
     "why_us": {
-        "title": " ¿ Porque Find-Persons ? ",
+        "title": " ¿ Por que Find-Persons ? ",
         "find_person": " Encontrar ",
         "priority": " la persona que buscas ",
         "is_our": " es nuestra prioridad ",
@@ -76,16 +71,14 @@
         "always_consult": " Podrás consultar los resultados de tus búsquedas siempre que quieras y descargar informes en múltiples formatos. "
     },
 
-
     "testimonials":{
         "thanks1": " Gracias al servicio pude localizar a mi hermana biológica, muchas gracias! ",
-        "thanks2": " La herramienta me facilitó más información de lo que esperaba, la verdad me sorprendí al ver todos los datos que obtuve. ",
+        "thanks2": " La herramienta me facilitó mas información de lo que esperaba, la verdad me sorprendí al ver todos los datos que obtuve. ",
         "name1": "Ismael L. ",
         "entry_footer1": " Búsqueda de perfiles en redes sociales",
         "name2": " Manuel G. ",
         "entry_footer2": " Investigación genealógica "
     },
-
 
     "prices":{
         "ours": " Nuestras ",
@@ -95,7 +88,6 @@
         "suscription_price": " 49,90€ ",
         "info_text": " Nuestro plan único es una suscripción mensual de 49.90€ con la opción de cancelar en 24h teniendo un coste de 0.60€ "
     },
-
 
     "contact":{
         "contact_whit_us": " Contacta con nosotros. ",
@@ -114,7 +106,7 @@
         "we_will_help": " Estaremos encantados de atenderte, ",
         "use_the": " usa este formulario o escribanos a ",
         "domain": " support@find-persons.com ",
-        "response_message_error": " Ha ocurrido un error al enviar el mensaje, por favor inténtalo de nuevo.",
+        "response_message_error": " Ha ocurrido un error al enviar el mensaje, por favor intentelo de nuevo.",
         "response_message_success": " Mensaje enviado correctamente, en breve nos pondremos en contacto con usted.",
         "response_please_confirm": " Por favor, confirma que estás de acuerdo con nuestra política de privacidad y los términos y condiciones.",
         "response_captcha_error": " Por favor, confirma que no eres un robot.",
@@ -122,9 +114,7 @@
         "type_help": " Ayuda y soporte ",
         "type_claim": " Reclamaciones y quejas "
 
-
     },
-
 
     "footer":{
         "searcher_profecional": " Buscador de personas profesional. ",
@@ -138,7 +128,6 @@
         "all_rights_reserved": " Todos los derechos reservados "
     },
 
-
     "search_page":{
         "we_searching": " Estamos Buscando a ",
         "in_the": " En todos los registros. ",
@@ -148,7 +137,7 @@
         "telephone": " Números de teléfono ",
         "email": " Correos electrónicos ",
         "news": " Noticias ",
-        "histories": " Últimas historias ",
+        "histories": " Ultimas historias ",
         "title_accounts": " Rastreo de Perfiles ",
         "accounts_description": " Encuentre informes detallados sobre personas, incluyendo datos de contacto, historial personal, vínculos profesionales y registros públicos extensivos. ",
         "title_location": " Localización de Direcciones ",
@@ -157,7 +146,6 @@
         "explore_description": " Investigue perfiles online, incluyendo actividades en redes sociales y plataformas de citas, con nuestra herramienta de búsqueda de perfiles públicos y ocultos. "
         
     },
-
 
     "register": {
         "title": "Registrate",
@@ -169,16 +157,16 @@
         "placeholder_email": "Email",
         "placeholder_password": "Contraseña",
         "example_email": "Ejemplo: miusuario@mail.com",
-        "min_password": "Un mínimo de 6 caracteres",
+        "min_password": "Un minimo de 6 caracteres",
         "register_free": "Registrarse gratis",
         "register_google": "Iniciar con Google",
         "have_account": "¿Ya tienes una cuenta?",
         "login": "Inicia sesión",
         "register_success": "Registro exitoso",
         "register_error": "Debes aceptar los términos y condiciones del servicio.",
-        "register_error_email": "El correo no es válido",
-        "register_error_password": "La contraseña no es válida, ( mínimo 6 caracteres )",
-        "register_error_email_in_use": "El correo ya está en uso",
+        "register_error_email": "El correo no es valido",
+        "register_error_password": "La contraseña no es valida, ( minimo 6 caracteres )",
+        "register_error_email_in_use": "El correo ya esta en uso",
         "register_error_account_exists": "La cuenta ya existe con diferentes credenciales.",
         "we_founded": "¡Lo hemos encontrado! ",
         "we_have_report": "tenemos un",
@@ -189,7 +177,6 @@
         "register_terms": "términos y condiciones del servicio.",
         "register_no_user_holder": "Registrate gratis para obtener un informe, de cualquier persona que desees buscar. Al registrarte aceptas los términos y condiciones del servicio."
     },
-
 
     "login": {
         "title": "Iniciar",
@@ -205,28 +192,27 @@
         "no_account": "¿No tienes una cuenta?",
         "register_link": "Registrarme gratis",
         "example_email": "Ejemplo: miusuario@mail.com",
-        "password_min": "Un mínimo de 6 caracteres",
+        "password_min": "Un minimo de 6 caracteres",
         "success": "Inicio de sesión exitoso.",
         "error": "El usuario no existe o la contraseña es incorrecta.",
         "error_many_requests": "Demasiados intentos de inicio de sesión. Debes esperar 20 minutos para volver a intentar.",
-        "login_info": "Inicia sesión para ver el informe completo."
+        "login_info": "Inicia session para ver el informe completo."
     },
-
 
     "payment": {
         "title": "Todo listo!",
-        "sub_title": "Tenemos preparado un informe completo sobre la persona que buscas, solo queda que realices el pago para poder acceder a él.",
+        "sub_title": "Tenemos preparado un informe completo sobre que buscas, solo queda que realices el pago para poder acceder a el.",
         "service_title": "Informe de resultados",
         "service_description1": "Su informe de investigación completo, disponible en línea.",
         "service_description2": "Desbloquea toda la información sobre la persona que buscas.",
-        "service_description3": "Nuestras bases de datos están actualizadas.",
-        "service_description4": "Búsquedas ilimitadas.",
+        "service_description3": "Nuestras bases de datos estan actualizadas.",
+        "service_description4": "Busquedas ilimitadas.",
         "total_to_pay": "Total a pagar : ",
         "total_price": " 0.60€",
         "time_access": " 24 Horas de acceso al servicio.",
         "name_placeholder": "Nombre del titular.",
         "name_help": "Nombre del titular de la tarjeta.",
-        "cards_accept": "Aceptamos VISA, MASTERCARD y AMERICAN EXPRESS, su pago está protegido por",
+        "cards_accept": "Aceptamos visa, master card y american express, su pago esta protegido por",
         "secure_3ds": " 3Ds Secure",
         "accept_terms": "Al aceptar el pago accedes a nuestro servicio por una suscripción mensual de 49.90€ con la opción de cancelar en 24 horas, teniendo un coste de 0.60€, pudiendo cancelar en cualquier momento.", 
         "secure_payment": "Pago seguro",
@@ -234,35 +220,33 @@
         "domain_name": "find-persons.com",
         "contact_info": "Puede contactar con nuestro servicio de atención al cliente las ",
         "contact_info_hours": " 24 Horas",
-        "contact_info_email": "support@find-persons.com",
+        "contact_info_email": "support@find-perdons.com",
         "btn_contact": " Contactar" 
     
     },
 
-
     "results": {
         "results": " Resultados ",
         "results_of": " Resultados de ",
-        "Loading": " Cargando... ",
-        "is_not_people": " ¿ Ésta no es la persona que buscas ? ",
+        "loading": " Cargando... ",
+        "is_not_people": " ¿ Esta no es la persona que buscas ? ",
         "try_search": " Volver a buscar ",
-        "general_description": " Descripción general ",
+        "general_description": " Descripcion general ",
         "male": " Hombre ",
         "famale": " Mujer ",
         "burned_male": " Nacido ",
         "burned_famale": " Nacida ",
         "he": " el ",
-        "actualy": " que actualmente reside en ",
-        "contact_info": " Información de contacto ",
-        "mobile_phone": " Teléfono móvil : ",
-        "home_phone": " Teléfono fijo : ",
+        "actualy": " que actualmente recide en ",
+        "contact_info": " Informacion de contacto ",
+        "mobile_phone": " Telefono movil : ",
+        "home_phone": " Telefono fijo : ",
         "personal_email": " Correo personal : ",
-        "location": " Dirección: ",
+        "location": " Locacion: ",
         "download_complete_info": " Descargar informe completo ",
         "download_pdf": " Descargar PDF ",
-        "download_text_info": " Al descargar un informe completo, aceptas los términos y condiciones de uso de la información, así como la política de privacidad del servicio. "
+        "download_text_info": " Al descargar un informe completo, aceptas los terminos y condiciones de uso de la informacion, asi como la politica de privacidad del servicio. "
     },
-
 
     "results_pdf": {
         "title_contact_data": " Datos de contacto ",
@@ -270,7 +254,7 @@
         "emails": " Correos electrónicos ",
         "title_personal_data": " Datos personales ",
         "name": " Nombre ",
-        "gender": " Género ",
+        "gender": " Genero ",
         "birth_year": " Año de nacimiento ",
         "birth_date": " Fecha de nacimiento ",
         "linkedin_url": " Linkedin ",
@@ -286,7 +270,7 @@
         "work_email": " Correo de trabajo ",
         "personal_emails": " Correos personales ",
         "recommended_personal_email": " Correo personal recomendado ",
-        "mobile_phone": " Teléfono móvil : ",
+        "mobile_phone": " Telefono movil : ",
         "title_job_data": " Datos de trabajo ",
         "industry": " Industria ",
         "job_title":" Puesto de trabajo ", 
@@ -326,7 +310,7 @@
         "location_address_line_2": " Dirección 2 ",
         "location_postal_code": " Código postal ",
         "location_geo": " Geo ",
-        "location_last_updated": " Última actualización de la ubicación ", 
+        "location_last_updated": " Ultima actualización de la ubicación ", 
         "title_other_data": " Otros datos ",
         "interests": " Intereses ",
         "skills": " Habilidades ",
@@ -340,25 +324,22 @@
         "version_status": " Estado de la versión "
     },
 
-
     "thanks_page": {
         "thanks": " Hemos recibido tu solicitud, en breve te enviaremos un correo de confirmación. ",
         "thanks_fp": " Gracias por confiar en Find-Persons. ",
-        "redirect_in": " Serás redirigido en ",
+        "redirect_in": " Seras redirigido en ",
         "seconds": " segundos... "
     },
 
-
     "tefpay_error": {
         "title": "Error en el pago",
-        "text": "Ha ocurrido un error en el pago, por favor inténtelo de nuevo.",
+        "text": "Ha ocurrido un error en el pago, por favor intentelo de nuevo.",
         "please_weait": "Por favor espere unos segundos, estamos procesando su solicitud.",
         "error": "Error: "
     },
 
-
     "cookies": {
-        "title_1": " Política de cookies ",
+        "title_1": " Politicas de cookies ",
         "paragraph_1": " En cumplimiento con el artículo 22 de la Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico (LSSI), en relación con el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos y garantía de los derechos digitales (LOPDGDD), ADS DIGITAL pone a disposición de los usuarios la Política de recogida y tratamiento de cookies del sitio Web.",
         "paragraph_2": " Una cookie es un fichero que se descarga en tu ordenador al entrar a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre tus hábitos de navegación y —dependiendo de la información que contengan y de la forma en que utilices tu equipo— pueden utilizarse para identificarte. ",
         "title_2": " Cookies utilizadas en el sitio Web ",
@@ -367,8 +348,8 @@
         "list_item_1": " Cookies propias: Son aquellas enviadas y gestionadas directamente por ADS DIGITAL",
         "list_item_2": " Cookies de terceros: Son aquellas que se envían al usuario desde un dominio ajeno a ADS DIGITAL",
         "title_3": " Según su finalidad ",
-        "list_item_3": " Cookies técnicas: Son aquéllas que permiten a los usuarios registrados navegar a través del sitio Web, del área restringida y a utilizar sus diferentes funciones, como por ejemplo, el sistema de comentarios o el buscador o llevar a cabo el proceso de compra de un Producto o Servicio.",
-        "list_item_4": " Cookies de personalización: Son aquéllas que permiten a los usuarios acceder al Servicio con algunas características de carácter general predefinidas en función de una serie de criterios establecidos por el usuario como, por ejemplo, el idioma o el tipo de navegador a través del cual se conecta a este sitio Web.",
+        "list_item_3": " Cookies técnicas: Son aquellas que permiten a los usuarios registrados navegar a través del sitio Web, del área restringida y a utilizar sus diferentes funciones, como por ejemplo, el sistema de comentarios o el buscador o llevar a cabo el proceso de compra de un Producto o Servicio.",
+        "list_item_4": " Cookies de personalización: Son aquellas que permiten a los usuarios acceder al Servicio con algunas características de carácter general predefinidas en función de una serie de criterios establecidos por el usuario como, por ejemplo, el idioma o el tipo de navegador a través del cual se conecta a este sitio Web.",
         "list_item_5": " Cookies de análisis o medición: Son aquellas que, bien tratadas por el sitio Web o por terceros, permiten cuantificar el número de usuarios y así realizar la medición y análisis estadístico de la utilización que hacen los usuarios del sitio Web. Para ello se analiza la navegación que realizas en este sitio Web con el fin de mejorarlo.",
         "title_4": " Según su duración ",
         "list_item_6": " Cookies de sesión: Son aquellas diseñadas para recabar y almacenar datos mientras el usuario accede al sitio Web.",
@@ -399,7 +380,6 @@
         "paragraph_13": " En caso de que tengas cualquier duda acerca de esta Política de Cookies o quieras realizar cualquier comentario sobre este sitio Web, puedes enviar un mensaje de correo electrónico a la dirección "
     },
 
-
     "legal": {
         "title_1": "Aviso legal",
         "title_2": "Identificación y Titularidad",
@@ -408,7 +388,7 @@
             "item_1": "Titular: MONTAUP PUBLICISTES S.L.U.",
             "item_2": "Nombre comercial: ADS DIGITAL",
             "item_3": "NRT: L-714323-H",
-            "item_4": "NÚM. REGISTRO SOCIEDAD: 19221",
+            "item_4": "NUM. REGISTRO SOCIEDAD: 19221",
             "item_5": "Sitio Web: www.find-persons.com",
             "item_6": "Correo electrónico: support@find-persons.com",
             "item_7": "Domicilio: Carrer Esteve Albert, R. la Roureda, bloc A, 1-2a AD500 Santa Coloma, Andorra La Vella, PRINCIPAT D’ANDORRA"
@@ -442,7 +422,6 @@
         
     },
 
-
     "terms": {
         "title_1": "Términos y condiciones",
         "paragraph_1": "Los siguientes términos y condiciones legales están disponibles en el pie de página de la portada en www.",
@@ -463,7 +442,7 @@
         "title_7": "6.Precios y planes:",
         "paragraph_13": "El Miembro debe pagar el importe de la Suscripción mensual o sólo el del Período de Prueba, tal y como se describe en el Sitio, para poder acceder a los Servicios ofrecidos por el Sitio. Los precios de la Suscripción y del Período de Prueba se indican en el Sitio con todos los impuestos incluidos. Incluyen el importe del IVA aplicable el día de la suscripción. La Suscripción al Servicio se concluye por un período indefinido a partir de la fecha de suscripción, la Suscripción es sin compromiso y puede ser cancelada en cualquier momento por el Miembro. El importe de la Suscripción así como el del Periodo de Prueba pueden ser modificados en cualquier momento por el Sitio. El Socio será informado con antelación 10 días antes de que finalice su Suscripción actual, por lo que será libre de renovar o no su Suscripción. El Periodo de Prueba así como la Suscripción son pagaderos por adelantado mediante domiciliación bancaria en la forma de pago indicada en el Sitio. Si el sitio web constata un incumplimiento de pago por parte del afiliado, volveremos a pagar. En caso de un nuevo incumplimiento de pago, el Sitio se reserva el derecho de poner fin a los Servicios de los que se beneficia el Miembro, sin indemnización, pero sin perjuicio de su derecho a reclamar el pago de las sumas adeudadas por el Miembro. El Sitio utiliza un proveedor de servicios especializado en la seguridad de los pagos en línea para garantizar la seguridad de los pagos realizados en el Sitio. La transacción con tarjeta de crédito realizada entre el diputado y el sistema de pago seguro está codificada, la empresa nunca tendrá acceso al número completo de la tarjeta de crédito del diputado. Esto garantiza al diputado la total confidencialidad de su información bancaria. El Socio garantiza a la Empresa que dispone de las autorizaciones necesarias para utilizar el medio de pago al realizar el Pedido",
         "title_8": "7.Suscripción a los servicios:",
-        "paragraph_14": "Todos los Servicios ofrecidos por el Sitio se describen con la mayor exactitud posible más arriba. Nos reservamos el derecho de cambiar el contenido del Sitio en cualquier momento sin previo aviso a los Miembros.El afiliado encontrará los servicios a los que tiene acceso en el resumen de su pedido.Antes de validar la suscripción a nuestra oferta promocional, el miembro debe confirmar su aceptación de estas T&amp;C y las CGV marcando la casilla de validación prevista a tal efecto. Junto al icono de validación del pedido aparece una nota de pago clara y legible para garantizar que el afiliado reconoce explícitamente su obligación de pagar el pedido. Tras la aceptación de las CGV por parte del Usuario y la validación de su suscripción a nuestra oferta promocional con obligación de pago, se celebrará el contrato entre la Empresa y el Usuario que les vinculará mutuamente. La Empresa enviará al Socio una confirmación de pedido por correo electrónico en la que se resumen todos los detalles de su pedido,así como sus identificadores que permiten acceder a su espacio personal.",
+        "paragraph_14": "Todos los Servicios ofrecidos por el Sitio se describen con la mayor exactitud posible más arriba. Nos reservamos el derecho de cambiar el contenido del Sitio en cualquier momento sin previo aviso a los Miembros.El afiliado encontrará los servicios a los que tiene acceso en el resumen de su pedido.Antes de validar la suscripción a nuestra oferta promocional, el miembro debe confirmar su aceptación de estas T&amp;C y las CGV marcando la casilla de validación prevista a tal efecto. Junto al icono de validación del pedido aparece una nota de pago clara y legible para garantizar que el afiliado reconoce explícitamente su obligación de pagar el pedido. Tras la aceptación de las CGV por parte del Usuario y la validación de su suscripción a nuestraoferta promocional con obligación de pago, se celebrará el contrato entre la Empresa y el Usuario que les vinculará mutuamente. La Empresa enviará al Socio una confirmación de pedido por correo electrónico en la que se resumen todos los detalles de su pedido,así como sus identificadores que permiten acceder a su espacio personal.",
         "title_9": "8.Acceso a los servicios y a la cuenta de usuario:",
         "paragraph_15": "La Empresa se compromete a proporcionar al Socio el acceso a los Servicios según lo acordado en estas CGU. Servicios. Tras la suscripción del Miembro al periodo de prueba, se le proporcionarán los identificadores necesarios para que pueda acceder a su Espacio Personal. El diputado es totalmente responsable de la confidencialidad de sus identificadores para preservar la seguridad de su espacio personal. El diputado está obligado a informar inmediatamente a la empresa de cualquier uso no autorizado de sus identificadores. El diputado será el único responsable de cualquier pérdida o daño que se derive de no haber mantenido en secreto sus datos de acceso. La Empresa no será responsable si la inaccesibilidad de los Servicios se debe a un tercero ajeno a su voluntad.",
         "title_10": "9.Atención al cliente:",
@@ -473,11 +452,11 @@
         "title_12": "11.Obligaciones de los miembros",
         "paragraph_18": "El Socio se compromete a respetar los términos de estas CGV. El Usuario se compromete a utilizar el Sitio y los Servicios de acuerdo con las instrucciones de la Empresa. En beneficio de todos los diputados, el uso del sitio está sujeto a diversas normas. Por lo tanto, al utilizar este sitio, usted acepta : Utilizar el Sitio de forma lícita y, en general, no hacer nada que pueda ser contrario a la Legislación Aplicable y a estas Condiciones Generales. No infringir los derechos del Sitio y de sus Afiliados, incluidos sus derechos de propiedad intelectual. No intentar acceder sin autorización al sistema informático del Sitio, no utilizar ningún dispositivo, software u otro elemento que pueda afectar al buen funcionamiento del Sitio. No denigrar el Sitio y/o los Servicios así como a la Empresa en las redes sociales y cualquier otro medio de comunicación. No abrir una cuenta a nombre de otra persona que no sea usted. La Empresa se reserva el derecho de retirar el acceso de un Miembro al Sitio y de tomar todas las medidas legales y penales contra él si, por cualquier motivo, la Empresa considera que el Miembro no respeta las presentes CGV.",
         "title_13": "12.Derecho de desistimiento y abonos.",
-        "paragraph_19": "El Socio reconoce que la ejecución de los Servicios prestados por la Empresa tendrá lugar antes de que finalice el plazo legal de desistimiento y, por tanto, renuncia expresamente a su derecho legal de desistimiento. En el caso de una Suscripción con una Oferta promocional y a partir de la validación del Pedido, el Socio dispone de un plazo de cuarenta y ocho horas para ponerse en contacto con la Empresa y solicitar la cancelación de cualquier Suscripción mensual. Si un Socio no está satisfecho con los servicios ofrecidos por la Empresa, puede utilizar la opción Satisfecho o Reembolsado y solicitar el reembolso de una o varias mensualidades de su Suscripción poniéndose en contacto con la Empresa por teléfono, chat o correo electrónico. Tras la finalización de la Suscripción mensual antes de que termine el periodo de prueba de cuarenta y ocho horas o en caso de ejercer la opción Satisfecho o le devolvemos su dinero, la Empresa reembolsará al Socio a través del mismo medio de pago que utilizó para el Pedido inicial. Si el reembolso del Socio es imposible debido a un cambio en los datos bancarios del Socio desde la fecha del Pedido inicial, la Compañía no será responsable. En caso de que se produzca esta situación, se invita al diputado a ponerse en contacto con la empresa para acordar otra solución de reembolso. Si el Socio es el origen de un fraude bancario consistente en una declaración falsa de pérdida o robo de su tarjeta bancaria tras la compra de un Servicio en el Sitio, la Empresa no estará obligada a reembolsar al Socio. Además, el Socio seguirá siendo responsable del pago de todas las sumas debidas a la Sociedad.",
+        "paragraph_19": "El Socio reconoce que la ejecución de los Servicios prestados por la Empresa tendrá lugar antesde que finalice el plazo legal de desistimiento y, por tanto, renuncia expresamente a su derecho legal de desistimiento. En el caso de una Suscripción con una Oferta promocional y a partir de la validación del Pedido, el Socio dispone de un plazo de cuarenta y ocho horas para ponerse en contacto con la Empresa y solicitar la cancelación de cualquier Suscripción mensual. Si un Socio no está satisfecho con los servicios ofrecidos por la Empresa, puede utilizar la opción Satisfecho o Reembolsado y solicitar el reembolso de una o varias mensualidades de su Suscripción poniéndose en contacto con la Empresa por teléfono, chat o correo electrónico. Tras la finalización de la Suscripción mensual antes de que termine el periodo de prueba de cuarenta y ocho horas o en caso de ejercer la opción Satisfecho o le devolvemos su dinero, la Empresa reembolsará al Socio a través del mismo medio de pago que utilizó para el Pedido inicial. Si el reembolso del Socio es imposible debido a un cambio en los datos bancarios del Socio desde la fecha del Pedido inicial, la Compañía no será responsable. En caso de que se produzca esta situación, se invita al diputado a ponerse en contacto con la empresa para acordar otra solución de reembolso. Si el Socio es el origen de un fraude bancario consistente en una declaración falsa de pérdida o robo de su tarjeta bancaria tras la compra de un Servicio en el Sitio, la Empresa no estará obligada a reembolsar al Socio. Además, el Socio seguirá siendo responsable del pago de todas las sumas debidas a la Sociedad.",
         "title_14": "13.Cancelación de suscripción:",
         "paragraph_20": "La Suscripción contratada por el Afiliado es una suscripción que no incluye un compromiso de tiempo, por lo que el Afiliado sólo tiene que notificar a la Compañía por correo electrónico, chat o teléfono su deseo de terminar la Suscripción para que ésta termine. El Socio también puede dar por terminada su Suscripción en el Sitio. Cualquier rescisión surtirá efecto al final del mes de la suscripción en curso, que sigue siendo exigible. A partir de la fecha efectiva de rescisión, el usuario dejará de tener acceso a la zona de usuarios y a los servicios.",
         "title_15": "14.Responsabilidad",
-        "paragraph_21": "La empresa pondrá en marcha todas las medidas necesarias para la correcta ejecución del servicio. No obstante, la Sociedad no podrá ser considerada responsable de la mala ejecución o de la no ejecución de la totalidad o de una parte del Servicio si ello se debe al Socio, al hecho imprevisible e insuperable de un tercero ajeno al Pedido o a un caso de fuerza mayor. En caso de que la Sociedad sea considerada responsable, no aceptará indemnizar al Socio por los daños directos o indirectos sin prueba. La Compañía hará todo lo posible para permitir la accesibilidad al Sitio las 24 horas del día, los 7 días de la semana. En ningún caso se podrá responsabilizar a la Empresa de la indisponibilidad debida a limitaciones relacionadas con el funcionamiento de la red de Internet, a operaciones de mantenimiento, a cualquier avería o error, a cualquier acontecimiento ajeno a su voluntad o a cualquier caso de fuerza mayor que escape al control razonable de la Empresa. En el Sitio pueden aparecer enlaces a otros sitios no publicados y no controlados por la Empresa. En ningún caso la empresa puede ser considerada responsable del funcionamiento, el contenido o cualquier elemento presente u obtenido a través de estos sitios. La presencia de estos enlaces en el Sitio no debe interpretarse como una aprobación expresa o implícita por parte de la Empresa de los contenidos o servicios prestados por estos sitios. La empresa no es responsable de la disponibilidad de dichos sitios ni del contenido, la publicidad, los productos u otros materiales de dichos sitios. Si la dirección de correo electrónico del Socio rechaza, por ejemplo, debido al anti spam, los mensajes de correo electrónico enviados por la Empresa, y en particular la copia del recibo de pago o el resumen del Pedido o, más generalmente, cualquier otro mensaje de correo electrónico de la Empresa, ésta no será responsable en modo alguno.",
+        "paragraph_21": "La empresa pondrá en marcha todas las medidas necesarias para la correcta ejecución del servicio. No obstante, la Sociedad no podrá ser considerada responsable de la mala ejecución o de la no ejecución de la totalidad o de una parte del Servicio si ello se debe al Socio, al hecho imprevisible e insuperable de un tercero ajeno al Pedido o a un caso de fuerza mayor. En caso de que la Sociedad sea considerada responsable, no aceptará indemnizar al Socio por los daños directos o indirectos sin prueba. La Compañía hará todo lo posible para permitir la accesibilidad al Sitio las 24 horas del día, los 7 días de la semana. En ningún caso se podrá responsabilizar a la Empresa de la indisponibilidad debida a limitaciones relacionadas con el funcionamiento de la red de Internet, a operaciones de mantenimiento, a cualquier avería o error, a cualquier acontecimiento ajeno a su voluntad o a cualquier caso de fuerza mayor que escape al control razonable de la Empresa. En el Sitio pueden aparecer enlaces a otros sitios no publicados y no controlados por la Empresa. En ningún caso la empresa puede ser considerada responsable del funcionamiento, el contenido o cualquier elemento presente u obtenido a través de estos sitios. La presencia de estos enlaces en el Sitio no debe interpretarse como una aprobación expresa o implícita por parte de la Empresa de los contenidos o servicios prestados por estos sitios. La empresa no es responsable de la disponibilidad de dichos sitios ni del contenido, la publicidad, los productos u otros materiales de dichos sitios. Si la dirección de correo electrónico del Socio rechaza, por ejemplo, debido al antispam, los mensajes de correo electrónico enviados por la Empresa, y en particular la copia del recibo de pago o el resumen del Pedido o, más generalmente, cualquier otro mensaje de correo electrónico de la Empresa, ésta no será responsable en modo alguno.",
         "title_16": "15.Datos personales:",
         "paragraph_22": "Para que el proceso de pedido se desarrolle sin problemas, es imprescindible que el Sitio tenga acceso a la siguiente información: apellido, nombre, dirección electrónica (e-mail). Los proveedores de servicios, y en particular los anfitriones establecidos fuera de la Unión Europea, pueden tener acceso a los datos personales de los diputados. La empresa ha celebrado acuerdos con estos proveedores de servicios para la transferencia de datos personales, que incluyen cláusulas contractuales estándar aprobadas por la Comisión Europea. Los socios pueden ejercer su derecho de oposición, rectificación, supresión y acceso a sus datos personales, así como su derecho de oposición por motivos legítimos, en las condiciones previstas por la ley, enviando un correo electrónico a la Sociedad a la dirección",
         "paragraph_22b": " , especificando sus apellidos, nombre, dirección de correo electrónico y número de pedido. La información relativa al Socio sólo será transmitida por la Sociedad a los proveedores de servicios para el mantenimiento, el alojamiento del Sitio y la ejecución de los pedidos dentro del límite de la información estrictamente necesaria para la correcta ejecución de estos últimos. De acuerdo con la deliberación de la CNIL nº 2013-378 del 5 de diciembre de 2013, la Sociedad también informa al Socio que las cookies registran cierta información que se almacena en la memoria del disco duro del Socio. Esta información se utiliza para llevar a cabo estadísticas sobre la audiencia del sitio y para ofrecer Servicios de acuerdo con los ya seleccionados por el Miembro durante las visitas anteriores. Un mensaje de advertencia, en forma de banner, pregunta a cada persona que visita el Sitio, de antemano, si el Miembro desea aceptar las cookies. Estas cookies no contienen ninguna información confidencial sobre los Miembros del Sitio. Cualquiera que sea la página del Sitio a la que se dirija el diputado directamente desde un motor de búsqueda, será informado: la finalidad precisa de las cookies utilizadas. de la posibilidad de oponerse a estas cookies y de modificar sus parámetros haciendo clic en un enlace presente en el banner. y del hecho de que la continuación de su navegación implica su acuerdo con el depósito de cookies en su terminal. Sin el consentimiento previo del diputado, las cookies no serán depositadas ni leídas si el Usuario va al Sitio (página de inicio o directamente a otra página del Sitio desde un motor de búsqueda, por ejemplo) y no continúa su navegación: una simple ausencia de acción no podría considerarse como una manifestación de voluntad. o si hace clic en el enlace del banner que le permite configurar las cookies y, en su caso, rechaza el depósito de cookies.",
@@ -488,35 +467,34 @@
         "paragraph_24b": "para hacer valer su derecho al Reembolso (véase 10. Ejercicio de la opción Satisfecho o Reembolsado).Si este procedimiento de mediación fracasa o si el diputado desea llevar el asunto a los tribunales, se aplicarán las normas del Código de Procedimiento Civil."
     },
 
-
     "policies": {
-        "title_1": " Políticas de privacidad ",
+        "title_1": " Politicas de privacidad ",
         "title_2": " Políticas de privacidad e información legal ",
         "title_3": " Información sobre protección de datos ",
-        "paragraph_1": " Denominación social: Identidad: Montaup Publicities, SLU en adelante, FIND-PERSONS.COM. Carrer Esteve Albert, R. la Roureda, bloc A, 1-2a, AD500, Andorra la Vella, Andorra Email Delegado Protección de Datos: support@find-persons.com. ",
+        "paragraph_1": " Denominación social: Identidad: Montaup Publicities, SLU en adelante, Find Persons. Carrer Esteve Albert, R. la Roureda, bloc A, 1-2a, AD500, Andorra la Vella, Andorra Email Delegado Protección de Datos: support@find-persons.com. ",
         "title_4": " Sobre nuestro servicio ",
-        "paragraph_2": " FIND-PERSONS.COM es un servicio de buscador de información de personas cuyos datos son libremente accesibles desde los buscadores más comúnmente utilizados. La información que mostramos ha sido o bien publicada libremente por sus titulares o se encuentra libremente accesible en internet por formar parte de algún documento publicado en Internet; en ambos casos, esta información ha sido indexada legalmente por los principales buscadores. ",
-        "paragraph_3": " FIND-PERSONS.COM no almacena, ni dispone de bases de datos de personas, simplemente muestra resultados libremente accesibles por cualquier persona con acceso a Internet. Los principales motores de búsqueda rastrean de manera automática y constante cualquier información publicada en Internet, también información personal, por lo que si no quieres que tu información sea rastreada es importante que no la hagas pública. ",
-        "paragraph_4": " Sin perjuicio de lo anterior, FIND-PERSONS.COM aplica los más altos estándares de privacidad a efectos de que cualquier persona que lo desee no sea mostrada como resultado en las búsquedas realizadas por los usuarios de la plataforma. ",
+        "paragraph_2": " FIND PERSONS es un servicio de buscador de información de personas cuyos datos son libremente accesibles desde los buscadores más comúnmente utilizados. La información que mostramos ha sido o bien publicada libremente por sus titulares o se encuentra libremente accesible en internet por formar parte de algún documento publicado en Internet; en ambos casos, esta información ha sido indexada legalmente por los principales buscadores. ",
+        "paragraph_3": " FIND PERSONS no almacena, ni dispone de bases de datos de personas, simplemente muestra resultados libremente accesibles por cualquier persona con acceso a Internet. Los principales motores de búsqueda rastrean de manera automática y constante cualquier información publicada en Internet, también información personal, por lo que si no quieres que tu información sea rastreada es importante que no la hagas pública. ",
+        "paragraph_4": " Sin perjuicio de lo anterior, FIND PERSONS aplica los más altos estándares de privacidad a efectos de que cualquier persona que lo desee no sea mostrada como resultado en las búsquedas realizadas por los usuarios de la plataforma. ",
         "title_5": " Finalidad ",
         "paragraph_5": " ¿Para qué usamos los datos? ",
-        "paragraph_6": " Esta Política de privacidad establece los términos en que trataremos los datos personales en FIND-PERSONS.COM; esto incluye cualquier dato personal recogido a través de nuestra página web, así como cualquier otro dato que tratemos en ejercicio de nuestras actividades empresariales. ",
-        "paragraph_7": " FIND-PERSONS.COM trata los siguientes datos personales con las finalidades a continuación indicadas: ",
+        "paragraph_6": " Esta Política de privacidad establece los términos en que trataremos los datos personales en FIND PERSONS; esto incluye cualquier dato personal recogido a través de nuestra página web, así como cualquier otro dato que tratemos en ejercicio de nuestras actividades empresariales. ",
+        "paragraph_7": " FIND PERSONS trata los siguientes datos personales con las finalidades a continuación indicadas: ",
         "paragraph_8": " a - Registro de usuarios: los datos personales recogidos a través de este formulario se utilizarán exclusivamente para gestionar el alta como usuario registrado y en caso de que nos otorgues tu consentimiento, para el envío de correos electrónicos promocionales de nuestras actividades y servicios, sin perjuicio del uso de tus datos con este fin, de acuerdo a nuestro interés legítimo. ",
         "paragraph_9": "b - Formulario de contacto: los datos personales recogidos a través de este formulario se utilizarán exclusivamente para gestionar tu solicitud y en caso de que nos otorgues tu consentimiento para el envío de correos electrónicos promocionales de nuestras actividades y servicios.",
-        "paragraph_10": "  c - Resultados de búsquedas: los datos personales que puedan aparecer en las búsquedas realizadas en nuestro sistema, son simplemente mostrados a los usuarios registrados, sin que FIND-PERSONS.COM los almacenen, copien o en ningún caso archiven, para ninguna finalidad. ",
+        "paragraph_10": "  c - Resultados de búsquedas: los datos personales que puedan aparecer en las búsquedas realizadas en nuestro sistema, son simplemente mostrados a los usuarios registrados, sin que Find Persons los almacenen, copien o en ningún caso archiven, para ninguna finalidad. ",
         "title_6": " ¿Cuánto tiempo custodiamos los datos? ",
         "paragraph_11": "A continuación, y de acuerdo con la normativa vigente, te informamos del tiempo que mantendremos sus datos, que depende del tipo de uso al que sean destinados:",
         "paragraph_12": " Los datos de los contactos recibidos a través del formulario de contacto que no acaben contratando ningún servicio, serán automáticamente eliminados pasado un año desde el contacto, siempre que el posible cliente no haya mostrado más interés en nuestros servicios. En el supuesto de que nos hayas dado tu consentimiento para la remisión de correos electrónicos promocionales, tus datos personales de contacto serán utilizados hasta que revoques tu consentimiento por alguno de los medios disponibles. ",
         "paragraph_13": " En caso de contratar algún servicio, los datos serán tratados mientras dure la relación comercial y, una vez concluida, por el tiempo necesario para responder ante posibles responsabilidades legales. ",
         "paragraph_14": " Los datos de las personas que aparecen en las búsquedas serán temporalmente tratados para ser mostrados en los resultados, cesando el tratamiento en ese mismo instante. Paralelamente, dichos datos podrán ser eventualmente tratados siempre que las personas titulares de los datos aparezcan en los resultados de los principales motores de búsquedas. ",
-        "title_7": " Legitimación ",
+        "title_7": " Legitimización ",
         "paragraph_15": " A continuación, te informamos qué nos permite tratar tus datos, en función del uso para el que sean destinados. ",
-        "paragraph_16": " Los datos de los usuarios registrados serán tratados por FIND-PERSONS.COM para el cumplimiento de la relación contractual. ",
-        "paragraph_17": " El uso de tus datos con fines promocionales se basará en tu consentimiento expreso y en el caso de que tengas la condición de usuario registrado, tus datos pueden tratarse con este fin, sobre la base del interés legítimo de FIND-PERSONS.COM. Asimismo, los datos personales que aparecen en las búsquedas serán tratados por el interés legítimo de FIND-PERSONS.COM. ",
+        "paragraph_16": " Los datos de los usuarios registrados serán tratados por FIND PERSONS para el cumplimiento de la relación contractual. ",
+        "paragraph_17": " El uso de tus datos con fines promocionales se basará en tu consentimiento expreso y en el caso de que tengas la condición de usuario registrado, tus datos pueden tratarse con este fin, sobre la base del interés legítimo de FIND PERSONS. Asimismo, los datos personales que aparecen en las búsquedas serán tratados por el interés legítimo de FIND PERSONS. ",
         "title_8": " Destinatarios ",
         "paragraph_18": " Cesiones de datos a terceros ",
-        "paragraph_19": " Tus datos personales no serán cedidos a terceros sin tu consentimiento expreso y previo, salvo aquellos proveedores de servicios con los que disponemos de un contrato de servicio vigente o que medie una ley que obligue a FIND-PERSONS.COM a tal cesión de datos. ",
+        "paragraph_19": " Tus datos personales no serán cedidos a terceros sin tu consentimiento expreso y previo, salvo aquellos proveedores de servicios con los que disponemos de un contrato de servicio vigente o que medie una ley que obligue a FIND PERSONS a tal cesión de datos. ",
         "title_9": " Categoría de datos ",
         "paragraph_20": " Tipología de datos tratados: ",
         "paragraph_21": " Formulario Contacto y usuarios registrados: ",
@@ -535,14 +513,12 @@
         "list_item_11": " Portabilidad de tus datos. ",
         "paragraph_23": " Tienes la opción de solicitarnos a través de ",
         "paragraph_24": " este formulario ",
-        "paragraph_25": " que tus datos personales no aparezcan como resultado de búsquedas realizadas en FIND-PERSONS.COM; para ello, deberás facilitarnos información que permita verificar tu identidad, así como la dirección URL donde apareces actualmente y el motivo por el que deseas que no aparezcas. La respuesta a tu solicitud se te comunicará en el plazo máximo de un mes desde su recepción. ",
-        "paragraph_26": "  -Se eliminará exactamente como resultado de la búsqueda, los términos que nos hayas solicitada, no combinaciones distintas que también podrían identificarse. En consecuencia, realiza tantas peticiones como combinaciones de tu nombre no quieras que aparezcan. Todas las peticiones se admiten sin excepciones con el fin de darte la mayor protección. -La eliminación de tus datos en los resultados de búsqueda no implica (1) que tus datos sean borrados de la fuente principal donde se encuentren publicados y (2) que tus datos sean bloqueados en los principales buscadores. Para ello deberás ejercer tus derechos ante el responsable de la fuente (web, blog, etc..) donde estén publicados tus datos o ante los buscadores a través de sus peticiones de derecho al olvido. A continuación, se enlazan los formularios de para enviar tu solicitud a los principales motores de búsqueda:  ",
+        "paragraph_25": " que tus datos personales no aparezcan como resultado de búsquedas realizadas en FIND PERSONS; para ello, deberás facilitarnos información que permita verificar tu identidad, así como la dirección URL donde apareces actualmente y el motivo por el que deseas que no aparezcas. La respuesta a tu solicitud se te comunicará en el plazo máximo de un mes desde su recepción. ",
+        "paragraph_26": "  -Se eliminará exactamente como resultado de la búsqueda, los términos que nos hayas solicitada, no combinaciones distintas que también podrían identificarte. En consecuencia, realiza tantas peticiones como combinaciones de tu nombre no quieras que aparezcan. Todas las peticiones se admiten sin excepciones con el fin de darte la mayor protección. -La eliminación de tus datos en los resultados de búsqueda no implica (1) que tus datos sean borrados de la fuente principal donde se encuentren publicados y (2) que tus datos sean bloqueados en los principales buscadores. Para ello deberás ejercer tus derechos ante el responsable de la fuente (web, blog, etc..) donde estén publicados tus datos o ante los buscadores a través de sus peticiones de derecho al olvido. A continuación, se enlazan los formularios de para enviar tu solicitud a los principales motores de búsqueda:  ",
         "title_11": " Modificaciones en la política de privacidad ",
         "paragraph_27": " Nos reservamos el derecho de modificar la presente política para adaptarla a novedades legislativas o jurisprudenciales que se encuentren vigentes en el momento de acceso al sitio web. En caso de introducir modificaciones significativas, se comunicará a los interesados mediante un aviso en la web o a través de cualquier otro medio adecuado según las circunstancias. "
 
-
     },
-
 
     "right_for_gotem": {
         "title": " Formulario de derecho al olvido ",
@@ -557,7 +533,6 @@
         "text_note_2": " Solo los usuarios registrados y suscritos al servicio pueden enviar este formulario. ",
         "send": " Enviar "
     },
-
 
     "toast": {
         "empty_search_error_message": "Por favor, ingrese un valor para comenzar la búsqueda.",
@@ -578,7 +553,6 @@
         "success_down_suscription_message": "Te has dado de baja correctamente."
     },
 
-
     "profile":{
         "no_suscripted_message": "Aun no suscrito, por favor realiza el pago para poder acceder a tu cuenta.",
         "suscribe": "Suscribirse",
@@ -592,5 +566,9 @@
         "down_suscription": "Darme de baja",
         "status": "Estado de la suscripcion"
     }
+
+
+
+
 
 }
