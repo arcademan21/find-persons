@@ -209,7 +209,7 @@ const ThanksPage = () => {
         console.log(referrer)
         if (!referrer.includes(process.env.NEXT_PUBLIC_TEFPAY_REFFERER_URL)) {
             InvalidateToken(payment_id)
-            window.location.replace('/')
+            //window.location.replace('/')
         }
         
         let result = false
