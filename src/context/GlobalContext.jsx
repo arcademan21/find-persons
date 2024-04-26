@@ -23,7 +23,8 @@ export const GlobalProvider = ( { children } ) => {
   } )
 
   const SettingExtencion = useCallback( async () => {
-    debugger
+    
+    
     localStorage.setItem('menu', JSON.stringify( { menu: { active_links: true } } ) )
     
     const extension_list = [
@@ -34,6 +35,7 @@ export const GlobalProvider = ( { children } ) => {
       'thanks'
     ]
 
+    console.log(pathname)
     if( pathname === '/' ) {
       localStorage.setItem('extencion', pathname)
     }
@@ -54,7 +56,6 @@ export const GlobalProvider = ( { children } ) => {
 
   const SettingLanguage = useCallback( async () => {
 
-    debugger
       let extension = 'es'
       const language = localStorage.getItem('language')
       
