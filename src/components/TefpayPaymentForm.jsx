@@ -180,27 +180,27 @@ export const TefpayPaymentForm = () => {
 
         else if( extension === '/it' ) {
             setDsMerchantTerminal('00000002')
-            setDsMerchantTerminalAuth('00000003')
+            setDsMerchantTerminalAuth('00000002')
         }
 
         else if( extension === '/fr' ) {
-            setDsMerchantTerminal('00000004')
-            setDsMerchantTerminalAuth('00000005')
+            setDsMerchantTerminal('00000003')
+            setDsMerchantTerminalAuth('00000003')
         }
 
         else if( extension === '/uk' ) {
-            setDsMerchantTerminal('00000005')
-            setDsMerchantTerminalAuth('00000006')
+            setDsMerchantTerminal('00000004')
+            setDsMerchantTerminalAuth('00000004')
         }
 
         else if( extension === '/de' ) {
-            setDsMerchantTerminal('00000007')
-            setDsMerchantTerminalAuth('00000007')
+            setDsMerchantTerminal('00000005')
+            setDsMerchantTerminalAuth('00000005')
         }
 
         else if( extension === '/nl' ) {
-            setDsMerchantTerminal('00000007')
-            setDsMerchantTerminalAuth('00000007')
+            setDsMerchantTerminal('00000006')
+            setDsMerchantTerminalAuth('00000006')
         }
 
         else if( extension === '/ie' ) {
@@ -209,8 +209,8 @@ export const TefpayPaymentForm = () => {
         }
 
         else if( extension === '/ae' ) {
-            setDsMerchantTerminal('00000007')
-            setDsMerchantTerminalAuth('00000007')
+            setDsMerchantTerminal('00000008')
+            setDsMerchantTerminalAuth('00000008')
         }
 
         document.body.appendChild( script ).onload = () => {
@@ -246,8 +246,8 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_Subscription_RelFirstCharge" value="02D"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodType" value="M"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodInterval" value="1"/>
-            <input type="hidden" name="Ds_Merchant_Terminal" value={dsmerchant_terminal}/>
-            <input type="hidden" name="Ds_Merchant_TerminalAuth" value={dsmerchant_terminalauth}/>
+            {/* <input type="hidden" name="Ds_Merchant_Terminal" value={dsmerchant_terminal}/>
+            <input type="hidden" name="Ds_Merchant_TerminalAuth" value={dsmerchant_terminalauth}/> */}
             <input type="hidden" name="Ds_Merchant_Subscription_Iteration" value="0"/>
             <input type="hidden" name="Ds_Merchant_Url" value={ tefpay_notyfi_url } />
             <input type="hidden" name="Ds_Merchant_UrlOK" value={ `https://${hostname}${(extension !== '/' ? extension: '' )}/thanks/${paymentToken}` } />
