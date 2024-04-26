@@ -11,6 +11,7 @@ color: #6b53f2;
     border: 1px solid #ddd;
     border-radius: 10px;
     text-align: center;
+    font-weight: 200;
 }
 
 .banner-pricing h2 {
@@ -23,7 +24,7 @@ color: #6b53f2;
     font-size: 18px; /* Tamaño del texto */
     color: #666; /* Color del texto */
     line-height: 1.6; /* Espacio entre líneas de texto */
-    font-weight: 200;
+    font-weight: 200 !important;
 }
 
 .banner-pricing p strong {
