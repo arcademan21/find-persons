@@ -4,12 +4,12 @@ import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import PdfRenderer from '@/components/PdfRenderer'
 import { PDFDownloadLink } from '@react-pdf/renderer'
-import * as dataPersonJson from './resources/dataPerson.json' 
+import * as dataPersonJson from '../resources/dataPerson.json' 
 import PDLJS from 'peopledatalabs'
 import { FaSearch, FaPhone, FaEnvelope, FaSpinner, FaDownload, FaInfoCircle, FaMapMarked }
 from 'react-icons/fa'
 
-import './css/results.css'
+import '../css/results.css'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
