@@ -14,7 +14,7 @@ const Hero = () => {
                 </div>
             </div>
         </div>
-        <VantaGlobe el=".home-banner" />
+        {/* <VantaGlobe el=".home-banner" /> */}
 
     </>)
 

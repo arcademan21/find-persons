@@ -358,12 +358,15 @@ const HomeSections = () => {
         </div> 
 
         {/* PRICES */}
-        <div className="banner-pricing border rounded" data-section="prices" data-value="html">
-            <center><h2 className="title-section text-center" style={{fontWeigth:"600", fontSize: "28px"}}>{language.prices.ours} <span className="marked">{language.prices.offers}
-            </span></h2></center>
+        <div className="banner-pricing" data-section="prices" data-value="html">
+            <center>
+                <h2 className="title-section text-center" style={{fontWeigth:"600", fontSize: "28px"}}>{language.prices.ours} <span className="marked">{language.prices.offers}
+                </span></h2>
+            </center>
             <div className="divider mx-auto"></div>
             <p>
-                <span className="marked">{language.prices.trial_price}
+                <span className="marked">
+                    <strong>{language.prices.trial_price}</strong>
                 </span> 
                 {language.prices.trial_text}
                 <strong className="title-section marked">
@@ -373,6 +376,9 @@ const HomeSections = () => {
                 {language.prices.info_text}
             </p>
         </div>
+
+
+
 
         {/* CONTACT */}
         <div className="page-section vh-100" id="contact">

@@ -248,7 +248,7 @@ const Search = () => {
             </div>
 
         </div>
-        <VantaGlobe el="#vanta-anime" />
+        {/* <VantaGlobe el="#vanta-anime" /> */}
     </>)
     
 }

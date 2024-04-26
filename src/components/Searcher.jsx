@@ -136,6 +136,9 @@ const Searcher = () => {
                 </span> 
                 <span>{language.holder_title}</span>
             </h1>
+            <p className="text-lg text-center my-2" data-section="hero" data-value="sub_title">
+                {language.sub_title}
+            </p>
 
             <div className="selectType p-3 text-center d-flex" id="selectType">
                 <ul className="m-0 w-100 d-flex justify-content-evenly flex-wrap">
@@ -167,9 +170,7 @@ const Searcher = () => {
                         
                         <FaSearch className="fs-1 mx-2" />
                     </button>
-                    <p className="text-lg text-center my-2" data-section="hero" data-value="sub_title">
-                        {language.sub_title}
-                    </p>
+                    
                 </div>
 
             </div>

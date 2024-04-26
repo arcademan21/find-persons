@@ -139,9 +139,7 @@ const MenuButtons = () => {
                 <FaUserPlus className="fs-5 mx-1" />
                 <span data-section="nav_bar" data-value="register">
                     {language.nav_bar.register}
-                    <b className='marked'>
-                      {language.nav_bar.free}
-                    </b>
+                    
                 </span>
               </button>
       
