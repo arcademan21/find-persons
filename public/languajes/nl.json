@@ -12,14 +12,14 @@
       "back": " Volver atras "
     },
     "hero": {
-      "title": " Encuentra personas por su ",
-      "holder_title": " en todo el mundo",
+      "title": "Vind mensen op basis van hun",
+      "holder_title": " over de hele wereld",
       "sub_title": " Zorg ervoor dat u volledig op de hoogte bent van de persoon die u buscaseert.",
-      "name": " Nombre ",
+      "name": " Naam ",
       "email": " E-mail ",
       "phone": " Telefoon ",
       "address": " Richting ",
-      "search_now": " Buscar ahora ",
+      "search_now": " Zoek nu ",
       "placeholder_name": " Bijvoorbeeld: Mariano Jose ",
       "placeholder_email": " Bijvoorbeeld: mariano@mail.com ",
       "placeholder_phone": " Voorbeeld: 34 600 000 000 ",

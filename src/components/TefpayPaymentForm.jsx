@@ -5,8 +5,8 @@ import './css/tefpay-payment-form.css'
 import Image from 'next/image'
 import sha1 from 'js-sha1'
 
-const merchantCode = process.env.NEXT_PUBLIC_TEFPAY_TESTS_MERCHANT_CODE
-const merchantSharedkey = process.env.NEXT_PUBLIC_TEFPAY_TESTS_PASSWORD
+const merchantCode = process.env.NEXT_PUBLIC_TEFPAY_PRODUCTION_MERCHANT_CODE
+const merchantSharedkey = process.env.NEXT_PUBLIC_TEFPAY_PRODUCTION_PASSWORD
 const merchantUrl = process.env.NEXT_PUBLIC_TEFPAY_TESTS_MERCHAT_URL
 const iframe_url = process.env.NEXT_PUBLIC_TEFPAY_TESTS_IFRAME_URL
 const iframe_configure_url = process.env.NEXT_PUBLIC_TEFPAY_TESTS_CONFIGURE_URL
@@ -104,7 +104,7 @@ export const TefpayPaymentForm = () => {
 
         const merchant_lang = localStorage.getItem('language')  
         const matchingData = String(new Date().toISOString().replace(/[^0-9]/g, '')).padEnd(21, '0')
-        const merchantURL = merchantUrl
+        const merchantURL = tefpay_notyfi_url
         const signature = CreateSubscriptionSignature(
             merchantSharedkey,
             merchantCode,
