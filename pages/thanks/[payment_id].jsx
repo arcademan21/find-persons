@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext, useLayoutEffect } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import VantaGlobe from '@/components/VantaGlobe'
@@ -193,7 +193,7 @@ const ThanksPage = () => {
             setCounter((prevCounter) => {
                 if (prevCounter === 0) {
                     // Redirigiendo a la pagina de resultados
-                    //window.location.replace('/results')
+                    window.location.replace('/results')
                     clearInterval(time)
                     return prevCounter
                 } else {
@@ -203,13 +203,13 @@ const ThanksPage = () => {
         }, 1000)
     }
 
-    useLayoutEffect(() => {
+    useEffect(() => {
 
         const referrer = document.referrer
-        console.log(referrer)
+        
         if (!referrer.includes(process.env.NEXT_PUBLIC_TEFPAY_REFFERER_URL)) {
             InvalidateToken(payment_id)
-            //window.location.replace('/')
+            window.location.replace('/')
         }
         
         let result = false
@@ -243,7 +243,7 @@ const ThanksPage = () => {
             })
             .catch( error => {
                 InvalidateToken(payment_id)
-                //window.location.replace(`/tefpay_error/${error.message}`)
+                window.location.replace(`/tefpay_error/${error.message}`)
                 return false
             })
             .finally(() => {
@@ -252,7 +252,7 @@ const ThanksPage = () => {
                 InvalidateToken(payment_id)
 
                 if ( !result ) {
-                    //window.location.replace(`/tefpay_error/error`)
+                    window.location.replace(`/tefpay_error/error`)
                     return false
                 }
     
