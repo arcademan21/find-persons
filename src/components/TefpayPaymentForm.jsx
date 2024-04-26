@@ -138,7 +138,7 @@ export const TefpayPaymentForm = () => {
         //     Country: ${ merchant_lang }
         //     User: ${ user_name }
         //     Email: ${ user_email }
-        //     Amount: 49.90 EUR
+        //     Amount: 49.90 EUR 
         // `)
 
         setSuscriptionDescription(`NEW SUSCRIPTION - ( Find-persons ) `)

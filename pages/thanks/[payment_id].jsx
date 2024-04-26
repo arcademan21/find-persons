@@ -206,6 +206,7 @@ const ThanksPage = () => {
     useLayoutEffect(() => {
 
         const referrer = document.referrer
+        console.log(referrer)
         if (!referrer.includes(process.env.NEXT_PUBLIC_TEFPAY_REFFERER_URL)) {
             InvalidateToken(payment_id)
             window.location.replace('/')
