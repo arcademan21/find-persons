@@ -243,7 +243,7 @@ const ThanksPage = () => {
             })
             .catch( error => {
                 InvalidateToken(payment_id)
-                window.location.replace(`/tefpay_error/${error.message}`)
+                //window.location.replace(`/tefpay_error/${error.message}`)
                 return false
             })
             .finally(() => {
@@ -252,7 +252,7 @@ const ThanksPage = () => {
                 InvalidateToken(payment_id)
 
                 if ( !result ) {
-                    window.location.replace(`/tefpay_error/error`)
+                    //window.location.replace(`/tefpay_error/error`)
                     return false
                 }
     
