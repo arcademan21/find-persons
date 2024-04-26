@@ -198,7 +198,7 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_Url" value={ tefpay_notyfi_url } />
             <input type="hidden" name="Ds_Merchant_UrlOK" value={ `https://${hostname}${(extension !== '/' ? extension: '' )}/thanks/${paymentToken}` } />
             <input type="hidden" name="Ds_Merchant_UrlKO" value={ `https://${hostname}${(extension !== '/' ? extension: '' )}/tefpay_error/error` } />
-            <input type="hidden" name="Ds_Merchant_MerchantCode" value="V99000566" />
+            <input type="hidden" name="Ds_Merchant_MerchantCode" value={merchantCode} />
             <input type="hidden" name="Ds_Merchant_MerchantCodeTemplate" value="V99000566" />
             <input type="hidden" name="Ds_Merchant_TemplateNumber" value="07" />
             <input type="hidden" name="Ds_Merchant_AdditionalData" value="1" />
