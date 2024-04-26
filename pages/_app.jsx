@@ -10,7 +10,7 @@ export const metadata = {
   title: 'Persons - Finder',
   description: 'A professional website for finding persons',
   lang: 'en',
-  favicon: '/favicon.svg',
+  favicon: '/images/cropped-lupa-favicon.jpeg',
   charSet: 'UTF-8'
 }
 
@@ -22,7 +22,7 @@ function PersonsFinder({ Component, pageProps }) {
         <meta name="description" content={metadata.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title> {metadata.title} </title>
-        <link rel="icon" type="image/svg+xml" href={metadata.favicon} />
+        <link rel="icon" type="image/jpeg" href={metadata.favicon} />
         <link rel="stylesheet" type="text/css" href="/libs/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="/libs/animate/animate.css" />
         <link rel="stylesheet" type="text/css" href="/libs/owl-carousel/owl.carousel.css" />
