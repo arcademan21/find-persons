@@ -23,6 +23,7 @@ color: #6b53f2;
     font-size: 18px; /* Tamaño del texto */
     color: #666; /* Color del texto */
     line-height: 1.6; /* Espacio entre líneas de texto */
+    font-weight: 200;
 }
 
 .banner-pricing p strong {
