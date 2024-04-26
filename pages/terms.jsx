@@ -33,11 +33,11 @@ const Terms = () => {
                             <div className="divider"></div>
 
                             <p>
-                                {/* {language.paragraph_1} */}
-                                {process.env.NEXT_PUBLIC_HOST_NAME} 
-                                {language.paragraph_2}
-                                {process.env.NEXT_PUBLIC_HOST_NAME}
-                                {language.paragraph_3}
+                                {language.paragraph_1}
+                                {/* {process.env.NEXT_PUBLIC_HOST_NAME}  */}
+                                {/* {language.paragraph_2} */}
+                                {/* {process.env.NEXT_PUBLIC_HOST_NAME} */}
+                                {/* {language.paragraph_3} */}
                             </p>
 
                             <br />
