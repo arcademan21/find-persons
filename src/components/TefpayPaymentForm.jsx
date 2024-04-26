@@ -176,48 +176,45 @@ export const TefpayPaymentForm = () => {
         script.async = true
 
         if ( extension === '/' ) {
-            dsmerchant_terminal = '00000001'
-            dsmerchant_terminalauth = '00000001'
+            setDsMerchantTerminal('00000001')
+            setDsMerchantTerminalAuth('00000001')
         }
 
         else if( extension === '/it' ) {
-            dsmerchant_terminal = '00000002'
-            dsmerchant_terminalauth = '00000002'
+            setDsMerchantTerminal('00000001')
+            setDsMerchantTerminalAuth('00000001')
         }
 
         else if( extension === '/fr' ) {
-            dsmerchant_terminal = '00000003'
-            dsmerchant_terminalauth = '00000003'
+           setDsMerchantTerminal('00000001')
+            setDsMerchantTerminalAuth('00000001')
         }
 
         else if( extension === '/uk' ) {
-            dsmerchant_terminal = '00000004'
-            dsmerchant_terminalauth = '00000004'
+            setDsMerchantTerminal('00000001')
+            setDsMerchantTerminalAuth('00000001')
         }
 
         else if( extension === '/de' ) {
-            dsmerchant_terminal = '00000005'
-            dsmerchant_terminalauth = '00000005'
+            setDsMerchantTerminal('00000001')
+            setDsMerchantTerminalAuth('00000001')
         }
 
         else if( extension === '/nl' ) {
-            dsmerchant_terminal = '00000006'
-            dsmerchant_terminalauth = '00000006'
+            setDsMerchantTerminal('00000001')
+            setDsMerchantTerminalAuth('00000001')
         }
 
         else if( extension === '/ie' ) {
-            dsmerchant_terminal = '00000007'
-            dsmerchant_terminalauth = '00000007'
+            setDsMerchantTerminal('00000001')
+            setDsMerchantTerminalAuth('00000001')
         }
 
         else if( extension === '/ae' ) {
-            dsmerchant_terminal = '00000008'
-            dsmerchant_terminalauth = '00000008'
+            setDsMerchantTerminal('00000001')
+            setDsMerchantTerminalAuth('00000001')
         }
 
-
-
-        
         document.body.appendChild( script ).onload = () => {
        
             const TefpayIframe = window.TefpayIframe 
