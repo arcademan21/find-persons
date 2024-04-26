@@ -121,23 +121,27 @@ export const TefpayPaymentForm = () => {
         setPaymentId( matchingData )
         setUserEmail( user.email )
 
-        setPaymentDescription( `
-            NEW PAYMENT - ( Find-persons ) : ${ hostname }
-            Payment ID: ${ matchingData }
-            Country: ${ merchant_lang }
-            User: ${ user_name }
-            Email: ${ user_email }
-            Amount: 0.60 EUR
-        `)
+        // setPaymentDescription( `
+        //     NEW PAYMENT - ( Find-persons ) : ${ hostname }
+        //     Payment ID: ${ matchingData }
+        //     Country: ${ merchant_lang }
+        //     User: ${ user_name }
+        //     Email: ${ user_email }
+        //     Amount: 0.60 EUR
+        // `)
+
+        setPaymentDescription( `NEW PAYMENT - ( Find-persons ) `)
         
-        setSuscriptionDescription(`
-            NEW SUSCRIPTION - ( Find-persons ) : ${ hostname }
-            Payment ID: ${ matchingData }
-            Country: ${ merchant_lang }
-            User: ${ user_name }
-            Email: ${ user_email }
-            Amount: 49.90 EUR
-        `)
+        // setSuscriptionDescription(`
+        //     NEW SUSCRIPTION - ( Find-persons ) : ${ hostname }
+        //     Payment ID: ${ matchingData }
+        //     Country: ${ merchant_lang }
+        //     User: ${ user_name }
+        //     Email: ${ user_email }
+        //     Amount: 49.90 EUR
+        // `)
+
+        setSuscriptionDescription(`NEW SUSCRIPTION - ( Find-persons ) `)
 
         let paymentToken = `${matchingData}-${signature}`
         CreatePaymentToken( `${matchingData}-${signature}`, user.email).then( res => {
