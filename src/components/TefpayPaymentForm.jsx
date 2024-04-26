@@ -15,7 +15,7 @@ const suscription_amount = process.env.NEXT_PUBLIC_SUSCRIPTION_AMOUNT
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const tefpay_notyfi_url = process.env.NEXT_PUBLIC_TEFPAY_NOTYFI_URL
 
-const extension = localStorage.getItem('extencion')
+
 
 
 const CreatePaymentToken = async ( payment_id, user_email ) => {
@@ -74,8 +74,6 @@ export const TefpayPaymentForm = () => {
     const [dsmerchant_terminal, setDsMerchantTerminal] = useState('00000001')
     const [dsmerchant_terminalauth, setDsMerchantTerminalAuth] = useState('00000001')
 
-
-    
     const CleanStringForTefpay = ( email ) => {
     
         email = email.replace(/[ÁÉÍÓÚÜÑáéíóúàèìòùÀÈÍÒÙüñ]/g, function( match ) {
@@ -181,38 +179,38 @@ export const TefpayPaymentForm = () => {
         }
 
         else if( extension === '/it' ) {
-            setDsMerchantTerminal('00000001')
-            setDsMerchantTerminalAuth('00000001')
+            setDsMerchantTerminal('00000002')
+            setDsMerchantTerminalAuth('00000003')
         }
 
         else if( extension === '/fr' ) {
-           setDsMerchantTerminal('00000001')
-            setDsMerchantTerminalAuth('00000001')
+            setDsMerchantTerminal('00000004')
+            setDsMerchantTerminalAuth('00000005')
         }
 
         else if( extension === '/uk' ) {
-            setDsMerchantTerminal('00000001')
-            setDsMerchantTerminalAuth('00000001')
+            setDsMerchantTerminal('00000005')
+            setDsMerchantTerminalAuth('00000006')
         }
 
         else if( extension === '/de' ) {
-            setDsMerchantTerminal('00000001')
-            setDsMerchantTerminalAuth('00000001')
+            setDsMerchantTerminal('00000007')
+            setDsMerchantTerminalAuth('00000007')
         }
 
         else if( extension === '/nl' ) {
-            setDsMerchantTerminal('00000001')
-            setDsMerchantTerminalAuth('00000001')
+            setDsMerchantTerminal('00000007')
+            setDsMerchantTerminalAuth('00000007')
         }
 
         else if( extension === '/ie' ) {
-            setDsMerchantTerminal('00000001')
-            setDsMerchantTerminalAuth('00000001')
+            setDsMerchantTerminal('00000007')
+            setDsMerchantTerminalAuth('00000007')
         }
 
         else if( extension === '/ae' ) {
-            setDsMerchantTerminal('00000001')
-            setDsMerchantTerminalAuth('00000001')
+            setDsMerchantTerminal('00000007')
+            setDsMerchantTerminalAuth('00000007')
         }
 
         document.body.appendChild( script ).onload = () => {
@@ -235,14 +233,7 @@ export const TefpayPaymentForm = () => {
 
     return (<>
 
-        terminal 1- FIND-PERSONS ES
-        terminal 2- FIND-PERSONS IT
-        terminal 3- FIND-PERSONS FR
-        terminal 4- FIND-PERSONS UK
-        terminal 5- FIND-PERSONS DE
-        terminal 6- FIND-PERSONS NL
-        terminal 7- FIND-PERSONS IE
-        terminal 8- FIND-PERSONS AE
+        
 
         <form className="p-2 mb-2 payment-form" role="form" id="tefpayData" autoComplete="true" >
 
