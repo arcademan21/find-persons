@@ -10,7 +10,7 @@ export const metadata = {
   title: 'Persons - Finder',
   description: 'A professional website for finding persons',
   lang: 'en',
-  favicon: '/favicon.svg',
+  favicon: '/cropped-lupa-favicon.jpeg',
   charSet: 'UTF-8'
 }
 
@@ -25,6 +25,7 @@ function RootLayout( { children } ) {
           <meta charSet={metadata.charSet} />
           <meta name="description" content={metadata.description} />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 
           <title> {metadata.title} </title>
 
