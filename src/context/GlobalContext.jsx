@@ -23,7 +23,7 @@ export const GlobalProvider = ( { children } ) => {
   } )
 
   const SettingExtencion = useCallback( async () => {
-
+    debugger
     localStorage.setItem('menu', JSON.stringify( { menu: { active_links: true } } ) )
     
     const extension_list = [
