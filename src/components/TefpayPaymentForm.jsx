@@ -15,6 +15,9 @@ const suscription_amount = process.env.NEXT_PUBLIC_SUSCRIPTION_AMOUNT
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const tefpay_notyfi_url = process.env.NEXT_PUBLIC_TEFPAY_NOTYFI_URL
 
+const extension = localStorage.getItem('extencion')
+
+
 const CreatePaymentToken = async ( payment_id, user_email ) => {
 
     try{
@@ -67,6 +70,11 @@ export const TefpayPaymentForm = () => {
     const [ user_email, setUserEmail ] = useState(user.email)
     const [ lang, setLang ] = useState(localStorage.getItem('language'))
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
+
+    const [dsmerchant_terminal, setDsMerchantTerminal] = useState('00000001')
+    const [dsmerchant_terminalauth, setDsMerchantTerminalAuth] = useState('00000001')
+
+
     
     const CleanStringForTefpay = ( email ) => {
     
@@ -166,6 +174,49 @@ export const TefpayPaymentForm = () => {
         
         script.src = src
         script.async = true
+
+        if ( extension === '/' ) {
+            dsmerchant_terminal = '00000001'
+            dsmerchant_terminalauth = '00000001'
+        }
+
+        else if( extension === '/it' ) {
+            dsmerchant_terminal = '00000002'
+            dsmerchant_terminalauth = '00000002'
+        }
+
+        else if( extension === '/fr' ) {
+            dsmerchant_terminal = '00000003'
+            dsmerchant_terminalauth = '00000003'
+        }
+
+        else if( extension === '/uk' ) {
+            dsmerchant_terminal = '00000004'
+            dsmerchant_terminalauth = '00000004'
+        }
+
+        else if( extension === '/de' ) {
+            dsmerchant_terminal = '00000005'
+            dsmerchant_terminalauth = '00000005'
+        }
+
+        else if( extension === '/nl' ) {
+            dsmerchant_terminal = '00000006'
+            dsmerchant_terminalauth = '00000006'
+        }
+
+        else if( extension === '/ie' ) {
+            dsmerchant_terminal = '00000007'
+            dsmerchant_terminalauth = '00000007'
+        }
+
+        else if( extension === '/ae' ) {
+            dsmerchant_terminal = '00000008'
+            dsmerchant_terminalauth = '00000008'
+        }
+
+
+
         
         document.body.appendChild( script ).onload = () => {
        
@@ -187,6 +238,15 @@ export const TefpayPaymentForm = () => {
 
     return (<>
 
+        terminal 1- FIND-PERSONS ES
+        terminal 2- FIND-PERSONS IT
+        terminal 3- FIND-PERSONS FR
+        terminal 4- FIND-PERSONS UK
+        terminal 5- FIND-PERSONS DE
+        terminal 6- FIND-PERSONS NL
+        terminal 7- FIND-PERSONS IE
+        terminal 8- FIND-PERSONS AE
+
         <form className="p-2 mb-2 payment-form" role="form" id="tefpayData" autoComplete="true" >
 
             <input type="hidden" name="Ds_Merchant_TransactionType" value="6"/>
@@ -198,6 +258,8 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_Subscription_RelFirstCharge" value="02D"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodType" value="M"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodInterval" value="1"/>
+            <input type="hidden" name="Ds_Merchant_Terminal" value={dsmerchant_terminal}/>
+            <input type="hidden" name="Ds_Merchant_TerminalAuth" value={dsmerchant_terminalauth}/>
             <input type="hidden" name="Ds_Merchant_Subscription_Iteration" value="0"/>
             <input type="hidden" name="Ds_Merchant_Url" value={ tefpay_notyfi_url } />
             <input type="hidden" name="Ds_Merchant_UrlOK" value={ `https://${hostname}${(extension !== '/' ? extension: '' )}/thanks/${paymentToken}` } />
