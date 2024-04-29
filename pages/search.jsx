@@ -110,7 +110,7 @@ const Search = () => {
         
         <div className="container-fluid py-5" >
         
-            <div className="row px-5 content-search-map-anime m-auto my-5 mb-3 " >
+            <div className="row px-5 content-search-map-anime m-auto my-5 mb-3 align-content-center" >
                 
 
                 <div className="col-md-6">
@@ -120,32 +120,34 @@ const Search = () => {
                 </div>
 
                 <div className="col-md-6" >
+                    <div className="percent-bar-content">
+                        <h1 className="title-section fs-1 my-4 text-center">
+                            <span data-section="search_page" data-value="we_searching">
+                            {language.we_searching}
+                            </span> 
+                            <span id="search" className="marked"> {search} </span>
+                            <span data-section="search_page" data-value="in_the" >
+                            {language.in_the}
+                            </span>
+                        </h1>
 
-                    <h1 className="title-section fs-1 my-4 text-center">
-                        <span data-section="search_page" data-value="we_searching">
-                        {language.we_searching}
-                        </span> 
-                        <span id="search" className="marked"> {search} </span>
-                        <span data-section="search_page" data-value="in_the" >
-                        {language.in_the}
-                        </span>
-                    </h1>
+                        <div className={`wrapper ${activeClass}`}>
 
-                    
-
-                    <div className={`wrapper ${activeClass}`}>
-
-                        { awaitText ? awaitText : 
-                            <div className="bg">
-                                <div className="el"></div>
-                            </div>
-                        }
-                        
+                            { awaitText ? awaitText : 
+                                <div className="bg">
+                                    <div className="el"></div>
+                                </div>
+                            }
+                            
+                        </div>
+            
+                        <h1 className="text-center my-4 fs-3">
+                            <b id="text-search-info">{text_search_info}</b>
+                        </h1>
                     </div>
-        
-                    <h1 className="text-center my-4 fs-3">
-                        <b id="text-search-info">{text_search_info}</b>
-                    </h1>
+                        
+
+
 
                     {/* <div className="content-checks-animate mb-3">
                         

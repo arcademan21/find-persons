@@ -9,10 +9,18 @@
 
 .animate_search{
     display: flex;
-    width: 520px;
-    height: 231px;
+    width: 610px;
+    height: 294px;
     margin: auto;
-    margin-bottom: 12px;
+}
+
+.percent-bar-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
