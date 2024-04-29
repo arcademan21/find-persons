@@ -7,6 +7,7 @@ import { FaSpinner, FaCheck, FaUser, FaMapMarkedAlt, FaUsers } from 'react-icons
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
+    
     try{
 
         // Fetch to endpoint for update suscription
@@ -26,7 +27,7 @@ const GetSuscription = async ( user ) =>{
         })
 
         const res = await req.json()
-        if(res.status === 'error') return false
+        if( res.status === 'error' ) return false
         return res
 
     } catch ( error ) {
@@ -80,10 +81,11 @@ const Search = () => {
                 setAwaitText('')
                 setActiveClass('active')
                 GetSuscription( user ).then( suscripted => {
-            
-                    if( !user ) window.location.replace('/register')
-                    else if( !suscripted ) window.location.replace('/payment')
-                    else window.location.replace('/results')
+                    
+                    // Redirect 
+                    // if( !user ) window.location.replace('/register')
+                    // else if( !suscripted ) window.location.replace('/payment')
+                    // else window.location.replace('/results')
         
                 })
                 
@@ -128,11 +130,9 @@ const Search = () => {
                     <div className={`wrapper ${activeClass}`}>
 
                         { awaitText ? awaitText : 
-                        
                             <div className="bg">
                                 <div className="el"></div>
                             </div>
-
                         }
                         
                     </div>
