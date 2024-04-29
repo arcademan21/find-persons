@@ -1,7 +1,6 @@
 'use client'
 import { useContext, useState, useEffect } from "react"
 import GlobalContext from '@/context/GlobalContext'
-import VantaGlobe from '@/components/VantaGlobe'
 import Image from 'next/image'
 import '../css/search.css'
 import { FaSpinner, FaCheck, FaUser, FaMapMarkedAlt, FaUsers } from 'react-icons/fa'
@@ -109,9 +108,9 @@ const Search = () => {
 
     return (<>
         
-        <div className="container-fluid py-5" id="vanta-anime">
+        <div className="container-fluid py-5" >
         
-            <div className="row px-5 content-search-map-anime w-50 m-auto my-5 mb-3 border shadow rounded bg-white" id="vanta-bg">
+            <div className="row px-5 content-search-map-anime w-50 m-auto my-5 mb-3 border shadow rounded bg-white" >
                 <div className="col-md-12" >
 
                     <h1 className="title-section fs-1 my-4 text-center">
@@ -250,7 +249,6 @@ const Search = () => {
             </div>
 
         </div>
-        <VantaGlobe el="#vanta-anime" />
     </>)
     
 }

@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext, useLayoutEffect } from 'react'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
-import VantaGlobe from '@/components/VantaGlobe'
 import {useRouter} from 'next/router'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
@@ -271,7 +270,7 @@ const ThanksPage = () => {
 
     return (<>
         
-        <div className="container-fluid h-100 wow fadeInUp " id="vanta-anime">
+        <div className="container-fluid h-100 wow fadeInUp " >
             <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75 " >
                 <div className="col-md-12">
 
@@ -284,7 +283,7 @@ const ThanksPage = () => {
                 </div>
             </div>
         </div>
-        <VantaGlobe el="#vanta-anime" />
+        
         
     </>)
 

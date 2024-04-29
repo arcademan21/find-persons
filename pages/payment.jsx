@@ -2,7 +2,6 @@
 import {useEffect, useContext, useState} from "react"
 import TefpayPaymentForm from "@/components/TefpayPaymentForm"
 import GlobalContext from "@/context/GlobalContext"
-import VantaGlobe from '@/components/VantaGlobe'
 import Image from "next/image"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
@@ -59,7 +58,7 @@ const Payment = () => {
 
     return (<>
         
-        <div className="payment-container" id="vanta-anime">
+        <div className="payment-container" >
             <div className="container">
                 <div className="row mb-5 shadow p-0 rounded2x">
                     
@@ -219,7 +218,6 @@ const Payment = () => {
             </div>
 
         </div>
-        <VantaGlobe el="#vanta-anime" />
     
     </>)
 

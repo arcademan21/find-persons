@@ -159,23 +159,22 @@ const HomeSections = () => {
         <div className="page-section">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-6 py-3 wow zoomIn">
-                    <div className="img-place text-center">
-                        <Image 
-                            src="/images/bg_image_1_small.jpeg" 
-                            alt="info_image" 
-                            layout="fill"
-                            className="w-100 h-auto"
-                            
-                        />
+                    <div className="col-sm-12 col-md-6 col-lg-6 py-3 wow zoomIn">
+                        <div className="img-place text-center" style={{height: "25rem"}}>
+                            <Image 
+                                src="/images/bg_image_1_small.jpeg" 
+                                alt="info_image" 
+                                layout="fill"
+                                className="w-100 h-auto" 
+                            />
+                        </div>
                     </div>
-                    </div>
-                    <div className="col-lg-6 py-3 wow fadeInRight" data-section="call_to_action" data-value="html"> 
-                    <h2 className="title-section">{language.call_to_action.give_us}
-                    <span className="marked">{language.call_to_action.name}
-                    </span> {language.call_to_action.and_we}
-                    </h2>
-                    <div className="divider"></div>
+                    <div className="col-sm-12 col-md-6 col-lg-6 py-3 wow fadeInRight" data-section="call_to_action" data-value="html"> 
+                        <h2 className="title-section">{language.call_to_action.give_us}
+                            <span className="marked">{language.call_to_action.name}
+                            </span> {language.call_to_action.and_we}
+                        </h2>
+                        <div className="divider"></div>
                         <ul className="m-0 list_home_info">
                             <li><FaCircleCheck className="mx-2" />
                                 {language.call_to_action.we_search}

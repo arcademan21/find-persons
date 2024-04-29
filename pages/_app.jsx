@@ -49,9 +49,7 @@ function PersonsFinder({ Component, pageProps }) {
     <Script type="text/javascript" src="/libs/owl-carousel/owl.carousel.min.js" strategy='beforeInteractive'/>
     <Script type="text/javascript" src="/libs/waypoints/jquery.waypoints.min.js" strategy='beforeInteractive'/>
     <Script type="text/javascript" src="/libs/animateNumber/jquery.animateNumber.min.js"  strategy='beforeInteractive'/>
-    <Script type="text/javascript" src="/libs/vantajs/three.min.js" strategy='beforeInteractive' />
-    <Script type="text/javascript" src="/libs/vantajs/vanta.globe.min.js" strategy='beforeInteractive' /> 
-
+    
     <Script type="text/javascript" src="/js/theme.js" strategy='lazyOnload' />
     <Script type="text/javascript" src="/libs/wow/wow.min.js" strategy="beforeInteractive" />
     <Script type="text/javascript" src="/libs/wow/wow.init.js" strategy="afterInteractive" />

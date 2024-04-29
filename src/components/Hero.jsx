@@ -1,5 +1,4 @@
 import Searcher from './Searcher'
-import VantaGlobe from './VantaGlobe'
 
 const Hero = () => {
 
@@ -14,7 +13,6 @@ const Hero = () => {
                 </div>
             </div>
         </div>
-        {/* <VantaGlobe el=".home-banner" /> */}
 
     </>)
 

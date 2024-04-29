@@ -3,7 +3,7 @@ import {useState, useEffect, useContext} from 'react'
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { toast } from 'react-toastify'
 import GlobalContext from '@/context/GlobalContext'
-import VantaGlobe from '@/components/VantaGlobe'
+
 import 'react-toastify/dist/ReactToastify.css'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -86,7 +86,7 @@ const Login = ( ) => {
     }, [ state ])
 
     return (<>
-        <div className="container-fluid h-100 wow fadeInUp" id="vanta-anime">
+        <div className="container-fluid h-100 wow fadeInUp" >
             <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75">
 
                 <div className="d-flex shadow p-0 rounded2x">
@@ -222,7 +222,7 @@ const Login = ( ) => {
 
             </div>
         </div>
-        <VantaGlobe el="#vanta-anime" />
+        
     </>)
 
 }
