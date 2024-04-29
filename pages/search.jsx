@@ -111,7 +111,15 @@ const Search = () => {
         <div className="container-fluid py-5" >
         
             <div className="row px-5 content-search-map-anime m-auto my-5 mb-3 " >
-                <div className="col-md-12" >
+                
+
+                <div className="col-md-6">
+                    <div className="animate_search">
+                        <Image src="/images/mapa_anime.gif" className="rounded" alt="" width={100} height={100} layout="responsive" />
+                    </div>
+                </div>
+
+                <div className="col-md-6" >
 
                     <h1 className="title-section fs-1 my-4 text-center">
                         <span data-section="search_page" data-value="we_searching">
@@ -123,9 +131,7 @@ const Search = () => {
                         </span>
                     </h1>
 
-                    <div className="animate_search">
-                        <Image src="/images/mapa_anime.gif" className="rounded" alt="" width={100} height={100} layout="responsive" />
-                    </div>
+                    
 
                     <div className={`wrapper ${activeClass}`}>
 
@@ -184,6 +190,8 @@ const Search = () => {
                     </div> */}
         
                 </div>
+
+
             </div>
             <div className="divider w-100 m-0"></div>
             <div className="row px-5 w-75 m-auto bg-white m-3 my-3 border shadow rounded">
