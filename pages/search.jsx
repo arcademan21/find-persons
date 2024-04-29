@@ -110,7 +110,7 @@ const Search = () => {
         
         <div className="container-fluid py-5" >
         
-            <div className="row px-5 content-search-map-anime w-50 m-auto my-5 mb-3 border shadow rounded bg-white" >
+            <div className="row px-5 content-search-map-anime m-auto my-5 mb-3 " >
                 <div className="col-md-12" >
 
                     <h1 className="title-section fs-1 my-4 text-center">
@@ -123,7 +123,7 @@ const Search = () => {
                         </span>
                     </h1>
 
-                    <div className="animate_search shadow border rounded">
+                    <div className="animate_search">
                         <Image src="/images/mapa_anime.gif" className="rounded" alt="" width={100} height={100} layout="responsive" />
                     </div>
 

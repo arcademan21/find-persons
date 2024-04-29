@@ -9,7 +9,7 @@
 
 .animate_search{
     display: flex;
-    width: 633px;
+    width: 520px;
     height: 231px;
     margin: auto;
     margin-bottom: 12px;
@@ -930,6 +930,7 @@
 .content-search-map-anime{
     min-height: 25rem;
     margin-top: 1rem;
+    background: #fdfcfd;
 }
 
 @media (max-width: 768px) {
