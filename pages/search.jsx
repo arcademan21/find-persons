@@ -83,9 +83,9 @@ const Search = () => {
                 GetSuscription( user ).then( suscripted => {
                     
                     // Redirect 
-                    // if( !user ) window.location.replace('/register')
-                    // else if( !suscripted ) window.location.replace('/payment')
-                    // else window.location.replace('/results')
+                    if( !user ) window.location.replace('/register')
+                    else if( !suscripted ) window.location.replace('/payment')
+                    else window.location.replace('/results')
         
                 })
                 
@@ -121,6 +121,7 @@ const Search = () => {
 
                 <div className="col-md-6" >
                     <div className="percent-bar-content">
+                        
                         <h1 className="title-section my-4">
                             <span data-section="search_page" data-value="we_searching">
                             {language.we_searching}
@@ -144,6 +145,7 @@ const Search = () => {
                         <h1 className="text-center my-4 fs-3">
                             <b id="text-search-info">{text_search_info}</b>
                         </h1>
+
                     </div>
                         
 
@@ -196,9 +198,9 @@ const Search = () => {
 
             </div>
             <div className="divider w-100 m-0"></div>
-            <div className="row px-5 w-75 m-auto bg-white m-3 my-3 border shadow rounded">
+            <div className="row my-3">
 
-                <div className="col-lg-6 py-3">
+                <div className="col-md-6">
         
                     <div className="img-place text-center">
                         <Image src="/images/bg_image_1_small.jpeg" className="mt-0" alt="" width={100} height={100} layout="responsive" />
