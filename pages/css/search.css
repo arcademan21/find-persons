@@ -1,10 +1,14 @@
 .wrapper.active{
-    text-align: center;
-    font-size: 2rem;
-    padding: 1rem;
-    background: #3de47a;
-    color: white;
-    border-radius: 5px;
+    border-radius: 10px;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    font-size: 1.3rem !important;
+    background: #44d05e;
+    width: 100%;
 }
 
 .animate_search{
@@ -939,6 +943,7 @@
     min-height: 25rem;
     margin-top: 1rem;
     background: #fdfcfd;
+    padding: 0 15rem;
 }
 
 @media (max-width: 768px) {

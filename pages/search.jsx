@@ -110,7 +110,7 @@ const Search = () => {
         
         <div className="container-fluid py-5" >
         
-            <div className="row px-5 content-search-map-anime m-auto my-5 mb-3 align-content-center" >
+            <div className="row content-search-map-anime my-3 align-content-center" >
                 
 
                 <div className="col-md-6">
@@ -121,7 +121,7 @@ const Search = () => {
 
                 <div className="col-md-6" >
                     <div className="percent-bar-content">
-                        <h1 className="title-section fs-1 my-4 text-center">
+                        <h1 className="title-section my-4">
                             <span data-section="search_page" data-value="we_searching">
                             {language.we_searching}
                             </span> 
