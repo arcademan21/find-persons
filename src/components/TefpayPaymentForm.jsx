@@ -16,8 +16,6 @@ const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const tefpay_notyfi_url = process.env.NEXT_PUBLIC_TEFPAY_NOTYFI_URL
 
 
-
-
 const CreatePaymentToken = async ( payment_id, user_email ) => {
 
     try{
@@ -151,12 +149,13 @@ export const TefpayPaymentForm = () => {
 
         let paymentToken = `${matchingData}-${signature}`
         CreatePaymentToken( `${matchingData}-${signature}`, user.email).then( res => {
-            
+        
             if( !res ){
                 
                 paymentToken = ''
-                window.location.replace(`${extension}/tefpay_error/error_token`)
+                //window.location.replace(`${extension}/tefpay_error/error_token`)
                 return false
+
             }
 
             
