@@ -108,7 +108,8 @@ export const TefpayPaymentForm = () => {
 
         const merchant_lang = localStorage.getItem('language')  
         const matchingData = String(new Date().toISOString().replace(/[^0-9]/g, '')).padEnd(21, '0')
-        const merchantURL = tefpay_notyfi_url
+        // const merchantURL = tefpay_notyfi_url
+        const merchantURL = `https://${hostname}`
         const signature = CreateSubscriptionSignature(
             merchantSharedkey,
             merchantCode,
