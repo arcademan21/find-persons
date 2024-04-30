@@ -1,5 +1,5 @@
 {
     "routes": [
-        { "src": "/api/thanks/(.*)", "dest": "/api/thanks/$1.js" }
+        { "src": "/thanks/(.*)", "dest": "/api/thanks/$1.js" }
     ]
 }
