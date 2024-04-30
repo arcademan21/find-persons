@@ -232,8 +232,6 @@ export const TefpayPaymentForm = () => {
 
     return (<>
 
-        
-
         <form className="p-2 mb-2 payment-form" role="form" id="tefpayData" autoComplete="true" >
 
             <input type="hidden" name="Ds_Merchant_TransactionType" value="6"/>
@@ -245,10 +243,11 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_Subscription_RelFirstCharge" value="02D"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodType" value="M"/>
             <input type="hidden" name="Ds_Merchant_Subscription_PeriodInterval" value="1"/>
-            {/* <input type="hidden" name="Ds_Merchant_Terminal" value={dsmerchant_terminal}/>
-            <input type="hidden" name="Ds_Merchant_TerminalAuth" value={dsmerchant_terminalauth}/> */}
+            <input type="hidden" name="Ds_Merchant_Terminal" value={dsmerchant_terminal}/>
+            <input type="hidden" name="Ds_Merchant_TerminalAuth" value={dsmerchant_terminalauth}/>
             <input type="hidden" name="Ds_Merchant_Subscription_Iteration" value="0"/>
-            <input type="hidden" name="Ds_Merchant_Url" value={ tefpay_notyfi_url } />
+            {/* <input type="hidden" name="Ds_Merchant_Url" value={ tefpay_notyfi_url } /> */}
+            <input type="hidden" name="Ds_Merchant_Url" value={ `https://${hostname}` } />
             <input type="hidden" name="Ds_Merchant_UrlOK" value={ `https://${hostname}${(extension !== '/' ? extension: '' )}/thanks/${paymentToken}` } />
             <input type="hidden" name="Ds_Merchant_UrlKO" value={ `https://${hostname}${(extension !== '/' ? extension: '' )}/tefpay_error/error` } />
             <input type="hidden" name="Ds_Merchant_MerchantCode" value={merchantCode} />

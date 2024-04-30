@@ -213,57 +213,57 @@ const ThanksPage = () => {
         
         let result = false
         CheckTokenValidity(payment_id)
-            .then(res => {
-                result = res
-                if (!res) {
-                    throw new Error('invalid_token')
-                }
-                return validatePayment()
-            })
-            .then(res => {
-                result = res
-                if (!res) {
-                    throw new Error('invalid_payment_id')
-                }
-                return CreateNewUser(user)
-            })
-            .then(res => {
-                result = res
-                if (!res) {
-                    throw new Error('create_user_error')
-                }
-                return UpdateSuscription(user, { payment_id: payment_id })
-            })
-            .then(res => {
-                result = res
-                if (!res) {
-                    throw new Error('update_suscription_error')
-                }
-            })
-            .catch( error => {
-                InvalidateToken(payment_id)
-                window.location.replace(`/tefpay_error/${error.message}`)
+        .then( res => {
+            result = res
+            if (!res) {
+                throw new Error('invalid_token')
+            }
+            return validatePayment()
+        })
+        .then(res => {
+            result = res
+            if (!res) {
+                throw new Error('invalid_payment_id')
+            }
+            return CreateNewUser(user)
+        })
+        .then(res => {
+            result = res
+            if (!res) {
+                throw new Error('create_user_error')
+            }
+            return UpdateSuscription(user, { payment_id: payment_id })
+        })
+        .then(res => {
+            result = res
+            if (!res) {
+                throw new Error('update_suscription_error')
+            }
+        })
+        .catch( error => {
+            InvalidateToken(payment_id)
+            window.location.replace(`/tefpay_error/${error.message}`)
+            return false
+        })
+        .finally(() => {
+            
+            // Invalidando token
+            InvalidateToken(payment_id)
+
+            if ( !result ) {
+                //window.location.replace(`/`)
                 return false
-            })
-            .finally(() => {
-                
-                // Invalidando token
-                InvalidateToken(payment_id)
+            }
 
-                if ( !result ) {
-                    //window.location.replace(`/`)
-                    return false
-                }
-    
-                // Cargando script de converciones en la cavecera
-                const script = document.createElement('script')
-                script.type = 'text/javascript'
-                script.innerHTML = convertions_gtag
-                document.head.appendChild(script)
+            // Cargando script de converciones en la cavecera
+            const script = document.createElement('script')
+            script.type = 'text/javascript'
+            script.innerHTML = convertions_gtag
+            document.head.appendChild(script)
 
-                timer()
+            timer()
 
-            })
+        })
 
     }, [])
 
