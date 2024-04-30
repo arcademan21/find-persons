@@ -193,7 +193,7 @@ const ThanksPage = () => {
             setCounter((prevCounter) => {
                 if (prevCounter === 0) {
                     // Redirigiendo a la pagina de resultados
-                    //window.location.replace('/results')
+                    window.location.replace('/results')
                     clearInterval(time)
                     return prevCounter
                 } else {
