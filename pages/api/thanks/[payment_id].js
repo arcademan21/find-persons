@@ -13,7 +13,7 @@ export default function handler(req, res) {
     // }
 
 
-    res.redirect(`/thanks/${req.query.payment_id}`);
+    res.redirect(303, `/thanks/${req.query.payment_id}`);
 
 
 
