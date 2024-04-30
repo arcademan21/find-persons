@@ -8,7 +8,7 @@ export default function handler(req, res) {
             message: 'Pago procesado correctamente', paymentId: req.query.payment_id 
         });
         // Rediriges al usuario a la página de agradecimiento con el ID del pago
-        //res.redirect(`/thanks/${req.query.payment_id}`);
+        res.redirect(`/thanks/${req.query.payment_id}`);
     } else {
         // Método no permitido
         res.status(405).json({ error: 'Método no permitido' });
