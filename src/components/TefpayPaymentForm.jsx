@@ -108,8 +108,7 @@ export const TefpayPaymentForm = () => {
 
         const merchant_lang = localStorage.getItem('language')  
         const matchingData = String(new Date().toISOString().replace(/[^0-9]/g, '')).padEnd(21, '0')
-        // const merchantURL = tefpay_notyfi_url
-        const merchantURL = `https://${hostname}`
+        const merchantURL = tefpay_notyfi_url
         const signature = CreateSubscriptionSignature(
             merchantSharedkey,
             merchantCode,
@@ -154,7 +153,7 @@ export const TefpayPaymentForm = () => {
             if( !res ){
                 
                 paymentToken = ''
-                //window.location.replace(`${extension}/tefpay_error/error_token`)
+                window.location.replace(`${extension}/tefpay_error/error_token`)
                 return false
 
             }
@@ -247,8 +246,7 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_Terminal" value={dsmerchant_terminal}/>
             <input type="hidden" name="Ds_Merchant_TerminalAuth" value={dsmerchant_terminalauth}/>
             <input type="hidden" name="Ds_Merchant_Subscription_Iteration" value="0"/>
-            {/* <input type="hidden" name="Ds_Merchant_Url" value={ tefpay_notyfi_url } /> */}
-            <input type="hidden" name="Ds_Merchant_Url" value={ `https://${hostname}` } />
+            <input type="hidden" name="Ds_Merchant_Url" value={ tefpay_notyfi_url } />
             <input type="hidden" name="Ds_Merchant_UrlOK" value={ `https://${hostname}${(extension !== '/' ? extension: '' )}/thanks/${paymentToken}` } />
             <input type="hidden" name="Ds_Merchant_UrlKO" value={ `https://${hostname}${(extension !== '/' ? extension: '' )}/tefpay_error/error` } />
             <input type="hidden" name="Ds_Merchant_MerchantCode" value={merchantCode} />

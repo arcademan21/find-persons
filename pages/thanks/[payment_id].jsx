@@ -205,12 +205,6 @@ const ThanksPage = () => {
 
     useEffect(() => {
 
-        // const referrer = document.referrer
-        // if (!referrer.includes(process.env.NEXT_PUBLIC_TEFPAY_REFFERER_URL)) {
-        //     InvalidateToken(payment_id)
-        //     window.location.replace('/')
-        // }
-        
         let result = false
         CheckTokenValidity(payment_id)
         .then( res => {
@@ -251,7 +245,7 @@ const ThanksPage = () => {
             InvalidateToken(payment_id)
 
             if ( !result ) {
-                //window.location.replace(`/`)
+                window.location.replace(`/`)
                 return false
             }
 
