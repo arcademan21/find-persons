@@ -173,12 +173,19 @@ export default function handler( req, res ) {
     const payment_token = parts[0]+'-'+parts[1]
     const payment_id = parts[0]
     const signature = parts[1]
-    const extension = parts[2] === 'es' ? '' : parts[2]
+    const extension = parts[2] 
     const user = {
         user_email: parts[3],
         user_name: parts[4],
         password: parts[5],
         country: parts[2]
+    }
+
+    let redirect_url = ''
+    if( extension !== 'es' ) {
+        redirect_url = `/${extension}/thanks/${payment_token}`
+    } else {
+        redirect_url = `/thanks/${payment_token}`
     }
 
     ExistsPayment( payment_id )
@@ -196,7 +203,7 @@ export default function handler( req, res ) {
     })
     .then(subscriptionUpdated => {
         if (!subscriptionUpdated) throw new Error('update_subscription_error')
-        res.redirect(303, `/${extension}/thanks/${payment_token}`)
+        res.redirect(303, redirect_url)
     })
     .catch(error => {   
         InvalidateToken( payment_token )
