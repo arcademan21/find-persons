@@ -122,8 +122,7 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
-        return res
-        //if( res.status === 'error' ) return false
+        if( res.status === 'error' ) return false
             
     } catch ( error ) {
         return false
