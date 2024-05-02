@@ -2,7 +2,7 @@
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 
-const CheckTokenValidity = async ( token ) => {
+export const CheckTokenValidity = async ( token ) => {
     
     try{
 
@@ -33,7 +33,7 @@ const CheckTokenValidity = async ( token ) => {
     
 }
 
-const InvalidateToken = async ( token ) => {
+export const InvalidateToken = async ( token ) => {
     
     try{
 
@@ -65,7 +65,7 @@ const InvalidateToken = async ( token ) => {
 
 }
 
-const ExistsPayment = async ( payment_id ) => {
+export const ExistsPayment = async ( payment_id ) => {
     
     try{
 
@@ -95,10 +95,8 @@ const ExistsPayment = async ( payment_id ) => {
     return true
 }
 
-const CreateNewUser = async ( user ) => {
+export const CreateNewUser = async ( user ) => {
 
-    const country = localStorage.getItem('language')
-  
     try{
         
         // Fetch to endpoint for get payment
@@ -110,12 +108,12 @@ const CreateNewUser = async ( user ) => {
                     "name": "create_new_user",
                     "data": {
                         "create_new_user": {
-                            "user_name": user.displayName ? user.displayName : user.email,
-                            "user_email": user.email,
+                            "user_name": user.user_name,
+                            "user_email": user.user_email,
                             "password": user.uid,
                             "role": "suscriber",
                             "status": "active",
-                            "country": country,
+                            "country": user.country,
                             "ip": ""
                         }
                     }
@@ -133,7 +131,7 @@ const CreateNewUser = async ( user ) => {
     return true
 }
 
-const UpdateSuscription = async ( user, suscription ) => {
+export const UpdateSuscription = async ( user, suscription ) => {
 
     try{
 
@@ -167,87 +165,50 @@ const UpdateSuscription = async ( user, suscription ) => {
 }
 
 export default function handler( req, res ) {
-
-    const method = req.method
-    //const user = JSON.parse( localStorage.getItem('user') )
-    const payment_token = req.query.payment_id
-    const payment_id = req.query.payment_id.split('-')[0]
-    const signature = req.query.payment_id.split('-')[1]
-
-    let extension  = req.query.payment_id.split('-')[2] 
-    let result = false
-
-    if( extension === 'es' ) 
-        extension = ''
-
-    if ( req.method === 'POST' ) {
-        
-        res.status( 200 ).json({ 
-            payment_id: payment_id, 
-            payment_token: payment_token, 
-            signature: signature
-        })
-
-        ExistsPayment( payment_id )
-        
-        .then( res => {
-            result = res
-            if ( !res ) res.status( 200 ).json({ error: 'invalid_payment' })
-            else return CheckTokenValidity( payment_token )
-        })
-        
-        .then( res => {
-            result = res
-            if ( !res ) res.status( 200 ).json({ error: 'invalid_token' })
-            else return validatePayment()
-        })
-        
-        .then( res => {
-            result = res
-            if ( !res ) res.status( 200 ).json({ error: 'invalid_payment' })
-            else return CreateNewUser( user )
-        })
-        
-        .then( res => {
-            result = res
-            if ( !res ) res.status( 200 ).json({ error: 'create_user_error' })
-            else return UpdateSuscription(user, { payment_id: payment_id })
-        })
-        
-        .then( res => {
-            result = res
-            if ( !res ) res.status( 200 ).json({ error: 'update_suscription_error' })
-            else return true
-        })
-        
-        .catch( error => {
-            InvalidateToken( payment_token )
-            res.status( 500 ).json({ error: error.message })
-            return false
-        })
-        
-        .finally(() => {
-            
-            // Invalidando token
-            InvalidateToken( payment_token )
-
-            if ( !result ) {
-                res.redirect( 303, `/${extension}`)
-                return false
-            }
-
-            res.redirect( 303, `/${extension}/thanks/${payment_id} `)  
-            return true
-
-        })
-
-    } 
     
-    else {
-        
-        // Método no permitido
-        res.status( 405 ).json({ error: 'Método no permitido' })
-
+    if ( req.method !== 'POST' ) {
+        return res.status(405).json({ error: 'Método no permitido' })
     }
 
+    const payment_token = req.query.payment_id
+    const parts = payment_token.split('-')
+    const payment_id = parts[0]
+    const signature = parts[1]
+    const extension = parts[2] === 'es' ? '' : parts[2]
+
+    
+    const user = parts[3]
+
+    res.status(200).json({ user: user })
+
+    ExistsPayment( payment_id )
+        .then(paymentExists => {
+            if (!paymentExists) throw new Error('invalid_payment')
+            return CheckTokenValidity(payment_token)
+        })
+        .then(tokenIsValid => {
+            if (!tokenIsValid) throw new Error('invalid_token')
+            return validatePayment()
+        })
+        .then(paymentIsValid => {
+            if (!paymentIsValid) throw new Error('invalid_payment')
+            // Necesitas asegurar que el usuario está definido antes de crear uno nuevo
+            return CreateNewUser(user)
+        })
+        .then(userCreated => {
+            if (!userCreated) throw new Error('create_user_error')
+            return UpdateSubscription(user, { payment_id })
+        })
+        .then(subscriptionUpdated => {
+            if (!subscriptionUpdated) throw new Error('update_subscription_error')
+            res.redirect(303, `/${extension}/thanks/${payment_id}`)
+        })
+        .catch(error => {
+            InvalidateToken(payment_token)
+            console.error(error) // Asegúrate de loguear el error
+            res.status(500).json({ error: error.message })
+        })
 }
+
+
+
