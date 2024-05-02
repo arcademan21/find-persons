@@ -176,8 +176,8 @@ export default function handler( req, res ) {
     const signature = parts[1]
     const extension = parts[2] === 'es' ? '' : parts[2]
     const user = {
-        user_name: parts[3],
-        user_email: parts[4],
+        user_email: parts[3],
+        user_name: parts[4],
         password: parts[5],
         country: parts[2]
     }
