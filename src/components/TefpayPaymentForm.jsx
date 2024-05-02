@@ -147,18 +147,16 @@ export const TefpayPaymentForm = () => {
 
         setSuscriptionDescription(`NEW SUSCRIPTION - ( Find-persons ) `)
 
-        let paymentToken = `${matchingData}-${signature}`
-        CreatePaymentToken( `${matchingData}-${signature}`, user.email).then( res => {
+        let paymentToken = `${matchingData}-${signature}-${lang}`
+        CreatePaymentToken( paymentToken, user.email).then( res => {
         
             if( !res ){
                 
                 paymentToken = ''
-                window.location.replace(`${extension}/tefpay_error/error_token`)
+                window.location.replace(`${extension}/tefpay_error/error_create_payment_token`)
                 return false
 
             }
-
-            
 
         } )
 
