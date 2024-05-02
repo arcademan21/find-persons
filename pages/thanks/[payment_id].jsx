@@ -4,7 +4,71 @@ import Image from 'next/image'
 
 import { useRouter } from 'next/router'
 
+const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const convertions_gtag = process.env.NEXT_PUBLIC_CONVERTIONS_GTAG
+
+export const CheckTokenValidity = async ( token ) => {
+    
+    try{
+
+        // Fetch to endpoint for get payment
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "validate_payment_token",
+                    "data": {
+                        "validate_payment_token": {
+                            "payment_id": token
+                        }
+                    }
+                }
+            })
+        })
+        
+        const res = await req.json()
+        if( res.status === 'error' ) return false
+
+    } catch ( error ) {
+        return false
+    }
+    
+    return true
+    
+}
+
+export const InvalidateToken = async ( token ) => {
+    
+    try{
+
+        // Fetch to endpoint for get payment
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "invalidate_payment_token",
+                    "data": {
+                        "invalidate_payment_token": {
+                            "payment_id": token
+                        }
+                    }
+                }
+            })
+        })
+        
+        const res = await req.json()
+        if( res.status === 'error' ) return false
+
+    } catch ( error ) {
+        return false
+    }
+    
+    return true
+
+
+}
 
 const ThanksPage = () => {
 
@@ -35,13 +99,43 @@ const ThanksPage = () => {
 
     useEffect(() => {
 
-        // Cargando script de converciones en la cavecera
-        const script = document.createElement('script')
-        script.type = 'text/javascript'
-        script.innerHTML = convertions_gtag
-        document.head.appendChild( script )
+        CheckTokenValidity( payment_id )
+        .then( async ( res ) => {
+            if( !res ) {
+                window.location.replace('/')
+                return false
+            } 
 
-        timer()
+            return res
+
+        })
+        .then( res => {
+            
+            if( !res ) {
+                window.location.replace('/')
+                return false
+            }
+
+            // Cargando script de converciones en la cavecera
+            const script = document.createElement('script')
+            script.type = 'text/javascript'
+            script.innerHTML = convertions_gtag
+            document.head.appendChild( script )
+
+            timer()
+
+            return true
+
+        })
+        .catch( error => {
+            console.log( error )
+            window.location.replace('/')
+        })
+        .finally( () => {
+            InvalidateToken( payment_id )
+        })
+
+        
 
     }, [])
 
