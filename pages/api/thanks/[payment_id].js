@@ -169,11 +169,12 @@ const UpdateSuscription = async ( user, suscription ) => {
 export default function handler( req, res ) {
     
     const method = req.method
+    const user = JSON.parse( localStorage.getItem('user') )
     const payment_token = req.query.payment_id
     const payment_id = req.query.payment_id.split('-')[0]
     const signature = req.query.payment_id.split('-')[1]
-    const extension  = req.query.payment_id.split('-')[2] 
-    const user = JSON.parse( localStorage.getItem('user') )
+    
+    let extension  = req.query.payment_id.split('-')[2] 
     let result = false
 
     if( extension === 'es' ) 
