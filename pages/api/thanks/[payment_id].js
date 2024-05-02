@@ -182,7 +182,12 @@ export default function handler( req, res ) {
 
     if ( req.method === 'POST' ) {
         
-        //res.status( 200 ).json({ message: 'nitido' })
+        res.status( 200 ).json({ 
+            payment_id: payment_id, 
+            payment_token: payment_token, 
+            signature: signature, 
+            user: user    
+        })
 
         ExistsPayment( payment_id )
         
