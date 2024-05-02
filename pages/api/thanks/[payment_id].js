@@ -180,15 +180,18 @@ export default function handler( req, res ) {
     if( extension === 'es' ) 
         extension = ''
 
-    res.status( 200 ).json({ 
-        message: 'valid',
-        method: method,
-        user: user,
-        payment_token: payment_token,
-        payment_id: payment_id,
-        signature: signature,
-        extension: extension
-    })
+    if ( method === 'POST' )
+        res.status( 200 ).json({ 
+            message: 'valid',
+            method: method,
+            user: user,
+            payment_token: payment_token,
+            payment_id: payment_id,
+            signature: signature,
+            extension: extension
+        })
+    else 
+        res.status( 405 ).json({ error: 'Método no permitido' })
 
     // if ( method === 'POST' ) {
 
