@@ -120,8 +120,8 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
-        //return res
-        if( res.status === 'error' ) return res
+        return res
+        if( res.status === 'error' ) return false
             
     } catch ( error ) {
         return false
@@ -192,7 +192,12 @@ export default function handler( req, res ) {
         return CreateNewUser(user)
     })
     .then(userCreated => {
-        if (!userCreated) throw new Error('create_user_error')
+        if (!userCreated) 
+            res.status(200).json({
+                error: 'create_user_error',
+                response: userCreated
+            })
+            //throw new Error('create_user_error')
         return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
