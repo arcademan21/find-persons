@@ -86,8 +86,7 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
-        return res
-        //if( res.status === 'error' ) return false
+        if( res.status === 'error' ) return false
 
     } catch ( error ) {
         return false
@@ -123,7 +122,8 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
-        if( res.status === 'error' ) return false
+        return res
+        //if( res.status === 'error' ) return false
             
     } catch ( error ) {
         return false
