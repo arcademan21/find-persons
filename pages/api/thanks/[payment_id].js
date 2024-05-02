@@ -154,7 +154,7 @@ export const UpdateSuscription = async ( user, payment_id ) => {
         })
 
         const res = await req.json()
-        return res
+        return res 
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
