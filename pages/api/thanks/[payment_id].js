@@ -180,16 +180,11 @@ export default function handler( req, res ) {
     
     ExistsPayment( payment_id )
     .then(paymentExists => {
-        if (!paymentExists) throw new Error('invalid_payment')
+        if (!paymentExists) throw new Error('exist - invalid_payment')
         return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
         if (!tokenIsValid) throw new Error('invalid_token')
-        return validatePayment()
-    })
-    .then(paymentIsValid => {
-        if (!paymentIsValid) throw new Error('invalid_payment')
-        // Necesitas asegurar que el usuario está definido antes de crear uno nuevo
         return CreateNewUser(user)
     })
     .then(userCreated => {
@@ -202,7 +197,6 @@ export default function handler( req, res ) {
     })
     .catch(error => {
         InvalidateToken(payment_token)
-        console.error(error) // Asegúrate de loguear el error
         res.status(500).json({ error: error.message })
     })
 
