@@ -181,8 +181,7 @@ export default function handler( req, res ) {
     
     ExistsPayment( payment_id )
     .then(paymentExists => {
-        //if (!paymentExists) throw new Error('invalid_payment')
-        res.status(200).json({ paymentExists })
+        if (!paymentExists) throw new Error('invalid_payment')
         return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
