@@ -179,7 +179,7 @@ export default function handler( req, res ) {
     
     const user = parts[3]
 
-    res.status(200).json({ user: user })
+    res.status(200).json({ user: user.json() })
 
     ExistsPayment( payment_id )
         .then(paymentExists => {
