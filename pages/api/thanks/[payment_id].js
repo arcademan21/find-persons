@@ -131,7 +131,7 @@ export const CreateNewUser = async ( user ) => {
     return true
 }
 
-export const UpdateSuscription = async ( user, payment_id ) => {
+export const UpdateSuscription = async ( email, payment_id ) => {
 
     try{
 
@@ -144,7 +144,7 @@ export const UpdateSuscription = async ( user, payment_id ) => {
                     "name": "update_suscription",
                     "data": {
                         "update_suscription": {
-                            "user_email": user.email,
+                            "user_email": email,
                             "payment_id": payment_id,
                             "status": "trial"
                         }
