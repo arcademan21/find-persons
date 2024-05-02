@@ -146,7 +146,7 @@ export const UpdateSuscription = async ( user, payment_id ) => {
                         "update_suscription": {
                             "user_email": user.email,
                             "payment_id": payment_id,
-                            "status": "trial",
+                            "status": "trial"
                         }
                     }
                 }
@@ -178,6 +178,12 @@ export default function handler( req, res ) {
     const signature = parts[1]
     const extension = parts[2] === 'es' ? '' : parts[2]
     const user = JSON.parse(parts[3])
+
+    res.status(200).json({ 
+        message: 'TEST',
+        payment_id,
+        user
+    })
     
     ExistsPayment( payment_id )
     .then(paymentExists => {
