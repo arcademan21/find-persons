@@ -111,7 +111,7 @@ export const CreateNewUser = async ( user ) => {
                         "create_new_user": {
                             "user_name": user.user_name,
                             "user_email": user.user_email,
-                            "password": user.uid,
+                            "password": user.password,
                             "role": "suscriber",
                             "status": "active",
                             "country": user.country,
