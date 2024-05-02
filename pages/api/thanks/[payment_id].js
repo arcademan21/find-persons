@@ -9,7 +9,7 @@ export default function handler( req, res ) {
         res.json({ 
             message: 'POST request to the API',
             method: method,
-            payment_id: extension.split('-')[1] 
+            payment_id: extension.split('-')[2] 
         })
         //res.redirect( 303, `/thanks/${req.query.payment_id} `)
         
