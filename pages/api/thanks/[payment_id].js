@@ -173,7 +173,7 @@ export default function handler( req, res ) {
     const payment_token = req.query.payment_id
     const payment_id = req.query.payment_id.split('-')[0]
     const signature = req.query.payment_id.split('-')[1]
-    
+
     let extension  = req.query.payment_id.split('-')[2] 
     let result = false
 
@@ -185,6 +185,7 @@ export default function handler( req, res ) {
         ExistsPayment( payment_id )
         
         .then( res => {
+            result = res
             if ( !res ) res.status( 403 ).json({ error: 'invalid_payment' })
             else return CheckTokenValidity( payment_token )
         })
@@ -197,7 +198,7 @@ export default function handler( req, res ) {
         
         .then( res => {
             result = res
-            if ( !res ) res.status('403', { error: 'invalid_payment' })
+            if ( !res ) res.status( 403 ).json({ error: 'invalid_payment' })
             else return CreateNewUser( user )
         })
         
@@ -214,7 +215,7 @@ export default function handler( req, res ) {
         })
         
         .catch( error => {
-            InvalidateToken( payment_id )
+            InvalidateToken( payment_token )
             res.status( 500 ).json({ error: error.message })
             return false
         })
@@ -222,19 +223,23 @@ export default function handler( req, res ) {
         .finally(() => {
             
             // Invalidando token
-            InvalidateToken( payment_id )
+            InvalidateToken( payment_token )
 
             if ( !result ) {
-                res.redirect( 303, `/${extension}`)
+                //res.redirect( 303, `/${extension}`)
+                res.status( 403 ).json({ error: 'InvalidateToken' })
                 return false
             }
 
-            res.redirect( 303, `/${extension}/thanks/${payment_id} `)  
+            //res.redirect( 303, `/${extension}/thanks/${payment_id} `)  
+            res.status( 200 ).json({ error: 'valid' })
             return true
 
         })
 
-    } else {
+    } 
+    
+    else {
         
         // Método no permitido
         res.status( 405 ).json({ error: 'Método no permitido' })
