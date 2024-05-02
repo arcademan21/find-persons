@@ -167,7 +167,14 @@ const UpdateSuscription = async ( user, suscription ) => {
 }
 
 export default function handler( req, res ) {
-    
+
+
+    if ( req.method === 'POST' ) {
+        res.status( 200 ).json({ message: 'nitido' })
+    }
+
+        
+
     const method = req.method
     const user = JSON.parse( localStorage.getItem('user') )
     const payment_token = req.query.payment_id
