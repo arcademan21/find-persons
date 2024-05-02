@@ -193,6 +193,11 @@ export default function handler( req, res ) {
         return UpdateSuscription(user, payment_id )
     })
     .then(subscriptionUpdated => {
+        res.status(200).json({
+            message: 'TEST',
+            suscription: subscriptionUpdated
+        
+        })
         if (!subscriptionUpdated) throw new Error('update_subscription_error')
         res.redirect(303, `/${extension}/thanks/${payment_id}`)
     })
