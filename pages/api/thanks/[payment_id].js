@@ -193,8 +193,8 @@ export default function handler( req, res ) {
     // else 
     //     res.status( 405 ).json({ error: 'Método no permitido' })
 
-    if ( method === 'POST' ){
-        res.redirect( 303, `/thanks/${req.query.payment_id} `) 
+    if ( req.method === 'POST' ){
+        res.status( 303, `/thanks/${req.query.payment_id} `) 
     }
 
     // if ( method === 'POST' ) {
