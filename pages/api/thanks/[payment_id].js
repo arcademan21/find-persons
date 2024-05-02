@@ -194,7 +194,9 @@ export default function handler( req, res ) {
     //     res.status( 405 ).json({ error: 'Método no permitido' })
 
     if ( req.method === 'POST' ){
-        res.status( 303, `/thanks/${req.query.payment_id} `) 
+        res.status( 200 ).json({ 
+            message: 'valid'
+        }) 
     }
 
     // if ( method === 'POST' ) {
