@@ -177,8 +177,6 @@ export default function handler( req, res ) {
     const signature = parts[1]
     const extension = parts[2] === 'es' ? '' : parts[2]
     const user = JSON.parse(parts[3])
-
-    res.status(200).json({ payment, payment_token, payment_id, signature, extension, user })
     
     ExistsPayment( payment_id )
     .then(paymentExists => {
