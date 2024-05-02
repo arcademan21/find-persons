@@ -170,7 +170,7 @@ export default function handler( req, res ) {
         return res.status(405).json({ error: 'Método no permitido' })
     }
 
-    const payment_token = req.query.payment_id
+    const payment_token = req.query.payment_id.split('-')[0]+'-'+req.query.payment_id.split('-')[1]
     const parts = payment_token.split('-')
     const payment_id = parts[0]
     const signature = parts[1]
@@ -205,7 +205,7 @@ export default function handler( req, res ) {
         res.status(500).json({ error: error.message })
     })
 
-    
+
 }
 
 
