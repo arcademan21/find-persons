@@ -168,30 +168,34 @@
 
 export default function handler( req, res ) {
     
-    const method = req.method
-    const user = JSON.parse( localStorage.getItem('user') )
-    const payment_token = req.query.payment_id
-    const payment_id = req.query.payment_id.split('-')[0]
-    const signature = req.query.payment_id.split('-')[1]
+    // const method = req.method
+    // const user = JSON.parse( localStorage.getItem('user') )
+    // const payment_token = req.query.payment_id
+    // const payment_id = req.query.payment_id.split('-')[0]
+    // const signature = req.query.payment_id.split('-')[1]
 
-    let extension  = req.query.payment_id.split('-')[2] 
-    let result = false
+    // let extension  = req.query.payment_id.split('-')[2] 
+    // let result = false
 
-    if( extension === 'es' ) 
-        extension = ''
+    // if( extension === 'es' ) 
+    //     extension = ''
 
-    if ( method === 'POST' )
-        res.status( 200 ).json({ 
-            message: 'valid',
-            method: method,
-            user: user,
-            payment_token: payment_token,
-            payment_id: payment_id,
-            signature: signature,
-            extension: extension
-        })
-    else 
-        res.status( 405 ).json({ error: 'Método no permitido' })
+    // if ( method === 'POST' )
+    //     res.status( 200 ).json({ 
+    //         message: 'valid',
+    //         method: method,
+    //         user: user,
+    //         payment_token: payment_token,
+    //         payment_id: payment_id,
+    //         signature: signature,
+    //         extension: extension
+    //     })
+    // else 
+    //     res.status( 405 ).json({ error: 'Método no permitido' })
+
+    if ( method === 'POST' ){
+        res.redirect( 303, `/thanks/${req.query.payment_id} `) 
+    }
 
     // if ( method === 'POST' ) {
 
