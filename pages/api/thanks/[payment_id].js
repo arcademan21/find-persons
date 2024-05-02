@@ -168,13 +168,6 @@ const UpdateSuscription = async ( user, suscription ) => {
 
 export default function handler( req, res ) {
 
-
-    if ( req.method === 'POST' ) {
-        res.status( 200 ).json({ message: 'nitido' })
-    }
-
-        
-
     const method = req.method
     const user = JSON.parse( localStorage.getItem('user') )
     const payment_token = req.query.payment_id
@@ -188,36 +181,38 @@ export default function handler( req, res ) {
         extension = ''
 
     if ( req.method === 'POST' ) {
+        
+        //res.status( 200 ).json({ message: 'nitido' })
 
         ExistsPayment( payment_id )
         
         .then( res => {
             result = res
-            if ( !res ) res.status( 403 ).json({ error: 'invalid_payment' })
+            if ( !res ) res.status( 200 ).json({ error: 'invalid_payment' })
             else return CheckTokenValidity( payment_token )
         })
         
         .then( res => {
             result = res
-            if ( !res ) res.status( 403 ).json({ error: 'invalid_token' })
+            if ( !res ) res.status( 200 ).json({ error: 'invalid_token' })
             else return validatePayment()
         })
         
         .then( res => {
             result = res
-            if ( !res ) res.status( 403 ).json({ error: 'invalid_payment' })
+            if ( !res ) res.status( 200 ).json({ error: 'invalid_payment' })
             else return CreateNewUser( user )
         })
         
         .then( res => {
             result = res
-            if ( !res ) res.status( 403 ).json({ error: 'create_user_error' })
+            if ( !res ) res.status( 200 ).json({ error: 'create_user_error' })
             else return UpdateSuscription(user, { payment_id: payment_id })
         })
         
         .then( res => {
             result = res
-            if ( !res ) res.status( 403 ).json({ error: 'update_suscription_error' })
+            if ( !res ) res.status( 200 ).json({ error: 'update_suscription_error' })
             else return true
         })
         
