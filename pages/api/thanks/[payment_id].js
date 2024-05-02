@@ -173,7 +173,7 @@ export default function handler( req, res ) {
 
     const payment = req.query.payment_id
     const parts = payment.split('-')
-    const payment_token = parts[0]+parts[1]
+    const payment_token = parts[0]+'-'+parts[1]
     const payment_id = parts[0]
     const signature = parts[1]
     const extension = parts[2] === 'es' ? '' : parts[2]
