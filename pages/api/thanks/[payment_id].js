@@ -170,8 +170,9 @@ export default function handler( req, res ) {
         return res.status(405).json({ error: 'Método no permitido' })
     }
 
-    const payment_token = req.query.payment_id.split('-')[0]+'-'+req.query.payment_id.split('-')[1]
-    const parts = payment_token.split('-')
+    const payment = req.query.payment_id
+    const parts = payment.split('-')
+    const payment_token = parts[0]+parts[1]
     const payment_id = parts[0]
     const signature = parts[1]
     const extension = parts[2] === 'es' ? '' : parts[2]
