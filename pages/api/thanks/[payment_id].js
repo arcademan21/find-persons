@@ -154,7 +154,6 @@ export const UpdateSuscription = async ( email, payment_id ) => {
         })
 
         const res = await req.json()
-        return res 
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
@@ -193,12 +192,8 @@ export default function handler( req, res ) {
         return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
-        res.status(200).json({
-            message: 'TEST',
-            suscription: subscriptionUpdated
-        
-        })
         if (!subscriptionUpdated) throw new Error('update_subscription_error')
+        InvalidateToken(payment_token)
         res.redirect(303, `/${extension}/thanks/${payment_id}`)
     })
     .catch(error => {
