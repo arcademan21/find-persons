@@ -1,5 +1,3 @@
-
-
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 
 export const CheckTokenValidity = async ( token ) => {
@@ -203,6 +201,3 @@ export default function handler( req, res ) {
 
 
 }
-
-
-
