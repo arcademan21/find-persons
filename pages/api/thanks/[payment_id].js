@@ -182,7 +182,7 @@ export default function handler( req, res ) {
     res.status(200).json({ 
         message: 'TEST',
         payment_id,
-        user
+        'email': user.user_email
     })
     
     ExistsPayment( payment_id )
