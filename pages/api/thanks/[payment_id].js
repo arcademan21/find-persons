@@ -180,70 +180,80 @@ export default function handler( req, res ) {
     if( extension === 'es' ) 
         extension = ''
 
-    if ( method === 'POST' ) {
+    res.status( 200 ).json({ 
+        message: 'valid',
+        method: method,
+        user: user,
+        payment_token: payment_token,
+        payment_id: payment_id,
+        signature: signature,
+        extension: extension
+    })
 
-        ExistsPayment( payment_id )
+    // if ( method === 'POST' ) {
+
+    //     ExistsPayment( payment_id )
         
-        .then( res => {
-            result = res
-            if ( !res ) res.status( 403 ).json({ error: 'invalid_payment' })
-            else return CheckTokenValidity( payment_token )
-        })
+    //     .then( res => {
+    //         result = res
+    //         if ( !res ) res.status( 403 ).json({ error: 'invalid_payment' })
+    //         else return CheckTokenValidity( payment_token )
+    //     })
         
-        .then( res => {
-            result = res
-            if ( !res ) res.status( 403 ).json({ error: 'invalid_token' })
-            else return validatePayment()
-        })
+    //     .then( res => {
+    //         result = res
+    //         if ( !res ) res.status( 403 ).json({ error: 'invalid_token' })
+    //         else return validatePayment()
+    //     })
         
-        .then( res => {
-            result = res
-            if ( !res ) res.status( 403 ).json({ error: 'invalid_payment' })
-            else return CreateNewUser( user )
-        })
+    //     .then( res => {
+    //         result = res
+    //         if ( !res ) res.status( 403 ).json({ error: 'invalid_payment' })
+    //         else return CreateNewUser( user )
+    //     })
         
-        .then( res => {
-            result = res
-            if ( !res ) res.status( 403 ).json({ error: 'create_user_error' })
-            else return UpdateSuscription(user, { payment_id: payment_id })
-        })
+    //     .then( res => {
+    //         result = res
+    //         if ( !res ) res.status( 403 ).json({ error: 'create_user_error' })
+    //         else return UpdateSuscription(user, { payment_id: payment_id })
+    //     })
         
-        .then( res => {
-            result = res
-            if ( !res ) res.status( 403 ).json({ error: 'update_suscription_error' })
-            else return true
-        })
+    //     .then( res => {
+    //         result = res
+    //         if ( !res ) res.status( 403 ).json({ error: 'update_suscription_error' })
+    //         else return true
+    //     })
         
-        .catch( error => {
-            InvalidateToken( payment_token )
-            res.status( 500 ).json({ error: error.message })
-            return false
-        })
+    //     .catch( error => {
+    //         InvalidateToken( payment_token )
+    //         res.status( 500 ).json({ error: error.message })
+    //         return false
+    //     })
         
-        .finally(() => {
+    //     .finally(() => {
             
-            // Invalidando token
-            InvalidateToken( payment_token )
+    //         // Invalidando token
+    //         InvalidateToken( payment_token )
 
-            if ( !result ) {
-                //res.redirect( 303, `/${extension}`)
-                res.status( 403 ).json({ error: 'InvalidateToken' })
-                return false
-            }
+    //         if ( !result ) {
+    //             //res.redirect( 303, `/${extension}`)
+    //             res.status( 403 ).json({ error: 'InvalidateToken' })
+    //             return false
+    //         }
 
-            //res.redirect( 303, `/${extension}/thanks/${payment_id} `)  
-            res.status( 200 ).json({ error: 'valid' })
-            return true
+    //         //res.redirect( 303, `/${extension}/thanks/${payment_id} `)  
+    //         res.status( 200 ).json({ message: 'valid' })
+    //         return true
 
-        })
+    //     })
 
-    } 
+    // } 
     
-    else {
+    // else {
         
-        // Método no permitido
-        res.status( 405 ).json({ error: 'Método no permitido' })
+    //     // Método no permitido
+    //     res.status( 405 ).json({ error: 'Método no permitido' })
 
-    }
+    // }
 
 }
