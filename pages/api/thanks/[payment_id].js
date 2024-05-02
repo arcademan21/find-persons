@@ -169,7 +169,7 @@ const UpdateSuscription = async ( user, suscription ) => {
 export default function handler( req, res ) {
 
     const method = req.method
-    const user = JSON.parse( localStorage.getItem('user') )
+    //const user = JSON.parse( localStorage.getItem('user') )
     const payment_token = req.query.payment_id
     const payment_id = req.query.payment_id.split('-')[0]
     const signature = req.query.payment_id.split('-')[1]
@@ -185,8 +185,7 @@ export default function handler( req, res ) {
         res.status( 200 ).json({ 
             payment_id: payment_id, 
             payment_token: payment_token, 
-            signature: signature, 
-            user: user    
+            signature: signature
         })
 
         ExistsPayment( payment_id )
