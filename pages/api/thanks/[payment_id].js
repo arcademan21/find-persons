@@ -179,12 +179,6 @@ export default function handler( req, res ) {
     const extension = parts[2] === 'es' ? '' : parts[2]
     const user = JSON.parse(parts[3])
 
-    res.status(200).json({ 
-        message: 'TEST',
-        payment_id,
-        'email': user.user_email
-    })
-    
     ExistsPayment( payment_id )
     .then(paymentExists => {
         if (!paymentExists) throw new Error('invalid_payment')
@@ -196,7 +190,7 @@ export default function handler( req, res ) {
     })
     .then(userCreated => {
         if (!userCreated) throw new Error('create_user_error')
-        return UpdateSuscription(user, payment_id )
+        return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
         res.status(200).json({
