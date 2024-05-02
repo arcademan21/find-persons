@@ -120,8 +120,8 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
-        return res
-        //if( res.status === 'error' ) return false
+        //return res
+        if( res.status === 'error' ) return res
             
     } catch ( error ) {
         return false
