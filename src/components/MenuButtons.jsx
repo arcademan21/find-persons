@@ -111,7 +111,6 @@ const MenuButtons = () => {
               </button>
     
               <LogOutButton />
-
               <GetLanguageSwitcher />
               
             
