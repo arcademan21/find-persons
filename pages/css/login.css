@@ -1,0 +1,16 @@
+
+.form-check-label{
+    color: #4f515d;
+}
+
+@media screen and ( max-width: 768px ) {
+    
+    .content-login-form {
+        width: 100% !important;
+    }
+
+    #btn-login{
+        width: 100% !important;
+    }
+
+}

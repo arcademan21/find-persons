@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaUserPlus, FaEnvelope, FaLock } from 'react-icons/fa'
+import './css/login.css'
 
 const Login = ( ) => {
 
@@ -39,7 +40,6 @@ const Login = ( ) => {
             return false
         }
 
-        // Iniciando sesión con un usuario de firebase.
         signInWithEmailAndPassword( auth, email, password )
         .then(( userCredential ) => {
             // Signed in
@@ -56,8 +56,7 @@ const Login = ( ) => {
             })
 
         }).catch((error) => {
-            
-            // Validadndo errors de autenticacion de firebase            
+                      
             if ( error.code === 'auth/invalid-login-credentials') {
                 toast.error( 'El usuario no existe o la contraseña es incorrecta.' )
                 setError(true)
@@ -85,7 +84,7 @@ const Login = ( ) => {
 
     return (<>
         <div className="container-fluid h-100 wow fadeInUp">
-            <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75">
+            <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75 content-login-form">
 
                 <div className="d-flex shadow p-0 rounded2x">
                 <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 px-3 login-col">
@@ -109,10 +108,8 @@ const Login = ( ) => {
                     <span className="marked fs-6 m-auto">{language.subtitle}</span>
                     </h1>
                     
-
                     <div className="mx-1 mx-md-4 px-4 register-form" >
                     
-
                     <div className="d-flex flex-row align-items-center mb-2">
                         <div className="form-outline flex-fill mb-0">
 
@@ -154,23 +151,6 @@ const Login = ( ) => {
                         </div>
                     </div>
 
-                    <div className="form-check d-flex justify-content-center mb-4">
-                        <input
-                        className="form-check-input me-2"
-                        type="checkbox"
-                        value=""
-                        id="register-terms"
-                        />
-                        <label
-                        className="form-check-label"
-                        htmlFor="register-terms"
-                        >
-                        {language.accept_the}
-                        <Link href="/terms"> {language.terms_and_conditions}</Link>
-                        {language.of_service}
-                        </label>
-                    </div>
-
                     <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-2">
                         <button className="btn btn-primary btn-lg" id='btn-login' onClick={loginUser}>
                             {language.init_session}
@@ -195,6 +175,7 @@ const Login = ( ) => {
                 <div className="col-md-10 col-lg-6 col-xl-7 d-flex order-1 order-lg-2 col-register">
                     <div className="d-flex flex-column m-auto">
                     <div className="d-flex flex-column" id="image-register">
+                       
                         <Image
                             src="/images/bg_image_2.png"
                             className="img-fluid w-75 m-auto"
