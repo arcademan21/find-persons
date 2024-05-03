@@ -289,7 +289,7 @@ const Results = () => {
              
             <div className="results-container">
                 <div className="container">
-                    <div className="row mb-5 shadow p-0 rounded2x">
+                    <div className="row mb-5 shadow px-3 rounded2x">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 info-results">
                         <div className="d-flex px-3 flex-column">
                         <h2 className="text-center text-secondary title-section mt-4">

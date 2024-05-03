@@ -111,5 +111,13 @@ small {
         border: none !important;
         box-shadow: none !important;
     }
+
+    .wrap-results-form{
+        background: #aea2ea;
+        border-radius: 10px;
+        min-height: 39.4rem;
+    }
+
+
     
 }
