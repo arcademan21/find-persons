@@ -44,9 +44,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 50%;
-    justify-content: space-between;
-    margin: auto 0;
+    height: 361px;
+    justify-content: center;
+    margin: 5rem 0;
 }
 
 .menu-responsive-items a{

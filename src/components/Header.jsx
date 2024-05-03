@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light navbar-float p-0">
-        <div className="d-flex w-100 justify-content-between px-5">
+        <div className="d-flex w-100 justify-content-between px-2">
           <div className="d-flex content-link-logo">
             <a href={extension} className="navbar-brand link-logo ">
               <Image src="/images/logo_find-persons.png" width={150} height={60} alt="logo" />
