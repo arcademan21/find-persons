@@ -76,6 +76,7 @@ const Search = () => {
             setTextSearchInfo(listOfSearchs[count])
     
             if ( count === 5 ) {
+                
                 clearInterval(time)
                 setStateIcon(false)
                 setAwaitText('')
@@ -83,9 +84,9 @@ const Search = () => {
                 GetSuscription( user ).then( suscripted => {
                     
                     // Redirect 
-                    if( !user ) window.location.replace('/register')
-                    else if( !suscripted ) window.location.replace('/payment')
-                    else window.location.replace('/results')
+                    //if( !user ) window.location.replace('/register')
+                    //else if( !suscripted ) window.location.replace('/payment')
+                    //else window.location.replace('/results')
         
                 })
                 
@@ -108,7 +109,7 @@ const Search = () => {
 
     return (<>
         
-        <div className="container-fluid py-5" >
+        <div className="container py-5" >
         
             <div className="row content-search-map-anime my-3 align-content-center" >
                 
@@ -124,15 +125,15 @@ const Search = () => {
                         
                         <h1 className="title-section my-4">
                             <span data-section="search_page" data-value="we_searching">
-                            {language.we_searching}
+                                { language.we_searching }
                             </span> 
-                            <span id="search" className="marked"> {search} </span>
+                            <span id="search" className="marked"> { search } </span>
                             <span data-section="search_page" data-value="in_the" >
-                            {language.in_the}
+                                { language.in_the }
                             </span>
                         </h1>
 
-                        <div className={`wrapper ${activeClass}`}>
+                        <div className={`wrapper ${ activeClass }`}>
 
                             { awaitText ? awaitText : 
                                 <div className="bg">
@@ -143,14 +144,11 @@ const Search = () => {
                         </div>
             
                         <h1 className="text-center my-4 fs-3">
-                            <b id="text-search-info">{text_search_info}</b>
+                            <b id="text-search-info">{ text_search_info }</b>
                         </h1>
 
                     </div>
                         
-
-
-
                     {/* <div className="content-checks-animate mb-3">
                         
                         <div className="container text-center">
