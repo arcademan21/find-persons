@@ -5,13 +5,6 @@ import $ from 'jquery'
 import './css/responsive-menu.css'
 import { FaTimes, FaBars } from 'react-icons/fa'
 
-// import { usePathname } from 'next/navigation'
-// const pathname = usePathname()
-//     const extension = localStorage.getItem('extencion')
-// const [isHome, setIsHome ] = useState( null )
-// if( extension === '/es' ) setIsHome(true)
-//         else if( pathname === extension ) setIsHome(true) 
-
 const ResponsiveMenu = () => {
     
     const [ menu, setMenu ] = useState(false)

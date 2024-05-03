@@ -8,14 +8,20 @@ import Image from "next/image"
 
 const Header = () => {
 
-
+  const pathname = usePathname()
   const [extension, setExtension] = useState(localStorage.getItem('extencion')) 
+  const [isHome, setIsHome ] = useState( null )
+
+  useEffect(() => {
+      if( extension === '/es' ) setIsHome(true)
+      else if( pathname === extension ) setIsHome(true) 
+  }) 
 
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light navbar-float p-0">
         <div className="d-flex w-100 justify-content-between px-5">
-          <div className="d-flex w-25 content-link-logo">
+          <div className="d-flex content-link-logo">
             <a href={extension} className="navbar-brand link-logo ">
               <Image src="/images/logo_find-persons.png" width={150} height={60} alt="logo" />
             </a>
@@ -30,10 +36,13 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="d-flex justify-content-end d-lg-none d-xl-none h-75 my-2 align-self-center">
-            <LanguageSwitcher />
-            <ResponsiveMenu />
-          </div>
+          {isHome ? 
+              <div className="d-flex justify-content-end d-lg-none d-xl-none h-75 my-2 align-self-center">
+                <LanguageSwitcher />
+                <ResponsiveMenu />
+              </div>
+          : null }
+
         </div>
       </nav>
     </header>
