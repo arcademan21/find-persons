@@ -6,7 +6,7 @@ const Profile = () => {
     const [userData, setUserData] = useState( null )
     const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
     const language = JSON.parse(localStorage.getItem('language_file')).profile
-    const laguage_toast = JSON.parse(localStorage.getItem('language_file').toast)
+    const laguage_toast = JSON.parse(localStorage.getItem('language_file')).toast
 
     const getUserData = async ( email ) => {
 
@@ -89,14 +89,7 @@ const Profile = () => {
 
     }, [])
 
-    
-
-
     return ( <>
-
-
-
-
 
         <div className="profile-container">
             <div className="container py-5 vh-100">
@@ -113,7 +106,6 @@ const Profile = () => {
                                 </a>
                             </div>
                             :
-                        
                             <>
                             <h2>
                                 { language.my_account_title }
@@ -153,7 +145,7 @@ const Profile = () => {
                                 { userData && userData.suscription_data.status !== 'canceled' ?
                                     <>
                                         <p>
-                                            {language.paragraph_1}{ process.env.NEXT_PUBLIC_CONTACT_EMAIL }{ language.paragraph_1b}
+                                            { language.paragraph_1 }{ process.env.NEXT_PUBLIC_CONTACT_EMAIL }{ language.paragraph_1b}
                                         </p>
                                         <button className="btn btn-secondary"
                                             onClick={ async ()=>{
@@ -170,8 +162,6 @@ const Profile = () => {
                                                     success_message().then( () => {
                                                         window.location.replace( '/' )
                                                     })
-
-                                                    
 
                                                 }
                                             } }
