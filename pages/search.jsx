@@ -113,14 +113,13 @@ const Search = () => {
         
             <div className="row content-search-map-anime my-3 align-content-center" >
                 
-
-                <div className="col-md-6">
+                <div className="col-sm-12 col-md-6 col-lg-6">
                     <div className="animate_search">
-                        <Image src="/images/mapa_anime.gif" className="rounded" alt="" width={100} height={100} layout="responsive" />
+                        <Image src="/images/mapa_anime.gif" className="rounded " alt="" width={100} height={100} layout="responsive" />
                     </div>
                 </div>
 
-                <div className="col-md-6" >
+                <div className="col-sm-12 col-md-6 col-lg-6" >
                     <div className="percent-bar-content">
                         
                         <h1 className="title-section my-4">
@@ -133,7 +132,7 @@ const Search = () => {
                             </span>
                         </h1>
 
-                        <div className={`wrapper ${ activeClass }`}>
+                        <div className={`wrapper w-100 ${ activeClass }`}>
 
                             { awaitText ? awaitText : 
                                 <div className="bg">
@@ -149,7 +148,7 @@ const Search = () => {
 
                     </div>
                         
-                    {/* <div className="content-checks-animate mb-3">
+                    <div className="content-checks-animate mb-3">
                         
                         <div className="container text-center">
                             
@@ -189,7 +188,7 @@ const Search = () => {
 
                         </div>
                     
-                    </div> */}
+                    </div>
         
                 </div>
 
