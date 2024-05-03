@@ -910,18 +910,14 @@
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     height: 11rem;
 }
 
 .item-check {
     margin: 0 10px;
-    background: #6c55f9;
-    padding: 1rem;
     border-radius: 1rem;
-    color: white;
     font-size: 1.2rem !important;
-    max-height: 4rem;
 }
 
 .item-check i {
@@ -945,8 +941,14 @@
 }
 
 @media (max-width: 768px) {
+    
     .content-search-map-anime, .checks-animate {
         flex-direction: column-reverse;
+        align-content: center;
+    }
+
+    .item-check {
+        text-align: left;
     }
     
 }

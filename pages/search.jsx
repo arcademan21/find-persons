@@ -111,7 +111,7 @@ const Search = () => {
         
         <div className="container py-5" >
         
-            <div className="row content-search-map-anime my-3 align-content-center" >
+            <div className="row content-search-map-anime my-3 mt-5 align-content-center" >
                 
                 <div className="col-sm-12 col-md-6 col-lg-6">
                     <div className="animate_search">
