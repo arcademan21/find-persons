@@ -74,49 +74,46 @@ const MenuButtons = () => {
     }, [state, pathname])
 
     return (<>
-      {state.user ? (
-        <>
-          {!isHome ? 
-              
-            <div className="d-flex">
-                      
-                <button className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3" onClick={ () => router.back() }>
-                    <FaArrowCircleLeft className="fs-5 mx-1" />
-                    <span className="marked">
-                      {language.nav_bar.back}
-                    </span>
-                </button>
-                
-            </div> 
+      
+      {state.user ? 
 
-          : (<>
+        (<>
+          {isHome ?
               
-              <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
-                <FaEnvelope className="fs-6 mx-1" />
-                <span data-section="nav_bar" data-value="contact">
-                  {language.nav_bar.contact}
-                </span>
-              </button>
-    
-              <button onClick={handle_profile} className="btn btn-outline title-section py-2 px-3 rounded-pill decoration-none mx-3">
-                <FaUser className="fs-6 mx-1" />
-                <b className='marked'>
-                  <span data-section="nav_bar" data-value="profile">
-                    <b className='marked'>
-                      {language.nav_bar.profile}
-                    </b>
-                    
+              (<>
+                <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
+                  <FaEnvelope className="fs-6 mx-1" />
+                  <span data-section="nav_bar" data-value="contact">
+                    {language.nav_bar.contact}
                   </span>
-                </b>
-              </button>
-    
-              <LogOutButton />
-              <GetLanguageSwitcher />
-              
+                </button>
+      
+                <button onClick={handle_profile} className="btn btn-outline title-section py-2 px-3 rounded-pill decoration-none mx-3">
+                  <FaUser className="fs-6 mx-1" />
+                  <b className='marked'>
+                    <span data-section="nav_bar" data-value="profile">
+                      <b className='marked'>
+                        {language.nav_bar.profile}
+                      </b>         
+                    </span>
+                  </b>
+                </button>
+      
+                <LogOutButton />
+                <GetLanguageSwitcher />
+                
+              </>)
             
-          </>)}
-        </>
-      ) : (
+
+
+          : null }
+          
+        </> ) 
+        
+        
+        
+        : (
+
         <>
           
           { isHome ? 
@@ -145,9 +142,9 @@ const MenuButtons = () => {
               
 
             </>) 
-            : 
+            : null
             
-            <div className="d-flex">
+            {/* <div className="d-flex">
                     
                 <button className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3" onClick={ () => router.back() }>
                     <FaArrowCircleLeft className="fs-5 mx-1" />
@@ -156,7 +153,7 @@ const MenuButtons = () => {
                     </span>
                 </button>
                 
-            </div> 
+            </div>  */}
 
 
 
