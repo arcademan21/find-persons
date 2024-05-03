@@ -122,6 +122,7 @@ const MenuButtons = () => {
           
           { isHome ? 
             (<> 
+              
               <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
                   <FaEnvelope className="fs-6 mx-1" />
                   <span data-section="nav_bar" data-value="contact">
@@ -142,6 +143,7 @@ const MenuButtons = () => {
               </button>
 
               <GetLanguageSwitcher />
+              
 
             </>) 
             : 
