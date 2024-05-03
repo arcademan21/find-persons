@@ -144,16 +144,7 @@ const MenuButtons = () => {
             </>) 
             : null
             
-            {/* <div className="d-flex">
-                    
-                <button className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3" onClick={ () => router.back() }>
-                    <FaArrowCircleLeft className="fs-5 mx-1" />
-                    <span className="marked">
-                      {language.nav_bar.back}
-                    </span>
-                </button>
-                
-            </div>  */}
+            
 
 
 
