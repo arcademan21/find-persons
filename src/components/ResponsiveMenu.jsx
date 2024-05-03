@@ -19,7 +19,7 @@ const ResponsiveMenu = () => {
             setMenu( !menu )
         })
 
-        $(document).on('click', '.close-responsive-btn', () => {
+        $(document).on('click', '.close-responsive-btn, .menu-contact-btn', () => {
             $(menu).removeClass('active')
             document.body.style.overflow = 'auto'
             setMenu( !menu )

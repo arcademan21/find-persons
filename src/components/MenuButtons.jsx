@@ -32,33 +32,32 @@ const MenuButtons = () => {
     }
 
     const handle_register = () => {
-      if( extension !== null && extension !== '' && extension !== '/'){
-        window.location.replace(`${extension}/register`)
-      }
-      else {
-        window.location.replace('/register')
-      }
+        if( extension !== null && extension !== '' && extension !== '/'){
+          window.location.replace(`${extension}/register`)
+        }
+        else {
+          window.location.replace('/register')
+        }
     }
 
     const handle_login = () => {
       if( extension !== null && extension !== '' && extension !== '/'){
-        window.location.replace(`${extension}/login`)
+          window.location.replace(`${extension}/login`)
       }
       else {
-        window.location.replace('/login')
+          window.location.replace('/login')
       }
     }
 
     const handle_profile = () => {
       if( extension !== null && extension !== '' && extension !== '/'){
-        window.location.replace(`${extension}/profile`)
+          window.location.replace(`${extension}/profile`)
       }
       else {
-        window.location.replace('/profile')
+          window.location.replace('/profile')
       }
     }
   
-
     useEffect(() => {
         
         if(  window.location.hash === '#contact' ){
@@ -81,7 +80,7 @@ const MenuButtons = () => {
           {isHome ?
               
               (<>
-                <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none m-3">
+                <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none m-3 menu-contact-btn" >
                   <FaEnvelope className="fs-6 mx-1" />
                   <span data-section="nav_bar" data-value="contact">
                     {language.nav_bar.contact}
@@ -119,7 +118,7 @@ const MenuButtons = () => {
           { isHome ? 
             (<> 
               
-              <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none m-3">
+              <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none m-3 menu-contact-btn" >
                   <FaEnvelope className="fs-6 mx-1" />
                   <span data-section="nav_bar" data-value="contact">
                     {language.nav_bar.contact}
