@@ -34,7 +34,7 @@ export const LogOutButton = () => {
     
     return (<>
 
-        <button className="btn btn-outline py-2 px-3 rounded-pill" onClick={logOut}>
+        <button className="btn btn-outline py-2 px-3 rounded-pill m-3" onClick={logOut}>
             <span data-section="nav_bar" data-value="logout">
                 Cerrar Sesión 
             </span>
