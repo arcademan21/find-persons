@@ -78,22 +78,16 @@ const MenuButtons = () => {
         <>
           {!isHome ? 
               
-              (<>
-              { !activeMenu ? (
-                <div className="d-flex">
+            <div className="d-flex">
                       
-                      <button className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3" onClick={ () => router.back() }>
-                          <FaArrowCircleLeft className="fs-5 mx-1" />
-                          <span className="marked">
-                            {language.nav_bar.back}
-                          </span>
-                      </button>
-                      
-                  </div> 
-                  )
-                : null
-              }
-              </>)
+                <button className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3" onClick={ () => router.back() }>
+                    <FaArrowCircleLeft className="fs-5 mx-1" />
+                    <span className="marked">
+                      {language.nav_bar.back}
+                    </span>
+                </button>
+                
+            </div> 
 
           : (<>
               
@@ -139,7 +133,6 @@ const MenuButtons = () => {
                 <FaUserPlus className="fs-5 mx-1" />
                 <span data-section="nav_bar" data-value="register">
                     {language.nav_bar.register}
-                    
                 </span>
               </button>
       
@@ -153,22 +146,16 @@ const MenuButtons = () => {
             </>) 
             : 
             
-            (<>
-            { !activeMenu ? (
-              <div className="d-flex">
+            <div className="d-flex">
                     
-                    <button className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3" onClick={ () => router.back() }>
-                        <FaArrowCircleLeft className="fs-5 mx-1" />
-                        <span className="marked">
-                          {language.nav_bar.back}
-                        </span>
-                    </button>
-                    
-                </div> 
-                )
-              : null
-            }
-            </>)
+                <button className="btn title-section btn-outline py-2 px-3 rounded-pill decoration-none mx-3" onClick={ () => router.back() }>
+                    <FaArrowCircleLeft className="fs-5 mx-1" />
+                    <span className="marked">
+                      {language.nav_bar.back}
+                    </span>
+                </button>
+                
+            </div> 
 
 
 
