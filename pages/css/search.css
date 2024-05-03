@@ -13,7 +13,7 @@
 
 .animate_search{
     display: flex;
-    width: 610px;
+    width: 100%;
     height: 294px;
     margin: auto;
 }
@@ -943,7 +943,6 @@
     min-height: 25rem;
     margin-top: 1rem;
     background: #fdfcfd;
-    padding: 0 15rem;
 }
 
 @media (max-width: 768px) {
