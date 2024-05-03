@@ -48,7 +48,13 @@ const Search = () => {
     const [text_search_info, setTextSearchInfo] = useState('')
     const [awaitText, setAwaitText] = useState('')
     const [activeClass, setActiveClass] = useState('')
-    const [stateIcon, setStateIcon] = useState(true)
+    const [stateIcon1, setStateIcon1] = useState(true)
+    const [stateIcon2, setStateIcon2] = useState(true)
+    const [stateIcon3, setStateIcon3] = useState(true)
+    const [stateIcon4, setStateIcon4] = useState(true)
+    const [stateIcon5, setStateIcon5] = useState(true)
+    const [stateIcon6, setStateIcon6] = useState(true)
+
     const [listOfSearchs, setListOfSearchs] = useState([])
 
     useEffect(() => {
@@ -78,7 +84,7 @@ const Search = () => {
             if ( count === 5 ) {
                 
                 clearInterval(time)
-                setStateIcon(false)
+                
                 setAwaitText('')
                 setActiveClass('active')
                 GetSuscription( user ).then( suscripted => {
@@ -95,11 +101,14 @@ const Search = () => {
             count++
     
             random = Math.floor( Math.random() * count ) + 0
-            random_item = document.getElementById( random )
     
-            if ( random_item ) {
-                random_item.classList.remove('fa-spinner')
-                random_item.classList.add('fa-check')
+            switch ( random ) {
+                case 0: setStateIcon1(false); break;
+                case 1: setStateIcon2(false); break;
+                case 2: setStateIcon3(false); break;
+                case 3: setStateIcon4(false); break;
+                case 4: setStateIcon5(false); break;
+                case 5: setStateIcon6(false); break;
             }
 
         }, 5000)
@@ -155,32 +164,32 @@ const Search = () => {
                             <ul className="checks-animate">
                     
                                 <li className="item-check">
-                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
+                                    {stateIcon1 ? <FaSpinner className="mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="socials">{listOfSearchs[0]}</b>
                                 </li>
 
                                 <li className="item-check">
-                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
+                                    {stateIcon2 ? <FaSpinner className="mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="address">{listOfSearchs[1]}</b>
                                 </li>
 
                                 <li className="item-check">
-                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
+                                    {stateIcon3 ? <FaSpinner className="mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="telephone">{listOfSearchs[2]}</b>
                                 </li>
 
                                 <li className="item-check">
-                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
+                                    {stateIcon4 ? <FaSpinner className="mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="email">{listOfSearchs[3]}</b>
                                 </li>
 
                                 <li className="item-check">
-                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
+                                    {stateIcon5 ? <FaSpinner className="mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="news">{listOfSearchs[4]}</b>
                                 </li>
 
                                 <li className="item-check">
-                                    {stateIcon ? <FaSpinner className="fa-spin mx-2" /> : <FaCheck className="mx-2" />}
+                                    {stateIcon6 ? <FaSpinner className="mx-2" /> : <FaCheck className="mx-2" />}
                                     <b data-section="search_page" data-value="histories">{listOfSearchs[5]}</b>
                                 </li>
 
