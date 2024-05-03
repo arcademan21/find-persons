@@ -25,6 +25,7 @@ const Footer = () => {
         <footer className="page-footer">
             
             <div className="container">
+                
                 <div className="row align-content-center justify-content-center mb-5 flex-column" data-section="footer" data-value="html">
                 
                     <div className="col-lg-4 py-3 d-flex flex-column align-content-center  align-items-center justify-content-center align-self-center">
@@ -37,40 +38,40 @@ const Footer = () => {
                         </p>
 
                     </div>
-                <div className="col-md-8 col-lg-8 py-3 my-4">
+                    <div className="col-md-8 col-lg-8 py-3 my-4">
+                        
+                        <h5 className="text-center"> {language.importat_links}
+                        </h5>
+                        <ul className="footer-menu d-flex justify-content-center">
+                            <li>
+                            <a href={`${extension}policies`}>
+                                {language.privacy_policies} 
+                            </a>
+                            </li>
+                            <li>
+                            <a href={`${extension}cookies`}>
+                                {language.cookies_policies}
+                            </a>
+                            </li>
+                            <li>
+                            <a href={`${extension}terms`}>
+                                {language.terms_and_conditions}  
+                            </a> 
+                            </li>
+                            <li>
+                            <a href={`${extension}legal`}>
+                                {language.legal_loan}
+                            </a> </li>
+                            <li><a href={`${extension}right-forgotem`}>
+                                {language.right_forgotem}
+                            </a>  </li> 
+                        </ul>
                     
-                    <h5 className="text-center"> {language.importat_links}
-                    </h5>
-                    <ul className="footer-menu d-flex justify-content-center">
-                        <li>
-                        <a href={`${extension}policies`}>
-                            {language.privacy_policies} 
-                        </a>
-                        </li>
-                        <li>
-                        <a href={`${extension}cookies`}>
-                            {language.cookies_policies}
-                        </a>
-                        </li>
-                        <li>
-                        <a href={`${extension}terms`}>
-                            {language.terms_and_conditions}  
-                        </a> 
-                        </li>
-                        <li>
-                        <a href={`${extension}legal`}>
-                            {language.legal_loan}
-                        </a> </li>
-                        <li><a href={`${extension}right-forgotem`}>
-                            {language.right_forgotem}
-                        </a>  </li> 
-                    </ul>
-                
-                </div>
-                
-                <div className="col-lg-3 py-3"></div>
+                    </div>
+                    
+                    <div className="col-lg-3 py-3"></div>
 
-            </div>
+                </div>
 
                 <div className="row justify-content-center">
                     

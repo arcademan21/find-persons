@@ -1,16 +1,18 @@
 'use client'
-import { useEffect, useState, useContext, useLayoutEffect } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
-import GlobalContext from '@/context/GlobalContext'
 import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt, FaGoogle } from 'react-icons/fa'
+import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt, FaGoogle } from 'react-icons/fa'
+import 'react-toastify/dist/ReactToastify.css'
+import './css/register.css'
 
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
+    
     try{
 
         // Fetch to endpoint for update suscription
@@ -205,7 +207,7 @@ const Register = () => {
     return (<>
         
         <div className="container-fluid h-100 wow fadeInUp">
-                <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75">
+                <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75 content-register-form">
                     
                     <div className="col-sm-12 d-flex shadow p-0 rounded2x w-100">
                         
