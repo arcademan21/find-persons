@@ -93,7 +93,7 @@ const Profile = () => {
 
         <div className="profile-container">
             <div className="container py-5 vh-100">
-                <div className="row py-5">
+                <div className="row py-5 justify-content-center">
                     
                     {/* USER INFO */}
                     <div className="col-md-6">
