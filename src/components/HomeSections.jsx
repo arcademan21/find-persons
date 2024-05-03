@@ -151,7 +151,7 @@ const HomeSections = () => {
                     </div>
                     </div>
 
-                </div>info_image
+                </div>
             </div> 
         </div> 
 
