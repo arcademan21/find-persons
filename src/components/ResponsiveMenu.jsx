@@ -5,11 +5,21 @@ import $ from 'jquery'
 import './css/responsive-menu.css'
 import { FaTimes, FaBars } from 'react-icons/fa'
 
+import { usePathname } from 'next/navigation'
+
+
+
 const ResponsiveMenu = () => {
     
     const [ menu, setMenu ] = useState(false)
+    const pathname = usePathname()
+    const extension = localStorage.getItem('extencion')
+    const [isHome, setIsHome ] = useState( null )
 
     useEffect(() => {
+
+        if( extension === '/es' ) setIsHome(true)
+        else if( pathname === extension ) setIsHome(true) 
         
         const menu = $('.menu-responsive')
 
@@ -29,28 +39,35 @@ const ResponsiveMenu = () => {
 
     return (<>
         
-        <div className='menu-responsive-button'>
-            <button className="navbar-toggler menu-responsive-btn" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <FaBars />
-            </button>
-        </div>
-        
-        <div className="menu-responsive">
+        {isHome ?
+            (<>
+                <div className='menu-responsive-button'>
+                    <button className="navbar-toggler menu-responsive-btn" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <FaBars />
+                    </button>
+                </div>
+                
+                <div className="menu-responsive">
+                    
+                    <div className="close-responsive-btn">
+                        <FaTimes />
+                    </div>
+
+
+                    <div className="menu-responsive-items">
+                        <MenuButtons />
+                    </div>
+
+                </div>
+            </>)
             
-            <div className="close-responsive-btn">
-                
-                <FaTimes />
-                
-            </div>
 
-
-            <div className="menu-responsive-items">
-                <MenuButtons />
-            </div>
-
-        </div>
+        : null
+        }
 
     </>)
+
+
 
 }
 
