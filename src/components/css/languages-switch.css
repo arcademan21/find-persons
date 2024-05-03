@@ -93,6 +93,13 @@
     opacity: 0.7;
 }
 
+.menu-languages-item-holder{
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 @media screen and (max-width: 768px) {
     .menu-languages-button{
         text-align: center;
@@ -106,4 +113,7 @@
         width: 100%;
         background: white;
     }
+
+    
+
 }
