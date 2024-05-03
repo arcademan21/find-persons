@@ -81,14 +81,14 @@ const MenuButtons = () => {
           {isHome ?
               
               (<>
-                <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none mx-3">
+                <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none m-3">
                   <FaEnvelope className="fs-6 mx-1" />
                   <span data-section="nav_bar" data-value="contact">
                     {language.nav_bar.contact}
                   </span>
                 </button>
       
-                <button onClick={handle_profile} className="btn btn-outline title-section py-2 px-3 rounded-pill decoration-none mx-3">
+                <button onClick={handle_profile} className="btn btn-outline title-section py-2 px-3 rounded-pill decoration-none m-3">
                   <FaUser className="fs-6 mx-1" />
                   <b className='marked'>
                     <span data-section="nav_bar" data-value="profile">
