@@ -90,9 +90,9 @@ const Search = () => {
                 GetSuscription( user ).then( suscripted => {
                     
                     // Redirect 
-                    //if( !user ) window.location.replace('/register')
-                    //else if( !suscripted ) window.location.replace('/payment')
-                    //else window.location.replace('/results')
+                    if( !user ) window.location.replace('/register')
+                    else if( !suscripted ) window.location.replace('/payment')
+                    else window.location.replace('/results')
         
                 })
                 
