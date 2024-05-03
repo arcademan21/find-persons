@@ -122,7 +122,7 @@ const Search = () => {
                 <div className="col-sm-12 col-md-6 col-lg-6" >
                     <div className="percent-bar-content">
                         
-                        <h1 className="title-section my-4">
+                        <h3 className="title-section my-4">
                             <span data-section="search_page" data-value="we_searching">
                                 { language.we_searching }
                             </span> 
@@ -130,7 +130,7 @@ const Search = () => {
                             <span data-section="search_page" data-value="in_the" >
                                 { language.in_the }
                             </span>
-                        </h1>
+                        </h3>
 
                         <div className={`wrapper w-100 ${ activeClass }`}>
 
