@@ -5,11 +5,12 @@ import LanguageSwitcher from "./LanguageSwitcher"
 import { useEffect, useState } from "react"
 import "./css/header.css"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 
 const Header = () => {
 
   const pathname = usePathname()
-  const [extension, setExtension] = useState(localStorage.getItem('extencion')) 
+  const extension = localStorage.getItem('extencion')
   const [isHome, setIsHome ] = useState( null )
 
   useEffect(() => {
