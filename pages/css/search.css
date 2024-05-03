@@ -948,6 +948,10 @@
     .item-check {
         text-align: left;
     }
+
+    .title-searching{
+        text-align: center;
+    }
     
 }
 

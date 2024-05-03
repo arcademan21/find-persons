@@ -131,7 +131,7 @@ const Search = () => {
                 <div className="col-sm-12 col-md-6 col-lg-6" >
                     <div className="percent-bar-content">
                         
-                        <h3 className="title-section my-4">
+                        <h3 className="title-section my-4 title-searching">
                             <span data-section="search_page" data-value="we_searching">
                                 { language.we_searching }
                             </span> 
