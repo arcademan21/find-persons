@@ -36,7 +36,7 @@
     left: 80%;
     top: 100%;
     position: absolute;
-    background: white;
+    background: transparent;
 }
 
 .close-languages-btn{
@@ -101,9 +101,9 @@
     }
 
     .menu-languages.active{
-        box-shadow: 0px 1px 6px 0px #00000029 inset;
         left: 0;
-        min-height: 38rem;
+        min-height: 552px;
         width: 100%;
+        background: white;
     }
 }
