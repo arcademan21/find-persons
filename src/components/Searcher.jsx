@@ -128,7 +128,7 @@ const Searcher = () => {
     }, [setType, option, language])
 
     return (<>
-        <div className="col-xs-6 col-sm-6 col-md-12 col-lg-6 mx-auto my-5 wow fadeInUp d-flex flex-column h-100 py-sm-5 justify-content-center content-searcher">
+        <div className="col-xs-6 col-sm-6 col-md-12 col-lg-6 mx-auto my-4 wow fadeInUp d-flex flex-column h-100 py-sm-5 justify-content-center content-searcher">
             <h1 className="mb-4 fs-1 text-center title-section" >
                 <span>{language.title}</span><br/>
                 <span className="marked mx-2">
