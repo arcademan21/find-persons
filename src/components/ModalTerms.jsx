@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import {toast} from 'react-toastify'
 
 const ModalTerms = () => {
@@ -7,15 +7,8 @@ const ModalTerms = () => {
     const language = JSON.parse(localStorage.getItem('language_file')).modal_terms
     let lang = localStorage.getItem('language')
 
-    const acceptBtnRef = useRef()
-    const termsCheckRef = useRef()
-
     if( lang === 'es' ) lang = ''
 
-    const handle_terms = (e) => {
-        if( e.target.checked ) acceptBtnRef.current.removeAttribute('disabled')
-        else acceptBtnRef.current.setAttribute('disabled', true)
-    }
 
     const message_terms_error = () => {
         toast.error(language.error_terms_message)
@@ -24,13 +17,7 @@ const ModalTerms = () => {
 
     const handle_acept_terms = ( e ) => {
         
-        debugger
         const terms_box = document.getElementById('termsCheck')
-
-        if( e.getAttribute('disabled') ) {
-            terms_box.checked = false
-            return message_terms_error()
-        }
 
         if( terms_box.checked ) {
             document.getElementById('termsModal').remove()
@@ -91,19 +78,19 @@ const ModalTerms = () => {
                     
                     <div className="modal-footer justify-content-center">
                         <div className="form-check">
-                            <input ref={termsCheckRef} type="checkbox" className="form-check-input" id="termsCheck" onChange={handle_terms} />
+                            <input type="checkbox" className="form-check-input" id="termsCheck" />
                             <label className="form-check-label ml-4" for="termsCheck">
                                 <a href={`${lang}/terms`}>
                                     {language.checkbox}
                                 </a>
                             </label>
                         </div>
-                        <button ref={acceptBtnRef} type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" onClick={
+                        <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" onClick={
                             ( e ) => {
-                                console.log( 'Test' )
+                                
                                 handle_acept_terms( e.currentTarget )
                             }
-                        } disabled >
+                        }  >
                             { language.button }
                         </button>
                     </div>
