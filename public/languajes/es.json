@@ -572,7 +572,8 @@
         "paragraph_4": "En cuanto a las condiciones de venta del servicio: al marcar esta casilla, usted acepta que está accediendo al servicio utilizando un período de prueba de 24 horas por un precio de 0.60€. Transcurrido este tiempo, si no cancela la cuenta, su suscripción al servicio será mensual por un importe de 49.90€ que se cargará al finalizar el periodo de prueba y se renovará automáticamente por el mismo periodo de tiempo (mensual, cada 4 semanas) hasta su terminación. A menos que cancele su suscripción, usted nos autoriza a cargar la cuota de suscripción mensual correspondiente en su método de pago.",
         "paragraph_5": "Por favor, no marque esta casilla si no está de acuerdo con estos términos.",
         "button": "Aceptar",
-        "checkbox": "Acepto los términos y condiciones"
+        "checkbox": "Acepto los términos y condiciones",
+        "error_terms_message": "Debes aceptar los terminos y condiciones del servicio."
     }
 
 

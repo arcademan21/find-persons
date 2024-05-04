@@ -1,11 +1,40 @@
 'use client'
 import { useEffect } from "react";
 import Link from 'next/link'
+import {toast} from 'react-toastify'
 
 const ModalTerms = () => {
 
     const language = JSON.parse(localStorage.getItem('language_file')).modal_terms
     const extension = localStorage.getItem('extencion') 
+
+    const handle_terms = (e) => {
+        if( e.target.checked ) document.getElementById('acceptBtn').removeAttribute('disabled')
+        else document.getElementById('acceptBtn').setAttribute('disabled', true)
+    }
+
+    const message_terms_error = () => {
+        toast.error(language.error_terms_message)
+        return false
+    }
+
+    const handle_acept_terms = (e) => {
+        const terms_box = document.getElementById('termsCheck')
+
+        if( e.target.getAttribute('disabled') ) {
+            terms_box.checked = false
+            return message_terms_error()
+        }
+
+        if( terms_box.checked ) {
+            document.getElementById('termsModal').remove()
+        }
+
+        else {
+            return message_terms_error()
+        }
+
+    }               
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -59,17 +88,15 @@ const ModalTerms = () => {
                     
                     <div className="modal-footer justify-content-center">
                         <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="termsCheck" onChange={(e) => {
-                                if( e.target.checked ) document.getElementById('acceptBtn').removeAttribute('disabled')
-                                else document.getElementById('acceptBtn').setAttribute('disabled', true)
-                            }} />
+                            <input type="checkbox" className="form-check-input" id="termsCheck" onChange={handle_terms} />
                             <label className="form-check-label ml-4" for="termsCheck">
                                 <Link href={`/${extension}/terms`}>
                                     {language.checkbox}
                                 </Link>
                             </label>
                         </div>
-                        <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" disabled>
+                        <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" onClick={handle_acept_terms}
+                        disabled>
                             {language.button}
                         </button>
                     </div>
