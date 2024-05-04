@@ -113,7 +113,6 @@ small {
     .content-payment-form{
         border-radius: 10px;
         margin-bottom: 10px;
-        background-color: transparent;
         border: none;
     }
 
@@ -144,9 +143,8 @@ small {
     }
 
     .secure-icons-images{
-        height: 2.3rem;
-        justify-content: normal;
-        width: 19rem;
+        height: 3rem;
+        justify-content: space-around;
         margin: auto;
         padding-top: 1rem;
     }
@@ -155,6 +153,10 @@ small {
         display: flex;
         width: 11.6rem;
         margin: auto;
+    }
+
+    #tefpayBox {
+        width: 332px;
     }
     
 }
