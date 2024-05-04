@@ -172,8 +172,7 @@ const Payment = () => {
                                     </span>
                                 </h2>
                                 <p className="text-secondary title-section m-auto">
-                                    <FaLock className="fa-2x text-primary" />
-
+                                    <FaLock className="fa-2x text-primary" style={{fontSize: '2rem'}} />
                                     <br/>
                                     {language.secure_payment_description}
                                     <br/>
