@@ -9,6 +9,14 @@ const ModalTerms = () => {
 
     if( lang === 'es' ) lang = ''
 
+    const handle_change_terms_box = ( e ) => {
+        const error_message = document.querySelector('.error_message')
+        if( e.currentTarget.checked ) {
+            e.currentTarget.style.borderColor = 'initial'
+            error_message.classList.add('d-none')
+        }
+    }
+
     const handle_acept_terms = ( e ) => {
         
         const terms_box = document.getElementById('termsCheck')
@@ -78,7 +86,9 @@ const ModalTerms = () => {
                     
                     <div className="modal-footer justify-content-center">
                         <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="termsCheck" />
+                            <input type="checkbox" className="form-check-input" id="termsCheck" onChange={(e)=>{
+                                handle_change_terms_box(e)
+                            }}/>
                             <label className="form-check-label ml-4" for="termsCheck">
                                 <a href={`${lang}/terms`}>
                                     {language.checkbox}
