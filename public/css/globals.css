@@ -423,6 +423,7 @@ ul li > svg {
         border-radius: 10px;
         box-shadow: 5px 5px 0px 0px #afa2ea;
         z-index: 1;
+        width: 100% !important;
     }
 
     .footer-menu{
