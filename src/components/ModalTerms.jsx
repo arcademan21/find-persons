@@ -6,7 +6,9 @@ import {toast} from 'react-toastify'
 const ModalTerms = () => {
 
     const language = JSON.parse(localStorage.getItem('language_file')).modal_terms
-    const lang = localStorage.getItem('language')
+    let lang = localStorage.getItem('language')
+
+    if( lang === 'es' ) lang = ''
 
     const handle_terms = (e) => {
         if( e.target.checked ) document.getElementById('acceptBtn').removeAttribute('disabled')
@@ -22,7 +24,7 @@ const ModalTerms = () => {
         debugger
         const terms_box = document.getElementById('termsCheck')
 
-        if( e.target.getAttribute('disabled') ) {
+        if( e.getAttribute('disabled') ) {
             terms_box.checked = false
             return message_terms_error()
         }
@@ -60,8 +62,6 @@ const ModalTerms = () => {
                         </h5>
                     </div>
 
-                    
-                    
                     <div className="modal-body">
                         
                         <p>
@@ -95,7 +95,7 @@ const ModalTerms = () => {
                                 </Link>
                             </label>
                         </div>
-                        <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" onClick={handle_acept_terms}
+                        <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" onClick={(e) => handle_acept_terms(e.currentTarget)}
                         disabled>
                             {language.button}
                         </button>
