@@ -6,6 +6,7 @@ import GlobalContext from '@/context/GlobalContext'
 import 'react-toastify/dist/ReactToastify.css'
 import Image from 'next/image'
 import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt } from 'react-icons/fa'
+import Link from 'next/link'
 import './css/login.css'
 
 const Login = ( ) => {
