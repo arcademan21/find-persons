@@ -169,7 +169,7 @@ const HomeSections = () => {
                             />
                         </div>
                     </div>
-                    <div className="col-sm-12 col-md-6 col-lg-6 py-3 px-4 wow fadeInRight" data-section="call_to_action" data-value="html"> 
+                    <div className="col-sm-12 col-md-6 col-lg-6 py-3 px-4 wow fadeInRight content-title-call-action" data-section="call_to_action" data-value="html"> 
                         <h2 className="title-section">{language.call_to_action.give_us}
                             <span className="marked">{language.call_to_action.name}
                             </span> {language.call_to_action.and_we}
