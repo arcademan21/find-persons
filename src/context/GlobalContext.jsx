@@ -24,6 +24,8 @@ export const GlobalProvider = ( { children } ) => {
     search_type: null
   } )
 
+  const extension = localStorage.getItem('extencion')
+
   const SettingExtencion = useCallback( async () => {
     
     
