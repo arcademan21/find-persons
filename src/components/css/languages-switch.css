@@ -97,6 +97,7 @@
     height: 4rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -113,6 +114,9 @@
         background: white;
     }
 
-    
+    .menu-languages-item-holder{
+        justify-content: unset;
+    }
+
 
 }
