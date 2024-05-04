@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth"
 import { toast } from 'react-toastify'
 import GlobalContext from '@/context/GlobalContext'
 import 'react-toastify/dist/ReactToastify.css'
-import Image from 'next/image
+import Image from 'next/image'
 import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt } from 'react-icons/fa'
 import './css/login.css'
 
