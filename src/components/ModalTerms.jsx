@@ -7,11 +7,9 @@ const ModalTerms = () => {
     const language = JSON.parse(localStorage.getItem('language_file')).modal_terms
 
     useEffect(() => {
-        useEffect(() => {
-            const myModal = document.getElementById('termsModal')
-            const modal = new Modal(myModal)
-            modal.show()
-        }, [])
+        const myModal = document.getElementById('termsModal')
+        const modal = new Modal(myModal)
+        modal.show()
     }, [])
     
     return (
