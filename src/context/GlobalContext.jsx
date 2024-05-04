@@ -150,6 +150,8 @@ export const GlobalProvider = ( { children } ) => {
   }, [])
 
   useEffect(() => {
+
+    if( extension === 'es' ) extension = ''
     
     SettingExtencion()
     SettingLanguage()
@@ -169,7 +171,6 @@ export const GlobalProvider = ( { children } ) => {
     minHeight: "8rem"
   }
   
-  
   return (
     <GlobalContext.Provider value={{ state, setState }} >
       <CookieConsent
@@ -181,7 +182,7 @@ export const GlobalProvider = ( { children } ) => {
           expires={150}
       >
           {state.language_file.cookies_banner.paragraph_1}
-          <a href={`${extension}/cookies`}> 
+          <a href={`${extension}/cookies`} className='mx-2'> 
             {state.language_file.cookies_banner.cookies}
           </a>
           {state.language_file.cookies_banner.paragraph_2}
