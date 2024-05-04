@@ -10,21 +10,21 @@ const ModalTerms = () => {
     if( lang === 'es' ) lang = ''
 
 
-    const message_terms_error = () => {
-        toast.error(language.error_terms_message)
-        return false
-    }
+    
 
     const handle_acept_terms = ( e ) => {
         
         const terms_box = document.getElementById('termsCheck')
+        const error_message = document.querySelector('.error_message')
 
         if( terms_box.checked ) {
             document.getElementById('termsModal').remove()
+            error_message.classList.add('d-none')
         }
 
         else {
-            return message_terms_error()
+            terms_box.style.borderColor = 'red'
+            error_message.classList.remove('d-none')
         }
 
     }               
@@ -84,6 +84,9 @@ const ModalTerms = () => {
                                     {language.checkbox}
                                 </a>
                             </label>
+                            <small className="d-none text-danger error_message">
+                                {language.error_terms_message}
+                            </small>
                         </div>
                         <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" onClick={
                             ( e ) => {
