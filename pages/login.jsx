@@ -4,8 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth"
 import { toast } from 'react-toastify'
 import GlobalContext from '@/context/GlobalContext'
 import 'react-toastify/dist/ReactToastify.css'
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image
 import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt } from 'react-icons/fa'
 import './css/login.css'
 
@@ -154,7 +153,6 @@ const Login = ( ) => {
                     <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-2">
                         <button className="btn btn-primary btn-lg" id='btn-login' onClick={loginUser}>
                             {language.init_session}
-                            <i className="fas fa-sign-in-alt fs-4 mx-2 fs-5 mx-1"></i>
                             <FaSignInAlt className='fs-4 mx-2 fs-5 mx-1' />
                         </button>
                     </div>
