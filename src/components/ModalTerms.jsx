@@ -1,13 +1,17 @@
 
 import { useEffect } from "react";
-import $ from 'jquery'
+import { Modal } from 'bootstrap';
 
 const ModalTerms = () => {
 
     const language = JSON.parse(localStorage.getItem('language_file')).modal_terms
 
     useEffect(() => {
-        $('#termsModal').modal('show')
+        useEffect(() => {
+            const myModal = document.getElementById('termsModal')
+            const modal = new Modal(myModal)
+            modal.show()
+        }, [])
     }, [])
     
     return (
