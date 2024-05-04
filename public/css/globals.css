@@ -2712,6 +2712,12 @@ a.text-dark:hover, a.text-dark:focus {
         display: flex;
         justify-content: space-between;
     }
+
+    .page-banner.home-banner h1{
+        font-size: 1.7rem !important;
+    }
+
+
 }
 
 
