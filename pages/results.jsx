@@ -403,7 +403,7 @@ const Results = () => {
                             </PDFDownloadLink>
 
                             <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white note-info">
-                                <FaInfoCircle className="mx-2" />
+                                <FaInfoCircle className="mx-2" style={{ fontSize: "2rem" }} />
                                 {language.results.download_text_info}
                             </div>
                             
