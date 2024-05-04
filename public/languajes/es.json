@@ -578,6 +578,13 @@
         "button": "Aceptar",
         "checkbox": "Acepto los términos y condiciones",
         "error_terms_message": "Debes aceptar los terminos y condiciones del servicio."
+    },
+
+    "cookies_banner":{
+        "paragraph_1": "Este sitio web utiliza",
+        "cookies": "cookies",
+        "paragraph_2": "para mejorar tu experiencia.",
+        "paragraph_3": "Acepta para continuar navegando."
     }
 
 

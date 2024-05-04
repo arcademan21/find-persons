@@ -8,7 +8,6 @@ import { usePathname } from 'next/navigation'
 import { createContext, useState, useEffect, useCallback } from 'react'
 import CookieConsent from "react-cookie-consent"
 
-
 const GlobalContext = createContext()
 
 export const GlobalProvider = ( { children } ) => {
@@ -23,6 +22,7 @@ export const GlobalProvider = ( { children } ) => {
     search: null,
     search_type: null
   } )
+  const [extension, setExtension] = useState( null )
 
   const SettingExtencion = useCallback( async () => {
     
@@ -77,7 +77,7 @@ export const GlobalProvider = ( { children } ) => {
       localStorage.setItem('language', res.language)
       localStorage.setItem('language_file', JSON.stringify(res))
       setState(prevState => ({ ...prevState, language: res.language, language_file: res }))
-
+      setExtension(extension)
       return res
 
   }, [ pathname ])
@@ -168,8 +168,8 @@ export const GlobalProvider = ( { children } ) => {
     boxShadow: "0px -2px 0px #e9e8f5",
     minHeight: "8rem"
   }
-    
-
+  
+  
   return (
     <GlobalContext.Provider value={{ state, setState }} >
       <CookieConsent
@@ -180,13 +180,13 @@ export const GlobalProvider = ( { children } ) => {
           buttonClasses="btn btn-primary"
           expires={150}
       >
-          Este sitio web utiliza 
-          <a href={`/cookies`}> cookies </a>
-          para mejorar tu experiencia.
+          {state.language_file.cookies_banner.paragraph_1}
+          <a href={`${extension}/cookies`}> 
+            {state.language_file.cookies_banner.cookies}
+          </a>
+          {state.language_file.cookies_banner.paragraph_2}
           <br />
-          <span style={{ fontSize: "10px" }}>
-              Acepta para continuar navegando.
-          </span>
+          {state.language_file.cookies_banner.paragraph_3}
       </CookieConsent>
       { children }
     </GlobalContext.Provider>

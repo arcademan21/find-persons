@@ -551,6 +551,13 @@
         "button": "Accepter",
         "checkbox": "J'accepte les termes et conditions",
         "error_terms_message": "Vous devez accepter les termes et conditions du service."
+      },
+
+      "cookies_banner":{
+        "paragraph_1": "Ce site utilise",
+        "cookies": "des cookies",
+        "paragraph_2": "pour améliorer votre expérience.",
+        "paragraph_3": "Acceptez pour continuer à naviguer."
       }
 
 

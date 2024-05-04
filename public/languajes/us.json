@@ -552,6 +552,13 @@
       "checkbox": "I accept the terms and conditions",
       "error_terms_message": "You must accept the terms and conditions of the service.",
       "please_weait": "Please wait..."
-  }
+  },
+
+  "cookies_banner":{
+      "paragraph_1": "This website uses",
+      "cookies": "cookies",
+      "paragraph_2": "to improve your experience.",
+      "paragraph_3": "Accept to continue browsing."
+    }
 
   }

@@ -551,6 +551,13 @@
         "button": "Akzeptieren",
         "checkbox": "Ich akzeptiere die Geschäftsbedingungen",
         "error_terms_message": "Sie müssen die Geschäftsbedingungen des Dienstes akzeptieren."
+      },
+
+      "cookies_banner":{
+        "paragraph_1": "Diese Website verwendet",
+        "cookies": "Cookies",
+        "paragraph_2": "um Ihre Erfahrung zu verbessern.",
+        "paragraph_3": "Akzeptieren Sie, um weiter zu surfen."
       }
 
   }

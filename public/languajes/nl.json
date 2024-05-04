@@ -551,6 +551,13 @@
       "button": "Accepteren",
       "checkbox": "Ik accepteer de algemene voorwaarden",
       "error_terms_message": "U moet de algemene voorwaarden van de dienst accepteren."
+      },
+
+      "cookies_banner":{
+        "paragraph_1": "Deze website gebruikt",
+        "cookies": "cookies",
+        "paragraph_2": "om uw ervaring te verbeteren.",
+        "paragraph_3": "Accepteer om verder te surfen."
       }
 
 
