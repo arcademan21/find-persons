@@ -31,8 +31,6 @@ const Login = ( ) => {
         loadingButton.setAttribute('disabled', 'true')
         loadingButton.innerHTML = `Porfavor espere...`
 
-        
-
         signInWithEmailAndPassword( auth, email, password )
         .then(( userCredential ) => {
             
@@ -52,14 +50,19 @@ const Login = ( ) => {
             })
 
         }).catch((error) => {
+
+            const showErrorToast = async (error) => {
+                toast.error( error )
+                setError(true)
+            }
                       
             if ( error.code === 'auth/invalid-login-credentials') {
-                toast.error( 'El usuario no existe o la contraseña es incorrecta.' )
+                showErrorToast( 'El usuario no existe o la contraseña es incorrecta.' )
                 setError(true)
             }
 
             if ( error.code === 'auth/too-many-requests') {
-                toast.error( language_toats.error_mush_session_message )
+                showErrorToast( language_toats.error_mush_session_message )
                 setError(true)
             }
 
