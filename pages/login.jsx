@@ -27,21 +27,15 @@ const Login = ( ) => {
         const password = document.getElementById('password').value
         const loadingButton = document.getElementById('btn-login')
         const loadingButtonHtml = loadingButton.innerHTML 
-        const terms = document.getElementById('register-terms')
         
         loadingButton.setAttribute('disabled', 'true')
         loadingButton.innerHTML = `Porfavor espere...`
 
-        if( !terms.checked ) {
-            toast.error( language_toats.error_acept_terms_message )
-            setError(true)
-            loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = loadingButtonHtml
-            return false
-        }
+        
 
         signInWithEmailAndPassword( auth, email, password )
         .then(( userCredential ) => {
+            
             // Signed in
             setSuccess(true)
             setState({ ...state, user: userCredential.user })
@@ -52,6 +46,8 @@ const Login = ( ) => {
             }
 
             showSuccesToast().then(() => {
+                loadingButton.removeAttribute('disabled')
+                loadingButton.innerHTML = loadingButtonHtml
                 window.location.replace('/')
             })
 
