@@ -94,8 +94,12 @@ const ModalTerms = () => {
                                 </a>
                             </label>
                         </div>
-                        <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" onClick={(e) => handle_acept_terms(e.currentTarget)}
-                        disabled>
+                        <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" onClick={
+                            ( e ) => {
+                                console.log( 'Test' )
+                                handle_acept_terms( e.currentTarget )
+                            }
+                        } disabled >
                             {language.button}
                         </button>
                     </div>
