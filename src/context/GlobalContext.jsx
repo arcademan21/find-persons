@@ -178,8 +178,8 @@ export const GlobalProvider = ( { children } ) => {
           buttonText="Aceptar"
           cookieName="myAwesomeCookieName2"
           style={cookieConsentStyle}
-          buttonClasses="btn btn-primary"
-          buttonWrapperClasses="btn-group w-100"
+          buttonClasses="btn bg-primary w-25 text-white py-3 fs-4 rounded"
+          buttonWrapperClasses="w-100 text-center"
           expires={150}
       >
           {state.language_file.cookies_banner.paragraph_1}
