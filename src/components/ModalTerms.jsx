@@ -1,9 +1,11 @@
 'use client'
 import { useEffect } from "react";
+import Link from 'next/link'
 
 const ModalTerms = () => {
 
     const language = JSON.parse(localStorage.getItem('language_file')).modal_terms
+    const extension = localStorage.getItem('extencion') 
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -55,14 +57,16 @@ const ModalTerms = () => {
 
                     </div>
                     
-                    <div className="modal-footer">
+                    <div className="modal-footer justify-content-center">
                         <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="termsCheck" onChange={(e) => {
                                 if( e.target.checked ) document.getElementById('acceptBtn').removeAttribute('disabled')
                                 else document.getElementById('acceptBtn').setAttribute('disabled', true)
                             }} />
                             <label className="form-check-label ml-4" for="termsCheck">
-                                {language.checkbox}
+                                <Link href={`/${extension}/terms`}>
+                                    {language.checkbox}
+                                </Link>
                             </label>
                         </div>
                         <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" disabled>
