@@ -1,6 +1,5 @@
 'use client'
 import { useEffect } from "react";
-import { Modal } from 'bootstrap';
 
 const ModalTerms = () => {
 
@@ -8,6 +7,7 @@ const ModalTerms = () => {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
+            const { Modal } = require('bootstrap')
             const myModal = document.getElementById('termsModal')
             const modal = new Modal(myModal)
             modal.show()
