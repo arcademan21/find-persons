@@ -2685,6 +2685,18 @@ a.text-dark:hover, a.text-dark:focus {
 
     #contact{
         min-height: 83rem;
+        padding-top: 0;
+    }
+
+    .img-place img{
+        margin-top: -1rem;
+    }
+
+    .contact-row{
+        flex-direction: column-reverse;
+        min-height: 85rem;
+        display: flex;
+        justify-content: space-between;
     }
 
 }

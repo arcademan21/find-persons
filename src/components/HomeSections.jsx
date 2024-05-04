@@ -382,7 +382,7 @@ const HomeSections = () => {
         {/* CONTACT */}
         <div className="page-section vh-100" id="contact">
             <div className="container">
-            <div className="row align-items-start" data-section="contact" data-value="html">
+            <div className="row align-items-start contact-row" data-section="contact" data-value="html">
                 <div className="col-lg-6 py-3 px-5 wow fadeInUp" >
                 
                 <h1 className="title-section ">
