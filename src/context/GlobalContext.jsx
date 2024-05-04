@@ -151,7 +151,7 @@ export const GlobalProvider = ( { children } ) => {
 
   useEffect(() => {
 
-    if( extension === 'es' ) extension = ''
+    if( extension === 'es' ) setExtension('')
     
     SettingExtencion()
     SettingLanguage()
@@ -179,6 +179,7 @@ export const GlobalProvider = ( { children } ) => {
           cookieName="myAwesomeCookieName2"
           style={cookieConsentStyle}
           buttonClasses="btn btn-primary"
+          buttonWrapperClasses="btn-group w-100"
           expires={150}
       >
           {state.language_file.cookies_banner.paragraph_1}
