@@ -6,6 +6,8 @@ import { getFirestore } from 'firebase/firestore/lite'
 import { getAuth } from "firebase/auth"
 import { usePathname } from 'next/navigation'
 import { createContext, useState, useEffect, useCallback } from 'react'
+import CookieConsent from "react-cookie-consent"
+
 
 const GlobalContext = createContext()
 
@@ -162,6 +164,19 @@ export const GlobalProvider = ( { children } ) => {
 
   return (
     <GlobalContext.Provider value={{ state, setState }} >
+      <CookieConsent
+          location="bottom"
+          buttonText="Sure man!!"
+          cookieName="myAwesomeCookieName2"
+          style={{ background: "#2B373B" }}
+          buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+          expires={150}
+      >
+          This website uses cookies to enhance the user experience.{" "}
+          <span style={{ fontSize: "10px" }}>
+              This bit of text is smaller :O
+          </span>
+      </CookieConsent>
       { children }
     </GlobalContext.Provider>
   )

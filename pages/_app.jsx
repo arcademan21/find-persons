@@ -5,7 +5,7 @@ import Header from "../src/components/Header"
 import Footer from "../src/components/Footer"
 import Script from 'next/script'
 import Head from 'next/head'
-import CookieConsent from "react-cookie-consent"
+// import CookieConsent from "react-cookie-consent"
 
 
 export const metadata = {
@@ -41,7 +41,7 @@ function PersonsFinder({ Component, pageProps }) {
     
     <GlobalProvider>
         
-        <CookieConsent
+        {/* <CookieConsent
             location="bottom"
             buttonText="Sure man!!"
             cookieName="myAwesomeCookieName2"
@@ -53,7 +53,7 @@ function PersonsFinder({ Component, pageProps }) {
             <span style={{ fontSize: "10px" }}>
                 This bit of text is smaller :O
             </span>
-        </CookieConsent>
+        </CookieConsent> */}
 
         <Header />
         <Component { ...pageProps } />
