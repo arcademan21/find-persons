@@ -5,6 +5,8 @@ import Loader from "../components/Loader"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Script from 'next/script'
+import CookieConsent, { Cookies } from "react-cookie-consent"
+
 
 export const metadata = {
   title: 'Persons - Finder',
@@ -41,7 +43,17 @@ function RootLayout( { children } ) {
 
           <GlobalProvider>
                 <Loader />
-              
+                <CookieConsent
+                    location="bottom"
+                    buttonText="Sure man!!"
+                    cookieName="myAwesomeCookieName2"
+                    style={{ background: "#2B373B" }}
+                    buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+                    expires={150}
+                >
+                    This website uses cookies to enhance the user experience.{" "}
+                    <span style={{ fontSize: "10px" }}>This bit of text is smaller :O</span>
+                </CookieConsent>
                 <ToastContainer 
                     position="top-center"
                     theme="colored"
