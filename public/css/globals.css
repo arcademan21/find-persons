@@ -2717,6 +2717,10 @@ a.text-dark:hover, a.text-dark:focus {
         font-size: 1.7rem !important;
     }
 
+    .content-acep-terms-contact-form{
+        font-size: 0.95rem;
+    }
+
 
 }
 

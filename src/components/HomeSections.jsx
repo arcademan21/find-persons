@@ -452,7 +452,7 @@ const HomeSections = () => {
                             <div className="my-2">
                                 
                             
-                                    <div>
+                                    <div className='content-acep-terms-contact-form'>
                                         <input type="checkbox" name="terminos" className="m-1"  value="0" id="terms_contact_form" onChange={( event )=>{ return handle_contact_form_terms( event.currentTarget ) } } required />
                                         {language.contact.please_confirm}
                                         <a href="/privacy-policies"> {language.contact.politics}
