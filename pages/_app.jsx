@@ -41,8 +41,19 @@ function PersonsFinder({ Component, pageProps }) {
     
     <GlobalProvider>
         
-        
-
+        <CookieConsent
+            location="bottom"
+            buttonText="Sure man!!"
+            cookieName="myAwesomeCookieName2"
+            style={{ background: "#2B373B" }}
+            buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+            expires={150}
+        >
+            This website uses cookies to enhance the user experience.{" "}
+            <span style={{ fontSize: "10px" }}>
+                This bit of text is smaller :O
+            </span>
+        </CookieConsent>
 
         <Header />
         <Component { ...pageProps } />
@@ -50,20 +61,6 @@ function PersonsFinder({ Component, pageProps }) {
 
     </GlobalProvider>
 
-    <CookieConsent
-        location="bottom"
-        buttonText="Sure man!!"
-        cookieName="myAwesomeCookieName2"
-        style={{ background: "#2B373B" }}
-        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
-        expires={150}
-    >
-        This website uses cookies to enhance the user experience.{" "}
-        <span style={{ fontSize: "10px" }}>
-            This bit of text is smaller :O
-        </span>
-    </CookieConsent>
-    
     <Script type="text/javascript" src="/libs/jquery/jquery.min.js" strategy='beforeInteractive'/>
     <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.min.js" strategy='beforeInteractive'/>
     <Script type="text/javascript" src="/libs/bootstrap/js/bootstrap.bundle.min.js" strategy='beforeInteractive'/>

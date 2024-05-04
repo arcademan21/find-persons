@@ -1,7 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-
-
 export const metadata = {
   title: 'Persons - Finder',
   description: 'A professional website for finding persons',
@@ -19,7 +17,6 @@ class MyDocument extends Document {
           <meta name="description" content={metadata.description} />
         </Head>
         <body>
-          
           <Main />
           <NextScript />
         </body>
