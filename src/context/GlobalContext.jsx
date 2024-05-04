@@ -162,19 +162,31 @@ export const GlobalProvider = ( { children } ) => {
 
   if( !state.language ) return null
 
+  let cookieConsentStyle = {
+    background: "rgb(255, 255, 255)",
+    color: "#645f88",
+    textAlign: "center",
+    boxShadow: "0px -2px 0px #e9e8f5",
+    minHeight: "8rem"
+  }
+    
+
   return (
     <GlobalContext.Provider value={{ state, setState }} >
       <CookieConsent
           location="bottom"
-          buttonText="Sure man!!"
+          buttonText="Aceptar"
           cookieName="myAwesomeCookieName2"
-          style={{ background: "#2B373B" }}
-          buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+          style={cookieConsentStyle}
+          buttonClasses="btn btn-primary"
           expires={150}
       >
-          This website uses cookies to enhance the user experience.{" "}
+          Este sitio web utiliza 
+          <a href={`${extension}/cookies`}> cookies </a>
+          para mejorar tu experiencia.
+          <br />
           <span style={{ fontSize: "10px" }}>
-              This bit of text is smaller :O
+              Acepta para continuar navegando.
           </span>
       </CookieConsent>
       { children }
