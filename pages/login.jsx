@@ -39,15 +39,19 @@ const Login = ( ) => {
             setState({ ...state, user: userCredential.user })
             localStorage.setItem('user', JSON.stringify(userCredential.user))
 
-            const showSuccesToast = async () => {
-                toast.success( language_toats.succes_session_init_message )
-            }
+            loadingButton.removeAttribute('disabled')
+            loadingButton.innerHTML = loadingButtonHtml
+            window.location.replace('/')
 
-            showSuccesToast().then(() => {
-                loadingButton.removeAttribute('disabled')
-                loadingButton.innerHTML = loadingButtonHtml
-                window.location.replace('/')
-            })
+            // const showSuccesToast = async () => {
+            //     toast.success( language_toats.succes_session_init_message )
+            // }
+
+            // showSuccesToast().then(() => {
+            //     loadingButton.removeAttribute('disabled')
+            //     loadingButton.innerHTML = loadingButtonHtml
+            //     window.location.replace('/')
+            // })
 
         }).catch((error) => {
 
