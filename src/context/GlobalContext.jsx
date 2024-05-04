@@ -22,7 +22,7 @@ export const GlobalProvider = ( { children } ) => {
     search: null,
     search_type: null
   } )
-  const [extension, setExtension] = useState( null )
+  const [extension, setExtension] = useState( '' )
 
   const SettingExtencion = useCallback( async () => {
     
@@ -77,7 +77,7 @@ export const GlobalProvider = ( { children } ) => {
       localStorage.setItem('language', res.language)
       localStorage.setItem('language_file', JSON.stringify(res))
       setState(prevState => ({ ...prevState, language: res.language, language_file: res }))
-      setExtension(extension)
+      if( extension !== 'es' ) setExtension(extension)
       return res
 
   }, [ pathname ])
@@ -151,7 +151,7 @@ export const GlobalProvider = ( { children } ) => {
 
   useEffect(() => {
 
-    if( extension === 'es' ) setExtension('')
+    
     
     SettingExtencion()
     SettingLanguage()
