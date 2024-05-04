@@ -289,7 +289,7 @@ const Results = () => {
              
             <div className="results-container">
                 <div className="container">
-                    <div className="row mb-5 shadow px-3 rounded2x">
+                    <div className="row mb-5 shadow px-3 rounded2x primary-row-results">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 info-results">
                         <div className="d-flex px-3 flex-column">
                         <h2 className="text-center text-secondary title-section mt-4">
@@ -389,12 +389,12 @@ const Results = () => {
                                 {({ blob, url, loading, error }) => {
                                     
                                     return loading ? 
-                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
+                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
                                             <FaSpinner className="mx-1" />
                                             {language.results.download_pdf}
                                         </button> 
                                     : 
-                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5">
+                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn">
                                             <FaDownload className="mx-1" />
                                             {language.results.download_pdf}
                                         </button>
@@ -402,7 +402,7 @@ const Results = () => {
                                 }}
                             </PDFDownloadLink>
 
-                            <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white">
+                            <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white note-info">
                                 <FaInfoCircle className="mx-2" />
                                 {language.results.download_text_info}
                             </div>

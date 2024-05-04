@@ -90,7 +90,15 @@ small {
     .info-results{
         background-color: transparent;
         box-shadow: none;
-        
+    }
+
+    .info-contact-persons, .download-btn, .note-info, .info-persons{
+        width: 100% !important;
+    }
+
+    .note-info{
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .content-result-image{
@@ -99,7 +107,7 @@ small {
         border: solid 1px;
         border-color: #afa2ea;
         height: 16rem;
-        width: 15rem !important;
+        width: 9rem !important;
     }
 
     .content-result-image img{
@@ -118,6 +126,9 @@ small {
         min-height: 39.4rem;
     }
 
+    .primary-row-results{
+        flex-direction: column;
+    }
 
     
 }
