@@ -19,6 +19,7 @@ const ModalTerms = () => {
     }
 
     const handle_acept_terms = (e) => {
+        debugger
         const terms_box = document.getElementById('termsCheck')
 
         if( e.target.getAttribute('disabled') ) {
