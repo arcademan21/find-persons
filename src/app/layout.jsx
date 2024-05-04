@@ -5,7 +5,7 @@ import Loader from "../components/Loader"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Script from 'next/script'
-import CookieConsent, { Cookies } from "react-cookie-consent"
+import CookieConsent from "react-cookie-consent"
 
 export const metadata = {
   title: 'Persons - Finder',
