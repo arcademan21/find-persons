@@ -20,9 +20,9 @@
       "phone": " Telefon ",
       "address": " Adresse ",
       "search_now": " Jetzt suchen ",
-      "placeholder_name": " Beispiel: Mariano Jose ",
-      "placeholder_email": " Beispiel: mariano@mail.com ",
-      "placeholder_phone": " Beispiel: 34.600.000.000 ",
+      "placeholder_name": "Beispiel: Max Mustermann",
+      "placeholder_email": "Beispiel: max.mustermann@mail.com",
+      "placeholder_phone": "Beispiel: +49 170 1234567",
       "placeholder_address": " Beispiel: 123. Straße, Stadt, Land "
     },
     "services": {

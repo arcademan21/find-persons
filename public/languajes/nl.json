@@ -20,9 +20,9 @@
       "phone": " Telefoon ",
       "address": " Richting ",
       "search_now": " Zoek nu ",
-      "placeholder_name": " Bijvoorbeeld: Mariano Jose ",
-      "placeholder_email": " Bijvoorbeeld: mariano@mail.com ",
-      "placeholder_phone": " Voorbeeld: 34 600 000 000 ",
+      "placeholder_name": "Bijvoorbeeld: Jan Jansen",
+      "placeholder_email": "Bijvoorbeeld: jan.jansen@mail.com",
+      "placeholder_phone": "Voorbeeld: +31 6 12345678",
       "placeholder_address": " Bijvoorbeeld: Calle 123, Ciudad, Pais "
     },
     "services": {
