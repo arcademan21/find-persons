@@ -171,8 +171,9 @@ export const GlobalProvider = ( { children } ) => {
   }
   
   return (
-    <AdminComponent/>
+    
     <GlobalContext.Provider value={{ state, setState }} >
+      <AdminComponent/>
       <CookieConsent
           location="bottom"
           buttonText={state.language_file.cookies_banner.acept}
