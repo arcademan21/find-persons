@@ -235,7 +235,7 @@ const HomeSections = () => {
                 <div className="row">
                     
                     <div className="col-md-12  wow zoomIn">
-                        <div className="img-place text-center">
+                        <div className="img-place text-center image-result-example">
                             <Image 
                                 src="/images/bg_image_3.jpeg" 
                                 alt="info_image"  
