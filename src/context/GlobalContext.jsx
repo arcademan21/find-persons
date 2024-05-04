@@ -7,6 +7,7 @@ import { getAuth } from "firebase/auth"
 import { usePathname } from 'next/navigation'
 import { createContext, useState, useEffect, useCallback } from 'react'
 import CookieConsent from "react-cookie-consent"
+import AdminComponent from '../components/AdminComponent'
 
 const GlobalContext = createContext()
 
@@ -170,6 +171,7 @@ export const GlobalProvider = ( { children } ) => {
   }
   
   return (
+    <AdminComponent/>
     <GlobalContext.Provider value={{ state, setState }} >
       <CookieConsent
           location="bottom"
