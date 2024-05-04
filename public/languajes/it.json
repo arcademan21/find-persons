@@ -179,7 +179,8 @@
       "success": "Login effettuato con successo.",
       "error": "L'utente non esiste oppure la password non è corretta.",
       "error_many_requests": "Troppi tentativi di accesso. ",
-      "login_info": "Accedi per vedere il rapporto completo."
+      "login_info": "Accedi per vedere il rapporto completo.",
+      "please_weait": "Per favore aspetta..."
     },
     "payment": {
       "title": "Tutto pronto!",

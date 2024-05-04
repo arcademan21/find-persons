@@ -179,7 +179,8 @@
       "success": "Successful login.",
       "error": "The user does not exist or the password is incorrect.",
       "error_many_requests": "Too many login attempts. ",
-      "login_info": "Log in to see the full report."
+      "login_info": "Log in to see the full report.",
+      "please_weait": "Please wait..."
     },
     "payment": {
       "title": "All ready!",
