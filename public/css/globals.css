@@ -2664,7 +2664,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 @media screen and (max-width: 768px){
-    .link-logo, .menu-buttons-content{
+    .link-logo, .menu-responsive-button, .menu-languages-item-holder{
         transform: scale(0.89);
     }
 
