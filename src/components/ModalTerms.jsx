@@ -9,13 +9,16 @@ const ModalTerms = () => {
         if (typeof window !== 'undefined') {
             const { Modal } = require('bootstrap')
             const myModal = document.getElementById('termsModal')
-            const modal = new Modal(myModal)
+            const modal = new Modal(myModal, {
+                backdrop: 'static',
+                keyboard: false
+            })
             modal.show()
         }
     }, [])
     
     return (
-        <div className="modal fade pt-4" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div className="modal fade pt-4 modal-lg" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
 
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
