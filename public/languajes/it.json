@@ -549,7 +549,8 @@
         "paragraph_5": "Per favore, non selezionare questa casella se non sei d'accordo con questi termini.",
         "button": "Accetta",
         "checkbox": "Accetto i termini e le condizioni",
-        "error_terms_message": "Devi accettare i termini e le condizioni del servizio."
+        "error_terms_message": "Devi accettare i termini e le condizioni del servizio.",
+        "please_weait": "Per favore aspetta..."
       } 
 
 

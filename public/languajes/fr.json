@@ -179,7 +179,8 @@
       "success": "Connexion réussie.",
       "error": "L'utilisateur n'existe pas ou le mot de passe est incorrect.",
       "error_many_requests": "Trop de tentatives de connexion. ",
-      "login_info": "Connectez-vous pour voir le rapport complet."
+      "login_info": "Connectez-vous pour voir le rapport complet.",
+      "please_weait": "S'il vous plaît, attendez..."
     },
     "payment": {
       "title": "Tout prêt!",

@@ -549,7 +549,8 @@
       "paragraph_5": "Please, do not check this box if you do not agree with these terms.",
       "button": "Accept",
       "checkbox": "I accept the terms and conditions",
-      "error_terms_message": "You must accept the terms and conditions of the service."
+      "error_terms_message": "You must accept the terms and conditions of the service.",
+      "please_weait": "Please wait..."
   }
 
   }

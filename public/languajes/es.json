@@ -196,7 +196,8 @@
         "success": "Inicio de sesión exitoso.",
         "error": "El usuario no existe o la contraseña es incorrecta.",
         "error_many_requests": "Demasiados intentos de inicio de sesión. Debes esperar 20 minutos para volver a intentar.",
-        "login_info": "Inicia session para ver el informe completo."
+        "login_info": "Inicia session para ver el informe completo.",
+        "please_weait": "Por favor espere..."
     },
 
     "payment": {

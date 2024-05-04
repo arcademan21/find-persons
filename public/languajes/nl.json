@@ -179,7 +179,8 @@
       "success": "Begin van de sessie.",
       "error": "Het gebruik bestaat niet of het tegendeel is onjuist.",
       "error_many_requests": "Demasiado's zijn van plan de sessie te beginnen. ",
-      "login_info": "Begin de sessie om de volledige informatie te ontvangen."
+      "login_info": "Begin de sessie om de volledige informatie te ontvangen.",
+      "please_weait": "Even geduld alstublieft..."
     },
     "payment": {
       "title": "Todo lijst!",

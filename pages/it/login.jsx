@@ -31,29 +31,20 @@ const Login = ( ) => {
         const loadingButtonHtml = loadingButton.innerHTML 
         
         loadingButton.setAttribute('disabled', 'true')
-        loadingButton.innerHTML = `Porfavor espere...`
+        loadingButton.innerHTML = language.please_weait
 
         signInWithEmailAndPassword( auth, email, password )
         .then(( userCredential ) => {
-            debugger
+            
             // Signed in
             setSuccess(true)
             setState({ ...state, user: userCredential.user })
             localStorage.setItem('user', JSON.stringify(userCredential.user))
 
+            toast.success( language_toats.succes_session_init_message )
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = loadingButtonHtml
             window.location.replace(extension)
-
-            // const showSuccesToast = async () => {
-            //     toast.success( language_toats.succes_session_init_message )
-            // }
-
-            // showSuccesToast().then(() => {
-            //     loadingButton.removeAttribute('disabled')
-            //     loadingButton.innerHTML = loadingButtonHtml
-            //     window.location.replace(extension)
-            // })
 
         }).catch((error) => {
 
@@ -63,7 +54,7 @@ const Login = ( ) => {
             }
                       
             if ( error.code === 'auth/invalid-login-credentials') {
-                showErrorToast( 'El usuario no existe o la contraseña es incorrecta.' )
+                showErrorToast( language.error )
                 setError(true)
             }
 

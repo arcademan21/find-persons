@@ -179,7 +179,8 @@
       "success": "Erfolgreicher Login.",
       "error": "Der Benutzer existiert nicht oder das Passwort ist falsch.",
       "error_many_requests": "Zu viele Anmeldeversuche. ",
-      "login_info": "Melden Sie sich an, um den vollständigen Bericht anzuzeigen."
+      "login_info": "Melden Sie sich an, um den vollständigen Bericht anzuzeigen.",
+      "please_weait": "Bitte warten Sie..."
     },
     "payment": {
       "title": "Alles bereit!",
