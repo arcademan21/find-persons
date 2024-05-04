@@ -1,6 +1,5 @@
 'use client'
-import { useEffect } from "react";
-import Link from 'next/link'
+import { useEffect } from "react"
 import {toast} from 'react-toastify'
 
 const ModalTerms = () => {
@@ -90,9 +89,9 @@ const ModalTerms = () => {
                         <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="termsCheck" onChange={handle_terms} />
                             <label className="form-check-label ml-4" for="termsCheck">
-                                <Link href={`${lang}/terms`}>
+                                <a href={`${lang}/terms`}>
                                     {language.checkbox}
-                                </Link>
+                                </a>
                             </label>
                         </div>
                         <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" onClick={(e) => handle_acept_terms(e.currentTarget)}
