@@ -2651,6 +2651,10 @@ a.text-dark:hover, a.text-dark:focus {
         padding-left: 0.5rem !important;
     }
 
+    .link-logo{
+        margin-left: 1rem;
+    }
+
     
 
 }
