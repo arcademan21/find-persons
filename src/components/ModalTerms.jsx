@@ -41,8 +41,7 @@ const ModalTerms = () => {
             const { Modal } = require('bootstrap')
             const myModal = document.getElementById('termsModal')
             const modal = new Modal(myModal, {
-                backdrop: 'static',
-                keyboard: false
+                backdrop: 'static'
             })
             modal.show()
         }
@@ -90,7 +89,7 @@ const ModalTerms = () => {
                         <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="termsCheck" onChange={handle_terms} />
                             <label className="form-check-label ml-4" for="termsCheck">
-                                <Link href={`/${extension}/terms`}>
+                                <Link href={`${extension}/terms`}>
                                     {language.checkbox}
                                 </Link>
                             </label>
