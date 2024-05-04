@@ -96,9 +96,20 @@ small {
         width: 100% !important;
     }
 
+    .info-persons{
+        border: none !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
     .note-info{
         margin-left: 0 !important;
         margin-right: 0 !important;
+    }
+
+    .content-image-clue{
+        display: none !important;
     }
 
     .content-result-image{

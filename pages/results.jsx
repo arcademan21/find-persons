@@ -324,7 +324,7 @@ const Results = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="d-flex justify-content-center">
+                                <div className="d-flex justify-content-center content-image-clue">
                                     <Image src="/images/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" width={100} height={100} layout='responsive' />
                                 </div>
                             </div>
