@@ -162,8 +162,8 @@ const Login = ( ) => {
                         <p className="title-section text-center w-100">
                         <span className="marked">{language.no_account}</span>
                         <br />
-                        <span className="link-primary my-1" onClick={()=>{window.location.replace('/register')}} >
-                            <FaUserPlus className='fs-4 mx-1' />
+                        <span className="d-flex link-primary my-1 w-100 justify-content-center align-items-center" onClick={()=>{window.location.replace('/register')}} >
+                            <FaUserPlus className='mx-1' style={{ fontSize: "3rem", marginRight: "5px" }} />
                             <span className='fs-4'>{language.register_link}</span>
                         </span>
                         </p>
