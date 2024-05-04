@@ -48,7 +48,7 @@ const Searcher = () => {
         let regex = null
 
         switch ( option ) {
-            case 'name': regex = /^[a-zA-Z\s]{6,}$/
+            case 'name': regex = /^.{6,}$/ 
             break
             case 'email': regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
             break
