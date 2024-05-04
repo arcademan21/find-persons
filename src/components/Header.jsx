@@ -32,13 +32,13 @@ const Header = () => {
             className="navbar-collapse collapse justify-content-end"
             id="navbarContent"
           >
-            <div className="d-flex justify-content-end w-75 menu-buttons-content">
+            <div className="d-flex justify-content-end w-75 ">
               <MenuButtons />
             </div>
           </div>
 
           {isHome ? 
-              <div className="d-flex justify-content-end d-lg-none d-xl-none h-75 my-2 align-self-center">
+              <div className="d-flex justify-content-end d-lg-none d-xl-none h-75 my-2 align-self-center menu-buttons-content">
                 <LanguageSwitcher />
                 <ResponsiveMenu />
               </div>
