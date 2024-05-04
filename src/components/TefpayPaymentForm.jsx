@@ -4,6 +4,7 @@ import GlobalContext from "../context/GlobalContext"
 import './css/tefpay-payment-form.css'
 import Image from 'next/image'
 import sha1 from 'js-sha1'
+import { FaUser } from 'react-icons/fa'
 
 const merchantCode = process.env.NEXT_PUBLIC_TEFPAY_PRODUCTION_MERCHANT_CODE
 const merchantSharedkey = process.env.NEXT_PUBLIC_TEFPAY_PRODUCTION_PASSWORD
@@ -264,7 +265,7 @@ export const TefpayPaymentForm = () => {
 
             <div className="form-group ">
                 <div className="input-icon">
-                    <i className="fas fa-user"></i>
+                    <FaUser />
                     <input
                         type="text"
                         className="form-control"
