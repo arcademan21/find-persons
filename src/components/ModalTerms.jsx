@@ -6,7 +6,7 @@ import {toast} from 'react-toastify'
 const ModalTerms = () => {
 
     const language = JSON.parse(localStorage.getItem('language_file')).modal_terms
-    const extension = localStorage.getItem('extencion') 
+    const lang = localStorage.getItem('language')
 
     const handle_terms = (e) => {
         if( e.target.checked ) document.getElementById('acceptBtn').removeAttribute('disabled')
@@ -89,7 +89,7 @@ const ModalTerms = () => {
                         <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="termsCheck" onChange={handle_terms} />
                             <label className="form-check-label ml-4" for="termsCheck">
-                                <Link href={`${extension}/terms`}>
+                                <Link href={`${lang}/terms`}>
                                     {language.checkbox}
                                 </Link>
                             </label>
