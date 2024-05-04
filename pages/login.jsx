@@ -33,21 +33,16 @@ const Login = ( ) => {
 
         signInWithEmailAndPassword( auth, email, password )
         .then(( userCredential ) => {
-            
+            debugger
             // Signed in
             setSuccess(true)
             setState({ ...state, user: userCredential.user })
             localStorage.setItem('user', JSON.stringify(userCredential.user))
 
             toast.success( language_toats.succes_session_init_message )
-            loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = loadingButtonHtml
             window.location.replace('/')
 
         }).catch((error) => {
-
-            loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = loadingButtonHtml
 
             const showErrorToast = async (error) => {
                 toast.error( error )
@@ -64,11 +59,9 @@ const Login = ( ) => {
                 setError(true)
             }
 
-            
-
         }).finally(() => {
             loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = loadingButtonHtml
+            loadingButton.innerHTML = language.init_session
         })
 
     }
