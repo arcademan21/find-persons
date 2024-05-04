@@ -4,7 +4,7 @@ import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import PdfRenderer from '@/components/PdfRenderer'
 import { PDFDownloadLink } from '@react-pdf/renderer'
-import * as dataPersonJson from '../resources/dataPerson.json' 
+import * as dataPersonJson from './resources/dataPerson.json' 
 import PDLJS from 'peopledatalabs'
 import { FaSearch, FaPhone, FaEnvelope, FaSpinner, FaDownload, FaInfoCircle, FaMapMarked }
 from 'react-icons/fa'
@@ -89,7 +89,7 @@ const Results = () => {
     const [locality, setLocality] = useState('Spain')
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
 
-    const extension = localStorage.getItem('extencion')
+    const extension = locolaStorage.getItem('extencion')
     
     const setRegionRegionHandler = (e) => {
         setRegion(e.target.value)
@@ -291,7 +291,7 @@ const Results = () => {
              
             <div className="results-container">
                 <div className="container">
-                    <div className="row mb-5 shadow p-0 rounded2x">
+                    <div className="row mb-5 shadow px-3 rounded2x primary-row-results">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 info-results">
                         <div className="d-flex px-3 flex-column">
                         <h2 className="text-center text-secondary title-section mt-4">
@@ -326,7 +326,7 @@ const Results = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="d-flex justify-content-center">
+                                <div className="d-flex justify-content-center content-image-clue">
                                     <Image src="/images/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" width={100} height={100} layout='responsive' />
                                 </div>
                             </div>
@@ -391,12 +391,12 @@ const Results = () => {
                                 {({ blob, url, loading, error }) => {
                                     
                                     return loading ? 
-                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5" >
+                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
                                             <FaSpinner className="mx-1" />
                                             {language.results.download_pdf}
                                         </button> 
                                     : 
-                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5">
+                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn">
                                             <FaDownload className="mx-1" />
                                             {language.results.download_pdf}
                                         </button>
@@ -404,8 +404,8 @@ const Results = () => {
                                 }}
                             </PDFDownloadLink>
 
-                            <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white">
-                                <FaInfoCircle className="mx-2" />
+                            <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white note-info">
+                                <FaInfoCircle className="mx-2" style={{ fontSize: "2rem" }} />
                                 {language.results.download_text_info}
                             </div>
                             

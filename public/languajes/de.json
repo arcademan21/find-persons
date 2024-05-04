@@ -501,6 +501,9 @@
       "address": " Adresse ",
       "message": " Grund ",
       "note": " Notiz: ",
+      "message_error": "Fehler beim Senden des Formulars",
+      "mesage_success": "Formular erfolgreich gesendet",
+      "you_must": "Sie müssen sich anmelden, um das Formular zu senden",
       "text_note_1": " Mit dem Absenden dieses Formulars erklären Sie sich mit der Verarbeitung Ihrer personenbezogenen Daten durch uns einverstanden. ",
       "text_note_2": " Nur registrierte Benutzer, die den Dienst abonniert haben, können dieses Formular einreichen. ",
       "send": " Schicken "
@@ -535,5 +538,18 @@
       "paragraph_1b": ", senden Sie uns eine E-Mail und wir werden so schnell wie möglich antworten.",
       "down_suscription": "Abbestellen",
       "status": "Abonnementstatus"
-    }
+    },
+
+    "modal_terms": {
+        "title": "Geschäftsbedingungen",
+        "paragraph_1": "Indem Sie dieses Kästchen ankreuzen, erklären und garantieren Sie, dass Sie der Inhaber der persönlichen Daten sind, die Sie suchen, oder dass Sie die ausdrückliche Zustimmung des Inhabers dieser Daten haben, diese Informationen zu suchen und zu erhalten. Sie verstehen, dass die von uns bereitgestellten Informationen aus öffentlich zugänglichen Quellen stammen und ausschließlich für den zugestimmten und legalen Gebrauch bestimmt sind. Die weitere Verwendung dieser Informationen unterliegt der strikten Einhaltung der geltenden Datenschutzbestimmungen, einschließlich unter anderem des Informationsrechts des Betroffenen und der eventuellen Profilerstellung von Personen, die ohne Ausnahme die ausdrückliche und vorherige Zustimmung derselben erfordert. Unter Profilerstellung versteht man „jede Art der automatisierten Verarbeitung personenbezogener Daten, die darin besteht, diese Daten zur Bewertung bestimmter persönlicher Aspekte einer natürlichen Person zu verwenden; insbesondere zur Analyse oder Vorhersage von Aspekten in Bezug auf die berufliche Leistung, die wirtschaftliche Situation, die Gesundheit, die persönlichen Vorlieben, die Interessen, die Zuverlässigkeit, das Verhalten, den Standort oder die Bewegungen dieser Person“. In jedem Fall und in dem Fall, dass Sie nicht die Zustimmung des Betroffenen zur Verarbeitung seiner persönlichen Daten haben, müssen Sie ihm ohne Ausnahme das Recht einräumen, der Verarbeitung dieser Daten zu widersprechen.",
+        "paragraph_2": "Indem Sie dieses Kästchen ankreuzen, erklären Sie, dass Sie diese Erklärung gelesen, verstanden und akzeptiert haben und sich verpflichten, alle geltenden Datenschutz- und Datenschutzgesetze und -vorschriften einzuhalten, einschließlich der Allgemeinen Datenschutzverordnung (DSGVO) und der andorranischen Vorschriften zu diesem Thema.",
+        "paragraph_3": "Darüber hinaus akzeptieren Sie durch Ankreuzen dieses Kästchens die volle Verantwortung und stellen Find-persons.com und seine Eigentümer, Mitarbeiter und Partner von jeglicher Haftung, Anspruch, Forderung, Rechtsstreit oder rechtlicher Aktion frei, die aufgrund der Nichteinhaltung der geltenden Datenschutz- und Datenschutzgesetze und -vorschriften entstehen kann, einschließlich der DSGVO und der geltenden andorranischen Vorschriften, in Bezug auf die Verwendung der über unsere Website erhaltenen Daten.",
+        "paragraph_4": "In Bezug auf die Verkaufsbedingungen des Dienstes: Indem Sie dieses Kästchen ankreuzen, akzeptieren Sie, dass Sie den Dienst mit einer 24-Stunden-Testphase zu einem Preis von 0,60€ nutzen. Nach Ablauf dieser Zeit, wenn Sie das Konto nicht stornieren, wird Ihr Abonnement für den Dienst monatlich zu einem Preis von 49,90€ berechnet, der am Ende der Testphase abgebucht und automatisch für denselben Zeitraum (monatlich, alle 4 Wochen) erneuert wird, bis es beendet wird. Sofern Sie Ihr Abonnement nicht kündigen, ermächtigen Sie uns, die entsprechende monatliche Abonnementgebühr über Ihre Zahlungsmethode abzubuchen.",
+        "paragraph_5": "Bitte kreuzen Sie dieses Kästchen nicht an, wenn Sie mit diesen Bedingungen nicht einverstanden sind.",
+        "button": "Akzeptieren",
+        "checkbox": "Ich akzeptiere die Geschäftsbedingungen",
+        "error_terms_message": "Sie müssen die Geschäftsbedingungen des Dienstes akzeptieren."
+      }
+
   }

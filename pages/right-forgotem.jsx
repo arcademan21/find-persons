@@ -39,11 +39,11 @@ const RightForGotem = () => {
             
             if( res.status === 'error') {
                 
-                setSendFormErrorMessage('Error al enviar el formulario')
+                setSendFormErrorMessage(message_error)
                 return false
             }
             
-            setSendFormSuccessMessage('Formulario enviado correctamente')
+            setSendFormSuccessMessage(mesage_success)
             return res
     
         } 
@@ -61,7 +61,7 @@ const RightForGotem = () => {
         const user = JSON.parse( localStorage.getItem('user') )
    
         if ( !user ) {
-            setSendSessionErrorMessage('Debes iniciar sesion para enviar el formulario')
+            setSendSessionErrorMessage(language.you_must)
         }
 
 
@@ -107,7 +107,7 @@ const RightForGotem = () => {
                             
     
                                             <div className="form-group">
-                                                <label htmlFor="phone">Telefono</label>
+                                                <label htmlFor="phone">{language.phone}</label>
                                                 <input type="text" name="phone" id="ohone" className="form-control rounded border my-2" required />
                                             </div>
 

@@ -501,6 +501,9 @@
       "address": " Adresse ",
       "message": " Raison ",
       "note": " Note: ",
+      "message_error": "Erreur lors de l'envoi du formulaire",
+      "mesage_success": "Formulaire envoyé avec succès",
+      "you_must": "Vous devez vous connecter pour envoyer le formulaire",
       "text_note_1": " En soumettant ce formulaire, vous acceptez que vos données personnelles soient traitées par nos soins. ",
       "text_note_2": " Seuls les utilisateurs enregistrés et abonnés au service peuvent soumettre ce formulaire. ",
       "send": " Envoyer "
@@ -535,5 +538,20 @@
       "paragraph_1b": ", envoyez-nous un email et nous vous répondrons dans les plus brefs délais.",
       "down_suscription": "Désabonnement",
       "status": "État de l'abonnement"
-    }
+    },
+
+    "modal_terms": {
+        "title": "Termes et conditions",
+        "paragraph_1": "En cochant cette case, vous déclarez et garantissez que vous êtes le titulaire des données personnelles que vous recherchez ou que vous avez le consentement explicite du titulaire de ces données pour rechercher et obtenir ces informations. Vous comprenez que les informations que nous fournissons proviennent de sources accessibles au public et sont destinées uniquement à un usage consenti et légal. L'utilisation ultérieure de ces informations est soumise au strict respect de la réglementation en vigueur en matière de protection des données, y compris, entre autres, le droit à l'information de la personne concernée et le profilage éventuel des personnes qui nécessitera sans exception le consentement préalable et explicite de celles-ci. Le profilage est défini comme « toute forme de traitement automatisé de données personnelles consistant à utiliser ces données pour évaluer certains aspects personnels d'une personne physique ; en particulier, pour analyser ou prédire des aspects relatifs à la performance professionnelle, la situation économique, la santé, les préférences personnelles, les intérêts, la fiabilité, le comportement, la localisation ou les mouvements de cette personne ». Dans tous les cas et dans l'hypothèse où vous ne disposez pas du consentement de la personne concernée pour le traitement de ses données personnelles, vous devrez lui accorder sans exception le droit de s'opposer au traitement de ces données.",
+        "paragraph_2": "En cochant cette case, vous déclarez avoir lu, compris et accepté cette déclaration et vous vous engagez à respecter toutes les lois et réglementations applicables en matière de confidentialité et de protection des données, y compris le Règlement général sur la protection des données (RGPD) et la réglementation andorrane sur ce sujet.",
+        "paragraph_3": "De plus, en cochant cette case, vous acceptez d'assumer l'entière responsabilité et de dégager Find-persons.com et ses propriétaires, employés et affiliés de toute responsabilité, réclamation, demande, litige ou action en justice qui pourrait survenir en raison du non-respect des lois et réglementations applicables en matière de confidentialité et de protection des données, y compris le RGPD et la réglementation andorrane en vigueur, en relation avec l'utilisation des données obtenues par le biais de notre site web.",
+        "paragraph_4": "En ce qui concerne les conditions de vente du service : en cochant cette case, vous acceptez que vous accédez au service en utilisant une période d'essai de 24 heures pour un prix de 0.60€. Une fois ce délai écoulé, si vous ne résiliez pas le compte, votre abonnement au service sera mensuel pour un montant de 49.90€ qui sera débité à la fin de la période d'essai et sera automatiquement renouvelé pour la même période de temps (mensuel, toutes les 4 semaines) jusqu'à sa résiliation. Sauf si vous résiliez votre abonnement, vous nous autorisez à débiter le montant de l'abonnement mensuel correspondant sur votre moyen de paiement.",
+        "paragraph_5": "Veuillez ne pas cocher cette case si vous n'êtes pas d'accord avec ces termes.",
+        "button": "Accepter",
+        "checkbox": "J'accepte les termes et conditions",
+        "error_terms_message": "Vous devez accepter les termes et conditions du service."
+      }
+
+
+
   }

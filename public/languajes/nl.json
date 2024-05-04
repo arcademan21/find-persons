@@ -500,6 +500,9 @@
       "phone": " Telefoon ",
       "address": " Richting ",
       "message": " Razon ",
+      "message_error": "Fout bij het verzenden van het formulier",
+      "mesage_success": "Formulier succesvol verzonden",
+      "you_must": "Je moet inloggen om het formulier te verzenden",
       "note": " Opmerking: ",
       "text_note_1": " Bij het opstellen van deze formule wordt aangenomen dat uw persoonlijke gegevens door ons worden verwerkt. ",
       "text_note_2": " Alleen de gebruikelijke registraties en de service kunnen deze formule gebruiken. ",
@@ -535,5 +538,20 @@
       "paragraph_1b": ", envianos een correo die mogelijk eerder reageert.",
       "down_suscription": "Darme de baja",
       "status": "Estado de sucripcion"
-    }
+    },
+  
+    "modal_terms": {
+      "title": "Algemene voorwaarden",
+      "paragraph_1": "Door dit vakje aan te vinken, verklaart en garandeert u dat u de eigenaar bent van de persoonlijke gegevens die u zoekt of dat u de uitdrukkelijke toestemming van de eigenaar van deze gegevens heeft om deze informatie te zoeken en te verkrijgen. U begrijpt dat de informatie die wij verstrekken afkomstig is van openbaar toegankelijke bronnen en uitsluitend bedoeld is voor geoorloofd en toegestaan gebruik. Het verdere gebruik van deze informatie is onderworpen aan strikte naleving van de geldende gegevensbeschermingswetgeving, waaronder onder andere het recht op informatie van de betrokkene en eventuele profilering van personen die zonder uitzondering de voorafgaande en uitdrukkelijke toestemming van deze personen vereist. Profilering wordt gedefinieerd als 'elke vorm van geautomatiseerde verwerking van persoonsgegevens die bestaat uit het gebruik van deze gegevens om bepaalde persoonlijke aspecten van een natuurlijke persoon te beoordelen; met name om aspecten te analyseren of te voorspellen met betrekking tot de beroepsprestaties, economische situatie, gezondheid, persoonlijke voorkeuren, interesses, betrouwbaarheid, gedrag, locatie of verplaatsingen van die persoon'. In alle gevallen en in het geval dat u niet beschikt over de toestemming van de betrokkene voor de verwerking van zijn persoonsgegevens, moet u hem zonder uitzondering het recht geven om bezwaar te maken tegen de verwerking van deze gegevens.",
+      "paragraph_2": "Door dit vakje aan te vinken, verklaart u dat u deze verklaring heeft gelezen, begrepen en geaccepteerd en dat u zich verbindt tot naleving van alle toepasselijke privacy- en gegevensbeschermingswetten en -regelgeving, inclusief de Algemene Verordening Gegevensbescherming (AVG) en de Andorrese wetgeving op dit gebied.",
+      "paragraph_3": "Bovendien, door dit vakje aan te vinken, gaat u ermee akkoord de volledige verantwoordelijkheid op u te nemen en Find-persons.com en haar eigenaren, werknemers en gelieerde ondernemingen te vrijwaren van enige aansprakelijkheid, claim, eis, geschil of juridische actie die kan voortvloeien uit het niet naleven van de toepasselijke privacy- en gegevensbeschermingswetten en -regelgeving, inclusief de AVG en de geldende Andorrese wetgeving, in verband met het gebruik van de gegevens die via onze website zijn verkregen.",
+      "paragraph_4": "Wat betreft de verkoopvoorwaarden van de dienst: door dit vakje aan te vinken, gaat u ermee akkoord dat u toegang krijgt tot de dienst door gebruik te maken van een proefperiode van 24 uur voor een prijs van 0,60€. Na deze periode, als u het account niet annuleert, zal uw abonnement op de dienst maandelijks zijn voor een bedrag van 49,90€ dat aan het einde van de proefperiode in rekening wordt gebracht en automatisch wordt verlengd voor dezelfde periode (maandelijks, elke 4 weken) tot de beëindiging ervan. Tenzij u uw abonnement annuleert, machtigt u ons om de overeenkomstige maandelijkse abonnementskosten van uw betaalmethode af te schrijven.",
+      "paragraph_5": "Vink dit vakje niet aan als u het niet eens bent met deze voorwaarden.",
+      "button": "Accepteren",
+      "checkbox": "Ik accepteer de algemene voorwaarden",
+      "error_terms_message": "U moet de algemene voorwaarden van de dienst accepteren."
+      }
+
+
+
   }

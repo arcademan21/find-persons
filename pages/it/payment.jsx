@@ -2,8 +2,10 @@
 import {useEffect, useContext, useState} from "react"
 import TefpayPaymentForm from "@/components/TefpayPaymentForm"
 import GlobalContext from "@/context/GlobalContext"
-
 import Image from "next/image"
+import { FaClock, FaEnvelope, FaLock } from "react-icons/fa"
+import { FaCircleCheck } from "react-icons/fa6"
+import ModalTerms from "@/components/ModalTerms"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -45,7 +47,7 @@ const Payment = () => {
     const user = JSON.parse(localStorage.getItem('user'))
     const search = localStorage.getItem('search')
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
-    const extension = localStorage.getItem('extension')
+    const extension = localStorage.getItem('extencion')
     
     useEffect(() => {
         
@@ -59,7 +61,7 @@ const Payment = () => {
     }, [])
 
     return (<>
-        
+        <ModalTerms/>
         <div className="payment-container" >
             <div className="container">
                 <div className="row mb-5 shadow p-0 rounded2x">
@@ -91,19 +93,19 @@ const Payment = () => {
                                 <div className="text-secondary my-3">
                                     
                                     <div className="fs-6 mb-1">
-                                        <i className="fa-solid fa-circle-check fs-4 text-primary mx-2"></i>
+                                        <FaCircleCheck className="fs-4 text-primary mx-2" />
                                         {language.service_description1}
                                     </div><br />
                                     <div className="fs-6 mb-1">
-                                        <i className="fa-solid fa-circle-check fs-4 text-primary mx-2"></i>
+                                        <FaCircleCheck className="fs-4 text-primary mx-2" />
                                         {language.service_description2}
                                     </div><br />
                                     <div className="fs-6 mb-1">
-                                        <i className="fa-solid fa-circle-check fs-4 text-primary mx-2"></i>
+                                        <FaCircleCheck className="fs-4 text-primary mx-2" />
                                         {language.service_description3}
                                     </div><br />
                                     <div className="fs-6 mb-1">
-                                        <i className="fa-solid fa-circle-check fs-4 text-primary mx-2"></i>
+                                        <FaCircleCheck className="fs-4 text-primary mx-2" />
                                         {language.service_description4}
                                     </div>
 
@@ -133,7 +135,7 @@ const Payment = () => {
                                 </h3>
                                 <p className="title-section text-secondary">
                                     <span className="marked fs-5">
-                                        <i className="fas fa-clock fs-1"></i>
+                                        <FaClock className="fs-1" />
                                         {language.time_access}
                                     </span> 
                                 </p>
@@ -172,7 +174,8 @@ const Payment = () => {
                                     </span>
                                 </h2>
                                 <p className="text-secondary title-section m-auto">
-                                    <i className="fas fa-lock fa-2x text-primary "></i><br/>
+                                    <FaLock className="fa-2x text-primary" style={{fontSize: '2rem'}} />
+                                    <br/>
                                     {language.secure_payment_description}
                                     <br/>
                                     {language.domain_name}
@@ -197,7 +200,7 @@ const Payment = () => {
                                         <button className="btn btn-primary btn-lg decoration-none" onClick={
                                             () => window.location.replace(`${extension}/#contact`)   
                                         }>
-                                            <i className="fas fa-envelope"></i>
+                                            <FaEnvelope className="fs-4" />
                                             <b className="fs-4"> 
                                                 {language.btn_contact}
                                             </b>
@@ -220,7 +223,6 @@ const Payment = () => {
             </div>
 
         </div>
-        
     
     </>)
 

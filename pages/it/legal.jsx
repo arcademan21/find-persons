@@ -1,10 +1,9 @@
 'use client'
-import Head from 'next/head'
+import Head from 'next/head';
 
 const Legal = () => {
 
-    const language = JSON.parse(localStorage.getItem('language_file')).legal
-    const extension = localStorage.getItem('extencion')
+    const language = JSON.parse(localStorage.getItem('language_file')).legal;
 
     return (<>
 
@@ -65,9 +64,9 @@ const Legal = () => {
                         </p>  
 
                         <ul>
-                            <li><a href={`https://${process.env.NEXT_PUBLIC_HOST_NAME }${extension}/terms` }>{language.list_2.item_1}</a></li>
-                            <li><a href={`https://${process.env.NEXT_PUBLIC_HOST_NAME }${extension}/policies` }>{language.list_2.item_2}</a></li>
-                            <li><a href={`https://${process.env.NEXT_PUBLIC_HOST_NAME }${extension}/cookies` }>{language.list_2.item_3}</a></li>
+                            <li><a href={`https://${process.env.NEXT_PUBLIC_HOST_NAME }/terms` }>{language.list_2.item_1}</a></li>
+                            <li><a href={`https://${process.env.NEXT_PUBLIC_HOST_NAME }/policies` }>{language.list_2.item_2}</a></li>
+                            <li><a href={`https://${process.env.NEXT_PUBLIC_HOST_NAME }/cookies` }>{language.list_2.item_3}</a></li>
                         </ul> 
 
                         <p>{language.paragraph_4}</p>
@@ -86,7 +85,7 @@ const Legal = () => {
 
                         <p>
                             {language.paragraph_9}
-                            <a href={`https://${process.env.NEXT_PUBLIC_HOST_NAME }${extension}/policies` }>
+                            <a href={`https://${process.env.NEXT_PUBLIC_HOST_NAME }/policies` }>
                                 {language.paragraph_9b}
                             </a>
                             

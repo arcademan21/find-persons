@@ -501,6 +501,9 @@
       "address": " Indirizzo ",
       "message": " Motivo ",
       "note": " Nota: ",
+      "message_error": "Errore nell'invio del modulo",
+      "mesage_success": "Modulo inviato con successo",
+      "you_must": "Devi accedere per inviare il modulo",
       "text_note_1": " Inviando questo modulo accetti che i tuoi dati personali vengano trattati da noi. ",
       "text_note_2": " Solo gli utenti registrati e iscritti al servizio possono inviare questo modulo. ",
       "send": " Inviare "
@@ -535,5 +538,19 @@
       "paragraph_1b": ", inviaci una email e ti risponderemo il prima possibile.",
       "down_suscription": "Annulla l'iscrizione",
       "status": "Stato dell'abbonamento"
-    }
+    },
+
+    "modal_terms": {
+        "title": "Termini e condizioni",
+        "paragraph_1": "Selezionando questa casella, dichiari e garantisci di essere il titolare dei dati personali che stai cercando o di avere il consenso esplicito del titolare di tali dati per cercare e ottenere queste informazioni. Comprendi che le informazioni che forniamo provengono da fonti di accesso pubblico e sono destinate esclusivamente per l'uso consensito e legale. L'ulteriore utilizzo di queste informazioni è soggetto al rigoroso rispetto della normativa sulla protezione dei dati in vigore, tra cui, tra gli altri aspetti, il diritto di informazione all'interessato e l'eventuale profilazione delle persone che richiederà senza eccezione, il consenso esplicito e preventivo delle stesse. Per profilazione si intende “qualsiasi forma di trattamento automatizzato di dati personali che consiste nell'utilizzare tali dati per valutare determinati aspetti personali di una persona fisica; in particolare, per analizzare o prevedere aspetti relativi alla prestazione professionale, alla situazione economica, alla salute, alle preferenze personali, agli interessi, all'affidabilità, al comportamento, alla posizione o ai movimenti di tale persona”. In ogni caso e nel caso in cui non disponga del consenso dell'interessato per il trattamento dei suoi dati personali, dovrà concedergli senza eccezione, il diritto di opporsi al trattamento di questi.",
+        "paragraph_2": "Selezionando questa casella, dichiari di aver letto, compreso e accettato questa dichiarazione e ti impegni a rispettare tutte le leggi e i regolamenti sulla privacy e sulla protezione dei dati applicabili, compreso il Regolamento generale sulla protezione dei dati (RGPD) e la normativa andorrana su questa materia.",
+        "paragraph_3": "Inoltre, selezionando questa casella, accetti di assumerti la piena responsabilità e di esonerare Find-persons.com e i suoi proprietari, dipendenti e affiliati da qualsiasi responsabilità, reclamo, richiesta, contenzioso o azione legale che possa sorgere a causa della violazione delle leggi e dei regolamenti sulla privacy e sulla protezione dei dati applicabili, compreso il RGPD e la normativa andorrana in vigore, in relazione all'uso dei dati ottenuti attraverso il nostro sito web.",
+        "paragraph_4": "Per quanto riguarda le condizioni di vendita del servizio: selezionando questa casella, accetti di accedere al servizio utilizzando un periodo di prova di 24 ore al prezzo di 0.60€. Una volta trascorso questo tempo, se non annulli l'account, la tua iscrizione al servizio sarà mensile per un importo di 49.90€ che sarà addebitato alla fine del periodo di prova e si rinnoverà automaticamente per lo stesso periodo di tempo (mensile, ogni 4 settimane) fino alla sua terminazione. A meno che tu non annulli la tua iscrizione, ci autorizzi a addebitare la quota di iscrizione mensile corrispondente sul tuo metodo di pagamento.",
+        "paragraph_5": "Per favore, non selezionare questa casella se non sei d'accordo con questi termini.",
+        "button": "Accetta",
+        "checkbox": "Accetto i termini e le condizioni",
+        "error_terms_message": "Devi accettare i termini e le condizioni del servizio."
+      } 
+
+
   }

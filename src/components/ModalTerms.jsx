@@ -17,7 +17,7 @@ const ModalTerms = () => {
         }
     }
 
-    const handle_acept_terms = ( e ) => {
+    const handle_acept_terms = () => {
         
         const terms_box = document.getElementById('termsCheck')
         const error_message = document.querySelector('.error_message')
@@ -86,9 +86,7 @@ const ModalTerms = () => {
                     
                     <div className="modal-footer justify-content-center">
                         <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="termsCheck" onChange={(e)=>{
-                                handle_change_terms_box(e)
-                            }}/>
+                            <input type="checkbox" className="form-check-input" id="termsCheck" onChange={(e)=>handle_change_terms_box(e)}/>
                             <label className="form-check-label ml-4" for="termsCheck">
                                 <a href={`${lang}/terms`}>
                                     {language.checkbox}
@@ -98,12 +96,7 @@ const ModalTerms = () => {
                                 {language.error_terms_message}
                             </small>
                         </div>
-                        <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" onClick={
-                            ( e ) => {
-                                
-                                handle_acept_terms( e.currentTarget )
-                            }
-                        }  >
+                        <button type="button" className="btn btn-primary" data-dismiss="modal" id="acceptBtn" onClick={handle_acept_terms} >
                             { language.button }
                         </button>
                     </div>

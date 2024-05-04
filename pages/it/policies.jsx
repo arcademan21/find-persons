@@ -29,10 +29,10 @@ const Policies = () => {
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-lg-12 py-3">
-                            <h2 className="title-section">
-                                {language.title_2}
-                            </h2>
-                            <div className="divider"></div>
+                                <h2 className="title-section">
+                                    {language.title_2}
+                                </h2>
+                                <div className="divider"></div>
 
                             
                         
@@ -198,7 +198,7 @@ const Policies = () => {
 
                             <p>
                                 {language.paragraph_23}
-                                <a href={'/right-forgotem'} >
+                                <a href={`${extension}/right-forgotem`} >
                                     {language.paragraph_24}
                                 </a>
                                 {language.paragraph_25}

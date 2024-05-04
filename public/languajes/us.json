@@ -501,6 +501,9 @@
       "address": " Address ",
       "message": " Reason ",
       "note": " Note: ",
+      "message_error": "Error sending the form",
+      "mesage_success": "Form sent successfully",
+      "you_must": "You must log in to send the form",
       "text_note_1": " By submitting this form, you agree to your personal data being processed by us. ",
       "text_note_2": " Only registered users subscribed to the service can submit this form. ",
       "send": " Send "
@@ -535,5 +538,18 @@
       "paragraph_1b": ", send us an email and we will respond as soon as possible.",
       "down_suscription": "Unsubscribe",
       "status": "Subscription status"
-    }
+    },
+
+    "modal_terms": {
+      "title": "Terms and Conditions",
+      "paragraph_1": "By checking this box, you declare and guarantee that you are the owner of the personal data you are looking for or that you have the explicit consent of the owner of such data to search for and obtain this information. You understand that the information we provide is obtained from public access sources and is intended solely for consented and legal use. The subsequent use you make of this information is subject to strict compliance with current data protection regulations, including among other aspects, the right to information of the interested party and the eventual profiling of people that will require without exception, the prior and express consent of the same. Profiling is understood as 'any form of automated processing of personal data consisting of using these data to evaluate certain personal aspects of a natural person; especially, to analyze or predict aspects related to professional performance, economic situation, health, personal preferences, interests, reliability, behavior, location or movements of that person'. In any case and in the event that you do not have the consent of the affected party for the processing of their personal data, you must grant them without exception, the right to oppose the processing of these.",
+      "paragraph_2": "By checking this box, you state that you have read, understood and accept this statement and that you commit to comply with all applicable privacy and data protection laws and regulations, including the General Data Protection Regulation (GDPR) and Andorran regulations on this matter.",
+      "paragraph_3": "In addition, by checking this box, you agree to assume full responsibility and exempt Find-persons.com and its owners, employees and affiliates from any liability, claim, demand, litigation or legal action that may arise due to non-compliance with applicable privacy and data protection laws and regulations, including the GDPR and current Andorran regulations, in relation to the use of the data obtained through our website.",
+      "paragraph_4": "Regarding the conditions of sale of the service: by checking this box, you agree that you are accessing the service using a 24-hour trial period for a price of 0.60€. After this time, if you do not cancel the account, your subscription to the service will be monthly for an amount of 49.90€ that will be charged at the end of the trial period and will automatically renew for the same period of time (monthly, every 4 weeks) until its termination. Unless you cancel your subscription, you authorize us to charge the corresponding monthly subscription fee on your payment method.",
+      "paragraph_5": "Please, do not check this box if you do not agree with these terms.",
+      "button": "Accept",
+      "checkbox": "I accept the terms and conditions",
+      "error_terms_message": "You must accept the terms and conditions of the service."
+  }
+
   }
