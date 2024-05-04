@@ -2655,7 +2655,7 @@ a.text-dark:hover, a.text-dark:focus {
     }
 
     .image-result-example{
-        margin: 5rem 0 0;
+        margin: 5rem 0 3rem;
         transform: scale(1.5);
         height: 14rem;
     }
@@ -2681,6 +2681,10 @@ a.text-dark:hover, a.text-dark:focus {
 
     .banner-pricing{
         margin-bottom: 7rem !important;
+    }
+
+    #contact{
+        min-height: 83rem;
     }
 
 }
