@@ -42,7 +42,6 @@ const Login = ( ) => {
         .then(( userCredential ) => {
             
             // Signed in
-            setSuccess(true)
             setState({ ...state, user: userCredential.user })
             localStorage.setItem('user', JSON.stringify(userCredential.user))
 
