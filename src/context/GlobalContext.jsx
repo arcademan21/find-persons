@@ -24,10 +24,7 @@ export const GlobalProvider = ( { children } ) => {
     search_type: null
   } )
 
-  const extension = localStorage.getItem('extencion')
-
   const SettingExtencion = useCallback( async () => {
-    
     
     localStorage.setItem('menu', JSON.stringify( { menu: { active_links: true } } ) )
     
@@ -184,7 +181,7 @@ export const GlobalProvider = ( { children } ) => {
           expires={150}
       >
           Este sitio web utiliza 
-          <a href={`${extension}/cookies`}> cookies </a>
+          <a href={`/cookies`}> cookies </a>
           para mejorar tu experiencia.
           <br />
           <span style={{ fontSize: "10px" }}>
