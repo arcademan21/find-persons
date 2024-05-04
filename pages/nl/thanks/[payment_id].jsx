@@ -1,12 +1,13 @@
-import { useEffect, useState, useContext, useLayoutEffect } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
-import {useRouter} from 'next/router'
+
+import { useRouter } from 'next/router'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const convertions_gtag = process.env.NEXT_PUBLIC_CONVERTIONS_GTAG
 
-const CheckTokenValidity = async ( token ) => {
+export const CheckTokenValidity = async ( token ) => {
     
     try{
 
@@ -37,7 +38,7 @@ const CheckTokenValidity = async ( token ) => {
     
 }
 
-const InvalidateToken = async ( token ) => {
+export const InvalidateToken = async ( token ) => {
     
     try{
 
@@ -69,108 +70,6 @@ const InvalidateToken = async ( token ) => {
 
 }
 
-const ExistsPayment = async ( payment_id ) => {
-    
-    try{
-
-        // Fetch to endpoint for get payment
-        const req = await fetch( path_endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                "petition" : {
-                    "name": "exists_payment",
-                    "data": {
-                        "payment": {
-                            "payment_id": payment_id
-                        }
-                    }
-                }
-            })
-        })
-        
-        const res = await req.json()
-        if( res.status === 'error' ) return false
-
-    } catch ( error ) {
-        return false
-    }
-    
-    return true
-}
-
-
-const CreateNewUser = async ( user ) => {
-
-    const country = localStorage.getItem('language')
-  
-    try{
-        
-        // Fetch to endpoint for get payment
-        const req = await fetch( path_endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                "petition" : {
-                    "name": "create_new_user",
-                    "data": {
-                        "create_new_user": {
-                            "user_name": user.displayName ? user.displayName : user.email,
-                            "user_email": user.email,
-                            "password": user.uid,
-                            "role": "suscriber",
-                            "status": "active",
-                            "country": country,
-                            "ip": ""
-                        }
-                    }
-                }
-            })
-        })
-        
-        const res = await req.json()
-        if( res.status === 'error' ) return false
-            
-    } catch ( error ) {
-        return false
-    }
-
-    return true
-}
-
-const UpdateSuscription = async ( user, suscription ) => {
-
-    try{
-
-        // Fetch to endpoint for update suscription
-        const req = await fetch( path_endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                "petition" : {
-                    "name": "update_suscription",
-                    "data": {
-                        "update_suscription": {
-                            "user_email": user.email,
-                            "payment_id": suscription.payment_id,
-                            "status": "trial",
-                        }
-                    }
-                }
-            })
-        })
-
-        const res = await req.json()
-        if( res.status === 'error' ) return false
-
-    } catch ( error ) {
-        return false
-    }
-
-    return true
-
-}
-
 const ThanksPage = () => {
 
     const context = useContext( GlobalContext )
@@ -180,14 +79,10 @@ const ThanksPage = () => {
     
     const router = useRouter()
     const { payment_id } = router.query
-    const extension = localStorage.getItem('extencion')
 
     const [ counter, setCounter ] = useState( 5 )
 
-    const validatePayment = async () => {
-        let res = await ExistsPayment( payment_id.split('-')[0] )
-        return res
-    }
+    const extension = localStorage.getItem('extencion')
 
     const timer = () => {
         const time = window.setInterval(() => {
@@ -195,7 +90,7 @@ const ThanksPage = () => {
                 if (prevCounter === 0) {
                     // Redirigiendo a la pagina de resultados
                     window.location.replace(`${extension}/results`)
-                    clearInterval(time)
+                    clearInterval( time )
                     return prevCounter
                 } else {
                     return prevCounter - 1
@@ -204,67 +99,45 @@ const ThanksPage = () => {
         }, 1000)
     }
 
-    useLayoutEffect(() => {
+    useEffect(() => {
 
-        const referrer = document.referrer
-        if (!referrer.includes(process.env.NEXT_PUBLIC_TEFPAY_REFFERER_URL)) {
-            InvalidateToken(payment_id)
-            window.location.replace(extension)
-        }
-        
-        let result = false
-        CheckTokenValidity(payment_id)
-            .then(res => {
-                result = res
-                if (!res) {
-                    throw new Error('invalid_token')
-                }
-                return validatePayment()
-            })
-            .then(res => {
-                result = res
-                if (!res) {
-                    throw new Error('invalid_payment_id')
-                }
-                return CreateNewUser(user)
-            })
-            .then(res => {
-                result = res
-                if (!res) {
-                    throw new Error('create_user_error')
-                }
-                return UpdateSuscription(user, { payment_id: payment_id })
-            })
-            .then(res => {
-                result = res
-                if (!res) {
-                    throw new Error('update_suscription_error')
-                }
-            })
-            .catch( error => {
-                InvalidateToken(payment_id)
-                window.location.replace(`${extension}/tefpay_error/${error.message}`)
+        CheckTokenValidity( payment_id )
+        .then( async ( res ) => {
+            if( !res ) {
+                window.location.replace(extension)
                 return false
-            })
-            .finally(() => {
-                
-                // Invalidando token
-                InvalidateToken(payment_id)
+            } 
 
-                if ( !result ) {
-                    window.location.replace(`${extension}/tefpay_error/error`)
-                    return false
-                }
-    
-                // Cargando script de converciones en la cavecera
-                const script = document.createElement('script')
-                script.type = 'text/javascript'
-                script.innerHTML = convertions_gtag
-                document.head.appendChild(script)
+            return res
 
-                timer()
+        })
+        .then( res => {
+            
+            if( !res ) {
+                window.location.replace(extension)
+                return false
+            }
 
-            })
+            // Cargando script de converciones en la cavecera
+            const script = document.createElement('script')
+            script.type = 'text/javascript'
+            script.innerHTML = convertions_gtag
+            document.head.appendChild( script )
+
+            timer()
+
+            return true
+
+        })
+        .catch( error => {
+            console.log( error )
+            window.location.replace(extension)
+        })
+        .finally( () => {
+            InvalidateToken( payment_id )
+        })
+
+        
 
     }, [])
 

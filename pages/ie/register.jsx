@@ -1,17 +1,18 @@
 'use client'
-import { useEffect, useState, useContext, useLayoutEffect } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
-import GlobalContext from '@/context/GlobalContext'
 import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt, FaGoogle } from 'react-icons/fa'
+import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt, FaGoogle } from 'react-icons/fa'
+import 'react-toastify/dist/ReactToastify.css'
+import '../css/register.css'
 
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
-
 const GetSuscription = async ( user ) =>{
+    
     try{
 
         // Fetch to endpoint for update suscription
@@ -53,7 +54,6 @@ const Register = () => {
 
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     const language_toast = JSON.parse( localStorage.getItem('language_file') ).toast
-    const extension = localStorage.getItem('extencion')   
     
     const newUser = async () => { 
         
@@ -69,7 +69,7 @@ const Register = () => {
         if( !terms.checked ) {
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = loadingButtonHtml
-            toast.error( language_toast.error_acept_terms_message )
+            toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
             return false
         }
 
@@ -90,9 +90,9 @@ const Register = () => {
                 
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && search === 'null' ) window.location.replace(extension)
-                    else if( !suscripted && search !== 'null' ) window.location.replace(`${extension}/payment`)
-                    else if( suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
+                    if( !suscripted && search === 'null' ) window.location.replace('/')
+                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
+                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
                     
         
                 })
@@ -130,7 +130,7 @@ const Register = () => {
         const terms = document.getElementById('register-terms')
         if( !terms.checked ) {
             
-            toast.error( language_toast.error_acept_terms_message )
+            toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
             return false
         }
         
@@ -155,10 +155,10 @@ const Register = () => {
                 
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && search === 'null' ) window.location.replace(extension)
-                    else if( !suscripted && search !== 'null' ) window.location.replace(`${extension}/payment`)
-                    else if( suscripted && search === 'null' ) window.location.replace(extension)
-                    else if( suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
+                    if( !suscripted && search === 'null' ) window.location.replace('/')
+                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
+                    else if( suscripted && search === 'null' ) window.location.replace('/')
+                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
                     
         
                 })
@@ -194,8 +194,8 @@ const Register = () => {
     useEffect(() => {
         GetSuscription( user ).then( suscripted => {
             
-            if( user && !suscripted ) window.location.replace(`${extension}/payment`)
-            else if( user && suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
+            if( user && !suscripted ) window.location.replace('/payment')
+            else if( user && suscripted && search !== 'null' ) window.location.replace('/results')
 
         })
     }, [])
@@ -206,8 +206,8 @@ const Register = () => {
 
     return (<>
         
-        <div className="container-fluid h-100 wow fadeInUp" >
-                <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75">
+        <div className="container-fluid h-100 wow fadeInUp">
+                <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75 content-register-form">
                     
                     <div className="col-sm-12 d-flex shadow p-0 rounded2x w-100">
                         
@@ -216,7 +216,7 @@ const Register = () => {
                             <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 px-3 login-col">
                                 <div className="d-none w-75 m-auto logo-register-form">
                                 <Link
-                                    href={extension}
+                                    href="/"
                                     className="navbar-brand link-logo 
                                         text-center"
                                 >
@@ -294,7 +294,7 @@ const Register = () => {
                                     htmlFor="register-terms"
                                     >
                                     {language.accept_the}
-                                    <Link href={`${extension}/terms`}> {language.terms_and_conditions} </Link>
+                                    <Link href="/terms"> {language.terms_and_conditions} </Link>
                                     {language.of_service}
                                     </label>
                                 </div>
@@ -318,7 +318,7 @@ const Register = () => {
                                     <span className="marked">{language.have_account}</span>
                                     <br />
                                     <span href="/login" className="link-primary my-1" onClick={()=>{
-                                        window.location.replace(`${extension}/login`)
+                                        window.location.replace('/login')
                                     }}>
                                       
                                         {language.login} <FaSignInAlt className='fs-5 mx-2' />

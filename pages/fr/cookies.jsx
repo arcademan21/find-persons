@@ -8,7 +8,6 @@ const host_name = process.env.NEXT_PUBLIC_HOST_NAME
 const Cookies = () => {
 
     const language = JSON.parse(localStorage.getItem('language_file')).cookies
-    const extension = localStorage.getItem('extencion')
 
     return (<>
 

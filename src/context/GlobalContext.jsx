@@ -151,8 +151,6 @@ export const GlobalProvider = ( { children } ) => {
 
   useEffect(() => {
 
-    
-    
     SettingExtencion()
     SettingLanguage()
     SettinUser()

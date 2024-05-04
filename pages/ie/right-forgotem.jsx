@@ -9,7 +9,6 @@ const RightForGotem = () => {
     const [sendFormSuccessMessage, setSendFormSuccessMessage] = useState( null )
 
     const language = JSON.parse(localStorage.getItem('language_file')).right_for_gotem
-    const extension = localStorage.getItem('extencion')
 
     const sendForGotemForm = async ( e ) => {
     
@@ -40,11 +39,11 @@ const RightForGotem = () => {
             
             if( res.status === 'error') {
                 
-                setSendFormErrorMessage('Error al enviar el formulario')
+                setSendFormErrorMessage(message_error)
                 return false
             }
             
-            setSendFormSuccessMessage('Formulario enviado correctamente')
+            setSendFormSuccessMessage(mesage_success)
             return res
     
         } 
@@ -62,7 +61,7 @@ const RightForGotem = () => {
         const user = JSON.parse( localStorage.getItem('user') )
    
         if ( !user ) {
-            setSendSessionErrorMessage('Debes iniciar sesion para enviar el formulario')
+            setSendSessionErrorMessage(language.you_must)
         }
 
 
@@ -74,18 +73,14 @@ const RightForGotem = () => {
             <meta name="robots" content="noindex" />
         </Head>
 
-        
-        
-        
-
         <div className="container py-5">
             
             <div className="page-banner my-5">
                 <div className="row justify-content-center align-items-center h-100">
                     <div className="col-md-6">
-                    <h1 className="text-center">
-                        {language.title}
-                    </h1>
+                        <h1 className="text-center">
+                            {language.title}
+                        </h1>
                     </div>
                 </div>
             </div>
@@ -100,7 +95,6 @@ const RightForGotem = () => {
                         { sendFormErrorMessage && <div className="alert alert-danger">{ sendFormErrorMessage }</div> }
                         { sendFormSuccessMessage && <div className="alert alert-success">{ sendFormSuccessMessage }</div> }
 
-
                         <div className="col-md-6 m-auto">
 
                             <div className="card vh-100 mb-5">
@@ -111,9 +105,9 @@ const RightForGotem = () => {
                                         sendForGotemForm( e )
                                     }} method="post" className="form">
                             
-                            
+    
                                             <div className="form-group">
-                                                <label htmlFor="phone">Telefono</label>
+                                                <label htmlFor="phone">{language.phone}</label>
                                                 <input type="text" name="phone" id="ohone" className="form-control rounded border my-2" required />
                                             </div>
 

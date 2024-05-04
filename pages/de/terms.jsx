@@ -4,7 +4,7 @@ import Head from 'next/head';
 const Terms = () => {
 
     const language = JSON.parse(localStorage.getItem('language_file')).terms
-    const extension = localStorage.getItem('extencion')
+
     
 
     return (<>
@@ -31,14 +31,6 @@ const Terms = () => {
                         
                             <h2 className="title-section"></h2>
                             <div className="divider"></div>
-
-                            <p>
-                                {language.paragraph_1}
-                                {process.env.NEXT_PUBLIC_HOST_NAME} 
-                                {language.paragraph_2}
-                                {process.env.NEXT_PUBLIC_HOST_NAME}
-                                {language.paragraph_3}
-                            </p>
 
                             <br />
                             
