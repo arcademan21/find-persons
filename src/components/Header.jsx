@@ -32,7 +32,7 @@ const Header = () => {
             className="navbar-collapse collapse justify-content-end"
             id="navbarContent"
           >
-            <div className="d-flex justify-content-end w-75">
+            <div className="d-flex justify-content-end w-75 menu-buttons-content">
               <MenuButtons />
             </div>
           </div>

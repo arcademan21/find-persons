@@ -2620,36 +2620,42 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .z-1{ z-index: 1 !important; }	
-	.z-2{ z-index: 2 !important; }
-	.z-3{ z-index: 3 !important; }
+.z-2{ z-index: 2 !important; }
+.z-3{ z-index: 3 !important; }
 
-	.navbar-toggler {
-		box-shadow: 0px 0px 0px 2px #afa2ea, 0px 2px 2px 3px #afa2ea;
-	}
+.navbar-toggler {
+    box-shadow: 0px 0px 0px 2px #afa2ea, 0px 2px 2px 3px #afa2ea;
+}
 
-	.navbar-toggler:focus {
-		box-shadow: 0px 0px 0px 2px #afa2ea, 0px 0px 0px 4px #afa2ea;
-	}
+.navbar-toggler:focus {
+    box-shadow: 0px 0px 0px 2px #afa2ea, 0px 0px 0px 4px #afa2ea;
+}
 
-	.navbar-toggler svg {
-		font-size: 2rem;
-    	color: #9e8be6;
-	}
+.navbar-toggler svg {
+    font-size: 2rem;
+    color: #9e8be6;
+}
 
-	.form-control:focus {
-		color: #212529;
-		background-color: #fff;
-		border-color: #5948f6;
-		outline: 0;
-		box-shadow: 0 0 0 0.25rem rgb(89 72 246 / 46%);
-	}
-	
-	@media (max-width: 767.98px) or (min-width: 576px) {
-		.px-sm-2 {
-			padding-right: 0.5rem !important;
-			padding-left: 0.5rem !important;
-		}
-	}
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #5948f6;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(89 72 246 / 46%);
+}
+
+@media (max-width: 767.98px) or (min-width: 576px) {
+    .px-sm-2 {
+        padding-right: 0.5rem !important;
+        padding-left: 0.5rem !important;
+    }
+
+    .link-logo, .menu-buttons-content{
+        transform: scale(0.89);
+    }
+
+
+}
 
 
 
