@@ -54,7 +54,7 @@ const Searcher = () => {
             break
             case 'phone': regex = /^[0-9+\-\s]{9,}$/
             break
-            case 'address': regex = /^[a-zA-Z0-9\s.#]+$/
+            case 'address': regex = /^\w+\s\d+[\w\s,]*$/
             break
             case 'user_name': regex = /^[a-zA-Z0-9._-]+$/
             break
