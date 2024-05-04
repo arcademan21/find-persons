@@ -2645,11 +2645,17 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 @media (max-width: 767.98px) or (min-width: 576px) {
+    
     .px-sm-2 {
         padding-right: 0.5rem !important;
         padding-left: 0.5rem !important;
     }
 
+    
+
+}
+
+@media screen and (max-width: 768px){
     .link-logo, .menu-buttons-content{
         transform: scale(0.89);
     }
@@ -2698,7 +2704,6 @@ a.text-dark:hover, a.text-dark:focus {
         display: flex;
         justify-content: space-between;
     }
-
 }
 
 
