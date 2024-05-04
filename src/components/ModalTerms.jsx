@@ -9,17 +9,17 @@ const ModalTerms = () => {
 
     if( lang === 'es' ) lang = ''
 
-
-    
-
     const handle_acept_terms = ( e ) => {
         
         const terms_box = document.getElementById('termsCheck')
         const error_message = document.querySelector('.error_message')
 
         if( terms_box.checked ) {
-            document.getElementById('termsModal').remove()
+            const { Modal } = require('bootstrap')
+            const myModal = document.getElementById('termsModal')
+            const modal = Modal.getInstance(myModal)
             error_message.classList.add('d-none')
+            modal.hide()
         }
 
         else {
