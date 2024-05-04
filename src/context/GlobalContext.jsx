@@ -175,7 +175,7 @@ export const GlobalProvider = ( { children } ) => {
     <GlobalContext.Provider value={{ state, setState }} >
       <CookieConsent
           location="bottom"
-          buttonText="Aceptar"
+          buttonText={state.language_file.cookies_banner.acept}
           cookieName="myAwesomeCookieName2"
           style={cookieConsentStyle}
           buttonClasses="btn bg-primary w-25 text-white py-3 fs-4 rounded"
