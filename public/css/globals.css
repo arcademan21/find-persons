@@ -2656,7 +2656,7 @@ a.text-dark:hover, a.text-dark:focus {
     }
 
     .primary-row-results{
-        padding: 0;
+        padding: 0 !important;
     }
 
     

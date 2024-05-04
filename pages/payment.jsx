@@ -5,6 +5,7 @@ import GlobalContext from "@/context/GlobalContext"
 import Image from "next/image"
 import { FaClock, FaEnvelope, FaLock } from "react-icons/fa"
 import { FaCircleCheck } from "react-icons/fa6"
+import ModalTerms from "@/components/ModalTerms"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -59,7 +60,7 @@ const Payment = () => {
     }, [])
 
     return (<>
-        
+        <ModalTerms/>
         <div className="payment-container" >
             <div className="container">
                 <div className="row mb-5 shadow p-0 rounded2x">
