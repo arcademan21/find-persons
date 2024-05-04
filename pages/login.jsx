@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt } from 'react-icons/fa'
 import Link from 'next/link'
 import './css/login.css'
+import { useRouter } from 'next/navigation'
 
 const Login = ( ) => {
 
@@ -20,6 +21,8 @@ const Login = ( ) => {
     const user = JSON.parse( localStorage.getItem('user') )
 
     const language_toats = JSON.parse( localStorage.getItem('language_file') ).toast
+
+    const router = useRouter()
     
     const loginUser = async () => {
         
@@ -40,7 +43,7 @@ const Login = ( ) => {
             localStorage.setItem('user', JSON.stringify(userCredential.user))
 
             toast.success( language_toats.succes_session_init_message )
-            window.location.replace('/')
+            router.push('/')
 
         }).catch((error) => {
 
