@@ -48,6 +48,9 @@ const Login = ( ) => {
 
         }).catch((error) => {
 
+            loadingButton.removeAttribute('disabled')
+            loadingButton.innerHTML = loadingButtonHtml
+
             const showErrorToast = async (error) => {
                 toast.error( error )
                 setError(true)
@@ -63,9 +66,11 @@ const Login = ( ) => {
                 setError(true)
             }
 
+            
+
+        }).finally(() => {
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = loadingButtonHtml
-
         })
 
     }
