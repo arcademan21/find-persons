@@ -72,27 +72,27 @@ const SaveDownload = async ( user, data ) => {
 
 }
 
-const GetSerpstakResults = async ( search, lang ) =>{
+// const GetSerpstakResults = async ( search, lang ) =>{
     
-    try{
+//     try{
 
-        // Fetch to endpoint for update suscription
-        const req = await fetch( '/api/serpstak/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                "query" : search,
-                "lang": lang
-            })
-        })
+//         // Fetch to endpoint for update suscription
+//         const req = await fetch( '/api/serpstak/', {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify({
+//                 "query" : search,
+//                 "lang": lang
+//             })
+//         })
 
-        return await req.json()
+//         return await req.json()
 
-    } catch ( error ) {
-        return false
-    }
+//     } catch ( error ) {
+//         return false
+//     }
 
-}
+// }
 
 
 const Results = () => {
@@ -256,26 +256,31 @@ const Results = () => {
                 // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
                 // console.log(`${data["total"]} total PDL records exist matching this query.`)
                 setDataPerson( data.data )
+                setLoading( false )
                 
 
             }).catch((error) => {
                 //console.log("NOTE: The carrier pigeons lost motivation in flight. See error and try again.")
                 setError(error)
+                setLoading( false )
             })
 
         } catch (error) {
             setError(error)
+            setLoading( false )
         }
 
-        GetSerpstakResults( search, lang ).then( res => {
-            if( !res ) return false
-            setSerpstakResults( res )
-        }).catch( error => {
-            // TODO: Implementar un mensaje de error
-            setError(error)
-        }).finally( () => {
-            setLoading( false )
-        })
+        
+
+        // GetSerpstakResults( search, lang ).then( res => {
+        //     if( !res ) return false
+        //     setSerpstakResults( res )
+        // }).catch( error => {
+        //     // TODO: Implementar un mensaje de error
+        //     setError(error)
+        // }).finally( () => {
+        //     setLoading( false )
+        // })
 
     }
 
@@ -450,7 +455,7 @@ const Results = () => {
             </div>
             
             {/* PARA TEST */}
-            <div className="container py-5 my-5 w-75">
+            {/* <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
                     <div className="col-md-12">
@@ -466,7 +471,7 @@ const Results = () => {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
 
 
 

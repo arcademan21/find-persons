@@ -13,11 +13,11 @@ export default async ( req, res ) => {
 
     const config = {
         access_key: apiKey,
-        query: query,
         type: 'web',
         google_domain: 'google.com',
         gl: lang,
-        hl: lang
+        hl: lang,
+        query: query
     }
 
     try{
