@@ -459,7 +459,6 @@ const Results = () => {
                             </div>
                             <div className="card-body">
                                 {serpstakResults && <pre>{ JSON.stringify( serpstakResults, null, 2) }</pre>}
-                                {error && <p>Error: { error.message }</p>}
                             </div>
                         </div>
                     </div>
