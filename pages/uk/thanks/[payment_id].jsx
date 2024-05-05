@@ -130,7 +130,7 @@ const ThanksPage = () => {
 
         })
         .catch( error => {
-            console.log( error )
+            //console.log( error )
             window.location.replace(extension)
         })
         .finally( () => {

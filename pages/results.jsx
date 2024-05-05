@@ -80,8 +80,10 @@ const Results = () => {
     const user = JSON.parse( localStorage.getItem('user') )
     const lang = localStorage.getItem('language')
     const countrie = localStorage.getItem('countrie')
-    
+    const dataObjectPerson = null
+
     const [dataPerson, setDataPerson] = useState( null )
+    
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     
@@ -150,11 +152,11 @@ const Results = () => {
             }
 
             else{
-                console.log('No se pudo obtener el token de acceso')
+                //console.log('No se pudo obtener el token de acceso')
             }
 
         }).catch( error => {
-            console.log(error)
+            //console.log(error)
         })
 
     }
@@ -187,7 +189,7 @@ const Results = () => {
             const PDLJSClient = new PDLJS({ apiKey: process.env.NEXT_PUBLIC_SEARCHS_API_KEY })
 
             let params = {
-                min_likelihood: 4,
+                min_likelihood: 100,
                 titlecase: true,
                 include_if_matched: false,
                 pretty: true
@@ -237,14 +239,10 @@ const Results = () => {
                 
                 // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
                 // console.log(`${data["total"]} total PDL records exist matching this query.`)
-                console.log(data.data)
-
-                // Aqui el objeto contiene alguna key como "profile" que es un array , esto esta ocacionando un error : Objects are not valid as a React child (found: object with keys {status, contains, previous_version, current_version}). If you meant to render a collection of children, use an array instead. 
+                dataObjectPerson = data.data
                 
-                //arreglaremos el objeto para evitar ese problema 
-
                 let dataPerson = data.data
-                let dataPersonKeys = Object.keys(dataPerson)
+                let dataPersonKeys = Object.keys( dataPerson )
                 let dataPersonKeysLength = dataPersonKeys.length
 
                 for( let i = 0; i < dataPersonKeysLength; i++ ){
@@ -386,7 +384,7 @@ const Results = () => {
                             { dataPerson ? 
 
                                 <PDFDownloadLink 
-                                    document={<PdfRenderer dataPerson={ dataPerson } />} 
+                                    document={<PdfRenderer dataPerson={ dataObjectPerson } />} 
                                     fileName="data_person.pdf" 
                                     style={{ textAlign: "center" }} 
                                     onClick={handleDownloadClick}

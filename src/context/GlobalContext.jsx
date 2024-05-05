@@ -36,7 +36,6 @@ export const GlobalProvider = ( { children } ) => {
       'thanks'
     ]
 
-    console.log(pathname)
     if( pathname === '/' ) {
       localStorage.setItem('extencion', pathname)
     }
