@@ -237,7 +237,13 @@ const Results = () => {
                 
                 // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
                 // console.log(`${data["total"]} total PDL records exist matching this query.`)
+                console.log(data.data)
+
+                // Aqui el objeto contiene alguna key como "profile" que es un array , esto esta ocacionando un error : Objects are not valid as a React child (found: object with keys {status, contains, previous_version, current_version}). If you meant to render a collection of children, use an array instead. 
                 
+                //arreglaremos el objeto para evitar ese problema 
+                
+
                 setDataPerson( data.data ) 
                 setLoading( false )
                 
