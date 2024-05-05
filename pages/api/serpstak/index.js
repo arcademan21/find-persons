@@ -10,7 +10,7 @@ export default async ( req, res ) => {
     
     if ( !query )
         return res.status( 400 ).json({ message: 'Query is required' })
-    
+
     const config = {
         access_key: apiKey,
         query: query,
@@ -33,7 +33,7 @@ export default async ( req, res ) => {
 
     } catch ( error ) {
             
-        return res.status( 500 ).json({ message: 'Internal Server Error', error })
+        return res.status( 500 ).json({ message: 'Internal Server Error ( SERPSTAK ) ', error })
 
     }
 
