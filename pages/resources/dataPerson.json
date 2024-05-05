@@ -71,8 +71,58 @@
 "regions": " -- n/a -- ",
 "countries": " -- n/a -- ",
 "street_addresses": " -- n/a -- ",
-"experience": " -- n/a -- ",
+"experience": [
+{
+"company": {
+    "name": " -- n/a -- ",
+    "size": " -- n/a -- ",
+    "id": " -- n/a -- ",
+    "founded": " -- n/a -- ",
+    "industry": " -- n/a -- ",
+    "location": {
+        "name": " -- n/a -- ",
+        "locality": " -- n/a -- ",
+        "region": " -- n/a -- ",
+        "metro": " -- n/a -- ",
+        "country": " -- n/a -- ",
+        "continent": " -- n/a -- ",
+        "street_address": " -- n/a -- ",
+        "address_line_2": " -- n/a -- ",
+        "postal_code": " -- n/a -- ",
+        "geo": " -- n/a -- "
+    },
+    "linkedin_url": " -- n/a -- ",
+    "linkedin_id": " -- n/a -- ",
+    "facebook_url": " -- n/a -- ",
+    "twitter_url": " -- n/a -- ",
+    "website": " -- n/a -- "
+},
+"location_names": " -- n/a -- ",
+"end_date": " -- n/a -- ",
+"start_date": " -- n/a -- ",
+"title": {
+    "name": " -- n/a -- ",
+    "role": " -- n/a -- ",
+    "sub_role": " -- n/a -- ",
+    "levels": " -- n/a -- " 
+},
+"is_primary": " -- n/a -- "
+}
+],
 "education": " -- n/a -- " ,
-"profiles": " -- n/a -- ",
-"version_status": " -- n/a -- "
+"profiles": [
+    {
+        "network": " -- n/a -- ",
+        "id": " -- n/a -- ",
+        "url": " -- n/a -- ",
+        "username": " -- n/a -- "
+    }
+],
+"version_status": {
+    "status": " -- n/a -- ",
+    "contains": " -- n/a -- ",
+    "previous_version": " -- n/a -- ",
+    "current_version": " -- n/a -- "
+}
+
 }

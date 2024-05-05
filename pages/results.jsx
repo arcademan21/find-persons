@@ -4,7 +4,6 @@ import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import PdfRenderer from '@/components/PdfRenderer'
 import { PDFDownloadLink } from '@react-pdf/renderer'
-import * as dataPersonJson from './resources/dataPerson.json' 
 import PDLJS from 'peopledatalabs'
 import { FaSearch, FaPhone, FaEnvelope, FaSpinner, FaDownload, FaInfoCircle, FaMapMarked }
 from 'react-icons/fa'
@@ -82,7 +81,7 @@ const Results = () => {
     const lang = localStorage.getItem('language')
     const countrie = localStorage.getItem('countrie')
     
-    const [dataPerson, setDataPerson] = useState( dataPersonJson )
+    const [dataPerson, setDataPerson] = useState( null )
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     
@@ -326,10 +325,10 @@ const Results = () => {
                                     <div className="info-persons card shadow border rounded bg-white w-75 m-auto p-2">
 
                                         <p className='text-secondary title-section'>
-                                            { dataPerson.gender === "Male" ? language.results.male : language.results.famale }
-                                            { dataPerson.gender === "Male" ? language.results.burned_male : language.results.burned_famale } {language.results.he} 
-                                            { dataPerson.birth_date }  
-                                            {language.results.actualy} <span className='marked'> { dataPerson.location_name } </span> 
+                                            { dataPerson && dataPerson.gender === "Male" ? language.results.male : language.results.famale }
+                                            { dataPerson && dataPerson.gender === "Male" ? language.results.burned_male : language.results.burned_famale } { language.results.he } 
+                                            { dataPerson && dataPerson.birth_date ? dataPerson.birth_date : ' - n/a - ' }  
+                                            { language.results.actualy} <span className='marked'> { dataPerson && dataPerson.location_name ? dataPerson.location_name : ' - n/a - ' } </span> 
                                         </p>
                                     </div>
                                 </div>
@@ -351,16 +350,16 @@ const Results = () => {
                                     
                                     <p>
                                         <FaPhone className="mx-2" />
-                                        {language.results.mobile_phone} <span className='marked'> { dataPerson.mobile_phone } </span><br/>
+                                        {language.results.mobile_phone} <span className='marked'> { dataPerson && dataPerson.mobile_phone ? dataPerson.mobile_phone : ' - n/a - ' } </span><br/>
 
                                         <FaPhone className="mx-2" />
-                                        {language.results.home_phone} <span className='marked'> { dataPerson.phone_numbers[0] } </span><br/>
+                                        {language.results.home_phone} <span className='marked'> { dataPerson && dataPerson.phone_numbers[0] ? dataPerson.phone_numbers[0] : ' - n/a - ' } </span><br/>
 
                                         <FaEnvelope className="mx-2" />
-                                        {language.results.personal_email} <span className='marked'> { dataPerson.recommended_personal_email } </span><br/>
+                                        {language.results.personal_email} <span className='marked'> { dataPerson && dataPerson.recommended_personal_email ? dataPerson.recommended_personal_email : ' - n/a - ' } </span><br/>
 
                                         <FaMapMarked className="mx-2" />
-                                        { language.results.location } { dataPerson.location_locality }, { dataPerson.location_country }, 
+                                        { language.results.location } { dataPerson && dataPerson.location_locality ? dataPerson.location_locality : ' - n/a - ' }, { dataPerson && dataPerson.location_country ? dataPerson.location_country : ' - n/a - ' }, 
                                         
                                     </p>
                                     
@@ -372,27 +371,35 @@ const Results = () => {
                                 {language.results.download_complete_info}
                             </h2>
 
-                            <PDFDownloadLink 
-                                document={<PdfRenderer dataPerson={dataPerson} />} 
-                                fileName="data_person.pdf" 
-                                style={{ textAlign: "center" }} 
-                                onClick={handleDownloadClick}
-                            >
-                                {({ blob, url, loading, error }) => {
-                                    
-                                    return loading ? 
-                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
-                                            <FaSpinner className="mx-1" />
-                                            {language.results.download_pdf}
-                                        </button> 
-                                    : 
-                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn">
-                                            <FaDownload className="mx-1" />
-                                            {language.results.download_pdf}
-                                        </button>
+                            { dataPerson ? 
 
-                                }}
-                            </PDFDownloadLink>
+                                <PDFDownloadLink 
+                                    document={<PdfRenderer dataPerson={ dataPerson } />} 
+                                    fileName="data_person.pdf" 
+                                    style={{ textAlign: "center" }} 
+                                    onClick={handleDownloadClick}
+                                >
+                                    {({ blob, url, loading, error }) => {
+                                        
+                                        return loading ? 
+                                            <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
+                                                <FaSpinner className="mx-1" />
+                                                {language.results.download_pdf}
+                                            </button> 
+                                        : 
+                                            <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn">
+                                                <FaDownload className="mx-1" />
+                                                {language.results.download_pdf}
+                                            </button>
+
+                                    }}
+                                </PDFDownloadLink>
+                            : 
+                                <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
+                                    <FaSpinner className="mx-1" />
+                                    {language.results.download_pdf}
+                                </button> 
+                            }
 
                             <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white note-info">
                                 <FaInfoCircle className="mx-2" style={{ fontSize: "2rem" }} />
