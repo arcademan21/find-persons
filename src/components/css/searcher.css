@@ -33,4 +33,7 @@
     .content-searcher{
         padding: 0 25px;
     }
+    #country{
+        width: 50% !important;
+    }
 }
