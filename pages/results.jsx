@@ -330,7 +330,7 @@ const Results = () => {
                                             { dataPerson.gender === "Male" ? language.results.male : language.results.famale }
                                             { dataPerson.gender === "Male" ? language.results.burned_male : language.results.burned_famale } {language.results.he} 
                                             { dataPerson.birth_date }  
-                                            {language.results.actualy} <span className='marked'> [  { dataPerson.location_name } ] </span> 
+                                            {language.results.actualy} <span className='marked'> { dataPerson.location_name } </span> 
                                         </p>
                                     </div>
                                 </div>
@@ -361,7 +361,7 @@ const Results = () => {
                                         {language.results.personal_email} <span className='marked'> { dataPerson.recommended_personal_email } </span><br/>
 
                                         <FaMapMarked className="mx-2" />
-                                        {language.results.location} {dataPerson.location_locality}, {dataPerson.location_country}, 
+                                        { language.results.location } { dataPerson.location_locality }, { dataPerson.location_country }, 
                                         
                                     </p>
                                     
