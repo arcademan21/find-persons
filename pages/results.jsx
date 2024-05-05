@@ -72,6 +72,29 @@ const SaveDownload = async ( user, data ) => {
 
 }
 
+const GetSerpstakResults = async ( search, lang ) =>{
+    
+    try{
+
+        // Fetch to endpoint for update suscription
+        const req = await fetch( '/api/serpstak/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "query" : search,
+                "lang": lang
+            })
+        })
+
+        return await req.json()
+
+    } catch ( error ) {
+        return false
+    }
+
+}
+
+
 const Results = () => {
     
     const context = useContext(GlobalContext)
@@ -83,6 +106,7 @@ const Results = () => {
     const lang = localStorage.getItem('language')
     
     const [dataPerson, setDataPerson] = useState( dataPersonJson )
+    const [serpstakResults, setSerpstakResults] = useState([])
     const [loading, setLoading] = useState(true)
     const [region, setRegion] = useState('EUROPE')
     const [location, setLocation] = useState('Madrid, Spain')
@@ -226,13 +250,20 @@ const Results = () => {
             //console.log(params)
 
             // Pass the parameters object to the Person Search API
-            PDLJSClient.person.enrichment( params ).then((data) => {
+            PDLJSClient.person.enrichment( params ).then(( data ) => {
                 
                 // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
                 // console.log(`${data["total"]} total PDL records exist matching this query.`)
-                setDataPerson(data.data)
-                console.log('Aqui ', data)
-                setLoading(false)
+                setDataPerson( data.data )
+                GetSerpstakResults( search, lang ).then( res => {
+                    if( !res ) return false
+                    setSerpstakResults( res )
+                }).catch( error => {
+                    // TODO: Implementar un mensaje de error
+                    console.log( error )
+                }).finally( () => {
+                    setLoading( false )
+                })
 
             }).catch((error) => {
                 //console.log("NOTE: The carrier pigeons lost motivation in flight. See error and try again.")
@@ -376,6 +407,10 @@ const Results = () => {
                                 
                             </div> <br/>
 
+                            {/* Mostrando los resultados de serpstak */}
+                            
+
+                        
                             <h2 className="text-center text-secondary title-section mt-4">
                                 {language.results.download_complete_info}
                             </h2>
@@ -414,7 +449,7 @@ const Results = () => {
             </div>
             
             {/* PARA TEST */}
-            {/* <div className="container py-5 my-5 w-75">
+            <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
                     <div className="col-md-12">
@@ -423,14 +458,14 @@ const Results = () => {
                                 <h4>Resultados de {search}</h4>
                             </div>
                             <div className="card-body">
-                                {dataPerson && <pre>{ JSON.stringify( dataPerson, null, 2) }</pre>}
+                                {serpstakResults && <pre>{ JSON.stringify( serpstakResults, null, 2) }</pre>}
                                 {error && <p>Error: { error.message }</p>}
                             </div>
                         </div>
                     </div>
 
                 </div>
-            </div> */}
+            </div>
 
 
 
