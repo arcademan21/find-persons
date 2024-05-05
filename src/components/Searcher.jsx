@@ -171,19 +171,27 @@ const Searcher = () => {
 
             <div>
                 
-                <input type="text" name="search" id="search" className="shearching-input form-control" placeholder={textHolder} onChange={changeInput} autoFocus />
+                
 
                 { searchTypeEval === 'name' ? 
-                    <div className="text-center mt-2">
+
+                    (<>
+                        <input type="text" name="search" id="search" className="shearching-input form-control mb-1" placeholder={textHolder} onChange={changeInput} autoFocus />
+
+                        <div className="text-center">
                         {language.select_country}
                         <select name="country" id="country" style={{color: '#645F88'}} className="form-control w-25 m-auto my-2 h-25 py-1 text-center" onChange={( e ) =>{
-                            setCountries(e.target.value)
-                        }}>
-                            {countries.map( (country, index) => {
-                                return <option key={index} value={country}>{country}</option>
-                            })} 
-                        </select>
-                    </div> : null
+                                setCountries(e.target.value)
+                            }}>
+                                {countries.map( (country, index) => {
+                                    return <option key={index} value={country}>{country}</option>
+                                })} 
+                            </select>
+                        </div>
+                    </>)
+
+
+                     : <input type="text" name="search" id="search" className="shearching-input form-control" placeholder={textHolder} onChange={changeInput} autoFocus />
                 }
                 
 
