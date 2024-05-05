@@ -239,7 +239,7 @@ const Results = () => {
                 // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
                 // console.log(`${data["total"]} total PDL records exist matching this query.`)
                 
-                setDataPerson( JSON.stringify( data.data, null, 2 ) )
+                setDataPerson( data.data ) 
                 setLoading( false )
                 
 
@@ -406,7 +406,7 @@ const Results = () => {
             </div>
             
             {/* PARA TEST */}
-            <div className="container py-5 my-5 w-75">
+            {/* <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
                     <div className="col-md-12">
@@ -422,7 +422,7 @@ const Results = () => {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
 
 
 
