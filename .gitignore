@@ -15,8 +15,6 @@
 
 # production
 /build
-/pages/api/delete
-/pages/api/delete/find-persons-8a0c0-firebase-adminsdk-lb0m0-fd30e2d693.json
 
 # misc
 .DS_Store
