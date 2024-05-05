@@ -7,7 +7,7 @@ import Footer from "../components/Footer"
 import Script from 'next/script'
 
 export const metadata = {
-  title: 'Persons - Finder',
+  title: 'Find - Persons',
   description: 'A professional website for finding persons',
   lang: 'en',
   favicon: '/images/cropped-lupa-favicon.jpeg',

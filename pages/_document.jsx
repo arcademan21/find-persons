@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 export const metadata = {
-  title: 'Persons - Finder',
+  title: 'Find - Persons',
   description: 'A professional website for finding persons',
   lang: 'en',
   favicon: '/favicon.svg',

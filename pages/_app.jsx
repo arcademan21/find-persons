@@ -6,9 +6,8 @@ import Footer from "../src/components/Footer"
 import Script from 'next/script'
 import Head from 'next/head'
 
-
 export const metadata = {
-  title: 'Persons - Finder',
+  title: 'Find - Persons',
   description: 'A professional website for finding persons',
   lang: 'en',
   favicon: '/images/cropped-lupa-favicon.jpeg',
@@ -57,8 +56,6 @@ function PersonsFinder({ Component, pageProps }) {
     <Script type="text/javascript" src="/libs/wow/wow.min.js" strategy="beforeInteractive" />
     <Script type="text/javascript" src="/libs/wow/wow.init.js" strategy="afterInteractive" />
     
-    
-
   </>)
 }
 
