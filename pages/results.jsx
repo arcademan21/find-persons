@@ -367,9 +367,6 @@ const Results = () => {
                                         <FaPhone className="mx-2" />
                                         {language.results.mobile_phone} <span className='marked'> { dataPerson && dataPerson.mobile_phone ? dataPerson.mobile_phone : ' - n/a - ' } </span><br/>
 
-                                        <FaPhone className="mx-2" />
-                                        {language.results.home_phone} <span className='marked'> { dataPerson && dataPerson.phone_numbers.length > 0 ? dataPerson.phone_numbers[0] : ' - n/a - ' } </span><br/>
-
                                         <FaEnvelope className="mx-2" />
                                         {language.results.personal_email} <span className='marked'> { dataPerson && dataPerson.recommended_personal_email ? dataPerson.recommended_personal_email : ' - n/a - ' } </span><br/>
 
