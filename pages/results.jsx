@@ -324,7 +324,7 @@ const Results = () => {
     return (<>
 
              
-            <div className="results-container">
+            {/* <div className="results-container">
                 <div className="container">
                     <div className="row mb-5 shadow px-3 rounded2x primary-row-results">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 info-results">
@@ -370,23 +370,6 @@ const Results = () => {
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 wrap-results-form">
                         <div className="d-flex px-3 flex-column">
 
-                            {/* <h2 className="text-center text-secondary title-section mt-4">
-                                Sellecciona la <br/> ragion sobre la que deseas buscar
-                            </h2>
-
-                            <div className="d-flex flex-column justify-content-center w-50 vh-25 m-auto py-4">
-                            
-                                <select name="" id="countries-select" onChange={setRegionRegionHandler} className="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                    <option value="" disabled className='text-muted'>Selecciona un pais</option>
-                                    
-                                </select>
-
-                                <select name="" id="cities-select"
-                                    onChange={setLocalityHandler} className='form-select form-select-lg mb-3' aria-label=".form-select-lg example"
-                                ></select>
-
-                            </div> */}
-                            
                             <h2 className="text-center text-secondary title-section mt-4">
                                 {language.results.contact_info}
                             </h2>
@@ -412,11 +395,7 @@ const Results = () => {
                                 </div>
                                 
                             </div> <br/>
-
-                            {/* Mostrando los resultados de serpstak */}
                             
-
-                        
                             <h2 className="text-center text-secondary title-section mt-4">
                                 {language.results.download_complete_info}
                             </h2>
@@ -452,10 +431,10 @@ const Results = () => {
                     </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             
             {/* PARA TEST */}
-            {/* <div className="container py-5 my-5 w-75">
+            <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
                     <div className="col-md-12">
@@ -464,14 +443,14 @@ const Results = () => {
                                 <h4>Resultados de {search}</h4>
                             </div>
                             <div className="card-body">
-                                {serpstakResults && <pre>{ JSON.stringify( serpstakResults, null, 2) }</pre>}
+                                {dataPerson && <pre>{ JSON.stringify( dataPerson, null, 2) }</pre>}
                                 {error && <p>Error: { error.message }</p>}
                             </div>
                         </div>
                     </div>
 
                 </div>
-            </div> */}
+            </div>
 
 
 
