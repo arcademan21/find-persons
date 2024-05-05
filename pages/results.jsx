@@ -242,7 +242,7 @@ const Results = () => {
                 // Aqui el objeto contiene alguna key como "profile" que es un array , esto esta ocacionando un error : Objects are not valid as a React child (found: object with keys {status, contains, previous_version, current_version}). If you meant to render a collection of children, use an array instead. 
                 
                 //arreglaremos el objeto para evitar ese problema 
-                
+
 
                 setDataPerson( data.data ) 
                 setLoading( false )
@@ -359,7 +359,7 @@ const Results = () => {
                                         {language.results.mobile_phone} <span className='marked'> { dataPerson && dataPerson.mobile_phone ? dataPerson.mobile_phone : ' - n/a - ' } </span><br/>
 
                                         <FaPhone className="mx-2" />
-                                        {language.results.home_phone} <span className='marked'> { dataPerson && dataPerson.phone_numbers[0] ? dataPerson.phone_numbers[0] : ' - n/a - ' } </span><br/>
+                                        {language.results.home_phone} <span className='marked'> { dataPerson && dataPerson.phone_numbers.length > 0 ? dataPerson.phone_numbers[0] : ' - n/a - ' } </span><br/>
 
                                         <FaEnvelope className="mx-2" />
                                         {language.results.personal_email} <span className='marked'> { dataPerson && dataPerson.recommended_personal_email ? dataPerson.recommended_personal_email : ' - n/a - ' } </span><br/>
