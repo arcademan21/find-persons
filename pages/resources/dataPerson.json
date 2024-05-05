@@ -97,25 +97,25 @@
     "twitter_url": " -- n/a -- ",
     "website": " -- n/a -- "
 },
-"location_names": [ " -- n/a -- "],
+"location_names": [ " -- n/a -- " ],
 "end_date": " -- n/a -- ",
 "start_date": " -- n/a -- ",
 "title": {
     "name": " -- n/a -- ",
     "role": " -- n/a -- ",
     "sub_role": " -- n/a -- ",
-    "levels": [ " -- n/a -- "]
+    "levels": [ " -- n/a -- " ]
 },
 "is_primary": " -- n/a -- "
 }
 ],
-"education": [ " -- n/a -- "],
+"education": [ " -- n/a -- " ],
 "profiles": [
     {
-    "network": " -- n/a -- ",
-    "id": " -- n/a -- ",
-    "url": " -- n/a -- ",
-    "username": " -- n/a -- "
+        "network": " -- n/a -- ",
+        "id": " -- n/a -- ",
+        "url": " -- n/a -- ",
+        "username": " -- n/a -- "
     }
 ],
 "version_status": {
