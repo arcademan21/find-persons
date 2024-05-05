@@ -234,20 +234,21 @@ const Results = () => {
 
             
             // Pass the parameters object to the Person Search API
-            // PDLJSClient.person.enrichment( params ).then(( data ) => {
+            PDLJSClient.person.enrichment( params ).then(( data ) => {
                 
-            //     // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
-            //     // console.log(`${data["total"]} total PDL records exist matching this query.`)
+                // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
+                // console.log(`${data["total"]} total PDL records exist matching this query.`)
                 
-            //     setDataPerson( data.data ) 
-            //     setLoading( false )
+                console.log( data.data )
+                setDataPerson( data.data ) 
+                setLoading( false )
                 
 
-            // }).catch((error) => {
-            //     //console.log("NOTE: The carrier pigeons lost motivation in flight. See error and try again.")
-            //     setError(error)
-            //     setLoading( false )
-            // })
+            }).catch((error) => {
+                //console.log("NOTE: The carrier pigeons lost motivation in flight. See error and try again.")
+                setError(error)
+                setLoading( false )
+            })
 
         } catch (error) {
             setError(error)
