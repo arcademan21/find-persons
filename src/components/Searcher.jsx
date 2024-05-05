@@ -171,8 +171,6 @@ const Searcher = () => {
 
             <div>
                 
-                
-
                 { searchTypeEval === 'name' ? 
 
                     (<>
@@ -183,7 +181,7 @@ const Searcher = () => {
                         <select name="country" id="country" style={{color: '#645F88'}} className="form-control w-25 m-auto my-2 h-25 py-1 text-center" onChange={( e ) =>{
                                 setCountries(e.target.value)
                             }}>
-                                {countries.map( (country, index) => {
+                                {countries.map( ( country, index ) => {
                                     return <option key={index} value={country}>{country}</option>
                                 })} 
                             </select>
