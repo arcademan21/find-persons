@@ -253,16 +253,6 @@ const Results = () => {
             setLoading( false )
         }
 
-        // GetSerpstakResults( search, lang ).then( res => {
-        //     if( !res ) return false
-        //     setSerpstakResults( res )
-        // }).catch( error => {
-        //     // TODO: Implementar un mensaje de error
-        //     setError(error)
-        // }).finally( () => {
-        //     setLoading( false )
-        // })
-
     }
 
     useEffect( () => {
