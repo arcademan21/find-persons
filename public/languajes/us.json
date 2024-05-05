@@ -23,7 +23,8 @@
       "placeholder_name": "Example: John Doe",
       "placeholder_email": "Example: john.doe@mail.com",
       "placeholder_phone": "Example: +1 202-555-0132",
-      "placeholder_address": " Example: 123rd Street, City, Country "
+      "placeholder_address": " Example: Street 123, Locality, City, Country ",
+      "select_country": " Select country "
     },
     "services": {
       "title1": " Your search is anonymous ",
@@ -525,7 +526,8 @@
       "succes_session_init_message": "Successful login.",
       "error_mush_session_message": "Too many login attempts. ",
       "error_down_suscription_message": "Error unsubscribing, please try again or contact us.",
-      "success_down_suscription_message": "You have successfully unsubscribed."
+      "success_down_suscription_message": "You have successfully unsubscribed.",
+      "empty_country_error_message": "Please select a country."
     },
     "profile": {
       "no_suscripted_message": "Not yet subscribed, please make the payment to access your account.",

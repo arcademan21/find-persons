@@ -23,7 +23,8 @@
       "placeholder_name": "Esempio: Mario Rossi",
       "placeholder_email": "Esempio: mario.rossi@mail.com",
       "placeholder_phone": "Esempio: +39 312 345 6789",
-      "placeholder_address": " Esempio: 123rd Street, Città, Paese "
+      "placeholder_address": " Esempio: Via 123, Località, Città, Paese",
+      "select_country": " Seleziona il paese "
     },
     "services": {
       "title1": " La tua ricerca è anonima ",
@@ -525,7 +526,8 @@
       "succes_session_init_message": "Login effettuato con successo.",
       "error_mush_session_message": "Troppi tentativi di accesso. ",
       "error_down_suscription_message": "Errore durante l'annullamento dell'iscrizione, riprova o contattaci.",
-      "success_down_suscription_message": "Hai annullato correttamente l'iscrizione."
+      "success_down_suscription_message": "Hai annullato correttamente l'iscrizione.",
+      "empty_country_error_message": "Per favore, seleziona un paese."
     },
     "profile": {
       "no_suscripted_message": "Non ancora iscritto, effettua il pagamento per accedere al tuo account.",

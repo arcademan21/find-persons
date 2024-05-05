@@ -23,7 +23,8 @@
       "placeholder_name": "Beispiel: Max Mustermann",
       "placeholder_email": "Beispiel: max.mustermann@mail.com",
       "placeholder_phone": "Beispiel: +49 170 1234567",
-      "placeholder_address": " Beispiel: 123. Straße, Stadt, Land "
+      "placeholder_address": " Beispiel: Straße 123, Ort, Stadt, Land ",
+      "select_country": " Wählen Sie Ihr Land "
     },
     "services": {
       "title1": " Ihre Suche ist anonym ",
@@ -525,7 +526,8 @@
       "succes_session_init_message": "Erfolgreicher Login.",
       "error_mush_session_message": "Zu viele Anmeldeversuche. ",
       "error_down_suscription_message": "Beim Abmelden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns.",
-      "success_down_suscription_message": "Du hast dich erfolgreich abgemeldet."
+      "success_down_suscription_message": "Du hast dich erfolgreich abgemeldet.",
+      "empty_country_error_message": "Bitte wählen Sie ein Land aus."
     },
     "profile": {
       "no_suscripted_message": "Noch nicht abonniert, bitte leisten Sie die Zahlung, um auf Ihr Konto zuzugreifen.",

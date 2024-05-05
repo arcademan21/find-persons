@@ -23,7 +23,8 @@
       "placeholder_name": "Exemple : Jean Dupont",
       "placeholder_email": "Exemple : jean.dupont@mail.com",
       "placeholder_phone": "Exemple : +33 6 12 34 56 78",
-      "placeholder_address": " Exemple : 123e rue, ville, pays "
+      "placeholder_address": "Exemple : Rue 123, Localité, Ville, Pays",
+      "select_country": " Sélectionnez le pays "
     },
     "services": {
       "title1": " Votre recherche est anonyme ",
@@ -525,7 +526,8 @@
       "succes_session_init_message": "Connexion réussie.",
       "error_mush_session_message": "Trop de tentatives de connexion. ",
       "error_down_suscription_message": "Erreur de désabonnement, veuillez réessayer ou nous contacter.",
-      "success_down_suscription_message": "Vous avez désabonné avec succès."
+      "success_down_suscription_message": "Vous avez désabonné avec succès.",
+      "empty_country_error_message": "S'il vous plaît, sélectionnez un pays."
     },
     "profile": {
       "no_suscripted_message": "Pas encore abonné, veuillez effectuer le paiement pour accéder à votre compte.",

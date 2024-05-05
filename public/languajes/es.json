@@ -24,7 +24,8 @@
         "placeholder_name": " Ejemplo: Mariano Jose ",
         "placeholder_email": " Ejemplo: mariano@mail.com ",
         "placeholder_phone": " Ejemplo: +34 600 000 000 ",
-        "placeholder_address": " Ejemplo: Calle 123, Ciudad, Pais "
+        "placeholder_address": " Ejemplo: Calle 123, Localidad, Ciudad, Pais ", 
+        "select_country": "Seleccione el pais donde buscaremos"
     },
 
     "services":{
@@ -551,7 +552,8 @@
         "succes_session_init_message": "Inicio de sesión exitoso.",
         "error_mush_session_message": "Demasiados intentos de inicio de sesión. Debes esperar 20 minutos para volver a intentar.",
         "error_down_suscription_message": "Error al darse de baja, por favor intenta de nuevo o contacta con nosotros.",
-        "success_down_suscription_message": "Te has dado de baja correctamente."
+        "success_down_suscription_message": "Te has dado de baja correctamente.",
+        "empty_country_error_message": "Por favor, seleccione un país."
     },
 
     "profile":{

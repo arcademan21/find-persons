@@ -24,7 +24,8 @@
         "placeholder_name": " Ejemplo: Mariano Jose ",
         "placeholder_email": " Ejemplo: mariano@mail.com ",
         "placeholder_phone": " Ejemplo: +34 600 000 000 ",
-        "placeholder_address": " Ejemplo: Calle 123, Ciudad, Pais "
+        "placeholder_address": " Ejemplo: Calle 123, Ciudad, Pais ",
+        "select_country": "Seleccione el pais donde buscaremos"
     },
 
     "services":{

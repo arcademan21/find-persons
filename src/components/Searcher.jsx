@@ -15,10 +15,14 @@ const Searcher = () => {
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')).hero)
     const [search, setSearch] = useState(null)
     const [searchType, setSearchType] = useState(null) 
+    const [searchTypeEval, setSearchTypeEval] = useState('name')
     const [textHolder, setTextHolder] = useState(null)
     const [option, setOption] = useState(null)
 
     const language_toast = JSON.parse(localStorage.getItem('language_file')).toast
+    const countries = ['åland islands','afghanistan','albania','algeria','american samoa','andorra','angola','anguilla','antarctica','antigua and barbuda','argentina','armenia','aruba','australia','austria','azerbaijan','bahamas','bahrain','bangladesh','barbados','belarus','belgium','belize','benin','bermuda','bhutan','bolivia','bosnia and herzegovina','botswana','bouvet island','brazil','british indian ocean territory','british virgin islands','brunei','bulgaria','burkina faso','burundi','cambodia','cameroon','canada','cape verde','caribbean netherlands','cayman islands','central african republic','chad','chile','china','christmas island','cocos (keeling) islands','colombia','comoros','cook islands','costa rica','croatia','cuba','curaçao','cyprus','czechia','côte d’ivoire','democratic republic of the congo','denmark','djibouti','dominica','dominican republic','ecuador','egypt','el salvador','equatorial guinea','eritrea','estonia','ethiopia','falkland islands','faroe islands','fiji','finland','france','french guiana','french polynesia','french southern territories','gabon','gambia','georgia','germany','ghana','gibraltar','greece','greenland','grenada','guadeloupe','guam','guatemala','guernsey','guinea','guinea-bissau','guyana','haiti','heard island and mcdonald islands','honduras','hong kong','hungary','iceland','india','indonesia','iran','iraq','ireland','isle of man','israel','italy','ivory coast','jamaica','japan','jersey','jordan','kazakhstan','kenya','kiribati','kosovo','kuwait','kyrgyzstan','laos','latvia','lebanon','lesotho','liberia','libya','liechtenstein','lithuania','luxembourg','macau','macedonia','madagascar','malawi','malaysia','maldives','mali','malta','marshall islands','martinique','mauritania','mauritius','mayotte','mexico','micronesia','moldova','monaco','mongolia','montenegro','montserrat','morocco','mozambique','myanmar','namibia','nauru','nepal','netherlands','netherlands antilles','new caledonia','new zealand','nicaragua','niger','nigeria','niue','norfolk island','north korea','northern mariana islands','norway','oman','pakistan','palau','palestine','panama','papua new guinea','paraguay','peru','philippines','pitcairn','poland','portugal','puerto rico','qatar','republic of the congo','romania','russia','rwanda','réunion','saint barthélemy','saint helena','saint kitts and nevis','saint lucia','saint martin','saint pierre and miquelon','saint vincent and the grenadines','samoa','san marino','saudi arabia','senegal','serbia','seychelles','sierra leone','singapore','sint maarten','slovakia','slovenia','solomon islands','somalia','south africa','south georgia and the south sandwich islands','south korea','south sudan','spain','sri lanka','sudan','suriname','svalbard and jan mayen','swaziland','sweden','switzerland','syria','são tomé and príncipe','taiwan','tajikistan','tanzania','thailand','timor-leste','togo','tokelau','tonga','trinidad and tobago','tunisia','turkey','turkmenistan','turks and caicos islands','tuvalu','u.s. virgin islands','uganda','ukraine','united arab emirates','united kingdom','united states','united states minor outlying islands']
+    const [countrie, setCountrie] = useState(null)
+
 
     const setType = useCallback( ( type ) => {
         
@@ -38,10 +42,16 @@ const Searcher = () => {
 
         setOption( type )
         setSearchType( textList[type] )
+        setSearchTypeEval( type )
         setTextHolder( placeholders[type] )
         localStorage.setItem( 'search_type', type )
         
     }, [ language ])
+
+    const setCountries = useCallback( ( countrie ) => {
+        localStorage.setItem('countrie', JSON.stringify(countrie))
+        setCountrie( localStorage.getItem('countrie') )
+    }, [countrie])
 
     const validateSearch = ( search ) => {
             
@@ -67,7 +77,9 @@ const Searcher = () => {
 
     const handleSearch = () => {
 
-        if( search === null || search === '' ) 
+        if( searchTypeEval === 'name' && countrie === null )
+            toast.warning(language_toast.empty_country_error_message)
+        else if( search === null || search === '' ) 
             toast.warning(language_toast.empty_search_error_message)
         else{
 
@@ -129,7 +141,7 @@ const Searcher = () => {
 
     return (<>
         <div className="col-xs-6 col-sm-6 col-md-12 col-lg-6 mx-auto my-4 wow fadeInUp d-flex flex-column h-100 py-sm-5 justify-content-center content-searcher">
-            <h1 className="mb-4 fs-1 text-center title-section" >
+            <h1 className="mb-2 fs-1 text-center title-section" >
                 <span>{language.title}</span><br/>
                 <span className="marked mx-2">
                     {searchType}
@@ -160,6 +172,20 @@ const Searcher = () => {
             <div>
                 
                 <input type="text" name="search" id="search" className="shearching-input form-control" placeholder={textHolder} onChange={changeInput} autoFocus />
+
+                { searchTypeEval === 'name' ? 
+                    <div className="text-center mt-2">
+                        {language.select_country}
+                        <select name="country" id="country" style={{color: '#645F88'}} className="form-control w-25 m-auto my-2 h-25 py-1 text-center" onChange={( e ) =>{
+                            setCountries(e.target.value)
+                        }}>
+                            {countries.map( (country, index) => {
+                                return <option key={index} value={country}>{country}</option>
+                            })} 
+                        </select>
+                    </div> : null
+                }
+                
 
                 <div className="text-center">
                     

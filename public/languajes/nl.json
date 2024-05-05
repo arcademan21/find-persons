@@ -23,7 +23,8 @@
       "placeholder_name": "Bijvoorbeeld: Jan Jansen",
       "placeholder_email": "Bijvoorbeeld: jan.jansen@mail.com",
       "placeholder_phone": "Voorbeeld: +31 6 12345678",
-      "placeholder_address": " Bijvoorbeeld: Calle 123, Ciudad, Pais "
+      "placeholder_address": " Bijvoorbeeld: Straat 123, Plaats, Stad, Land",
+      "select_country": " Selecteer een land "
     },
     "services": {
       "title1": " Je busqueda is anónima ",
@@ -525,7 +526,8 @@
       "succes_session_init_message": "Begin van de sessie.",
       "error_mush_session_message": "Demasiado's zijn van plan de sessie te beginnen. ",
       "error_down_suscription_message": "Als u een fout maakt, is het de bedoeling dat u nu contact opneemt met anderen.",
-      "success_down_suscription_message": "Het is correct gecorrigeerd."
+      "success_down_suscription_message": "Het is correct gecorrigeerd.",
+      "empty_country_error_message": "Selecteer alstublieft een land."
     },
     "profile": {
       "no_suscripted_message": "Als u zich niet aanmeldt, realiseer u dan de pago om naar uw cuenta te gaan.",
