@@ -108,6 +108,7 @@ const Results = () => {
     const [dataPerson, setDataPerson] = useState( dataPersonJson )
     const [serpstakResults, setSerpstakResults] = useState([])
     const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
     const [region, setRegion] = useState('EUROPE')
     const [location, setLocation] = useState('Madrid, Spain')
     const [locality, setLocality] = useState('Spain')
@@ -255,26 +256,26 @@ const Results = () => {
                 // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
                 // console.log(`${data["total"]} total PDL records exist matching this query.`)
                 setDataPerson( data.data )
-                GetSerpstakResults( search, lang ).then( res => {
-                    if( !res ) return false
-                    setSerpstakResults( res )
-                }).catch( error => {
-                    // TODO: Implementar un mensaje de error
-                    console.log( error )
-                }).finally( () => {
-                    setLoading( false )
-                })
+                
 
             }).catch((error) => {
                 //console.log("NOTE: The carrier pigeons lost motivation in flight. See error and try again.")
-                //console.log(error)
-                setLoading(false)
+                setError(error)
             })
 
         } catch (error) {
             setError(error)
-            setLoading(false)
         }
+
+        GetSerpstakResults( search, lang ).then( res => {
+            if( !res ) return false
+            setSerpstakResults( res )
+        }).catch( error => {
+            // TODO: Implementar un mensaje de error
+            setError(error)
+        }).finally( () => {
+            setLoading( false )
+        })
 
     }
 
@@ -459,6 +460,7 @@ const Results = () => {
                             </div>
                             <div className="card-body">
                                 {serpstakResults && <pre>{ JSON.stringify( serpstakResults, null, 2) }</pre>}
+                                {error && <p>Error: { error.message }</p>}
                             </div>
                         </div>
                     </div>
