@@ -305,7 +305,7 @@ const Results = () => {
 
     return (<>
  
-            {/* <div className="results-container">
+            <div className="results-container">
                 <div className="container">
                     <div className="row mb-5 shadow px-3 rounded2x primary-row-results">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 info-results">
@@ -412,7 +412,7 @@ const Results = () => {
                     </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
             
             {/* PARA TEST */}
             <div className="container py-5 my-5 w-75">
