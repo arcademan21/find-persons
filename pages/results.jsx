@@ -412,7 +412,7 @@ const Results = () => {
                                         <div className="info-persons card shadow border rounded bg-white w-75 m-auto p-2">
                                             <p>
                                                 <ul>
-                                                    { serpstakResults.response.organic_results.map( ( result, index ) => {
+                                                    { serpstakResults.response.organic_results !== undefined && serpstakResults.response.organic_results.map( ( result, index ) => {
                                                         return <li key={index} className='text-secondary'>
                                                             <h3 className='text-secondary'>{result.title}</h3>
                                                             <p>{result.snippet}</p>
