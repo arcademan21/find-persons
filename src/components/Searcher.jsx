@@ -230,8 +230,7 @@ const Searcher = () => {
                             
                             { language.select_country }
                             
-                            <FaGlobe className="fs-1 mx-2 globle-animate-icon-contry-select" 
-                            style={{position: 'absolute', left: '25px'}} />
+                            <FaGlobe className="fs-1 mx-2 globle-animate-icon-contry-select" />
 
                             <input type="text" name="country" id="country" style={{color: '#645F88', background: '#f7f6fc'}} className="form-control w-25 m-auto my-2 h-25 py-1 text-center" onKeyDown={( e ) =>{
                                 setCountries( e.target.value )
