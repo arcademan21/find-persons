@@ -15,7 +15,7 @@ const Loader = () => {
                 loader.classList.add('loader--fade')
                 loader.classList.add('d-none')
             }
-            setLoading( false )
+            //setLoading( false )
         }, 1000 )
 
     }, [])
@@ -25,7 +25,7 @@ const Loader = () => {
             { loading ? 
                 <div className="loader">
                     <div className="loader__logo text-center">
-                        <Image src="/images/logo_find-persons.png" alt="Logo" width={500} height={500} />
+                        <Image src="/images/logo_find-persons.png" alt="Logo" width={100} height={100} />
                     </div>
                 </div>
             : null }
