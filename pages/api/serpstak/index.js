@@ -24,7 +24,10 @@ export default async ( req, res ) => {
         
         const request = await fetch( apiUrl, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json',
+                'access_key': apiKey,
+            },
             body: JSON.stringify( config )
         })
 
