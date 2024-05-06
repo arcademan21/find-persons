@@ -25,7 +25,7 @@ const Loader = () => {
             { loading ? 
                 <div className="loader">
                     <div className="loader__logo text-center">
-                        <Image src="/images/logo_find-persons.png" alt="Logo" width={200} height={200} />
+                        <Image src="/images/logo_find-persons.png" alt="Logo" width={500} height={500} />
                     </div>
                 </div>
             : null }
