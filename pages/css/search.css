@@ -14,7 +14,7 @@
 .animate_search{
     display: flex;
     width: 100%;
-    height: 294px;
+    height: 400px;
     margin: auto;
 }
 
@@ -951,6 +951,10 @@
 
     .title-searching{
         text-align: center;
+    }
+
+    .animate_search{
+        height: 294px;
     }
     
 }
