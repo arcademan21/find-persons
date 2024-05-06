@@ -29,11 +29,66 @@
     border-radius: 30px;
 }
 
+.countries-box{
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.country-animate-loading{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.country-animate-loading::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 5px solid #51ec5c;
+    box-shadow: 0px 0px 1px 1px #484174;
+    border-top-color: #5848f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 5px;
+}
+
+.globle-animate-icon-contry-select{
+    position: absolute;
+    left: 25px;
+    /* Rotar lentamente en sentido del reloj vertical en el eje z */
+    animation: globle-animate-icon cubic-bezier(0.4, 0, 0.2, 1) 9.5s infinite;
+}
+
+
+@keyframes globle-animate-icon {
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(180deg); }
+    100% { transform: rotateY(360deg); }
+}
+    
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 @media screen and (max-width: 768px) {
     .content-searcher{
         padding: 0 25px;
     }
     #country{
         width: 50% !important;
+    }
+    #search{
+        font-size: 1.5rem !important;
+    }
+    #selectType{
+        padding: 0.8rem !important;
+    }
+    .content-searcher{
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }

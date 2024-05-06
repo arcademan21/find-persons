@@ -80,7 +80,7 @@ const Results = () => {
     const user = JSON.parse( localStorage.getItem('user') )
     const lang = localStorage.getItem('language')
     const countrie = localStorage.getItem('countrie')
-    const dataObjectPerson = null
+    let dataObjectPerson = null
 
     const [dataPerson, setDataPerson] = useState( null )
     

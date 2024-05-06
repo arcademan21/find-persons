@@ -430,6 +430,10 @@ ul li > svg {
         flex-direction: column;
         align-items: center;
     }
+
+    .rcc-confirm-button{
+        width: 50% !important;
+    }
 }
 
 .um-register, .um-login, .um-password{

@@ -7,6 +7,7 @@ import { getAuth } from "firebase/auth"
 import { usePathname } from 'next/navigation'
 import { createContext, useState, useEffect, useCallback } from 'react'
 import CookieConsent from "react-cookie-consent"
+import { TbCookie } from "react-icons/tb"
 
 const GlobalContext = createContext()
 
@@ -177,12 +178,13 @@ export const GlobalProvider = ( { children } ) => {
           buttonText={state.language_file.cookies_banner.acept}
           cookieName="myAwesomeCookieName2"
           style={cookieConsentStyle}
-          buttonClasses="btn bg-primary w-25 text-white py-3 fs-4 rounded"
+          buttonClasses="btn bg-primary w-25 text-white py-1 fs-4 rounded"
           buttonWrapperClasses="w-100 text-center"
           expires={150}
       >
           {state.language_file.cookies_banner.paragraph_1}
-          <a href={`${extension}/cookies`} className='mx-2'> 
+          <a href={`${extension}/cookies`} className='m-3 mx-1 border rounded bg-light p-1 py-2'>
+            <TbCookie className='fs-1 mx-1'/>
             {state.language_file.cookies_banner.cookies}
           </a>
           {state.language_file.cookies_banner.paragraph_2}
