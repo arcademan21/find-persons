@@ -218,12 +218,12 @@ const Searcher = () => {
 
             <div>
                 
-                { searchTypeEval === 'name' ? 
+                {/* { searchTypeEval === 'name' ? 
 
                     (<>
                         <input type="text" name="search" id="search" className="shearching-input form-control mb-1" placeholder={textHolder} onChange={changeInput} autoFocus />
 
-                        {/* <div className="text-center d-flex flex-column my-2">
+                        <div className="text-center d-flex flex-column my-2">
                             
                             { language.select_country }
                             
@@ -241,7 +241,7 @@ const Searcher = () => {
                                 { countrySelected }
                             </div>
                             
-                        </div> */}
+                        </div>
 
 
 
@@ -250,7 +250,9 @@ const Searcher = () => {
 
                      : <input type="text" name="search" id="search" className="shearching-input form-control" placeholder={textHolder} onChange={changeInput} autoFocus />
                 }
-                
+                 */}
+
+                <input type="text" name="search" id="search" className="shearching-input form-control" placeholder={textHolder} onChange={changeInput} autoFocus />
 
                 <div className="text-center">
                     
