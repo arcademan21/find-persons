@@ -41,6 +41,28 @@ const GetSuscription = async ( user ) =>{
 
 }
 
+const GetSerpstakResults = async ( search, lang ) =>{
+
+    try{
+
+        // Fetch to endpoint for update suscription
+        const req = await fetch( '/api/serpstak/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "query" : search,
+                "lang": lang
+            })
+        })
+
+        return await req.json()
+
+    } catch ( error ) {
+        return false
+    }
+
+}
+
 const SaveDownload = async ( user, data ) => {
     try{
 
@@ -80,7 +102,6 @@ const Results = () => {
     const user = JSON.parse( localStorage.getItem('user') )
     const lang = localStorage.getItem('language')
     const countrie = localStorage.getItem('countrie')
-    let dataObjectPerson = null
 
     const [dataPerson, setDataPerson] = useState( null )
     
@@ -88,6 +109,8 @@ const Results = () => {
     const [error, setError] = useState(null)
     
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
+
+    const [serpstakResults, setSerpstakResults] = useState([])
     
     const setRegionRegionHandler = (e) => {
         setRegion(e.target.value)
@@ -269,6 +292,18 @@ const Results = () => {
 
     }
 
+    const fetchSerpstakResults = async () => {
+        GetSerpstakResults( search, lang ).then( res => {
+            if( !res ) return false
+            setSerpstakResults( res )
+        }).catch( error => {
+            // TODO: Implementar un mensaje de error
+            setError( error )
+        }).finally( () => {
+            setLoading( false )
+        })
+    }
+
     useEffect( () => {
         
         GetSuscription( user ).then( suscripted => {
@@ -284,7 +319,8 @@ const Results = () => {
     useEffect(() => {
 
         getRegionAndLocality()
-        fetchPersonData()
+        //fetchPersonData()
+        fetchSerpstakResults()
 
     }, [] )
 
@@ -446,7 +482,7 @@ const Results = () => {
             </div>
             
             {/* PARA TEST */}
-            {/* <div className="container py-5 my-5 w-75">
+            <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
                     <div className="col-md-12">
@@ -455,14 +491,14 @@ const Results = () => {
                                 <h4>Resultados de {search}</h4>
                             </div>
                             <div className="card-body">
-                                {dataPerson && <pre>{ JSON.stringify( dataPerson, null, 2) }</pre>}
+                                {serpstakResults && <pre>{ JSON.stringify( serpstakResults, null, 2) }</pre>}
                                 {error && <p>Error: { error.message }</p>}
                             </div>
                         </div>
                     </div>
 
                 </div>
-            </div> */}
+            </div>
 
 
 

@@ -33,8 +33,17 @@ export default async ( req, res ) => {
 
     } catch ( error ) {
             
-        return res.status( 500 ).json({ message: 'Internal Server Error ( SERPSTAK ) ', error })
+        return res.status( 500 ).json({ 
+            message: 'Internal Server Error ( SERPSTAK ) ', 
+            error,
+            config,
+            apiKey,
+            apiUrl,
+            body: req.body 
+        })
 
     }
+
+
 
 }
