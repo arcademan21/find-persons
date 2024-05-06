@@ -150,15 +150,14 @@ const PdfRenderer = ( { dataPerson } ) => {
 
 const styles = StyleSheet.create({
     logo: {
-        width: 150,
-        height: 50,
+        width: 120,
+        height: 40,
         marginBottom: 10,
     },
     page: {
         flexDirection: 'column',
         backgroundColor: '#E4E4E4',
         padding: 10,
-        fontSize: 12,
     },
     section: {
         margin: 10,
@@ -172,7 +171,7 @@ const styles = StyleSheet.create({
         flexGrow: 1,
     },
     title: {
-        fontSize: 20,
+        fontSize: 18,
         marginBottom: 10,
         fontWeight: 'bold',
     },
@@ -186,8 +185,8 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     no_user_image: {
-        width: 150,
-        height: 150,
+        width: 100,
+        height: 100,
         marginBottom: 10,
     },
 })
