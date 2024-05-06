@@ -381,7 +381,29 @@ const Results = () => {
                                 {language.results.download_complete_info}
                             </h2>
 
-                            { dataPerson ? 
+                            <PDFDownloadLink 
+                                document={<PdfRenderer dataPerson={ dataObjectPerson } />} 
+                                fileName="data_person.pdf" 
+                                style={{ textAlign: "center" }} 
+                                onClick={handleDownloadClick}
+                            >
+                                {({ blob, url, loading, error }) => {
+                                    
+                                    return loading ? 
+                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
+                                            <FaSpinner className="mx-1" />
+                                            {language.results.download_pdf}
+                                        </button> 
+                                    : 
+                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn">
+                                            <FaDownload className="mx-1" />
+                                            {language.results.download_pdf}
+                                        </button>
+
+                                }}
+                            </PDFDownloadLink>
+
+                            {/* { dataPerson ? 
 
                                 <PDFDownloadLink 
                                     document={<PdfRenderer dataPerson={ dataObjectPerson } />} 
@@ -409,7 +431,7 @@ const Results = () => {
                                     <FaSpinner className="mx-1" />
                                     {language.results.download_pdf}
                                 </button> 
-                            }
+                            } */}
 
                             <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white note-info">
                                 <FaInfoCircle className="mx-2" style={{ fontSize: "2rem" }} />
