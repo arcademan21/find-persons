@@ -558,16 +558,16 @@
     },
     "profile": {
       "no_suscripted_message": "Noch nicht abonniert, bitte leisten Sie die Zahlung, um auf Ihr Konto zuzugreifen.",
-      "suscribe": "zu abonnieren",
+      "suscribe": "Abonnieren",
       "my_account_title": "Mein Konto",
       "name": "Name",
-      "email": "Post",
-      "suscription_title": "Abonnement",
-      "end_trial": "Ende des Tests",
-      "paragraph_1": "Denken Sie daran, dass Sie das Abonnement jederzeit abbestellen können, wenn Sie das Abonnement nicht fortsetzen möchten.   ",
+      "email": "E-Mail",
+      "suscription_title": "Konto",
+      "end_trial": "Ende der Probezeit",
+      "paragraph_1": "Denken Sie daran, dass Sie das Abonnement jederzeit kündigen können, wenn Sie das Abonnement nicht fortsetzen möchten. Wenn Sie Fragen haben, können Sie uns eine E-Mail senden und wir werden so schnell wie möglich antworten. Sie können auch die Kündigung per E-Mail an support@find-persons.com beantragen.",
       "paragraph_1b": ", senden Sie uns eine E-Mail und wir werden so schnell wie möglich antworten.",
-      "down_suscription": "Abbestellen",
-      "status": "Abonnementstatus"
+      "down_suscription": "Abmelden",
+      "status": "Kontostatus"
     },
 
     "modal_terms": {

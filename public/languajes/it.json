@@ -556,17 +556,17 @@
       "empty_country_error_message": "Per favore, seleziona un paese."
     },
     "profile": {
-      "no_suscripted_message": "Non ancora iscritto, effettua il pagamento per accedere al tuo account.",
-      "suscribe": "sottoscrivere",
-      "my_account_title": "Il mio conto",
+      "no_suscripted_message": "Non ancora iscritto, per favore effettua il pagamento per poter accedere al tuo account.",
+      "suscribe": "Iscriviti",
+      "my_account_title": "Il mio account",
       "name": "Nome",
-      "email": "Posta",
-      "suscription_title": "Sottoscrizione",
-      "end_trial": "Fine della prova",
-      "paragraph_1": "Ricorda che se non desideri proseguire con l'abbonamento puoi cancellarti in qualsiasi momento.   ",
-      "paragraph_1b": ", inviaci una email e ti risponderemo il prima possibile.",
+      "email": "Email",
+      "suscription_title": "Account",
+      "end_trial": "Fine del periodo di prova",
+      "paragraph_1": "Ricorda che se non desideri continuare l'abbonamento, puoi annullare l'iscrizione in qualsiasi momento con un solo clic. Se hai qualche dubbio, puoi contattarci inviandoci un'email e ti risponderemo il prima possibile, se lo desideri puoi richiedere la disiscrizione via email a support@find-persons.com.",
+      "paragraph_1b": ", inviaci un'email e ti risponderemo il prima possibile.",
       "down_suscription": "Annulla l'iscrizione",
-      "status": "Stato dell'abbonamento"
+      "status": "Stato dell'account"
     },
 
     "modal_terms": {

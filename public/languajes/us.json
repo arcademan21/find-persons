@@ -556,17 +556,17 @@
       "empty_country_error_message": "Please select a country."
     },
     "profile": {
-      "no_suscripted_message": "Not yet subscribed, please make the payment to access your account.",
-      "suscribe": "to subscribe",
+      "no_suscripted_message": "Not yet subscribed, please make the payment to be able to access your account.",
+      "suscribe": "Subscribe",
       "my_account_title": "My account",
       "name": "Name",
-      "email": "Mail",
-      "suscription_title": "Subscription",
-      "end_trial": "End of test",
-      "paragraph_1": "Remember that if you do not wish to continue with the subscription, you can unsubscribe at any time.   ",
+      "email": "Email",
+      "suscription_title": "Account",
+      "end_trial": "End of trial",
+      "paragraph_1": "Remember that if you do not wish to continue with the subscription, you can unsubscribe at any time with a single click. If you have any questions, you can contact us, send us an email and we will respond as soon as possible, if you want you can request the unsubscribe by email at support@find-persons.com.",
       "paragraph_1b": ", send us an email and we will respond as soon as possible.",
       "down_suscription": "Unsubscribe",
-      "status": "Subscription status"
+      "status": "Account status"
     },
 
     "modal_terms": {

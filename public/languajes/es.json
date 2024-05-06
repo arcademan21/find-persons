@@ -589,12 +589,12 @@
         "my_account_title": "Mi cuenta",
         "name": "Nombre",
         "email": "Correo",
-        "suscription_title": "Suscripcion",
+        "suscription_title": "Cuenta",
         "end_trial": "Fin de prueba",
-        "paragraph_1": "Recuerda que si no deseas continuar con la suscripcion, puedes darte de baja en cualquier momento. Si tienes alguna duda, puedes contactar con nosotros en  ",
+        "paragraph_1": "Recuerda que si no deseas continuar con la suscripción, puedes darte de baja en cualquier momento con un solo clic. Si tienes alguna duda, puedes contactar con nosotros envíanos un correo y te responderemos lo antes posible, si quieres puedes solicitar la baja por correo electrónico en support@find-persons.com.  ",
         "paragraph_1b": ", envianos un correo y te responderemos lo antes posible.",
         "down_suscription": "Darme de baja",
-        "status": "Estado de la suscripcion"
+        "status": "Estado de la cuenta"
     },
 
     "modal_terms": {

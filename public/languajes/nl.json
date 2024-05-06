@@ -556,17 +556,17 @@
       "empty_country_error_message": "Selecteer alstublieft een land."
     },
     "profile": {
-      "no_suscripted_message": "Als u zich niet aanmeldt, realiseer u dan de pago om naar uw cuenta te gaan.",
-      "suscribe": "Schrijf u in",
-      "my_account_title": "Mijn cuenta",
-      "name": "Nombre",
-      "email": "Correo",
-      "suscription_title": "Abonnement",
-      "end_trial": "Fin de prueba",
-      "paragraph_1": "Als de ziekte niet voortduurt met de verzekering, kan dit op een ander moment gebeuren.   ",
-      "paragraph_1b": ", envianos een correo die mogelijk eerder reageert.",
-      "down_suscription": "Darme de baja",
-      "status": "Estado de sucripcion"
+      "no_suscripted_message": "Nog niet geabonneerd, betaal alstublieft om toegang te krijgen tot uw account.",
+      "suscribe": "Abonneren",
+      "my_account_title": "Mijn account",
+      "name": "Naam",
+      "email": "E-mail",
+      "suscription_title": "Account",
+      "end_trial": "Einde van de proefperiode",
+      "paragraph_1": "Onthoud dat als u het abonnement niet wilt voortzetten, u zich op elk moment kunt afmelden met één klik. Als u vragen heeft, kunt u contact met ons   opnemen, stuur ons een e-mail en we zullen zo snel mogelijk reageren, als u wilt, kunt u het afmelden aanvragen per e-mail op support@find-persons.com.",
+      "paragraph_1b": ", stuur ons een e-mail en we zullen zo snel mogelijk reageren.",
+      "down_suscription": "Afmelden",
+      "status": "Accountstatus"
     },
   
     "modal_terms": {

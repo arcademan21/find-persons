@@ -556,17 +556,17 @@
       "empty_country_error_message": "S'il vous plaît, sélectionnez un pays."
     },
     "profile": {
-      "no_suscripted_message": "Pas encore abonné, veuillez effectuer le paiement pour accéder à votre compte.",
-      "suscribe": "s'inscrire",
+      "no_suscripted_message": "Pas encore abonné, veuillez effectuer le paiement pour pouvoir accéder à votre compte.",
+      "suscribe": "S'abonner",
       "my_account_title": "Mon compte",
-      "name": "nom",
-      "email": "Mail",
-      "suscription_title": "Abonnement",
+      "name": "Nom",
+      "email": "Email",
+      "suscription_title": "Compte",
       "end_trial": "Fin de l'essai",
-      "paragraph_1": "N'oubliez pas que si vous ne souhaitez pas poursuivre l'abonnement, vous pouvez vous désinscrire à tout moment.   ",
-      "paragraph_1b": ", envoyez-nous un email et nous vous répondrons dans les plus brefs délais.",
-      "down_suscription": "Désabonnement",
-      "status": "État de l'abonnement"
+      "paragraph_1": "Rappelez-vous que si vous ne souhaitez pas continuer l'abonnement, vous pouvez vous désabonner à tout moment en un seul clic. Si vous avez des questions, vous pouvez nous contacter, envoyez-nous un email et nous vous répondrons dès que possible, si vous le souhaitez, vous pouvez demander la désinscription par email à support@find-persons.com.",
+      "paragraph_1b": ", envoyez-nous un email et nous vous répondrons dès que possible.",
+      "down_suscription": "Se désabonner",
+      "status": "Statut du compte"
     },
 
     "modal_terms": {
