@@ -86,7 +86,14 @@ const ModalTerms = () => {
                     
                     <div className="modal-footer justify-content-center">
                         <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="termsCheck" onChange={(e)=>handle_change_terms_box(e)}/>
+                            <input type="checkbox" className="form-check-input" id="termsCheck" onChange={(e)=>handle_change_terms_box(e)} 
+                                style={{ 
+                                    borderStyle: 'double',
+                                    borderWidth: '3px',
+                                    borderColor: '#615e5e',
+                                    transform: 'scale(1.3)'
+                                 }}
+                            />
                             <label className="form-check-label ml-4" for="termsCheck" style={{ fontFamily: 'sans-serif',
                             fontWeight: '300' }}>
                                 {language.checkbox}
