@@ -418,6 +418,44 @@ const Results = () => {
                                 {language.results.download_complete_info}
                             </h2>
 
+                            {/* organic_results = [{
+                                "position": 1,
+                                "title": "Harold - Wikipedia, la enciclopedia libre",
+                                "snippet": "Harold puede referirse a: Harold, nombre. Harold Ford, Jr., candidato al senado estadounidense. Harold Rojas Sepúlveda, trabajador Social chileno.",
+                                "prerender": false,
+                                "cached_page_url": {},
+                                "related_pages_url": {},
+                                "url": "https://es.wikipedia.org/wiki/Harold",
+                                "domain": "es.wikipedia.org",
+                                "displayed_url": "https://es.wikipedia.org › wiki › Harold"
+                            },] */}
+
+                            {
+                                serpstakResults.organic_results && <div className="d-flex flex-column p-3 m-auto w-100">
+                                    <h3 className="text-center text-secondary title-section mb-4">
+                                        {language.results.search_results}
+                                    </h3>
+                                    <div className="text-secondary my-3">
+                                        <div className="info-persons card shadow border rounded bg-white w-75 m-auto p-2">
+                                            <p>
+                                                <ul>
+                                                    { serpstakResults.organic_results.map( ( result, index ) => {
+                                                        return <li key={index} className='text-secondary'>
+                                                            <h3 className='text-secondary'>{result.title}</h3>
+                                                            <p>{result.snippet}</p>
+                                                            <a href={result.url} className='decoration-none'>
+                                                                {result.title}
+                                                            </a>
+                                                        </li>
+                                                    }) }
+                                                </ul>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+
                             <PDFDownloadLink 
                                 document={<PdfRenderer dataPerson={ serpstakResults } />} 
                                 fileName="data_person.pdf" 
