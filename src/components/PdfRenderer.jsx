@@ -16,13 +16,17 @@ const PdfRenderer = ( { dataPerson } ) => {
         <Document>
             
             <Page size="A4" style={styles.page}>
+
+                <View style={styles.section}>
+                    <Image style={styles.logo} src="/images/logo_find-persons.png" alt="Logo" />
+                </View>
                 
                 <View style={styles.section}>
                     <Text>{language.title}</Text>
                 </View>
 
                 <View style={styles.section_row}>
-
+                    
                     {/* Image people */}
                     <View style={styles.section}>
                         <Image style={styles.no_user_image} src={"/images/no_user_image.jpeg"} alt="No user image" />
@@ -33,10 +37,6 @@ const PdfRenderer = ( { dataPerson } ) => {
                         <Text style={styles.title}>
                             {language.title_organic_results}
                         </Text>
-                    </View>
-
-                    <View style={styles.section}>
-                        
                         <Text style={styles.title}>
                             {language.search_information}
                         </Text>
@@ -46,23 +46,22 @@ const PdfRenderer = ( { dataPerson } ) => {
                         <Text style={styles.text}>
                             {language.time_taken_displayed} : { dataPerson.response.search_information.time_taken_displayed }
                         </Text>
-
                     </View>
-                    
-                    {
-                        dataPerson.response.organic_results.map( ( result, index ) => {
-                            return (
-                                <View style={styles.section_row} key={index}>
-                                    <Text style={styles.title}>{result.title}</Text>
-                                    <Text style={styles.text}>{result.snippet}</Text>
-                                    <Link src={result.url}>{result.url}</Link>
-                                </View>
-                            )
-                        })
-                    }
-
-
                 </View>
+
+                
+
+                {
+                    dataPerson.response.organic_results.map( ( result, index ) => {
+                        return (
+                            <View style={styles.section} key={index}>
+                                <Text style={styles.title}>{result.title}</Text>
+                                <Text style={styles.text}>{result.snippet}</Text>
+                                <Link src={result.url}>{result.url}</Link>
+                            </View>
+                        )
+                    })
+                }
 
             </Page>
 
