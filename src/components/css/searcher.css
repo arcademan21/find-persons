@@ -56,7 +56,7 @@
 
 .globle-animate-icon-contry-select{
     position: absolute;
-    left: 25px;
+    left: 48rem;
     animation: globle-animate-icon cubic-bezier(0.4, 0, 0.2, 1) 9.5s infinite;
 }
 
@@ -73,11 +73,7 @@
     100% { transform: rotate(360deg); }
 }
 
-@media (max-width: 991.98px) {
-    .globle-animate-icon-contry-select{
-        left: 48rem;
-    }
-}
+
 
 @media screen and (max-width: 768px) {
     .content-searcher{
@@ -95,5 +91,8 @@
     .content-searcher{
         padding-left: 2rem;
         padding-right: 2rem;
+    }
+    .globle-animate-icon-contry-select{
+        left: 25px;
     }
 }
