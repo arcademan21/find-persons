@@ -360,7 +360,7 @@ const Results = () => {
                                 </span><br/>
                                 {language.results.general_description}
                                 </h3>
-                                <div className="text-secondary my-3">
+                                {/* <div className="text-secondary my-3">
                                     <div className="info-persons card shadow border rounded bg-white w-75 m-auto p-2">
 
                                         <p className='text-secondary title-section'>
@@ -373,14 +373,14 @@ const Results = () => {
                                 </div>
                                 <div className="d-flex justify-content-center content-image-clue">
                                     <Image src="/images/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" width={100} height={100} layout='responsive' />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 wrap-results-form">
                         <div className="d-flex px-3 flex-column">
 
-                            <h2 className="text-center text-secondary title-section mt-4">
+                            {/* <h2 className="text-center text-secondary title-section mt-4">
                                 {language.results.contact_info}
                             </h2>
                             <div className="person-contact-section">
@@ -401,7 +401,7 @@ const Results = () => {
                                     
                                 </div>
                                 
-                            </div> <br/>
+                            </div> <br/> */}
 
                             {
                                 serpstakResults.response.organic_results && <div className="d-flex flex-column p-3 m-auto w-100">
