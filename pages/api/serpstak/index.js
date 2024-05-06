@@ -2,8 +2,8 @@ export default async ( req, res ) => {
 
     const { method } = req
     const { query, lang } = req.body
-    const apiKey = process.env.SERPSTAK_API_KEY
-    const apiUrl = process.env.SERPSTAK_API_URL
+    const apiKey = process.env.NEXT_PUBLIC_SERPSTAK_API_KEY
+    const apiUrl = process.env.NEXT_PUBLIC_SERPSTAK_API_URL
     
     if ( method !== 'POST' ) 
         return res.status( 405 ).json({ message: 'Method Not Allowed' })
