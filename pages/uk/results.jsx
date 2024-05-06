@@ -308,7 +308,7 @@ const Results = () => {
 
         getRegionAndLocality()
         //fetchPersonData()
-        //fetchSerpstakResults()
+        fetchSerpstakResults()
 
     }, [] )
 

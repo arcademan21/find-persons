@@ -286,7 +286,7 @@ const Results = () => {
             // TODO: Implementar un mensaje de error
             setError( error )
         }).finally( () => {
-            setLoading( false )
+            //setLoading( false )
         })
     }
 
@@ -306,7 +306,7 @@ const Results = () => {
 
         getRegionAndLocality()
         //fetchPersonData()
-        fetchSerpstakResults()
+        //fetchSerpstakResults()
 
     }, [] )
 
