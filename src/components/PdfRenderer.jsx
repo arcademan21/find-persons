@@ -73,9 +73,9 @@ const PdfRenderer = ( { dataPerson } ) => {
                 {
                     dataPerson.response.inline_images.map( ( image, index ) => {
                         return (
-                            <View style={styles.section} key={index}>
+                            <View key={index}>
                                 <Image src={image.image_url} alt={image.title} />
-                                <Text style={styles.title}>{image.title}</Text>
+                                <Text style={styles.title_2}>{image.title}</Text>
                                 <Link src={image.image_url}>{image.image_url}</Link>
                             </View>
                         )
@@ -173,6 +173,11 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
+        marginBottom: 10,
+        fontWeight: 'bold',
+    },
+    title_2: {
+        fontSize: 16,
         marginBottom: 10,
         fontWeight: 'bold',
     },
