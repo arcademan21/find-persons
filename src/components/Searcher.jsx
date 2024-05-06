@@ -237,7 +237,7 @@ const Searcher = () => {
                                 setCountries( e.target.value )
                             }} placeholder={ countrySelected } />
 
-                            <div className="countries-box d-flex d-none w-25 m-auto justify-content-center border bg-warning my-2 text-white" id="countries-box" onClick={
+                            <div className="countries-box d-flex d-none m-auto justify-content-center border bg-warning my-2 text-white" id="countries-box" onClick={
                                 (e) => {
                                     setCountries()
                                 }
