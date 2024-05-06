@@ -8,6 +8,8 @@ import {
     Link
 } from '@react-pdf/renderer'
 
+
+
 const PdfRenderer = ( { dataPerson } ) => {
     
     const language = JSON.parse(localStorage.getItem('language_file')).results_pdf
@@ -61,9 +63,98 @@ const PdfRenderer = ( { dataPerson } ) => {
                     })
                 }
 
-                
+                {/* Inline images */}
+                <View style={styles.section}>
+                    <Text style={styles.title}>
+                        {language.title_inline_images}
+                    </Text>
+                </View>
 
-                
+                {
+                    dataPerson.response.inline_images.map( ( image, index ) => {
+                        return (
+                            <View style={styles.section} key={index}>
+                                <Image src={image.image_url} alt={image.title} />
+                            </View>
+                        )
+                    })
+                }
+
+                {/* Related questions */}
+                <View style={styles.section}>
+                    <Text style={styles.title}>
+                        {language.title_related_questions}
+                    </Text>
+                </View>
+
+                {
+                    dataPerson.response.related_questions.map( ( question, index ) => {
+                        return (
+                            <View style={styles.section} key={index}>
+                                <Text style={styles.title}>{question.question}</Text>
+                            </View>
+                        )
+                    })
+                }
+
+                {/* Search parameters */}
+                <View style={styles.section}>
+                    <Text style={styles.title}>
+                        {language.title_search_parameters}
+                    </Text>
+                </View>
+
+                <View style={styles.section}>
+                    <Text style={styles.text}>
+                        {language.engine} : {dataPerson.response.search_parameters.engine}
+                    </Text>
+                    <Text style={styles.text}>
+                        {language.type} : {dataPerson.response.search_parameters.type}
+                    </Text>
+                    <Text style={styles.text}>
+                        {language.auto_location} : {dataPerson.response.search_parameters.auto_location}
+                    </Text>
+                    <Text style={styles.text}>
+                        {language.safe} : {dataPerson.response.search_parameters.safe}
+                    </Text>
+                    <Text style={styles.text}>
+                        {language.news_type} : {dataPerson.response.search_parameters.news_type}
+                    </Text>
+                    <Text style={styles.text}>
+                        {language.exclude_autocorrected_results} : {dataPerson.response.search_parameters.exclude_autocorrected_results}
+                    </Text>
+                    <Text style={styles.text}>
+                        {language.images_color} : {dataPerson.response.search_parameters.images_color}
+                    </Text>
+                    <Text style={styles.text}>
+                        {language.page} : {dataPerson.response.search_parameters.page}
+                    </Text>
+                    <Text style={styles.text}>
+                        {language.num} : {dataPerson.response.search_parameters.num}
+                    </Text>
+                    <Text style={styles.text}>
+                        {language.output} : {dataPerson.response.search_parameters.output}
+                    </Text>
+                    <Text style={styles.text}>
+                        {language.csv_fields} : {dataPerson.response.search_parameters.csv_fields}
+                    </Text>
+                    <Text style={styles.text}>
+                        {language.query} : {dataPerson.response.search_parameters.query}
+                    </Text>
+                    
+                    
+                </View>
+
+                {/* Search url */}
+                <View style={styles.section}>
+                    <Text style={styles.title}>
+                        {language.title_search_url}
+                    </Text>
+                </View>
+
+                <View style={styles.section}>
+                    <Link src={dataPerson.response.search_url}>{dataPerson.response.search_url}</Link>
+                </View>
 
             </Page>
 
