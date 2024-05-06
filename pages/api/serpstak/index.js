@@ -20,9 +20,11 @@ export default async ( req, res ) => {
         query: query
     }
 
+    const urlRequest = `${apiUrl}?access_key=${apiKey}&type=web&google_domain=google.com&gl=${lang}&hl=${lang}&query=${query}`
+
     try{
         
-        const request = await fetch( apiUrl, {
+        const request = await fetch( urlRequest, {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json'
