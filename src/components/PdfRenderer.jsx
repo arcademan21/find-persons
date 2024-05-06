@@ -21,7 +21,7 @@ const PdfRenderer = ( { dataPerson } ) => {
                 <Image style={styles.logo} src="/images/logo_find-persons.png" alt="Logo" />
                 
                 <View style={styles.section}>
-                    <Text>{language.title}</Text>
+                    <Text>{language.title_results}</Text>
                 </View>
 
                 <View style={styles.section_row}>
@@ -36,10 +36,10 @@ const PdfRenderer = ( { dataPerson } ) => {
                             {language.search_information}
                         </Text>
                         <Text style={styles.text}>
-                            {language.total_results} : { dataPerson.response.search_information.total_results }
+                            {language.total_results} : { dataPerson && dataPerson.response.search_information.total_results }
                         </Text>
                         <Text style={styles.text}>
-                            {language.time_taken_displayed} : { dataPerson.response.search_information.time_taken_displayed }
+                            {language.time_taken_displayed} : { dataPerson && dataPerson.response.search_information.time_taken_displayed }
                         </Text>
                     </View>
                 </View>
@@ -52,7 +52,7 @@ const PdfRenderer = ( { dataPerson } ) => {
                 </View>
 
                 {
-                    dataPerson.response.organic_results.map( ( result, index ) => {
+                    dataPerson && dataPerson.response.organic_results !== undefined && dataPerson.response.organic_results.map( ( result, index ) => {
                         return (
                             <View style={styles.section} key={index}>
                                 <Text style={styles.title}>{result.title}</Text>
@@ -71,7 +71,7 @@ const PdfRenderer = ( { dataPerson } ) => {
                 </View>
 
                 {
-                    dataPerson.response.inline_images.map( ( image, index ) => {
+                    dataPerson && dataPerson.response.inline_images !== undefined && dataPerson.response.inline_images.map( ( image, index ) => {
                         return (
                             <View key={index}>
                                 <Image src={image.image_url} alt={image.title} />
@@ -90,7 +90,7 @@ const PdfRenderer = ( { dataPerson } ) => {
                 </View>
 
                 {
-                    dataPerson.response.related_questions.map( ( question, index ) => {
+                    dataPerson && dataPerson.response.related_questions !== undefined && dataPerson.response.related_questions.map( ( question, index ) => {
                         return (
                             <View style={styles.section} key={index}>
                                 <Text style={styles.title}>{question.question}</Text>
@@ -110,30 +110,30 @@ const PdfRenderer = ( { dataPerson } ) => {
                     
                     
                     <Text style={styles.text}>
-                        {language.auto_location} : {dataPerson.response.search_parameters.auto_location}
+                        {language.auto_location} : {dataPerson && dataPerson.response.search_parameters.auto_location}
                     </Text>
                     <Text style={styles.text}>
-                        {language.safe} : {dataPerson.response.search_parameters.safe}
+                        {language.safe} : {dataPerson && dataPerson.response.search_parameters.safe}
                     </Text>
                     <Text style={styles.text}>
-                        {language.news_type} : {dataPerson.response.search_parameters.news_type}
+                        {language.news_type} : {dataPerson && dataPerson.response.search_parameters.news_type}
                     </Text>
                     <Text style={styles.text}>
-                        {language.exclude_autocorrected_results} : {dataPerson.response.search_parameters.exclude_autocorrected_results}
+                        {language.exclude_autocorrected_results} : {dataPerson && dataPerson.response.search_parameters.exclude_autocorrected_results}
                     </Text>
                     <Text style={styles.text}>
-                        {language.images_color} : {dataPerson.response.search_parameters.images_color}
+                        {language.images_color} : {dataPerson && dataPerson.response.search_parameters.images_color}
                     </Text>
                     <Text style={styles.text}>
-                        {language.page} : {dataPerson.response.search_parameters.page}
+                        {language.page} : {dataPerson && dataPerson.response.search_parameters.page}
                     </Text>
                     <Text style={styles.text}>
-                        {language.num} : {dataPerson.response.search_parameters.num}
+                        {language.num} : {dataPerson && dataPerson.response.search_parameters.num}
                     </Text>
                     
                     
                     <Text style={styles.text}>
-                        {language.query} : {dataPerson.response.search_parameters.query}
+                        {language.query} : {dataPerson && dataPerson.response.search_parameters.query}
                     </Text>
                     
                     

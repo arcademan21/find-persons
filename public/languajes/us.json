@@ -327,7 +327,8 @@
       "query": " Query ",
       "action": " Action ",
       "access_key": " Access key ",
-      "title_search_url": " Search URL "
+      "title_search_url": " Search URL ",
+      "titel_results": " Search results "
     },
     "thanks_page": {
       "thanks": " We have received your request, we will send you a confirmation email shortly. ",

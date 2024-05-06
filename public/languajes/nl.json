@@ -327,7 +327,8 @@
       "query": " Query ",
       "action": " Actie ",
       "access_key": " Toegangssleutel ",
-      "title_search_url": " Zoek-URL "
+      "title_search_url": " Zoek-URL ",
+      "titel_results": " Zoekresultaten "
     },
     "thanks_page": {
       "thanks": " Als u uw vraag beantwoordt, moet u kort een bevestigingsbevestiging indienen. ",

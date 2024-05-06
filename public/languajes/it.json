@@ -327,7 +327,8 @@
       "query": " Query ",
       "action": " Azione ",
       "access_key": " Chiave di accesso ",
-      "title_search_url": " URL di ricerca "
+      "title_search_url": " URL di ricerca ",
+      "titel_results": " Risultati della ricerca "
     },
     "thanks_page": {
       "thanks": " Abbiamo ricevuto la tua richiesta, ti invieremo a breve una email di conferma. ",

@@ -403,7 +403,7 @@ const Results = () => {
                                 
                             </div> <br/>
 
-                            {/* {
+                            {
                                 serpstakResults.response.organic_results && <div className="d-flex flex-column p-3 m-auto w-100">
                                     <h3 className="text-center text-secondary title-section mb-4">
                                         {language.results.search_results}
@@ -412,7 +412,7 @@ const Results = () => {
                                         <div className="info-persons card shadow border rounded bg-white w-75 m-auto p-2">
                                             <p>
                                                 <ul>
-                                                    { serpstakResults.response.organic_results !== undefined && serpstakResults.response.organic_results.map( ( result, index ) => {
+                                                    { serpstakResults.response.organic_results.map( ( result, index ) => {
                                                         return <li key={index} className='text-secondary'>
                                                             <h3 className='text-secondary'>{result.title}</h3>
                                                             <p>{result.snippet}</p>
@@ -427,7 +427,7 @@ const Results = () => {
 
                                     </div>
                                 </div>
-                            } */}
+                            }
 
                             <h2 className="text-center text-secondary title-section mt-4">
                                 {language.results.download_complete_info}
@@ -467,7 +467,7 @@ const Results = () => {
             </div>
             
             {/* PARA TEST */}
-            {/* <div className="container py-5 my-5 w-75">
+            <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
                     <div className="col-md-12">
@@ -483,7 +483,7 @@ const Results = () => {
                     </div>
 
                 </div>
-            </div> */}
+            </div>
 
 
 

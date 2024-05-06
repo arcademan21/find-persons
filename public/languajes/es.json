@@ -349,7 +349,8 @@
         "query": " Consulta ",
         "action": " Acción ",
         "access_key": " Clave de acceso ",
-        "title_search_url": " URL de búsqueda "
+        "title_search_url": " URL de búsqueda ",
+        "titel_results": " Resultados de la busqueda "
     },
 
     "thanks_page": {

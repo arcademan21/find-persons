@@ -328,7 +328,8 @@
       "query": " Anfrage ",
       "action": " Aktion ",
       "access_key": " Zugangsschlüssel ",
-      "title_search_url": " Such-URL "
+      "title_search_url": " Such-URL ",
+      "titel_results": " Suchergebnisse "
     },
     "thanks_page": {
       "thanks": " Wir haben Ihre Anfrage erhalten und senden Ihnen in Kürze eine Bestätigungs-E-Mail. ",
