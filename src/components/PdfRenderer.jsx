@@ -25,7 +25,7 @@ const PdfRenderer = ( { dataPerson } ) => {
 
                     {/* Image people */}
                     <View style={styles.section}>
-                        <Image style={styles.no_user_image} src={"/images/no_user_image.jpeg"} />
+                        <Image style={styles.no_user_image} src={"/images/no_user_image.jpeg"} alt="No user image" />
                     </View>
 
                     {/* Organic results */}
@@ -51,11 +51,13 @@ const PdfRenderer = ( { dataPerson } ) => {
                     
                     {
                         dataPerson.response.organic_results.map( ( result, index ) => {
-                            return <View style={styles.section_row}>
-                                <Text style={styles.title}>{result.title}</Text>
-                                <Text style={styles.text}>{result.snippet}</Text>
-                                <Link src={result.url}>{result.url}</Link>
-                            </View>
+                            return (
+                                <View style={styles.section_row} key={index}>
+                                    <Text style={styles.title}>{result.title}</Text>
+                                    <Text style={styles.text}>{result.snippet}</Text>
+                                    <Link src={result.url}>{result.url}</Link>
+                                </View>
+                            )
                         })
                     }
 
