@@ -23,8 +23,9 @@ const Loader = () => {
     return (
         <div className="loader">
             <div className="loader__logo text-center">
-                <Image src="/images/logo_find-persons.png" alt="Logo" width={50} height={50} 
+                <Image src="/images/logo_find-persons.png" alt="Logo" width={100} height={100} 
                     layout="responsive"
+                    style={{ width: '400px', height: '400px' }}
                 />
             </div>
         </div>
