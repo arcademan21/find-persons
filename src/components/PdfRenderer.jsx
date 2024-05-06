@@ -75,6 +75,8 @@ const PdfRenderer = ( { dataPerson } ) => {
                         return (
                             <View style={styles.section} key={index}>
                                 <Image src={image.image_url} alt={image.title} />
+                                <Text style={styles.title}>{image.title}</Text>
+                                <Link src={image.image_url}>{image.image_url}</Link>
                             </View>
                         )
                     })
@@ -105,12 +107,8 @@ const PdfRenderer = ( { dataPerson } ) => {
                 </View>
 
                 <View style={styles.section}>
-                    <Text style={styles.text}>
-                        {language.engine} : {dataPerson.response.search_parameters.engine}
-                    </Text>
-                    <Text style={styles.text}>
-                        {language.type} : {dataPerson.response.search_parameters.type}
-                    </Text>
+                    
+                    
                     <Text style={styles.text}>
                         {language.auto_location} : {dataPerson.response.search_parameters.auto_location}
                     </Text>
@@ -132,12 +130,8 @@ const PdfRenderer = ( { dataPerson } ) => {
                     <Text style={styles.text}>
                         {language.num} : {dataPerson.response.search_parameters.num}
                     </Text>
-                    <Text style={styles.text}>
-                        {language.output} : {dataPerson.response.search_parameters.output}
-                    </Text>
-                    <Text style={styles.text}>
-                        {language.csv_fields} : {dataPerson.response.search_parameters.csv_fields}
-                    </Text>
+                    
+                    
                     <Text style={styles.text}>
                         {language.query} : {dataPerson.response.search_parameters.query}
                     </Text>
@@ -145,16 +139,7 @@ const PdfRenderer = ( { dataPerson } ) => {
                     
                 </View>
 
-                {/* Search url */}
-                <View style={styles.section}>
-                    <Text style={styles.title}>
-                        {language.title_search_url}
-                    </Text>
-                </View>
-
-                <View style={styles.section}>
-                    <Link src={dataPerson.response.search_url}>{dataPerson.response.search_url}</Link>
-                </View>
+                
 
             </Page>
 
@@ -173,6 +158,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: '#E4E4E4',
         padding: 10,
+        fontSize: 12,
     },
     section: {
         margin: 10,
