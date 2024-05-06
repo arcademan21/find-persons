@@ -35,9 +35,6 @@ const PdfRenderer = ( { dataPerson } ) => {
                     {/* Organic results */}
                     <View style={styles.section}>
                         <Text style={styles.title}>
-                            {language.title_organic_results}
-                        </Text>
-                        <Text style={styles.title}>
                             {language.search_information}
                         </Text>
                         <Text style={styles.text}>
@@ -49,7 +46,11 @@ const PdfRenderer = ( { dataPerson } ) => {
                     </View>
                 </View>
 
-                
+                <View style={styles.section}>
+                    <Text style={styles.title}>
+                        {language.title_organic_results}
+                    </Text>
+                </View>
 
                 {
                     dataPerson.response.organic_results.map( ( result, index ) => {
