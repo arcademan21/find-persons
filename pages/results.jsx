@@ -453,7 +453,7 @@ const Results = () => {
                                 {({ blob, url, loading, error }) => {
                                     
                                     return loading ? 
-                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
+                                        <button className="btn btn-danger text-light fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
                                             <FaSpinner className="mx-1" />
                                             {language.results.download_pdf}
                                         </button> 
@@ -478,7 +478,7 @@ const Results = () => {
             </div>
             
             {/* PARA TEST */}
-            <div className="container py-5 my-5 w-75">
+            {/* <div className="container py-5 my-5 w-75">
                 <div className="row px-5 content-search-map-anime">
                 
                     <div className="col-md-12">
@@ -494,7 +494,7 @@ const Results = () => {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
 
 
 

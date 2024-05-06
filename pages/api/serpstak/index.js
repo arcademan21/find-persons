@@ -34,22 +34,14 @@ export default async ( req, res ) => {
 
         const response = await request.json()
         res.status( 200 ).json( {
-            response,
-            config,
-            apiKey,
-            apiUrl,
-            body: req.body 
+            response
         } )
 
     } catch ( error ) {
             
         return res.status( 500 ).json({ 
             message: 'Internal Server Error ( SERPSTAK ) ', 
-            error,
-            config,
-            apiKey,
-            apiUrl,
-            body: req.body 
+            error
         })
 
     }
