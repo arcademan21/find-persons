@@ -403,7 +403,7 @@ const Results = () => {
                                 
                             </div> <br/>
 
-                            {
+                            {/* {
                                 serpstakResults.response.organic_results && <div className="d-flex flex-column p-3 m-auto w-100">
                                     <h3 className="text-center text-secondary title-section mb-4">
                                         {language.results.search_results}
@@ -427,7 +427,7 @@ const Results = () => {
 
                                     </div>
                                 </div>
-                            }
+                            } */}
 
                             <h2 className="text-center text-secondary title-section mt-4">
                                 {language.results.download_complete_info}
