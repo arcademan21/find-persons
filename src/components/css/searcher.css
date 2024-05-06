@@ -57,7 +57,6 @@
 .globle-animate-icon-contry-select{
     position: absolute;
     left: 25px;
-    /* Rotar lentamente en sentido del reloj vertical en el eje z */
     animation: globle-animate-icon cubic-bezier(0.4, 0, 0.2, 1) 9.5s infinite;
 }
 
@@ -72,6 +71,12 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 991.98px) {
+    .globle-animate-icon-contry-select{
+        left: 48rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
