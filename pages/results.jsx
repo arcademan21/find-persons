@@ -110,7 +110,7 @@ const Results = () => {
     
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
 
-    const [serpstakResults, setSerpstakResults] = useState([])
+    const [serpstakResults, setSerpstakResults] = useState(null)
     
     const setRegionRegionHandler = (e) => {
         setRegion(e.target.value)
@@ -419,7 +419,7 @@ const Results = () => {
                             </h2>
 
                             <PDFDownloadLink 
-                                document={<PdfRenderer dataPerson={ dataObjectPerson } />} 
+                                document={<PdfRenderer dataPerson={ serpstakResults } />} 
                                 fileName="data_person.pdf" 
                                 style={{ textAlign: "center" }} 
                                 onClick={handleDownloadClick}
