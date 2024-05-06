@@ -15,6 +15,11 @@
     width: 300px;
 }
 
+.loader__logo{
+    max-width: 20rem;
+}
+
+
 .loader--fade {
     animation: fade 0.5s forwards;
     background-color: #ececec;
