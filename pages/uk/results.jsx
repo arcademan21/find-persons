@@ -312,14 +312,14 @@ const Results = () => {
 
     }, [] )
 
-    if( loading ) return (<div className="results-container">
+    if( loading ) return (<div className="results-container p-0">
         <div className="container">
             <div className="row px-5 content-search-map-anime">
-                <div className="col-md-12">
+                <div className="col-md-12 vh-100 d-flex flex-column justify-content-center align-content-center ">
                     <div className="d-flex flex-column">
-                        <div className="title-section">
+                        <div className="title-section w-50 m-auto text-center">
                             <Image src="/images/logo_find-persons.png" alt="logo" className="img-fluid w-50" width={100} height={100} />
-                            <h4>{ language.results.results_of } { search } </h4>
+                            <h4 className="text-primary my-3">{ language.results.results_of } { search } </h4>
                         </div>
                         <div className="d-flex justify-content-center">
                             <div className="spinner-border text-primary" role="status">
