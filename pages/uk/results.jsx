@@ -264,18 +264,18 @@ const Results = () => {
                 
                 //setDataPerson( dataPerson )
                 setDataPerson( data.data )
-                setLoading( false )
+                //setLoading( false )
                 
 
             }).catch((error) => {
                 //console.log("NOTE: The carrier pigeons lost motivation in flight. See error and try again.")
                 setError(error)
-                setLoading( false )
+                //setLoading( false )
             })
 
         } catch (error) {
             setError(error)
-            setLoading( false )
+            //setLoading( false )
         }
 
     }
