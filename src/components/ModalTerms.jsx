@@ -88,9 +88,7 @@ const ModalTerms = () => {
                         <div className="form-check">
                             <input type="checkbox" className="form-check-input" id="termsCheck" onChange={(e)=>handle_change_terms_box(e)}/>
                             <label className="form-check-label ml-4" for="termsCheck">
-                                <a href={`${lang}/terms`}>
-                                    {language.checkbox}
-                                </a>
+                                {language.checkbox}
                             </label>
                             <small className="d-none text-danger error_message">
                                 {language.error_terms_message}
