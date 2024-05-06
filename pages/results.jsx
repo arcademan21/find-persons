@@ -431,7 +431,7 @@ const Results = () => {
                             },] */}
 
                             {
-                                serpstakResults.organic_results && <div className="d-flex flex-column p-3 m-auto w-100">
+                                serpstakResults.response.organic_results && <div className="d-flex flex-column p-3 m-auto w-100">
                                     <h3 className="text-center text-secondary title-section mb-4">
                                         {language.results.search_results}
                                     </h3>
@@ -439,7 +439,7 @@ const Results = () => {
                                         <div className="info-persons card shadow border rounded bg-white w-75 m-auto p-2">
                                             <p>
                                                 <ul>
-                                                    { serpstakResults.organic_results.map( ( result, index ) => {
+                                                    { serpstakResults.response.organic_results.map( ( result, index ) => {
                                                         return <li key={index} className='text-secondary'>
                                                             <h3 className='text-secondary'>{result.title}</h3>
                                                             <p>{result.snippet}</p>
