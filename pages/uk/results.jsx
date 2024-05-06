@@ -288,7 +288,7 @@ const Results = () => {
             // TODO: Implementar un mensaje de error
             setError( error )
         }).finally( () => {
-            setLoading( false )
+            //setLoading( false )
         })
     }
 
