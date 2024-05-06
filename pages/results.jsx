@@ -260,20 +260,6 @@ const Results = () => {
             // Pass the parameters object to the Person Search API
             PDLJSClient.person.enrichment( params ).then(( data ) => {
                 
-                // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
-                // console.log(`${data["total"]} total PDL records exist matching this query.`)
-                // dataObjectPerson = data.data
-                
-                // let dataPerson = data.data
-                // let dataPersonKeys = Object.keys( dataPerson )
-                // let dataPersonKeysLength = dataPersonKeys.length
-
-                // for( let i = 0; i < dataPersonKeysLength; i++ ){
-                //     if( typeof dataPerson[ dataPersonKeys[i] ] === 'object' && dataPerson[ dataPersonKeys[i] ] !== null ){
-                //         dataPerson[ dataPersonKeys[i] ] = JSON.stringify( dataPerson[ dataPersonKeys[i] ] )
-                //     }
-                // }
-
                 //setDataPerson( dataPerson )
                 setDataPerson( data.data )
                 setLoading( false )
