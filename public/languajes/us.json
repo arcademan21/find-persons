@@ -302,7 +302,10 @@
       "experience": " Experience ",
       "education": " Education ",
       "profiles": " Profiles ",
-      "version_status": " Version Status "
+      "version_status": " Version Status ",
+    "search_information": " Search information ",
+    "total_results": " Total results ",
+    "time_taken_displayed": " Time taken to display "
     },
     "thanks_page": {
       "thanks": " We have received your request, we will send you a confirmation email shortly. ",

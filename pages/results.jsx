@@ -413,22 +413,6 @@ const Results = () => {
                                 </div>
                                 
                             </div> <br/>
-                            
-                            <h2 className="text-center text-secondary title-section mt-4">
-                                {language.results.download_complete_info}
-                            </h2>
-
-                            {/* organic_results = [{
-                                "position": 1,
-                                "title": "Harold - Wikipedia, la enciclopedia libre",
-                                "snippet": "Harold puede referirse a: Harold, nombre. Harold Ford, Jr., candidato al senado estadounidense. Harold Rojas Sepúlveda, trabajador Social chileno.",
-                                "prerender": false,
-                                "cached_page_url": {},
-                                "related_pages_url": {},
-                                "url": "https://es.wikipedia.org/wiki/Harold",
-                                "domain": "es.wikipedia.org",
-                                "displayed_url": "https://es.wikipedia.org › wiki › Harold"
-                            },] */}
 
                             {
                                 serpstakResults.response.organic_results && <div className="d-flex flex-column p-3 m-auto w-100">
@@ -456,6 +440,10 @@ const Results = () => {
                                 </div>
                             }
 
+                            <h2 className="text-center text-secondary title-section mt-4">
+                                {language.results.download_complete_info}
+                            </h2>
+
                             <PDFDownloadLink 
                                 document={<PdfRenderer dataPerson={ serpstakResults } />} 
                                 fileName="data_person.pdf" 
@@ -477,36 +465,6 @@ const Results = () => {
 
                                 }}
                             </PDFDownloadLink>
-
-                            {/* { dataPerson ? 
-
-                                <PDFDownloadLink 
-                                    document={<PdfRenderer dataPerson={ dataObjectPerson } />} 
-                                    fileName="data_person.pdf" 
-                                    style={{ textAlign: "center" }} 
-                                    onClick={handleDownloadClick}
-                                >
-                                    {({ blob, url, loading, error }) => {
-                                        
-                                        return loading ? 
-                                            <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
-                                                <FaSpinner className="mx-1" />
-                                                {language.results.download_pdf}
-                                            </button> 
-                                        : 
-                                            <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn">
-                                                <FaDownload className="mx-1" />
-                                                {language.results.download_pdf}
-                                            </button>
-
-                                    }}
-                                </PDFDownloadLink>
-                            : 
-                                <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
-                                    <FaSpinner className="mx-1" />
-                                    {language.results.download_pdf}
-                                </button> 
-                            } */}
 
                             <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white note-info">
                                 <FaInfoCircle className="mx-2" style={{ fontSize: "2rem" }} />

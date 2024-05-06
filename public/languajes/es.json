@@ -323,7 +323,11 @@
         "experience": " Experiencia ",
         "education": " Educación ",
         "profiles": " Perfiles ",
-        "version_status": " Estado de la versión "
+        "version_status": " Estado de la versión ",
+        "title_organic_results": " Resultados orgánicos ",
+        "search_information": " Información de búsqueda ",
+        "total_results": " Resultados totales ",
+        "time_taken_displayed": " Tiempo tomado para mostrar "
     },
 
     "thanks_page": {

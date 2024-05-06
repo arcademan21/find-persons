@@ -302,7 +302,10 @@
       "experience": " Esperienza ",
       "education": " Formazione scolastica ",
       "profiles": " Profili ",
-      "version_status": " Stato della versione "
+      "version_status": " Stato della versione ",
+      "search_information": " Informazioni di ricerca ",
+      "total_results": " Risultati totali ",
+      "time_taken_displayed": " Tempo impiegato per mostrare "
     },
     "thanks_page": {
       "thanks": " Abbiamo ricevuto la tua richiesta, ti invieremo a breve una email di conferma. ",

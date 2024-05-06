@@ -1,0 +1,86 @@
+{
+"response": {
+    "request": {
+        "success": null,
+        "total_time_taken": null,
+        "processed_timestamp": null,
+        "search_url": null
+    },
+    "search_parameters": {
+        "engine": null,
+        "type": null,
+        "device": null,
+        "auto_location": null,
+        "google_domain": null,
+        "gl": null,
+        "hl": null,
+        "safe": null,
+        "news_type": null,
+        "exclude_autocorrected_results": null,
+        "images_color": null,
+        "page": null,
+        "num": null,
+        "output": null,
+        "csv_fields": null,
+        "query": null,
+        "action": null,
+        "access_key": null,
+        "error": null
+    },
+    "search_information": {
+        "total_results": null,
+        "time_taken_displayed": null,
+        "detected_location": null,
+        "did_you_mean": null,
+        "no_results_for_original_query": false,
+        "showing_results_for": null
+    },
+    "organic_results": [
+        {
+            "position": null,
+            "title": null,
+            "snippet": null,
+            "prerender": false,
+            "cached_page_url": null,
+            "related_pages_url": null,
+            "url": null,
+            "domain": null,
+            "displayed_url": null
+        }
+    ],
+    "inline_images": [
+        {
+            "image_url": null,
+            "title": null
+        },
+        {
+            "image_url": null,
+            "title": null
+        },
+        {
+            "image_url": null,
+            "title": null
+        }
+    ],
+    "related_questions": [
+        {
+            "question": null,
+            "answer": null,
+            "title": null,
+            "displayed_url": null
+        },
+        {
+            "question": null,
+            "answer": null,
+            "title": null,
+            "displayed_url": null
+        },
+        {
+            "question": null,
+            "answer": null,
+            "title": null,
+            "displayed_url": null
+        }
+    ]
+}
+}

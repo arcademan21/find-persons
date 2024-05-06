@@ -302,7 +302,11 @@
       "experience": " Erfahrung ",
       "education": " Ausbildung ",
       "profiles": " Profile ",
-      "version_status": " Versionsstatus "
+      "version_status": " Versionsstatus ",
+      "title_organic_results": " Resultados orgánicos ",
+      "search_information": " Suchinformationen ",
+      "total_results": " Gesamtergebnisse ",
+      "time_taken_displayed": " Zeit zur Anzeige benötigt "
     },
     "thanks_page": {
       "thanks": " Wir haben Ihre Anfrage erhalten und senden Ihnen in Kürze eine Bestätigungs-E-Mail. ",

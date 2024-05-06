@@ -302,7 +302,10 @@
       "experience": " Ervaring ",
       "education": " Onderwijs ",
       "profiles": " Perfielen ",
-      "version_status": " Stand van de versie "
+      "version_status": " Stand van de versie ",
+      "search_information": " Zoekinformatie ",
+      "total_results": " Totaal aantal resultaten ",
+      "time_taken_displayed": " Tijd genomen om te tonen "
     },
     "thanks_page": {
       "thanks": " Als u uw vraag beantwoordt, moet u kort een bevestigingsbevestiging indienen. ",
