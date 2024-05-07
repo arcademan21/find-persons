@@ -158,7 +158,7 @@
         "placeholder_email": "Email",
         "placeholder_password": "Contraseña",
         "example_email": "Ejemplo: miusuario@mail.com",
-        "min_password": "Un minimo de 6 caracteres",
+        "min_password": "Un mínimo de 6 caracteres",
         "register_free": "Registrarse gratis",
         "register_google": "Iniciar con Google",
         "have_account": "¿Ya tienes una cuenta?",
