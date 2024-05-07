@@ -136,13 +136,13 @@ const Profile = () => {
                                     <strong>
                                         { language.name } :
                                     </strong> 
-                                    { userData && userData.user_data.user_name }
+                                    { userData && userData.suscription_data && userData && userData.user_data.user_name }
                                 </p>
                                 <p className="mb-1">
                                     <strong> 
                                     { language.email }
                                     : </strong> 
-                                    { userData && userData.user_data.user_email }
+                                    { userData && userData.suscription_data && userData && userData.user_data.user_email }
                                 </p>
                             </div>
 
@@ -155,14 +155,14 @@ const Profile = () => {
                                     <strong> 
                                     { language.status }
                                     : </strong> 
-                                    { userData && userData.suscription_data.status }
+                                    { userData && userData.suscription_data && userData.suscription_data.status }
                                 </p>
 
                                 <p className="mb-1">
                                     <strong>
                                         { language.end_trial}
                                     : </strong> 
-                                    { userData && userData.suscription_data.end_trial }
+                                    { userData && userData.suscription_data && userData.suscription_data.end_trial }
                                 </p>
 
                                 { userData && userData.suscription_data && userData.suscription_data.status !== 'canceled' && userData.suscription_data.status !== 'down' ?
