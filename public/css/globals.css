@@ -2655,9 +2655,7 @@ a.text-dark:hover, a.text-dark:focus {
     font-family: sans-serif;
 }
 
-.fs-ms-6{
-    font-size: 0.9rem !important;
-}
+
 
 @media (max-width: 767.98px) or (min-width: 576px) {
     
@@ -2734,6 +2732,10 @@ a.text-dark:hover, a.text-dark:focus {
 
     .content-acep-terms-contact-form{
         font-size: 0.95rem;
+    }
+
+    .fs-ms-6{
+        font-size: 0.9rem !important;
     }
 
 
