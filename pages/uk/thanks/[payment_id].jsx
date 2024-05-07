@@ -149,7 +149,7 @@ const ThanksPage = () => {
 
                     <div className="d-flex flex-column shadow p-4 rounded border text-center m-auto w-75 bg-white">
                         <Image src="/images/thanks-image1.webp" alt="Thanks" width="100" height="100" layout='responsive' className='w-25 m-auto'/>
-                        <h1 className='w-75 m-auto text-center'>{language.thanks_page.thanks}</h1>
+                        <h1 className='w-100 fs-3 m-auto text-center'>{language.thanks_page.thanks}</h1>
                         { counter > 0 && <p>{language.thanks_page.redirect_in} {counter} {language.thanks_page.seconds}</p> }
                     </div>
                     
