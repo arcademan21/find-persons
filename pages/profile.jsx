@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from "react"
+import 'react-toastify/dist/ReactToastify.css'
 import { toast } from 'react-toastify'
 
 const Profile = () => {
@@ -74,13 +75,15 @@ const Profile = () => {
     }
 
     const TefpayToatsMessage = async ( type, message ) => {
+        
         if( type === 'error' ) {
-            toast.error(message)
+            toast.error( message )
             return 0
         }
 
-        toast.success(message)
+        toast.success( message )
         return 1
+
     }
 
    
