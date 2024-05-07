@@ -100,7 +100,7 @@ const Profile = () => {
 
         
 
-    }, [userData])
+    }, [])
 
     return ( <>
 
@@ -142,12 +142,14 @@ const Profile = () => {
                                 { language.suscription_title }
                             </h2>
                             <div className="card profile-data mb-3 p-3">
+                                
                                 <p className="mb-1">
                                     <strong> 
                                     { language.status }
                                     : </strong> 
                                     { userData && userData.suscription_data.status }
                                 </p>
+
                                 <p className="mb-1">
                                     <strong>
                                         { language.end_trial}
