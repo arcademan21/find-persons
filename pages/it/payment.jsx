@@ -134,7 +134,7 @@ const Payment = () => {
                                     </span>
                                 </h3>
                                 <p className="title-section text-secondary">
-                                    <span className="marked fs-5">
+                                    <span className="marked fs-5 fs-ms-6">
                                         <FaClock className="fs-1" />
                                         {language.time_access}
                                     </span> 
