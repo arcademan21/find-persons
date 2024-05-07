@@ -186,9 +186,10 @@ const Profile = () => {
                                                 }
                                             } }
                                         >  
+                                            { loading ? <div className="spinner-border text-primary mx-2" role="status"></div> : null }
                                             { language.down_suscription}
                                         </button>
-                                        { loading ? <div className="spinner-border text-primary" role="status"></div> : null }
+                                        
                                     </>
                                     :
                                     null
