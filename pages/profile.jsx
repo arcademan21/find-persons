@@ -155,7 +155,7 @@ const Profile = () => {
                                     { userData && userData.suscription_data.end_trial }
                                 </p>
 
-                                { userData && userData.suscription_data.status !== 'canceled' || userData.suscription_data.status !== 'down' ?
+                                { userData && userData.suscription_data && userData.suscription_data.status !== 'canceled' && userData.suscription_data.status !== 'down' ?
                                     <>
                                         <p>
                                             { language.paragraph_1 }{ process.env.NEXT_PUBLIC_CONTACT_EMAIL }{ language.paragraph_1b}
