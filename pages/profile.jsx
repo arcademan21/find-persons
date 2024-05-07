@@ -73,6 +73,16 @@ const Profile = () => {
 
     }
 
+    const TefpayToatsMessage = async ( type, message ) => {
+        if( type === 'error' ) {
+            toast.error(message)
+            return 0
+        }
+
+        toast.success(message)
+        return 1
+    }
+
    
     useEffect(() => {
         
@@ -144,7 +154,7 @@ const Profile = () => {
                                     { userData && userData.suscription_data.end_trial }
                                 </p>
 
-                                { userData && userData.suscription_data.status !== 'canceled' ?
+                                { userData && userData.suscription_data.status !== 'canceled' || userData.suscription_data.status !== 'down' ?
                                     <>
                                         <p>
                                             { language.paragraph_1 }{ process.env.NEXT_PUBLIC_CONTACT_EMAIL }{ language.paragraph_1b}
@@ -153,15 +163,12 @@ const Profile = () => {
                                             onClick={ async ()=>{
                                                 const res = await downSuscription( userData.user_data.user_email, userData.suscription_data.payment_id )
                                                 if( !res ) {
-                                                    toast.error(laguage_toast.error_down_suscription_message)
+                                                    TefpayToatsMessage( 'error', laguage_toast.error_down_suscription_message )
                                                 }
                                                 else {
                                                     
-                                                    let success_message = async (type, message) => {
-                                                        toast.success(laguage_toast.success_down_suscription_message)
-                                                    }
-
-                                                    success_message().then( () => {
+                                                    
+                                                    TefpayToatsMessage( 'success', laguage_toast.success_down_suscription_message ).then( () => {
                                                         window.location.replace( '/' )
                                                     })
 
