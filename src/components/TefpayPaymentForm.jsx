@@ -285,7 +285,7 @@ export const TefpayPaymentForm = () => {
            
             <div className="form-group  text-center">
 
-                <div className="bg-white">
+                <div className="bg-white rounded shadow p-2 pb-3 my-2 mb-3">
                     <h2 className="my-3 title-section">
                         <span className="marked">
                             {language.secure_payment}

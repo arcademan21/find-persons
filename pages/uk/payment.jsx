@@ -168,7 +168,7 @@ const Payment = () => {
 
                                 </div>
 
-                                <h2 className="my-3 title-section">
+                                {/* <h2 className="my-3 title-section">
                                     <span className="marked">
                                         {language.secure_payment}
                                     </span>
@@ -179,7 +179,7 @@ const Payment = () => {
                                     {language.secure_payment_description}
                                     <br/>
                                     {language.domain_name}
-                                </p>
+                                </p> */}
                                 
                                 
                                 

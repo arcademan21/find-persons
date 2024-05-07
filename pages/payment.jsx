@@ -183,7 +183,7 @@ const Payment = () => {
                                     {language.secure_payment_description}
                                     <br/>
                                     {language.domain_name}
-                                </p> */}
+                                </p> */} 
                                 
                                 
                                 
