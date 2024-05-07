@@ -74,6 +74,7 @@ const Payment = () => {
                             </p>
                         </div>
                         <div className="info-service d-flex flex-column p-4">
+                            
                             <div className="d-flex content-result-image shadow rounded m-auto justify-content-center">
                                 <Image 
                                     src="/images/result_file.jpeg" 
@@ -84,11 +85,14 @@ const Payment = () => {
                                     layout="responsive"
                                     />
                             </div>
+
                             <div className="d-flex flex-column p-3 m-auto w-100">
+                                
                                 <h3 className="text-center text-secondary title-section mb-4">
                                     {language.service_title}<br/>
                                     <span className="marked">{search}</span>
                                 </h3>
+
                                 <div className="text-secondary my-3">
                                     
                                     <div className="fs-6 mb-1">
@@ -167,7 +171,8 @@ const Payment = () => {
 
                                 </div>
 
-                                <h2 className="my-3 title-section">
+                                
+                                {/* <h2 className="my-3 title-section">
                                     <span className="marked">
                                         {language.secure_payment}
                                     </span>
@@ -178,7 +183,7 @@ const Payment = () => {
                                     {language.secure_payment_description}
                                     <br/>
                                     {language.domain_name}
-                                </p>
+                                </p> */}
                                 
                                 
                                 
