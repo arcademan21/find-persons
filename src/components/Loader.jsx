@@ -23,6 +23,7 @@ const Loader = () => {
     return (
         
         <>
+            
             { loading ? 
                 <div className="loader">
                     <div className="loader__logo text-center">
@@ -33,7 +34,7 @@ const Loader = () => {
                     </div>
                 </div>
             : null }
-            
+
         </>
 
     )

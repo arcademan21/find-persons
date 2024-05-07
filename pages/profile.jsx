@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from "react"
+import { toast } from 'react-toastify'
 
 const Profile = () => {
 
@@ -72,6 +73,7 @@ const Profile = () => {
 
     }
 
+   
     useEffect(() => {
         
         const user = JSON.parse(localStorage.getItem('user'))
@@ -151,12 +153,12 @@ const Profile = () => {
                                             onClick={ async ()=>{
                                                 const res = await downSuscription( userData.user_data.user_email, userData.suscription_data.payment_id )
                                                 if( !res ) {
-                                                    toast.error(language_toast.error_down_suscription_message)
+                                                    toast.error(laguage_toast.error_down_suscription_message)
                                                 }
                                                 else {
                                                     
-                                                    let success_message = async () => {
-                                                        toast.success(language_toast.success_down_suscription_message)
+                                                    let success_message = async (type, message) => {
+                                                        toast.success(laguage_toast.success_down_suscription_message)
                                                     }
 
                                                     success_message().then( () => {
@@ -186,9 +188,6 @@ const Profile = () => {
         </div>
 
     </>)
-
-
-
 
 }
 
