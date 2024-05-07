@@ -99,7 +99,7 @@ const Profile = () => {
 
         
 
-    }, [])
+    }, [userData])
 
     return ( <>
 
