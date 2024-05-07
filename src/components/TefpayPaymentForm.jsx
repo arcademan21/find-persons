@@ -299,7 +299,7 @@ export const TefpayPaymentForm = () => {
                         {language.domain_name}
                     </p>
                 </div>
-                
+                <br />
 
                 <div className="cards-images my-2">
                     
