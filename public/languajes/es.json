@@ -214,7 +214,7 @@
         "time_access": " 24 Horas de acceso al servicio.",
         "name_placeholder": "Nombre del titular.",
         "name_help": "Nombre del titular de la tarjeta.",
-        "cards_accept": "Aceptamos visa, master card y american express, su pago esta protegido por",
+        "cards_accept": "Aceptamos VISA, MASTERCARD y AMERICA EXPRESS, su pago esta protegido por",
         "secure_3ds": " 3Ds Secure",
         "accept_terms": "Al aceptar el pago accedes a nuestro servicio por una suscripción mensual de 49.90€ con la opción de cancelar en 24 horas, teniendo un coste de 0.60€, pudiendo cancelar en cualquier momento.", 
         "secure_payment": "Pago seguro",
@@ -222,7 +222,7 @@
         "domain_name": "find-persons.com",
         "contact_info": "Puede contactar con nuestro servicio de atención al cliente las ",
         "contact_info_hours": " 24 Horas",
-        "contact_info_email": "support@find-perdons.com",
+        "contact_info_email": "support@find-persons.com",
         "btn_contact": " Contactar" 
     
     },
