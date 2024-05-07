@@ -9,6 +9,7 @@ const Profile = () => {
     const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
     const language = JSON.parse(localStorage.getItem('language_file')).profile
     const laguage_toast = JSON.parse(localStorage.getItem('language_file')).toast
+    const [loading, setLoading] = useState( false )
 
     const getUserData = async ( email ) => {
 
@@ -44,6 +45,9 @@ const Profile = () => {
 
         if( confirm('¿Estas seguro de que deseas darte de baja?') === false ) return false
 
+        // Show loading
+        setLoading( true )
+
         try {
 
             const req = await fetch( path_endpoint, {
@@ -65,6 +69,7 @@ const Profile = () => {
 
             const res = await req.json()
             if( res.status === 'error' ) return false
+            setLoading( false )
             return true
 
         }
@@ -97,6 +102,7 @@ const Profile = () => {
         getUserData( user.email ).then( res => { 
             
             setUserData( res )
+            
 
         })
 
@@ -182,6 +188,7 @@ const Profile = () => {
                                         >  
                                             { language.down_suscription}
                                         </button>
+                                        { loading ? <div className="spinner-border text-primary" role="status"></div> : null }
                                     </>
                                     :
                                     null
