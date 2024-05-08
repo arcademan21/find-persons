@@ -27,7 +27,7 @@ const GetSuscription = async ( user ) =>{
         })
 
         const res = await req.json()
-        console.log(res)
+        if( res.data.status === 'canceled' ) return false
         if( res.status === 'error' ) return false
         return res
 
@@ -92,9 +92,9 @@ const Search = () => {
                 GetSuscription( user ).then( suscripted => {
                     
                     // Redirect 
-                    // if( !user ) window.location.replace('/register')
-                    // else if( !suscripted ) window.location.replace('/payment')
-                    // else window.location.replace('/results')
+                    if( !user ) window.location.replace('/register')
+                    else if( !suscripted ) window.location.replace('/payment')
+                    else window.location.replace('/results')
         
                 })
                 
