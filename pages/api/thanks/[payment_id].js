@@ -84,6 +84,7 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
+        console.log(res)
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
