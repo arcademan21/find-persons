@@ -16,7 +16,7 @@ const Loader = () => {
                 loader.classList.add('d-none')
             }
             setLoading( false )
-        }, 500 )
+        }, 700 )
 
     }, [])
     
