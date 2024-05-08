@@ -597,7 +597,8 @@
         "status": "Estado de la cuenta",
         "active": "Activa",
         "inactive": "Inactiva",
-        "created_at": "Registrado el"
+        "created_at": "Registrado el",
+        "canceled_at": "Cancelado el"
     },
 
     "modal_terms": {
