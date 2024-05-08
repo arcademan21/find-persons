@@ -237,6 +237,13 @@ const Profile = () => {
 
                                 <p className="mb-1">
                                     <strong>
+                                        { language.created_at }
+                                    : </strong> 
+                                    { userData && userData.suscription_data && userData.suscription_data.created_at }
+                                </p>
+
+                                <p className="mb-1">
+                                    <strong>
                                         { language.end_trial}
                                     : </strong> 
                                     { userData && userData.suscription_data && userData.suscription_data.end_trial }
@@ -257,7 +264,7 @@ const Profile = () => {
                                                     
                                                     
                                                     TefpayToatsMessage( 'success', laguage_toast.success_down_suscription_message ).then( () => {
-                                                        window.location.replace( '/' )
+                                                        window.location.reload()
                                                     })
 
                                                 }
