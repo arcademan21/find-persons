@@ -15,7 +15,6 @@ const Profile = () => {
     let timestamp = Number(user.createdAt)
     let date = new Date(timestamp)
 
-
     const getUserData = async ( email ) => {
 
         try {
@@ -231,10 +230,9 @@ const Profile = () => {
                                     <strong> 
                                     { language.status }
                                     : </strong> 
-                                    { userData && userData.suscription_data && userData.suscription_data.status }
                                     { userData && userData.suscription_data && userData.suscription_data.status !== 'canceled' ?  
-                                    language.active
-                                    : language.inactive }    
+                                    <b className="text-success mx-2 border rounded">language.active</b>
+                                    : <b className="text-danger mx-2 border rounded"> language.inactive </b> }    
                                 </p>
 
                                 <p className="mb-1">
