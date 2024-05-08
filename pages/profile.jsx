@@ -231,8 +231,8 @@ const Profile = () => {
                                     { language.status }
                                     : </strong> 
                                     { userData && userData.suscription_data && userData.suscription_data.status !== 'canceled' ?  
-                                    <b className="text-success mx-2 border rounded"> { language.active } </b>
-                                    : <b className="text-danger mx-2 border rounded"> { language.inactive } </b> }    
+                                    <b className="text-success mx-2 p-2 border rounded"> { language.active } </b>
+                                    : <b className="text-danger mx-2 p-2 border rounded"> { language.inactive } </b> }    
                                 </p>
 
                                 <p className="mb-1">
