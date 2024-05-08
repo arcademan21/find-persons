@@ -168,6 +168,7 @@ export default function handler( req, res ) {
         return res.status(405).json({ error: 'Método no permitido' })
     }
 
+    // https://www.persons-finder.com/api/thanks/202405081309065850000-03bb9a357690666d31f9d1fbfea1ca400f829763-fr-prueba_pago0001_fr@mail.com-prueba_pago0001_fr-Lhxl8dR32LUoEIA4j9HWjMbij8c2
     const payment = req.query.payment_id
     const parts = payment.split('-')
     const payment_token = parts[0]+'-'+parts[1]
