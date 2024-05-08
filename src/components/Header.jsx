@@ -23,8 +23,8 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg navbar-light navbar-float p-0">
         <div className="d-flex w-100 justify-content-between px-2">
           <div className="d-flex content-link-logo">
-            {pathname}
-            {pathname !== 'payment' ?
+            
+            {pathname !== '/payment' ?
               <a href={extension} className="navbar-brand link-logo ">
                 <Image src="/images/logo_find-persons.png" width={150} height={60} alt="logo" />
               </a>
