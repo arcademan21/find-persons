@@ -15,6 +15,18 @@ class MyDocument extends Document {
         <Head>
           <meta charSet={metadata.charSet} />
           <meta name="description" content={metadata.description} />
+          
+          {/* Google tag (gtag.js) ADWORDS */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=AW-340874452"></script>
+          <script dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-340874452');
+            `
+          }} />
+
         </Head>
         <body>
           <Main />
