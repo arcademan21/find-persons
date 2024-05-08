@@ -12,8 +12,9 @@ const Profile = () => {
     const [loading, setLoading] = useState( false )
     const user = JSON.parse(localStorage.getItem('user'))
 
-    let timestamp = user.createdAt
+    let timestamp = Number(user.createdAt)
     let date = new Date(timestamp)
+
 
     const getUserData = async ( email ) => {
 
