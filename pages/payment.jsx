@@ -28,7 +28,7 @@ const GetSuscription = async ( user ) =>{
         })
 
         const res = await req.json()
-
+        if( res.data.status === 'canceled' ) return false
         if(res.status === 'error') return false
 
         return res

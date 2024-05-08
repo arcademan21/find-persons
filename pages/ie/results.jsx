@@ -15,7 +15,7 @@ const GetSuscription = async ( user ) =>{
 
         // Fetch to endpoint for update suscription
         const req = await fetch( path_endpoint, {
-    method: 'POST',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 "petition" : {
@@ -30,7 +30,7 @@ const GetSuscription = async ( user ) =>{
         })
 
         const res = await req.json()
-
+        if( res.data.status === 'canceled' ) return false
         if(res.status === 'error') return false
 
         return res
