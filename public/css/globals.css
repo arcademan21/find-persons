@@ -2684,7 +2684,7 @@ a.text-dark:hover, a.text-dark:focus {
     }
 
     .content-link-logo{
-        margin-left: auto;
+        margin-left: 0;
     }
 
     .image-result-example{
