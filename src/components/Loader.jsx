@@ -9,14 +9,12 @@ const Loader = () => {
     
     useEffect(() => {
         
-        setTimeout(() => {
-            const loader = document.querySelector('.loader')
-            if ( loader ) {
-                loader.classList.add('loader--fade')
-                loader.classList.add('d-none')
-            }
-            setLoading( false )
-        }, 1 )
+        const loader = document.querySelector('.loader')
+        if ( loader ) {
+            loader.classList.add('loader--fade')
+            loader.classList.add('d-none')
+        }
+        setLoading( false )
 
     }, [])
     
