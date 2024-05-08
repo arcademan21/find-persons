@@ -360,7 +360,7 @@ const Register = () => {
                                                             <br />
                                                             <b className='marked'> {language.register_to_see}</b>
                                                             <br />
-                                                            {language.register_accept} <b className='marked'> {language.register_terms}</b>
+                                                            {/* {language.register_accept} <b className='marked'> {language.register_terms}</b> */}
                                                         </p>
                                                     </div>
                                                 </div>
