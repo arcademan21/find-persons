@@ -160,7 +160,9 @@
       "register_to_see": "Registrati gratuitamente per visualizzare o scaricare il rapporto completo.",
       "register_accept": "Registrandoti accetti il",
       "register_terms": "Termini e condizioni del servizio.",
-      "register_no_user_holder": "Iscriviti gratuitamente per ottenere un rapporto su chiunque desideri cercare. "
+      "register_no_user_holder": "Iscriviti gratuitamente per ottenere un rapporto su chiunque desideri cercare. ",
+      "please_weait": "Per favore aspetta...",
+      "suscces_register": "Registrazione riuscita."
     },
     "login": {
       "title": "Inizio",
@@ -555,18 +557,22 @@
       "success_down_suscription_message": "Hai annullato correttamente l'iscrizione.",
       "empty_country_error_message": "Per favore, seleziona un paese."
     },
-    "profile": {
+    "profile":{
       "no_suscripted_message": "Non ancora iscritto, per favore effettua il pagamento per poter accedere al tuo account.",
       "suscribe": "Iscriviti",
-      "my_account_title": "Il mio account",
+      "my_account_title": "Profilo utente",
       "name": "Nome",
       "email": "Email",
       "suscription_title": "Account",
       "end_trial": "Fine del periodo di prova",
-      "paragraph_1": "Ricorda che se non desideri continuare l'abbonamento, puoi annullare l'iscrizione in qualsiasi momento con un solo clic. Se hai qualche dubbio, puoi contattarci inviandoci un'email e ti risponderemo il prima possibile, se lo desideri puoi richiedere la disiscrizione via email a support@find-persons.com.",
+      "paragraph_1": "Se lo desideri, puoi annullare la tua iscrizione immediatamente e disattivare il tuo account, questa azione è irreversibile, quindi se disattivi il tuo account, non sarai in grado di riattivarlo. Per rimuovere i tuoi dati dal nostro registro, dovrai contattare support@find-persons.com",
       "paragraph_1b": ", inviaci un'email e ti risponderemo il prima possibile.",
-      "down_suscription": "Annulla l'iscrizione",
-      "status": "Stato dell'account"
+      "down_suscription": "Disiscriviti",
+      "status": "Stato dell'account",
+      "active": "Attivo",
+      "inactive": "Inattivo",
+      "created_at": "Registrato il",
+      "canceled_at": "Cancellato il"
     },
 
     "modal_terms": {

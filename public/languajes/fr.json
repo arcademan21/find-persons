@@ -160,7 +160,9 @@
       "register_to_see": "Inscrivez-vous gratuitement pour consulter ou télécharger le rapport complet.",
       "register_accept": "En vous inscrivant, vous acceptez le",
       "register_terms": "Termes et conditions du service.",
-      "register_no_user_holder": "Inscrivez-vous gratuitement pour obtenir un rapport sur les personnes que vous souhaitez rechercher. "
+      "register_no_user_holder": "Inscrivez-vous gratuitement pour obtenir un rapport sur les personnes que vous souhaitez rechercher. ",
+      "please_weait": "Veuillez patienter...",
+      "suscces_register": "Inscription réussie."
     },
     "login": {
       "title": "Commencer",
@@ -555,19 +557,23 @@
       "success_down_suscription_message": "Vous avez désabonné avec succès.",
       "empty_country_error_message": "S'il vous plaît, sélectionnez un pays."
     },
-    "profile": {
-      "no_suscripted_message": "Pas encore abonné, veuillez effectuer le paiement pour pouvoir accéder à votre compte.",
-      "suscribe": "S'abonner",
-      "my_account_title": "Mon compte",
-      "name": "Nom",
-      "email": "Email",
-      "suscription_title": "Compte",
-      "end_trial": "Fin de l'essai",
-      "paragraph_1": "Rappelez-vous que si vous ne souhaitez pas continuer l'abonnement, vous pouvez vous désabonner à tout moment en un seul clic. Si vous avez des questions, vous pouvez nous contacter, envoyez-nous un email et nous vous répondrons dès que possible, si vous le souhaitez, vous pouvez demander la désinscription par email à support@find-persons.com.",
-      "paragraph_1b": ", envoyez-nous un email et nous vous répondrons dès que possible.",
-      "down_suscription": "Se désabonner",
-      "status": "Statut du compte"
-    },
+    "profile":{
+        "no_suscripted_message": "Pas encore abonné, veuillez effectuer le paiement pour pouvoir accéder à votre compte.",
+        "suscribe": "S'abonner",
+        "my_account_title": "Profil de l'utilisateur",
+        "name": "Nom",
+        "email": "Email",
+        "suscription_title": "Compte",
+        "end_trial": "Fin de l'essai",
+        "paragraph_1": "Si vous le souhaitez, vous pouvez annuler votre abonnement immédiatement et désactiver votre compte, cette action est irréversible, donc si vous désactivez votre compte, vous ne pourrez pas le réactiver. Pour supprimer vos données de notre registre, vous devrez contacter support@find-persons.com",
+        "paragraph_1b": ", envoyez-nous un email et nous vous répondrons dès que possible.",
+        "down_suscription": "Se désabonner",
+        "status": "Statut du compte",
+        "active": "Actif",
+        "inactive": "Inactif",
+        "created_at": "Enregistré le",
+        "canceled_at": "Annulé le"
+      },
 
     "modal_terms": {
         "title": "Termes et conditions",

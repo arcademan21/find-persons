@@ -54,6 +54,7 @@ const Register = () => {
 
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     const language_toast = JSON.parse( localStorage.getItem('language_file') ).toast
+    const extension = localStorage.getItem('extencion')
     
     const newUser = async () => { 
         
@@ -69,7 +70,7 @@ const Register = () => {
         if( !terms.checked ) {
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = loadingButtonHtml
-            toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
+            toast.error( language_toast.error_acept_terms_message )
             return false
         }
 
@@ -78,7 +79,7 @@ const Register = () => {
         .then( ( UserCredential ) => { 
             
             loadingButton.setAttribute('disabled', 'true')
-            loadingButton.innerHTML = `Registro exitoso`
+            loadingButton.innerHTML = language.suscces_register
             
             setState({ ...state, user: UserCredential.user })
 
@@ -90,9 +91,9 @@ const Register = () => {
                 
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && search === 'null' ) window.location.replace('/')
-                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
-                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
+                    if( !suscripted && search === 'null' ) window.location.replace(extension)
+                    else if( !suscripted && search !== 'null' ) window.location.replace(`${extension}/payment`)
+                    else if( suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
                     
         
                 })
@@ -155,10 +156,10 @@ const Register = () => {
                 
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && search === 'null' ) window.location.replace('/')
-                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
-                    else if( suscripted && search === 'null' ) window.location.replace('/')
-                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
+                    if( !suscripted && search === 'null' ) window.location.replace(extension)
+                    else if( !suscripted && search !== 'null' ) window.location.replace(`${extension}/payment`)
+                    else if( suscripted && search === 'null' ) window.location.replace(extension)
+                    else if( suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
                     
         
                 })
@@ -194,8 +195,8 @@ const Register = () => {
     useEffect(() => {
         GetSuscription( user ).then( suscripted => {
             
-            if( user && !suscripted ) window.location.replace('/payment')
-            else if( user && suscripted && search !== 'null' ) window.location.replace('/results')
+            if( user && !suscripted ) window.location.replace(`${extension}/payment`)
+            else if( user && suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
 
         })
     }, [])
@@ -216,7 +217,7 @@ const Register = () => {
                             <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 px-3 login-col">
                                 <div className="d-none w-75 m-auto logo-register-form">
                                 <Link
-                                    href="/"
+                                    href={extension}
                                     className="navbar-brand link-logo 
                                         text-center"
                                 >
@@ -317,8 +318,8 @@ const Register = () => {
                                     <p className="title-section text-center w-100">
                                     <span className="marked">{language.have_account}</span>
                                     <br />
-                                    <span href="/login" className="link-primary my-1" onClick={()=>{
-                                        window.location.replace('/login')
+                                    <span href={`${extension}/login`} className="link-primary my-1" onClick={()=>{
+                                        window.location.replace(`${extension}/login`)
                                     }}>
                                       
                                         {language.login} <FaSignInAlt className='fs-5 mx-2' />

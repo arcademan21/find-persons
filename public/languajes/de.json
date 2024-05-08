@@ -160,7 +160,9 @@
       "register_to_see": "Registrieren Sie sich kostenlos, um den vollständigen Bericht anzusehen oder herunterzuladen.",
       "register_accept": "Mit der Registrierung akzeptieren Sie die",
       "register_terms": "Allgemeine Geschäftsbedingungen des Dienstes.",
-      "register_no_user_holder": "Melden Sie sich kostenlos an, um einen Bericht über alle Personen zu erhalten, nach denen Sie suchen möchten. "
+      "register_no_user_holder": "Melden Sie sich kostenlos an, um einen Bericht über alle Personen zu erhalten, nach denen Sie suchen möchten. ",
+      "please_weait": "Bitte warten...",
+      "suscces_register": "Registrierung erfolgreich."
     },
     "login": {
       "title": "Start",
@@ -556,19 +558,23 @@
       "success_down_suscription_message": "Du hast dich erfolgreich abgemeldet.",
       "empty_country_error_message": "Bitte wählen Sie ein Land aus."
     },
-    "profile": {
-      "no_suscripted_message": "Noch nicht abonniert, bitte leisten Sie die Zahlung, um auf Ihr Konto zuzugreifen.",
-      "suscribe": "Abonnieren",
-      "my_account_title": "Mein Konto",
-      "name": "Name",
-      "email": "E-Mail",
-      "suscription_title": "Konto",
-      "end_trial": "Ende der Probezeit",
-      "paragraph_1": "Denken Sie daran, dass Sie das Abonnement jederzeit kündigen können, wenn Sie das Abonnement nicht fortsetzen möchten. Wenn Sie Fragen haben, können Sie uns eine E-Mail senden und wir werden so schnell wie möglich antworten. Sie können auch die Kündigung per E-Mail an support@find-persons.com beantragen.",
-      "paragraph_1b": ", senden Sie uns eine E-Mail und wir werden so schnell wie möglich antworten.",
-      "down_suscription": "Abmelden",
-      "status": "Kontostatus"
-    },
+    "profile":{
+        "no_suscripted_message": "Noch nicht abonniert, bitte zahlen Sie, um Zugang zu Ihrem Konto zu erhalten.",
+        "suscribe": "Abonnieren",
+        "my_account_title": "Benutzerprofil",
+        "name": "Name",
+        "email": "E-Mail",
+        "suscription_title": "Konto",
+        "end_trial": "Ende der Probezeit",
+        "paragraph_1": "Wenn Sie möchten, können Sie Ihr Abonnement sofort kündigen und Ihr Konto deaktivieren, diese Aktion ist unwiderruflich, so dass Sie Ihr Konto nicht reaktivieren können, wenn Sie es deaktivieren. Um Ihre Daten aus unserem Register zu entfernen, müssen Sie sich an support@find-persons.com wenden",
+        "paragraph_1b": ", senden Sie uns eine E-Mail und wir werden so schnell wie möglich antworten.",
+        "down_suscription": "Abmelden",
+        "status": "Kontostatus",
+        "active": "Aktiv",
+        "inactive": "Inaktiv",
+        "created_at": "Registriert am",
+        "canceled_at": "Gekündigt am"
+      },
 
     "modal_terms": {
         "title": "Geschäftsbedingungen",

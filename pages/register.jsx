@@ -64,12 +64,12 @@ const Register = () => {
         const terms = document.getElementById('register-terms')
 
         loadingButton.setAttribute('disabled', 'true')
-        loadingButton.innerHTML = `Porfavor espere...`
+        loadingButton.innerHTML = language.please_weait
 
         if( !terms.checked ) {
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = loadingButtonHtml
-            toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
+            toast.error( language_toast.error_acept_terms_message )
             return false
         }
 
@@ -78,7 +78,7 @@ const Register = () => {
         .then( ( UserCredential ) => { 
             
             loadingButton.setAttribute('disabled', 'true')
-            loadingButton.innerHTML = `Registro exitoso`
+            loadingButton.innerHTML = language.suscces_register
             
             setState({ ...state, user: UserCredential.user })
 
@@ -144,8 +144,6 @@ const Register = () => {
             // The signed-in user info.
             const user = result.user
             setState({ ...state, user: user })
-
-            
 
             const showSuccesToast = async () => {
                 toast.success( language_toast.success_google_session_message )
