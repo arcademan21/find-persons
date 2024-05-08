@@ -27,6 +27,7 @@ const GetSuscription = async ( user ) =>{
         })
 
         const res = await req.json()
+        console.log(res)
         if( res.status === 'error' ) return false
         return res
 
@@ -87,6 +88,7 @@ const Search = () => {
                 
                 setAwaitText('')
                 setActiveClass('active')
+                document.getElementsByClassName('el')[0].innerHTML = '100%'
                 GetSuscription( user ).then( suscripted => {
                     
                     // Redirect 
@@ -97,19 +99,23 @@ const Search = () => {
                 })
                 
             }
+            
+            else {
+                count++
     
-            count++
-    
-            random = Math.floor( Math.random() * count ) + 0
-    
-            switch ( random ) {
-                case 0: setStateIcon1(false); break;
-                case 1: setStateIcon2(false); break;
-                case 2: setStateIcon3(false); break;
-                case 3: setStateIcon4(false); break;
-                case 4: setStateIcon5(false); break;
-                case 5: setStateIcon6(false); break;
+                random = Math.floor( Math.random() * count ) + 0
+        
+                switch ( random ) {
+                    case 0: setStateIcon1(false); break;
+                    case 1: setStateIcon2(false); break;
+                    case 2: setStateIcon3(false); break;
+                    case 3: setStateIcon4(false); break;
+                    case 4: setStateIcon5(false); break;
+                    case 5: setStateIcon6(false); break;
+                }
             }
+
+            
 
         }, 5000)
          
