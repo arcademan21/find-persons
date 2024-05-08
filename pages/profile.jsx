@@ -102,7 +102,7 @@ const Profile = () => {
         getUserData( user.email ).then( res => { 
             
             setUserData( res )
-            
+            console.log( res )
 
         })
 
@@ -116,7 +116,6 @@ const Profile = () => {
             <div className="container py-5 vh-100">
                 <div className="row py-5 justify-content-center">
                     
-                    {/* USER INFO */}
                     <div className="col-md-6">
 
                         { userData && !userData.user_data ?
