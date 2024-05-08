@@ -230,7 +230,7 @@ const Profile = () => {
                                     <strong> 
                                     { language.status }
                                     : </strong> 
-                                    { userData && userData.suscription_data && userData.suscription_data.status !== 'canceled' ?  
+                                    { userData && userData.suscription_data.data && userData.suscription_data.data.status !== 'canceled' ?  
                                     <b className="text-success mx-2 p-2 border rounded"> { language.active } </b>
                                     : <b className="text-danger mx-2 p-2 border rounded"> { language.inactive } </b> }    
                                 </p>
@@ -239,24 +239,24 @@ const Profile = () => {
                                     <strong>
                                         { language.created_at }
                                     : </strong> 
-                                    { userData && userData.suscription_data && userData.suscription_data.created_at }
+                                    { userData && userData.suscription_data.data && userData.suscription_data.data.created_at }
                                 </p>
 
                                 <p className="mb-1">
                                     <strong>
                                         { language.end_trial}
                                     : </strong> 
-                                    { userData && userData.suscription_data && userData.suscription_data.end_trial }
+                                    { userData && userData.suscription_data.data && userData.suscription_data.data.end_trial }
                                 </p>
 
-                                { userData && userData.suscription_data && userData.suscription_data.status !== 'canceled' && userData.suscription_data.status !== 'down' ?
+                                { userData && userData.suscription_data.data && userData.suscription_data.data.status !== 'canceled' && userData.suscription_data.data.status !== 'down' ?
                                     <>
                                         <p>
                                             { language.paragraph_1 }{ process.env.NEXT_PUBLIC_CONTACT_EMAIL }{ language.paragraph_1b}
                                         </p>
                                         <button className="btn btn-secondary"
                                             onClick={ async ()=>{
-                                                const res = await downSuscription( userData.user_data.user_email, userData.suscription_data.payment_id )
+                                                const res = await downSuscription( userData.user_data.user_email, userData.suscription_data.data.payment_id )
                                                 if( !res ) {
                                                     TefpayToatsMessage( 'error', laguage_toast.error_down_suscription_message )
                                                 }
