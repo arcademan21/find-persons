@@ -249,6 +249,15 @@ const Profile = () => {
                                     { userData && userData.suscription_data.data && userData.suscription_data.data.end_trial }
                                 </p>
 
+                                { userData && userData.suscription_data.data && userData.suscription_data.data.status === 'canceled' ? 
+                                    <p className="mb-1">
+                                        <strong>
+                                            { language.canceled_at}
+                                        : </strong> 
+                                        { userData && userData.suscription_data.canceled_date && userData.suscription_data.canceled_date }
+                                    </p>
+                                : null }
+
                                 { userData && userData.suscription_data.data && userData.suscription_data.data.status !== 'canceled' && userData.suscription_data.data.status !== 'down' ?
                                     <>
                                         <p>
