@@ -86,9 +86,9 @@ const Search = () => {
                 
                 clearInterval(time)
                 
-                setAwaitText('')
+                setAwaitText('') 
                 setActiveClass('active')
-                document.getElementsByClassName('el')[0].innerHTML = '100%'
+                document.getElementsByClassName('wrapper')[0].innerHTML = '100%'
                 GetSuscription( user ).then( suscripted => {
                     
                     // Redirect 
