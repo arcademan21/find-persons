@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import 'react-toastify/dist/ReactToastify.css'
 import '../css/register.css'
+import { set } from 'firebase/database'
 
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
@@ -54,6 +55,7 @@ const Register = () => {
 
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     const language_toast = JSON.parse( localStorage.getItem('language_file') ).toast
+    const [loadingRegisterButton, setLoadingRegisterButton] = useState( false )
 
     const extension = localStorage.getItem('extencion')
     
@@ -66,11 +68,11 @@ const Register = () => {
         const terms = document.getElementById('register-terms')
 
         loadingButton.setAttribute('disabled', 'true')
-        loadingButton.innerHTML = language.please_weait
+        setLoadingRegisterButton(true)
 
         if( !terms.checked ) {
             loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = language.register_free
+            setLoadingRegisterButton(false)
             toast.error( language_toast.error_acept_terms_message )
             return false
         }
@@ -103,7 +105,7 @@ const Register = () => {
         .catch( ( error ) => { 
             
             loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = language.register_free
+            setLoadingRegisterButton(false)
 
             // Validadndo errors de autenticacion de firebase
             if( error.code === 'auth/email-already-in-use' ) {

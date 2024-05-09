@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import 'react-toastify/dist/ReactToastify.css'
 import './css/register.css'
+import { set } from 'firebase/database'
 
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
@@ -54,21 +55,21 @@ const Register = () => {
 
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     const language_toast = JSON.parse( localStorage.getItem('language_file') ).toast
+    const [loadingRegisterButton, setLoadingRegisterButton] = useState( false )
     
     const newUser = async () => { 
         
         const email = document.getElementById('email').value
         const password = document.getElementById('password').value
         const loadingButton = document.getElementById('btn-register')
-        const loadingButtonHtml = loadingButton.innerHTML
         const terms = document.getElementById('register-terms')
 
         loadingButton.setAttribute('disabled', 'true')
-        loadingButton.innerHTML = language.please_weait
+        setLoadingRegisterButton(true)
 
         if( !terms.checked ) {
             loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = language.register_free
+            setLoadingRegisterButton(false)
             toast.error( language_toast.error_acept_terms_message )
             return false
         }
@@ -101,7 +102,7 @@ const Register = () => {
         .catch( ( error ) => { 
             
             loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = language.register_free
+            setLoadingRegisterButton(false)
 
             // Validadndo errors de autenticacion de firebase
             if( error.code === 'auth/email-already-in-use' ) {
@@ -297,10 +298,16 @@ const Register = () => {
 
                                 <div className="d-flex flex-column align-items-center justify-content-center mx-4 mb-3 mb-lg-2">
 
-                                    <button className="btn btn-primary btn-lg mb-2 fs-6 w-75" id="btn-register"  onClick={newUser}>
-                                        <FaUserPlus className='fs-5 mx-2' />
-                                        <span>{language.register_free}</span>
-                                    </button>
+                                    {loadingRegisterButton ?
+                                        <div className="spinner-border text-primary" role="status">
+                                            <span className="visually-hidden">{language.please_weait}</span>
+                                        </div>
+                                        : <button className="btn btn-primary btn-lg mb-2 fs-6 w-75" id="btn-register"  onClick={newUser}>
+                                            <FaUserPlus className='fs-5 mx-2' />
+                                            <span>{language.register_free}</span>
+                                        </button>
+                                    }
+                                    
 
                                     <button className="btn btn-danger btn-lg mb-2 fs-6 w-75" id="btn-google" onClick={newUserGoogle}>
                                         <FaGoogle className='fs-5 mx-2' />
