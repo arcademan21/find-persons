@@ -42,8 +42,8 @@ const CreatePaymentToken = async ( payment_id, user_email ) => {
         return res
 
     } catch ( error ) {
-        console.error( error )
-        return false
+        return error
+        //return false
     }
 
 }
@@ -150,11 +150,18 @@ export const TefpayPaymentForm = () => {
 
         let paymentToken = `${matchingData}-${signature}`
         CreatePaymentToken( paymentToken, user.email).then( res => {
-        
+            console.log(res)
             if( !res ){
                 
                 paymentToken = ''
-                window.location.replace(`${extension}/tefpay_error/error_create_payment_token`)
+                if( extension !== '' ){
+                    window.location.replace(`${extension}/tefpay_error/error_create_payment_token`)
+                }
+
+                else {
+                    window.location.replace(`/tefpay_error/error_create_payment_token`)
+                }
+
                 return false
 
             }
