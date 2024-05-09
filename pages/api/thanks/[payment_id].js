@@ -199,7 +199,7 @@ export default function handler( req, res ) {
 
     ExistsPayment( payment_id )
     .then(paymentExists => {
-        if (!paymentExists) throw new Error(
+        if (paymentExists.status === 'error' ) throw new Error(
             {
                 message: 'payment_not_exists',
                 payment_id: payment_id,
