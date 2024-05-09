@@ -21,9 +21,11 @@ export const CheckTokenValidity = async ( token ) => {
         })
         
         const res = await req.json()
+        return res
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
+        return error
         return false
     }
     
@@ -207,7 +209,13 @@ export default function handler( req, res ) {
         return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
-        if (!tokenIsValid) throw new Error('invalid_token')
+        if (!tokenIsValid) throw new Error(
+            {
+                message: 'token_not_valid',
+                payment_token: payment_token,
+                data: tokenIsValid
+            }
+        )
         return CreateNewUser(user)
     })
     .then(userCreated => {
