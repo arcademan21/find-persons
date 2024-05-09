@@ -1,3 +1,5 @@
+import { data } from "jquery"
+
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 
 export const CheckTokenValidity = async ( token ) => {
@@ -84,9 +86,11 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
+        return res
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
+        return error
         return false
     }
     
@@ -194,7 +198,13 @@ export default function handler( req, res ) {
 
     ExistsPayment( payment_id )
     .then(paymentExists => {
-        if (!paymentExists) throw new Error('invalid_payment')
+        if (paymentExists.status === 'error') throw new Error(
+            JSON.stringify({
+                error: 'payment_not_found',
+                message: 'El pago no existe',
+                data: paymentExists
+            })
+        )
         return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
