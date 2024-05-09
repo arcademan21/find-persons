@@ -337,10 +337,15 @@ const Register = () => {
 
                                 <div className="d-flex flex-column align-items-center justify-content-center mx-4 mb-3 mb-lg-2">
 
-                                    <button className="btn btn-primary btn-lg mb-2 fs-6 w-75" id="btn-register"  onClick={newUser}>
-                                        <FaUserPlus className='fs-5 mx-2' />
-                                        <span>{language.register_free}</span>
-                                    </button>
+                                    {loadingRegisterButton ?
+                                        <div className="spinner-border text-primary" role="status">
+                                            <span className="visually-hidden">{language.please_weait}</span>
+                                        </div>
+                                        : <button className="btn btn-primary btn-lg mb-2 fs-6 w-75" id="btn-register"  onClick={newUser}>
+                                            <FaUserPlus className='fs-5 mx-2' />
+                                            <span>{language.register_free}</span>
+                                        </button>
+                                    }
 
                                     <button className="btn btn-danger btn-lg mb-2 fs-6 w-75" id="btn-google" onClick={newUserGoogle}>
                                         <FaGoogle className='fs-5 mx-2' />
