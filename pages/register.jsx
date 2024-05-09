@@ -67,8 +67,8 @@ const Register = () => {
         loadingButton.innerHTML = language.please_weait
 
         if( !terms.checked ) {
-            loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = loadingButtonHtml
+            loadingButton.setAttribute('disabled', 'false')
+            loadingButton.innerHTML = language.register_free
             toast.error( language_toast.error_acept_terms_message )
             return false
         }
@@ -77,7 +77,6 @@ const Register = () => {
         createUserWithEmailAndPassword( auth, email, password )
         .then( ( UserCredential ) => { 
             
-            loadingButton.setAttribute('disabled', 'true')
             loadingButton.innerHTML = language.suscces_register
             
             setState({ ...state, user: UserCredential.user })
@@ -93,7 +92,6 @@ const Register = () => {
                     if( !suscripted && search === 'null' ) window.location.replace('/')
                     else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
                     else if( suscripted && search !== 'null' ) window.location.replace('/results')
-                    
         
                 })
 
@@ -102,6 +100,9 @@ const Register = () => {
         })
         .catch( ( error ) => { 
             
+            loadingButton.setAttribute('disabled', 'false')
+            loadingButton.innerHTML = language.register_free
+
             // Validadndo errors de autenticacion de firebase
             if( error.code === 'auth/email-already-in-use' ) {
                 toast.error( language_toast.error_register_email_message )
@@ -130,7 +131,7 @@ const Register = () => {
         const terms = document.getElementById('register-terms')
         if( !terms.checked ) {
             
-            toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
+            toast.error( language.error_acept_terms_message )
             return false
         }
         
@@ -231,7 +232,6 @@ const Register = () => {
                                 <span>
                                     { language.title }  
                                     <span className="marked"> {language.free} </span>
-
                                 </span>
                                 <span className="marked fs-6 m-auto">{language.subtitle}</span>
                                 </h1>
@@ -357,7 +357,7 @@ const Register = () => {
                                                             <br />
                                                             <b className='marked'> {language.register_to_see}</b>
                                                             <br />
-                                                            {/* {language.register_accept} <b className='marked'> {language.register_terms}</b> */}
+                                                            
                                                         </p>
                                                     </div>
                                                 </div>
