@@ -200,11 +200,11 @@ export default function handler( req, res ) {
     ExistsPayment( payment_id )
     .then(paymentExists => {
         if (paymentExists.status === 'error' ) throw new Error(
-            {
+            JSON.stringify({
                 message: 'payment_not_exists',
                 payment_id: payment_id,
                 data: paymentExists
-            }
+            })
         )
         return CheckTokenValidity(payment_token)
     })
