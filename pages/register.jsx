@@ -188,10 +188,10 @@ const Register = () => {
                 
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && search === 'null' ) window.location.replace('/')
-                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
-                    else if( suscripted && search === 'null' ) window.location.replace('/')
-                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
+                    // if( !suscripted && search === 'null' ) window.location.replace('/')
+                    // else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
+                    // else if( suscripted && search === 'null' ) window.location.replace('/')
+                    // else if( suscripted && search !== 'null' ) window.location.replace('/results')
                     
         
                 })
@@ -224,8 +224,8 @@ const Register = () => {
     useEffect(() => {
         GetSuscription( user ).then( suscripted => {
             
-            if( user && !suscripted ) window.location.replace('/payment')
-            else if( user && suscripted && search !== 'null' ) window.location.replace('/results')
+            // if( user && !suscripted ) window.location.replace('/payment')
+            // else if( user && suscripted && search !== 'null' ) window.location.replace('/results')
 
         })
     }, [])
