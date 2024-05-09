@@ -84,6 +84,7 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
+        console.log(res)
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
@@ -169,6 +170,9 @@ export default function handler( req, res ) {
     }
 
     // https://www.persons-finder.com/api/thanks/202405081309065850000-03bb9a357690666d31f9d1fbfea1ca400f829763-fr-prueba_pago0001_fr@mail.com-prueba_pago0001_fr-Lhxl8dR32LUoEIA4j9HWjMbij8c2
+
+    https://www.find-persons.com/api/thanks/202405090952517290000-f02e78948ca8a1d5b8b334c9df8a179005b4b130-es-prueba_iframe1234@gmail.com-prueba_iframe1234-eVjHaUlQ10RZ8fpQ8lA17n2RJZ52
+
     const payment = req.query.payment_id
     const parts = payment.split('-')
     const payment_token = parts[0]+'-'+parts[1]
