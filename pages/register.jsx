@@ -163,7 +163,7 @@ const Register = () => {
 
         const terms = document.getElementById('register-terms')
         if( !terms.checked ) {
-            
+            setLoadingRegisterButton(false)
             toast.error( language.error_acept_terms_message )
             return false
         }
