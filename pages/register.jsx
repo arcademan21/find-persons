@@ -67,7 +67,7 @@ const Register = () => {
         loadingButton.innerHTML = language.please_weait
 
         if( !terms.checked ) {
-            loadingButton.setAttribute('disabled', 'false')
+            loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = language.register_free
             toast.error( language_toast.error_acept_terms_message )
             return false
@@ -100,7 +100,7 @@ const Register = () => {
         })
         .catch( ( error ) => { 
             
-            loadingButton.setAttribute('disabled', 'false')
+            loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = language.register_free
 
             // Validadndo errors de autenticacion de firebase
@@ -119,8 +119,6 @@ const Register = () => {
                 setError(true)
             }
 
-            loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = loadingButtonHtml
 
         })
     
