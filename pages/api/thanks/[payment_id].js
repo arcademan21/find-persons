@@ -21,11 +21,9 @@ export const CheckTokenValidity = async ( token ) => {
         })
         
         const res = await req.json()
-        return res
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
-        return error
         return false
     }
     
@@ -86,16 +84,13 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
-        console.log(res)
-        return res
-        //if( res.status === 'error' ) return false
+        if( res.status === 'error' ) return false
 
     } catch ( error ) {
-        console.log(error)
-        return error
+        return false
     }
     
-    //return true
+    return true
 }
 
 export const CreateNewUser = async ( user ) => {
@@ -125,9 +120,11 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
+        return res
         if( res.status === 'error' ) return false
             
     } catch ( error ) {
+        return error
         return false
     }
 
@@ -199,27 +196,20 @@ export default function handler( req, res ) {
 
     ExistsPayment( payment_id )
     .then(paymentExists => {
-        if (paymentExists.status === 'error' ) throw new Error(
-            JSON.stringify({
-                message: 'payment_not_exists',
-                payment_id: payment_id,
-                data: paymentExists
-            })
-        )
+        if (!paymentExists) throw new Error('invalid_payment')
         return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
-        if (!tokenIsValid) throw new Error(
-            {
-                message: 'token_not_valid',
-                payment_token: payment_token,
-                data: tokenIsValid
-            }
-        )
+        if (!tokenIsValid) throw new Error('invalid_token')
         return CreateNewUser(user)
     })
     .then(userCreated => {
-        if (!userCreated) throw new Error('create_user_error')
+        if (userCreated.status === 'error') throw new Error(
+            JSON.stringify({
+                message: 'create_user_error',
+                data: userCreated
+            })
+        )
         return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
