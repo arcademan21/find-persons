@@ -54,6 +54,7 @@ const Register = () => {
 
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     const language_toast = JSON.parse( localStorage.getItem('language_file') ).toast
+
     const extension = localStorage.getItem('extencion')
     
     const newUser = async () => { 
@@ -65,11 +66,11 @@ const Register = () => {
         const terms = document.getElementById('register-terms')
 
         loadingButton.setAttribute('disabled', 'true')
-        loadingButton.innerHTML = `Porfavor espere...`
+        loadingButton.innerHTML = language.please_weait
 
         if( !terms.checked ) {
-            loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = loadingButtonHtml
+            loadingButton.setAttribute('disabled', 'false')
+            loadingButton.innerHTML = language.register_free
             toast.error( language_toast.error_acept_terms_message )
             return false
         }
@@ -78,7 +79,6 @@ const Register = () => {
         createUserWithEmailAndPassword( auth, email, password )
         .then( ( UserCredential ) => { 
             
-            loadingButton.setAttribute('disabled', 'true')
             loadingButton.innerHTML = language.suscces_register
             
             setState({ ...state, user: UserCredential.user })
@@ -94,7 +94,6 @@ const Register = () => {
                     if( !suscripted && search === 'null' ) window.location.replace(extension)
                     else if( !suscripted && search !== 'null' ) window.location.replace(`${extension}/payment`)
                     else if( suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
-                    
         
                 })
 
@@ -103,6 +102,9 @@ const Register = () => {
         })
         .catch( ( error ) => { 
             
+            loadingButton.setAttribute('disabled', 'false')
+            loadingButton.innerHTML = language.register_free
+
             // Validadndo errors de autenticacion de firebase
             if( error.code === 'auth/email-already-in-use' ) {
                 toast.error( language_toast.error_register_email_message )
@@ -131,7 +133,7 @@ const Register = () => {
         const terms = document.getElementById('register-terms')
         if( !terms.checked ) {
             
-            toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
+            toast.error( language.error_acept_terms_message )
             return false
         }
         
@@ -145,8 +147,6 @@ const Register = () => {
             // The signed-in user info.
             const user = result.user
             setState({ ...state, user: user })
-
-            
 
             const showSuccesToast = async () => {
                 toast.success( language_toast.success_google_session_message )
@@ -234,7 +234,6 @@ const Register = () => {
                                 <span>
                                     { language.title }  
                                     <span className="marked"> {language.free} </span>
-
                                 </span>
                                 <span className="marked fs-6 m-auto">{language.subtitle}</span>
                                 </h1>
@@ -295,7 +294,7 @@ const Register = () => {
                                     htmlFor="register-terms"
                                     >
                                     {language.accept_the}
-                                    <Link href="/terms"> {language.terms_and_conditions} </Link>
+                                    <Link href={`${extension}/terms`}> {language.terms_and_conditions} </Link>
                                     {language.of_service}
                                     </label>
                                 </div>
@@ -318,7 +317,7 @@ const Register = () => {
                                     <p className="title-section text-center w-100">
                                     <span className="marked">{language.have_account}</span>
                                     <br />
-                                    <span href={`${extension}/login`} className="link-primary my-1" onClick={()=>{
+                                    <span href="/login" className="link-primary my-1" onClick={()=>{
                                         window.location.replace(`${extension}/login`)
                                     }}>
                                       
@@ -360,7 +359,7 @@ const Register = () => {
                                                             <br />
                                                             <b className='marked'> {language.register_to_see}</b>
                                                             <br />
-                                                            {/* {language.register_accept} <b className='marked'> {language.register_terms}</b> */}
+                                                            
                                                         </p>
                                                     </div>
                                                 </div>
