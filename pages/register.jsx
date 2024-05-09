@@ -188,10 +188,10 @@ const Register = () => {
                 
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && search === 'null' ) window.location.replace('/')
-                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
-                    else if( suscripted && search === 'null' ) window.location.replace('/')
-                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
+                    // if( !suscripted && search === 'null' ) window.location.replace('/')
+                    // else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
+                    // else if( suscripted && search === 'null' ) window.location.replace('/')
+                    // else if( suscripted && search !== 'null' ) window.location.replace('/results')
                     
         
                 })
