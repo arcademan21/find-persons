@@ -43,6 +43,39 @@ const GetSuscription = async ( user ) =>{
 
 }
 
+const SendWellcomeEmail = async ( user, country ) => {
+
+    try{
+
+        // Fetch to endpoint for send email
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "send_wellcome_email",
+                    "data": {
+                        "send_wellcome_email": {
+                            "user_email": user.email,
+                            "country": country,
+                            "user_name": user.displayName ? user.displayName : user.email
+                        }
+                    }
+                }
+            })
+        })
+
+        const res = await req.json()
+        if(res.status === 'error') return false
+
+        return res
+
+    } catch ( error ) {
+        return false
+    }
+
+}
+
 const Register = () => {
     
     const context = useContext( GlobalContext )
@@ -86,6 +119,7 @@ const Register = () => {
                 toast.success( language_toast.success_register_message )
             }
 
+            SendWellcomeEmail( UserCredential.user, language.language )
             showSuccesToast().then(() => {
                 
                 GetSuscription( user ).then( suscripted => {
