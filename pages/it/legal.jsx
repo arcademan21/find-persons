@@ -49,18 +49,18 @@ const Legal = () => {
                         <div className="divider"></div>
 
                         <p>
-                            {language.paragraph_2} 
+                            { language.paragraph_2 } 
                             <a href={`https://${process.env.NEXT_PUBLIC_HOST_NAME }` } >
                                 {process.env.NEXT_PUBLIC_HOST_NAME}
                             </a> 
-                            {language.paragraph_2b}
+                            { language.paragraph_2b }
                         </p>  
 
                         <h2 className="title-section">{language.title_4}</h2>
                         <div className="divider"></div>
 
                         <p>
-                            {language.paragraph_3}
+                            { language.paragraph_3 }
                         </p>  
 
                         <ul>
@@ -69,22 +69,23 @@ const Legal = () => {
                             <li><a href={`https://${process.env.NEXT_PUBLIC_HOST_NAME }/cookies` }>{language.list_2.item_3}</a></li>
                         </ul> 
 
-                        <p>{language.paragraph_4}</p>
-                        <p>{language.paragraph_5}</p>
-                        <p>{language.paragraph_6}</p>
-                        <p>{language.paragraph_7}</p>
+                        <p>{ language.paragraph_4 }</p>
+                        <p>{ language.paragraph_5 }</p>
+                        <p>{ language.paragraph_6 }</p>
+                        <p>{ language.paragraph_7 }</p>
 
                         <h2 className="title-section">
-                            {language.title_5}
+                            { language.title_5 }
                         </h2>
                         <div className="divider"></div>
 
                         <p>
-                            {language.paragraph_8}
+                            { language.paragraph_8 }
                         </p>  
 
                         <p>
-                            {language.paragraph_9}
+                            
+                            { language.paragraph_9 }
                             <a href={`https://${process.env.NEXT_PUBLIC_HOST_NAME }/policies` }>
                                 {language.paragraph_9b}
                             </a>
@@ -114,8 +115,6 @@ const Legal = () => {
                             {language.paragraph_11b}
                         </p>
 
-                        
-
                         <p>
                             {language.paragraph_12}
                         </p>
@@ -128,21 +127,12 @@ const Legal = () => {
                             {language.paragraph_14}
                         </p>
 
-
-                        
-
-                        
                         </div>
                         
                     </div>
                     </div> 
                 </div> 
             </main>
-
-
-
-            
-
 
         </div>
     </>)

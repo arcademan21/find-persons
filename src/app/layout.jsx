@@ -127,6 +127,3 @@ function RootLayout( { children } ) {
 }
 
 export default RootLayout
-
-
-
