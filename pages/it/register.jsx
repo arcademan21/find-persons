@@ -89,6 +89,7 @@ const Register = () => {
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     const language_toast = JSON.parse( localStorage.getItem('language_file') ).toast
     const [loadingRegisterButton, setLoadingRegisterButton] = useState( false )
+    const lang = localStorage.getItem('language')
 
     const extension = localStorage.getItem('extencion')
     
@@ -122,7 +123,7 @@ const Register = () => {
                 toast.success( language_toast.success_register_message )
             }
 
-            SendWellcomeEmail( UserCredential.user, language.language)
+            SendWellcomeEmail( UserCredential.user, lang )
             showSuccesToast().then(() => {
                 
                 GetSuscription( user ).then( suscripted => {
@@ -187,7 +188,7 @@ const Register = () => {
                 toast.success( language_toast.success_google_session_message )
             }
 
-            SendWellcomeEmail( user, language.language)
+            SendWellcomeEmail( user, lang)
             showSuccesToast().then(() => {
                 
                 GetSuscription( user ).then( suscripted => {
