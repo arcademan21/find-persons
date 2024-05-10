@@ -85,6 +85,23 @@ const Footer = () => {
                     
                 </div>
             </div> 
+
+            <script dangerouslySetInnerHTML={{
+                __html: `
+                window._mfq = window._mfq || [];
+                (function() {
+                    var mf = document.createElement("script");
+                    mf.type = "text/javascript"; mf.defer = true;
+                    mf.src = "//cdn.mouseflow.com/projects/b954db58-6476-4e67-8b81-d66b3eaa740f.js";
+                    document.getElementsByTagName("head")[0].appendChild(mf);
+                })();
+                `
+            }}
+            />
+
+            
+
+
         </footer> 
 
     </>)
