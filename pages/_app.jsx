@@ -27,6 +27,19 @@ function PersonsFinder({ Component, pageProps }) {
         <link rel="stylesheet" type="text/css" href="/libs/animate/animate.css" />
         <link rel="stylesheet" type="text/css" href="/libs/owl-carousel/owl.carousel.css" />
         <link rel="stylesheet" type="text/css" href="/css/globals.css" />
+
+        {/* Google tag (gtag.js) ADWORDS */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-340874452"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-340874452');
+          `
+        }} />
+
+
     </Head>
 
     <Loader />
