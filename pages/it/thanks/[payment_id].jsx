@@ -73,7 +73,6 @@ export const InvalidateToken = async ( token ) => {
 const ThanksPage = () => {
 
     const context = useContext( GlobalContext )
-
     const user = JSON.parse(localStorage.getItem('user'))
     const language = JSON.parse(localStorage.getItem('language_file'))
     
