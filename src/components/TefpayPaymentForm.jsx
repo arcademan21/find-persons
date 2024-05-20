@@ -53,7 +53,7 @@ export const TefpayPaymentForm = () => {
 
     const context = useContext( GlobalContext )
     const { state } = context
-    
+
     const user = JSON.parse(localStorage.getItem('user'))
     const hostname = window.location.hostname 
     const extension = localStorage.getItem('extencion')
@@ -279,7 +279,6 @@ export const TefpayPaymentForm = () => {
                         name="user_name"
                         id="user_name"
                         placeholder={ language.name_placeholder }
-                        value={ user_name } 
                         onChange={ e => setUserName( e.target.value ) }
                     />
                 </div>
