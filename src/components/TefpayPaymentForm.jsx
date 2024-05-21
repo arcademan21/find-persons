@@ -65,7 +65,7 @@ export const TefpayPaymentForm = () => {
     const [ payment_description, setPaymentDescription ] = useState('')
     const [ suscription_account, setSuscriptionAccount ] = useState('')
     const [ suscription_description, setSuscriptionDescription ] = useState('')
-    const [ user_name, setUserName ] = useState(user.displayName || user.email.split('@')[0])
+    const [ user_name, setUserName ] = useState(null)
     const [ user_email, setUserEmail ] = useState(user.email)
     const [ lang, setLang ] = useState(localStorage.getItem('language'))
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
@@ -262,8 +262,8 @@ export const TefpayPaymentForm = () => {
             <input type="hidden" name="Ds_Merchant_MatchingData" id="Ds_Merchant_MatchingData"  value={ matching_data } />
             <input type="hidden" name="Ds_Merchant_MerchantSignature" id="Ds_Merchant_MerchantSignature"  value={ signature } />
             <input type="hidden" name="Ds_Merchant_Subscription_Account" id="Ds_Merchant_Subscription_Account" value={ suscription_account } />
-            <input type="hidden" name="Ds_Merchant_Subscription_ClientName" id="Ds_Merchant_Subscription_ClientName" value={ user_name } onChange={ ( e ) => handle_user_name( e.currentTarget.value ) } />
-            <input type="hidden" name="Ds_Merchant_Subscription_ClientEmail" id="Ds_Merchant_Subscription_ClientEmail" value={ CleanStringForTefpay( user_email ) } />
+            <input type="hidden" name="Ds_Merchant_Subscription_ClientName" id="Ds_Merchant_Subscription_ClientName" value={ user_name } />
+            <input type="hidden" name="Ds_Merchant_Subscription_ClientEmail" id="Ds_Merchant_Subscription_ClientEmail" value={ user_name } />
             <input type="hidden" name="Ds_Merchant_Subscription_Description" value={ suscription_description } />
             <input type="hidden" name="Ds_Merchant_Description" value={ payment_description } />
             <input type="hidden" name="Ds_Merchant_Subscription_NotifyCostumerByEmail" value="0" />
