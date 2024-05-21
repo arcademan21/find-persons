@@ -170,9 +170,7 @@ const Terms = () => {
                                 {language.title_18}
                             </h2>
                             <p>
-                                {language.paragraph_24}
-                                {process.env.NEXT_PUBLIC_SUPPORT_EMAIL} 
-                                {language.paragraph_24b}
+                                {language.paragraph_24} {process.env.NEXT_PUBLIC_SUPPORT_EMAIL} {language.paragraph_24b}
                             </p>
                             
                         
