@@ -116,6 +116,8 @@ const Register = () => {
             return false
         }
 
+        localStorage.setItem('user_name', user_name)
+
         // Registrando un usuario de firebase.
         createUserWithEmailAndPassword( auth, email, password )
         .then( ( UserCredential ) => { 
@@ -194,7 +196,7 @@ const Register = () => {
 
             SendWellcomeEmail( user, lang)
             showSuccesToast().then(() => {
-                
+                localStorage.setItem('user_name', user_name)
                 GetSuscription( user ).then( suscripted => {
             
                     if( !suscripted && search === 'null' ) window.location.replace('/')
