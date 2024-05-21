@@ -155,9 +155,11 @@
         "accept_the": "Acepto los",
         "terms_and_conditions": "términos y condiciones",
         "of_service": "del servicio.",
+        "placeholder_user_name": "Nombre",
         "placeholder_email": "Email",
         "placeholder_password": "Contraseña",
         "example_email": "Ejemplo: miusuario@mail.com",
+        "min_user_name": "Introduce tu nombre",
         "min_password": "Un mínimo de 6 caracteres",
         "register_free": "Registrarse gratis",
         "register_google": "Iniciar con Google",
@@ -178,7 +180,8 @@
         "register_terms": "términos y condiciones del servicio.",
         "register_no_user_holder": "Registrate primero! Con solo un correo electrónico y una contraseña crea una cuenta de usuario para poder usar el servicio y descargar los informes que quieras. Buscamos en todos los archivos y bases de datos , extraemos datos de todos los registros.",
         "please_weait": "Por favor espere...",
-        "suscces_register": "Registro exitoso."
+        "suscces_register": "Registro exitoso.",
+        "error_register_empty_message": "Debes completar todos los campos."
     },
 
     "login": {
@@ -582,7 +585,8 @@
         "error_mush_session_message": "Demasiados intentos de inicio de sesión. Debes esperar 20 minutos para volver a intentar.",
         "error_down_suscription_message": "Error al darse de baja, por favor intenta de nuevo o contacta con nosotros.",
         "success_down_suscription_message": "Te has dado de baja correctamente.",
-        "empty_country_error_message": "Por favor, seleccione un país."
+        "empty_country_error_message": "Por favor, seleccione un país.",
+        "error_register_empty_message": "Por favor, rellene todos los campos."
     },
 
     "profile":{

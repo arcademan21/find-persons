@@ -2,7 +2,7 @@
 import { useEffect, useState, useContext } from 'react'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { toast } from 'react-toastify'
-import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt, FaGoogle } from 'react-icons/fa'
+import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt, FaUser,  FaGoogle } from 'react-icons/fa'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -49,6 +49,7 @@ const Register = () => {
     const { state, setState } = context
     const { auth } = state
 
+    
     const user = JSON.parse( localStorage.getItem('user') )
     const search = localStorage.getItem('search')
 
@@ -58,6 +59,7 @@ const Register = () => {
     
     const newUser = async () => { 
         
+        const user_name = document.getElementById('user_name').value
         const email = document.getElementById('email').value
         const password = document.getElementById('password').value
         const loadingButton = document.getElementById('btn-register')
@@ -67,10 +69,17 @@ const Register = () => {
         loadingButton.setAttribute('disabled', 'true')
         loadingButton.innerHTML = `Porfavor espere...`
 
-        if( !terms.checked ) {
+        if( !terms.checked) {
             loadingButton.removeAttribute('disabled')
             loadingButton.innerHTML = loadingButtonHtml
             toast.error( language_toast.error_acept_terms_message )
+            return false
+        }
+
+        if(  user_name === '' ){
+            loadingButton.removeAttribute('disabled')
+            setLoadingRegisterButton(false)
+            toast.error( language_toast.error_register_empty_message )
             return false
         }
 
@@ -240,6 +249,31 @@ const Register = () => {
                                 </h1>
 
                                 <div className="mx-1 mx-md-4 px-4 register-form">
+                                    
+
+                                <div className="d-flex flex-row align-items-center mb-2">
+                                        <div className="form-outline flex-fill mb-0">
+                                        
+                                        <div className="input-icon">
+                                            <FaUser />
+                                            <input
+                                                type="text"
+                                                id="user_name"
+                                                name="user_name"
+                                                className="form-control my-1"
+                                                placeholder={ language.placeholder_user_name}
+                                                required={true}
+                                            />
+                                        </div>
+                                            
+                                        <small className="text-muted p-1">
+                                            { language.min_user_name}
+                                        </small>
+
+                                        </div>
+                                    </div>
+
+
 
                                     <div className="d-flex flex-row align-items-center mb-2">
                                         <div className="form-outline flex-fill mb-0">
@@ -260,6 +294,10 @@ const Register = () => {
 
                                     </div>
 
+                                
+                                
+                                
+                                
                                 </div>
 
                                 <div className="d-flex flex-row align-items-center mb-4">

@@ -139,9 +139,11 @@
       "accept_the": "accetto il",
       "terms_and_conditions": "Termini e Condizioni",
       "of_service": "dal servizio.",
+      "placeholder_user_name": "Nome",
       "placeholder_email": "E-mail",
       "placeholder_password": "Parola d'ordine",
       "example_email": "Esempio: mioutente@mail.com",
+      "min_user_name": "Inserisci il tuo nome",
       "min_password": "Un minimo di 6 caratteri",
       "register_free": "Registrati GRATIS",
       "register_google": "Inizia con Google",
@@ -162,7 +164,8 @@
       "register_terms": "Termini e condizioni del servizio.",
       "register_no_user_holder": "Registrati prima! Con solo un'email e una password, crea un account utente per poter utilizzare il servizio e scaricare i rapporti che desideri. Cerchiamo in tutti i file e database, estraiamo dati da tutti i record.",
       "please_weait": "Per favore aspetta...",
-      "suscces_register": "Registrazione riuscita."
+      "suscces_register": "Registrazione riuscita.",
+      "error_register_empty_message": "Inserisci il tuo nome."
     },
     "login": {
       "title": "Inizio",
@@ -555,7 +558,8 @@
       "error_mush_session_message": "Troppi tentativi di accesso. ",
       "error_down_suscription_message": "Errore durante l'annullamento dell'iscrizione, riprova o contattaci.",
       "success_down_suscription_message": "Hai annullato correttamente l'iscrizione.",
-      "empty_country_error_message": "Per favore, seleziona un paese."
+      "empty_country_error_message": "Per favore, seleziona un paese.",
+      "error_register_empty_message": "Per favore, compila tutti i campi."
     },
     "profile":{
       "no_suscripted_message": "Non ancora iscritto, per favore effettua il pagamento per poter accedere al tuo account.",

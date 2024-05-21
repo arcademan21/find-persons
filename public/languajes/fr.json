@@ -139,9 +139,11 @@
       "accept_the": "J'accepte le",
       "terms_and_conditions": "termes et conditions",
       "of_service": "du service.",
+      "placeholder_user_name": "Nom",
       "placeholder_email": "E-mail",
       "placeholder_password": "Mot de passe",
       "example_email": "Exemple : monutilisateur@mail.com",
+      "min_user_name": "Entrez votre nom",
       "min_password": "Un minimum de 6 caractères",
       "register_free": "Inscription gratuite",
       "register_google": "Commencez avec Google",
@@ -162,7 +164,8 @@
       "register_terms": "Termes et conditions du service.",
       "register_no_user_holder": "Inscrivez-vous d'abord ! Avec seulement un e-mail et un mot de passe, créez un compte utilisateur pour pouvoir utiliser le service et télécharger les rapports que vous souhaitez. Nous recherchons dans tous les fichiers et bases de données, nous extrayons des données de tous les enregistrements.",
       "please_weait": "Veuillez patienter...",
-      "suscces_register": "Inscription réussie."
+      "suscces_register": "Inscription réussie.",
+      "error_register_empty_message": "Veuillez remplir tous les champs."
     },
     "login": {
       "title": "Commencer",
@@ -555,7 +558,8 @@
       "error_mush_session_message": "Trop de tentatives de connexion. ",
       "error_down_suscription_message": "Erreur de désabonnement, veuillez réessayer ou nous contacter.",
       "success_down_suscription_message": "Vous avez désabonné avec succès.",
-      "empty_country_error_message": "S'il vous plaît, sélectionnez un pays."
+      "empty_country_error_message": "S'il vous plaît, sélectionnez un pays.",
+      "error_register_empty_message": "Veuillez remplir tous les champs."
     },
     "profile":{
         "no_suscripted_message": "Pas encore abonné, veuillez effectuer le paiement pour pouvoir accéder à votre compte.",

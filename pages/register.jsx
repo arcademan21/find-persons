@@ -2,7 +2,7 @@
 import { useEffect, useState, useContext } from 'react'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { toast } from 'react-toastify'
-import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt, FaGoogle } from 'react-icons/fa'
+import { FaUserPlus, FaUser, FaEnvelope, FaLock, FaSignInAlt, FaGoogle } from 'react-icons/fa'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -93,6 +93,7 @@ const Register = () => {
     
     const newUser = async () => { 
         
+        const user_name = document.getElementById('user_name').value
         const email = document.getElementById('email').value
         const password = document.getElementById('password').value
         const loadingButton = document.getElementById('btn-register')
@@ -100,11 +101,18 @@ const Register = () => {
 
         loadingButton.setAttribute('disabled', 'true')
         setLoadingRegisterButton(true)
-
+         
         if( !terms.checked ) {
             loadingButton.removeAttribute('disabled')
             setLoadingRegisterButton(false)
             toast.error( language_toast.error_acept_terms_message )
+            return false
+        }
+
+        if(  user_name === '' ){
+            loadingButton.removeAttribute('disabled')
+            setLoadingRegisterButton(false)
+            toast.error( language_toast.error_register_empty_message )
             return false
         }
 
@@ -272,98 +280,122 @@ const Register = () => {
 
                                     <div className="d-flex flex-row align-items-center mb-2">
                                         <div className="form-outline flex-fill mb-0">
-
+                                        
                                         <div className="input-icon">
-                                            <FaEnvelope />
+                                            <FaUser />
                                             <input
-                                                type="email"
-                                                id="email"
-                                                name="email"
+                                                type="text"
+                                                id="user_name"
+                                                name="user_name"
                                                 className="form-control my-1"
-                                                placeholder={ language.placeholder_email}
+                                                placeholder={ language.placeholder_user_name}
+                                                required={true}
                                             />
                                         </div>
-                                        <small className="text-muted p-1 ">
-                                            {language.example_email}
+                                            
+                                        <small className="text-muted p-1">
+                                            { language.min_user_name}
                                         </small>
 
-                                    </div>
-
-                                </div>
-
-                                <div className="d-flex flex-row align-items-center mb-4">
-                                    <div className="form-outline flex-fill mb-0">
-                                    
-                                    <div className="input-icon">
-                                        <FaLock />
-                                        <input
-                                            type="password"
-                                            id="password"
-                                            name="password"
-                                            className="form-control my-1"
-                                            placeholder={ language.placeholder_password}
-                                        />
-                                    </div>
-                                        
-                                    <small className="text-muted p-1">
-                                        { language.min_password}
-                                    </small>
-
-                                    </div>
-                                </div>
-
-                                <div className="form-check d-flex justify-content-center mb-4">
-                                    <input
-                                    className="form-check-input me-2"
-                                    type="checkbox"
-                                    value=""
-                                    id="register-terms"
-                                    />
-                                    <label
-                                    className="form-check-label"
-                                    htmlFor="register-terms"
-                                    >
-                                    {language.accept_the}
-                                    <Link href="/terms"> {language.terms_and_conditions} </Link>
-                                    {language.of_service}
-                                    </label>
-                                </div>
-
-                                <div className="d-flex flex-column align-items-center justify-content-center mx-4 mb-3 mb-lg-2">
-
-                                    {loadingRegisterButton ?
-                                        <div className="spinner-border text-primary" role="status">
-                                            <span className="visually-hidden">{language.please_weait}</span>
                                         </div>
-                                        : <button className="btn btn-primary btn-lg mb-2 fs-6 w-75" id="btn-register"  onClick={newUser}>
-                                            <FaUserPlus className='fs-5 mx-2' />
-                                            <span>{language.register_free}</span>
-                                        </button>
-                                    }
-                                    
+                                    </div>
 
-                                    <button className="btn btn-danger btn-lg mb-2 fs-6 w-75" id="btn-google" onClick={newUserGoogle}>
-                                        <FaGoogle className='fs-5 mx-2' />
-                                        <span>{language.register_google}</span>
-                                    </button>
+                                    <div className="d-flex flex-row align-items-center mb-2">
+                                            <div className="form-outline flex-fill mb-0">
 
-                                </div>
+                                            <div className="input-icon">
+                                                <FaEnvelope />
+                                                <input
+                                                    type="email"
+                                                    id="email"
+                                                    name="email"
+                                                    className="form-control my-1"
+                                                    placeholder={ language.placeholder_email}
+                                                />
+                                            </div>
+                                            <small className="text-muted p-1 ">
+                                                {language.example_email}
+                                            </small>
 
-                                <div className="d-flex justify-content-center">
-                                    <p className="title-section text-center w-100">
-                                    <span className="marked">{language.have_account}</span>
-                                    <br />
-                                    <span href="/login" className="link-primary my-1" onClick={()=>{
-                                        window.location.replace('/login')
-                                    }}>
-                                      
-                                        {language.login} <FaSignInAlt className='fs-5 mx-2' />
-                                    
+                                        </div>
+
+                                    </div>
+
+                                    <div className="d-flex flex-row align-items-center mb-4">
+                                        <div className="form-outline flex-fill mb-0">
                                         
-                                    </span>
-                                    </p>
-                                </div>
-                                </div>
+                                        <div className="input-icon">
+                                            <FaLock />
+                                            <input
+                                                type="password"
+                                                id="password"
+                                                name="password"
+                                                className="form-control my-1"
+                                                placeholder={ language.placeholder_password}
+                                            />
+                                        </div>
+                                            
+                                        <small className="text-muted p-1">
+                                            { language.min_password}
+                                        </small>
+
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    <div className="form-check d-flex justify-content-center mb-4">
+                                        <input
+                                        className="form-check-input me-2"
+                                        type="checkbox"
+                                        value=""
+                                        id="register-terms"
+                                        />
+                                        <label
+                                        className="form-check-label"
+                                        htmlFor="register-terms"
+                                        >
+                                        {language.accept_the}
+                                        <Link href="/terms"> {language.terms_and_conditions} </Link>
+                                        {language.of_service}
+                                        </label>
+                                    </div>
+
+                                    <div className="d-flex flex-column align-items-center justify-content-center mx-4 mb-3 mb-lg-2">
+
+                                        {loadingRegisterButton ?
+                                            <div className="spinner-border text-primary" role="status">
+                                                <span className="visually-hidden">{language.please_weait}</span>
+                                            </div>
+                                            : <button className="btn btn-primary btn-lg mb-2 fs-6 w-75" id="btn-register"  onClick={newUser}>
+                                                <FaUserPlus className='fs-5 mx-2' />
+                                                <span>{language.register_free}</span>
+                                            </button>
+                                        }
+                                        
+
+                                        <button className="btn btn-danger btn-lg mb-2 fs-6 w-75" id="btn-google" onClick={newUserGoogle}>
+                                            <FaGoogle className='fs-5 mx-2' />
+                                            <span>{language.register_google}</span>
+                                        </button>
+
+                                    </div>
+
+                                    <div className="d-flex justify-content-center">
+                                        <p className="title-section text-center w-100">
+                                        <span className="marked">{language.have_account}</span>
+                                        <br />
+                                        <span href="/login" className="link-primary my-1" onClick={()=>{
+                                            window.location.replace('/login')
+                                        }}>
+                                        
+                                            {language.login} <FaSignInAlt className='fs-5 mx-2' />
+                                        
+                                            
+                                        </span>
+                                        </p>
+                                    </div>
+                                    </div>
 
 
                             </div>
