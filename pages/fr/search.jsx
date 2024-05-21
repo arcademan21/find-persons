@@ -96,7 +96,6 @@ const Search = () => {
                     if( !user ) window.location.replace(`${extension}/register`)
                     else if( !suscripted ) window.location.replace(`${extension}/payment`)
                     else window.location.replace(`${extension}/results`)
-            
         
                 })
                 

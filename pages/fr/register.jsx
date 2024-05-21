@@ -2,12 +2,13 @@
 import { useEffect, useState, useContext } from 'react'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { toast } from 'react-toastify'
-import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt, FaUser,  FaGoogle } from 'react-icons/fa'
+import { FaUserPlus, FaEnvelope, FaLock, FaSignInAlt, FaGoogle, FaUser } from 'react-icons/fa'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import Link from 'next/link'
 import 'react-toastify/dist/ReactToastify.css'
 import '../css/register.css'
+import { set } from 'firebase/database'
 
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
@@ -43,18 +44,52 @@ const GetSuscription = async ( user ) =>{
 
 }
 
+const SendWellcomeEmail = async ( user, country ) => {
+
+    try{
+
+        // Fetch to endpoint for send email
+        const req = await fetch( path_endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "petition" : {
+                    "name": "send_wellcome_email",
+                    "data": {
+                        "send_wellcome_email": {
+                            "user_email": user.email,
+                            "country": country,
+                            "user_name": user.displayName ? user.displayName : user.email
+                        }
+                    }
+                }
+            })
+        })
+
+        const res = await req.json()
+        if(res.status === 'error') return false
+
+        return res
+
+    } catch ( error ) {
+        return false
+    }
+
+}
+
 const Register = () => {
     
     const context = useContext( GlobalContext )
     const { state, setState } = context
     const { auth } = state
 
-    
     const user = JSON.parse( localStorage.getItem('user') )
     const search = localStorage.getItem('search')
 
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     const language_toast = JSON.parse( localStorage.getItem('language_file') ).toast
+    const [loadingRegisterButton, setLoadingRegisterButton] = useState( false )
+    const lang = localStorage.getItem('language')
     const extension = localStorage.getItem('extencion')
     
     const newUser = async () => { 
@@ -67,16 +102,16 @@ const Register = () => {
         const terms = document.getElementById('register-terms')
 
         loadingButton.setAttribute('disabled', 'true')
-        loadingButton.innerHTML = `Porfavor espere...`
+        setLoadingRegisterButton(true)
 
-        if( !terms.checked) {
+        if( !terms.checked ) {
             loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = loadingButtonHtml
+            setLoadingRegisterButton(false)
             toast.error( language_toast.error_acept_terms_message )
             return false
         }
 
-        if(  user_name === '' ){
+        if(  user_name === ''  ){
             loadingButton.removeAttribute('disabled')
             setLoadingRegisterButton(false)
             toast.error( language_toast.error_register_empty_message )
@@ -87,7 +122,6 @@ const Register = () => {
         createUserWithEmailAndPassword( auth, email, password )
         .then( ( UserCredential ) => { 
             
-            loadingButton.setAttribute('disabled', 'true')
             loadingButton.innerHTML = language.suscces_register
             
             setState({ ...state, user: UserCredential.user })
@@ -96,6 +130,7 @@ const Register = () => {
                 toast.success( language_toast.success_register_message )
             }
 
+            SendWellcomeEmail( UserCredential.user, lang )
             showSuccesToast().then(() => {
                 
                 GetSuscription( user ).then( suscripted => {
@@ -103,7 +138,6 @@ const Register = () => {
                     if( !suscripted && search === 'null' ) window.location.replace(extension)
                     else if( !suscripted && search !== 'null' ) window.location.replace(`${extension}/payment`)
                     else if( suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
-                    
         
                 })
 
@@ -112,6 +146,9 @@ const Register = () => {
         })
         .catch( ( error ) => { 
             
+            loadingButton.removeAttribute('disabled')
+            setLoadingRegisterButton(false)
+
             // Validadndo errors de autenticacion de firebase
             if( error.code === 'auth/email-already-in-use' ) {
                 toast.error( language_toast.error_register_email_message )
@@ -128,8 +165,7 @@ const Register = () => {
                 setError(true)
             }
 
-            loadingButton.removeAttribute('disabled')
-            loadingButton.innerHTML = loadingButtonHtml
+           
 
         })
     
@@ -140,7 +176,7 @@ const Register = () => {
         const terms = document.getElementById('register-terms')
         if( !terms.checked ) {
             
-            toast.error( 'Debes aceptar los terminos y condiciones del servicio.' )
+            toast.error( language.error_acept_terms_message )
             return false
         }
         
@@ -155,12 +191,11 @@ const Register = () => {
             const user = result.user
             setState({ ...state, user: user })
 
-            
-
             const showSuccesToast = async () => {
                 toast.success( language_toast.success_google_session_message )
             }
 
+            SendWellcomeEmail( user, lang)
             showSuccesToast().then(() => {
                 
                 GetSuscription( user ).then( suscripted => {
@@ -243,15 +278,16 @@ const Register = () => {
                                 <span>
                                     { language.title }  
                                     <span className="marked"> {language.free} </span>
-
                                 </span>
                                 <span className="marked fs-6 m-auto">{language.subtitle}</span>
                                 </h1>
 
-                                <div className="mx-1 mx-md-4 px-4 register-form">
-                                    
+                                
 
-                                <div className="d-flex flex-row align-items-center mb-2">
+                                <div className="mx-1 mx-md-4 px-4 register-form">
+
+                                    
+                                    <div className="d-flex flex-row align-items-center mb-2">
                                         <div className="form-outline flex-fill mb-0">
                                         
                                         <div className="input-icon">
@@ -272,9 +308,9 @@ const Register = () => {
 
                                         </div>
                                     </div>
-
-
-
+                                    
+                                    
+                                    
                                     <div className="d-flex flex-row align-items-center mb-2">
                                         <div className="form-outline flex-fill mb-0">
 
@@ -294,7 +330,6 @@ const Register = () => {
 
                                     </div>
 
-                                
                                 
                                 
                                 
@@ -333,17 +368,22 @@ const Register = () => {
                                     htmlFor="register-terms"
                                     >
                                     {language.accept_the}
-                                    <Link href="/terms"> {language.terms_and_conditions} </Link>
+                                    <Link href={`${extension}/terms`}> {language.terms_and_conditions} </Link>
                                     {language.of_service}
                                     </label>
                                 </div>
 
                                 <div className="d-flex flex-column align-items-center justify-content-center mx-4 mb-3 mb-lg-2">
 
-                                    <button className="btn btn-primary btn-lg mb-2 fs-6 w-75" id="btn-register"  onClick={newUser}>
-                                        <FaUserPlus className='fs-5 mx-2' />
-                                        <span>{language.register_free}</span>
-                                    </button>
+                                    {loadingRegisterButton ?
+                                        <div className="spinner-border text-primary" role="status">
+                                            <span className="visually-hidden">{language.please_weait}</span>
+                                        </div>
+                                        : <button className="btn btn-primary btn-lg mb-2 fs-6 w-75" id="btn-register"  onClick={newUser}>
+                                            <FaUserPlus className='fs-5 mx-2' />
+                                            <span>{language.register_free}</span>
+                                        </button>
+                                    }
 
                                     <button className="btn btn-danger btn-lg mb-2 fs-6 w-75" id="btn-google" onClick={newUserGoogle}>
                                         <FaGoogle className='fs-5 mx-2' />
@@ -356,7 +396,7 @@ const Register = () => {
                                     <p className="title-section text-center w-100">
                                     <span className="marked">{language.have_account}</span>
                                     <br />
-                                    <span href={`${extension}/login`} className="link-primary my-1" onClick={()=>{
+                                    <span href="/login" className="link-primary my-1" onClick={()=>{
                                         window.location.replace(`${extension}/login`)
                                     }}>
                                       
@@ -398,7 +438,7 @@ const Register = () => {
                                                             <br />
                                                             <b className='marked'> {language.register_to_see}</b>
                                                             <br />
-                                                            {/* {language.register_accept} <b className='marked'> {language.register_terms}</b> */}
+                                                            
                                                         </p>
                                                     </div>
                                                 </div>
