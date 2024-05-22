@@ -97,7 +97,6 @@ const Search = () => {
                     else if( !suscripted ) window.location.replace(`${extension}/payment`)
                     else window.location.replace(`${extension}/results`)
         
-        
                 })
                 
             }
