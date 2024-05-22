@@ -1,4 +1,5 @@
 import { data } from "jquery"
+import Link from "next/link"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 
@@ -122,29 +123,13 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
-        
-        if( res.status === 'error' ) return {
-            status: false,
-            message: 'Error al crear el usuario',
-            data: res
-        }
-
-        return {
-            status: true,
-            message: 'Usuario creado correctamente',
-            data: res
-        }
-        
+        if( res.status === 'error' ) return false
             
     } catch ( error ) {
-        return {
-            status: false,
-            message: 'Error al crear el usuario',
-            data: error
-        }
+        return false
     }
 
-    //return true
+    return true
 }
 
 export const UpdateSuscription = async ( email, payment_id ) => {
@@ -199,8 +184,6 @@ export default function handler( req, res ) {
         country: parts[2]
     }
 
-    //https://www.find-persons.com/api/thanks/202405220854107060000-aebc55a01c6cde8114534082da09fdb0f6ecf615-fr-pruebax222gggggg884@gmail.com-Harold-ktDBdQTfXuZt1dutdsrecclbfgr2
-
     let redirect_url = ''
     if( extension !== 'es' ) {
         redirect_url = `/${extension}/thanks/${payment_token}`
@@ -224,7 +207,7 @@ export default function handler( req, res ) {
         return CreateNewUser(user)
     })
     .then(userCreated => {
-        if (!userCreated.status) throw new Error(JSON.stringify(userCreated))
+        if (!userCreated) throw new Error('create_user_error')
         return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
@@ -233,8 +216,25 @@ export default function handler( req, res ) {
     })
     .catch(error => {   
         InvalidateToken( payment_token )
-        res.status(500).json({ error: error.message })
+        //res.status(500).json({ error: error.message })
+        return (<>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12">
+                        <h1>payment error</h1>
+                        <p>
+                            Please contact support for more information at 
+                            <Link href={`/${user.country}/#contact`}>
+                                support@find-persons.digital
+                            </Link>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </>)
     })
+
+    
 
 
 }
