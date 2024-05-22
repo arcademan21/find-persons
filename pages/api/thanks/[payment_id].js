@@ -224,7 +224,7 @@ export default function handler( req, res ) {
         return CreateNewUser(user)
     })
     .then(userCreated => {
-        if (!userCreated.status) throw new Error('create_user_error')
+        if (!userCreated.status) throw new Error(userCreated)
         return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
