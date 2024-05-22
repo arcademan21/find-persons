@@ -126,6 +126,7 @@ export const CreateNewUser = async ( user ) => {
         if( res.status === 'error' ) return false
             
     } catch ( error ) {
+        console.log(error)
         return false
     }
 
