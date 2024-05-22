@@ -122,6 +122,7 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
+        console.log(res)
         if( res.status === 'error' ) return false
             
     } catch ( error ) {
@@ -170,7 +171,6 @@ export default function handler( req, res ) {
         return res.status(405).json({ error: 'Método no permitido' })
     }
 
-
     const payment = req.query.payment_id
     const parts = payment.split('-')
     const payment_token = parts[0]+'-'+parts[1]
@@ -183,6 +183,8 @@ export default function handler( req, res ) {
         password: parts[5],
         country: parts[2]
     }
+
+    //https://www.find-persons.com/api/thanks/202405220854107060000-aebc55a01c6cde8114534082da09fdb0f6ecf615-fr-pruebax222gggggg884@gmail.com-Harold-ktDBdQTfXuZt1dutdsrecclbfgr2
 
     let redirect_url = ''
     if( extension !== 'es' ) {
