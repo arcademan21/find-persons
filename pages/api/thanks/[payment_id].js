@@ -122,15 +122,29 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
-        console.log(res)
-        if( res.status === 'error' ) return false
+        
+        if( res.status === 'error' ) return {
+            status: false,
+            message: 'Error al crear el usuario',
+            data: res
+        }
+
+        return {
+            status: true,
+            message: 'Usuario creado correctamente',
+            data: res
+        }
+        
             
     } catch ( error ) {
-        console.log(error)
-        return false
+        return {
+            status: false,
+            message: 'Error al crear el usuario',
+            data: error
+        }
     }
 
-    return true
+    //return true
 }
 
 export const UpdateSuscription = async ( email, payment_id ) => {
@@ -210,7 +224,7 @@ export default function handler( req, res ) {
         return CreateNewUser(user)
     })
     .then(userCreated => {
-        if (!userCreated) throw new Error('create_user_error')
+        if (!userCreated.status) throw new Error('create_user_error')
         return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
