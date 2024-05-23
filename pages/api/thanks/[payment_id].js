@@ -218,6 +218,7 @@ export default function handler( req, res ) {
         }
     })
     .catch(error => {   
+        InvalidateToken(payment_token)
         res.status(500).json({ error: error.message })
     })
     .finally(() => {
