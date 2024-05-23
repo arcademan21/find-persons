@@ -24,13 +24,15 @@ export const CheckTokenValidity = async ( token ) => {
         })
         
         const res = await req.json()
-        return res
+        
         if( res.status === 'error' ) return false
+        return res
 
     } catch ( error ) {
         return {
             status: 'error',
             message: 'Error al validar el token',
+            error: error
         }
         return false
     }
@@ -60,13 +62,15 @@ export const InvalidateToken = async ( token ) => {
         })
         
         const res = await req.json()
-        return res
+        
         if( res.status === 'error' ) return false
+        return res
 
     } catch ( error ) {
         return {
             status: 'error',
             message: 'Error al invalidar el token',
+            error: error
         }
         return false
     }
@@ -97,13 +101,15 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
-        return res
+        
         if( res.status === 'error' ) return false
+        return res
 
     } catch ( error ) {
         return {
             status: 'error',
             message: 'Error al validar el token',
+            error: error
         }
         return false
     }
@@ -138,13 +144,15 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
-        return res
+        
         if( res.status === 'error' ) return false
+        return res
             
     } catch ( error ) {
         return {
             status: 'error',
             message: 'Error al crear el usuario',
+            error: error
         }
         return false
     }
@@ -175,15 +183,15 @@ export const UpdateSuscription = async ( email, payment_id ) => {
         })
 
         const res = await req.json()
-        return res
         if( res.status === 'error' ) return false
+        return res
 
     } catch ( error ) {
         return {
             status: 'error',
             message: 'Error al actualizar la suscripción',
+            error: error
         }
-        return false
     }
 
     return true
