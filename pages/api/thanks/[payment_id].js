@@ -24,9 +24,11 @@ export const CheckTokenValidity = async ( token ) => {
         })
         
         const res = await req.json()
+        return res
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
+        return error
         return false
     }
     
@@ -88,11 +90,11 @@ export const ExistsPayment = async ( payment_id ) => {
         
         const res = await req.json()
         return res
-        //if( res.status === 'error' ) return false
+        if( res.status === 'error' ) return false
 
     } catch ( error ) {
-        return {error: error.message}
-        //return false
+        return error
+        return false
     }
     
     return true
@@ -125,9 +127,11 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
+        return res
         if( res.status === 'error' ) return false
             
     } catch ( error ) {
+        return error
         return false
     }
 
@@ -157,9 +161,11 @@ export const UpdateSuscription = async ( email, payment_id ) => {
         })
 
         const res = await req.json()
+        return res
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
+        return error
         return false
     }
 
@@ -205,15 +211,15 @@ export default function handler( req, res ) {
         return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
-        if (!tokenIsValid.status) throw new Error(JSON.stringify(tokenIsValid))
+        if (!tokenIsValid.status === 'error') throw new Error(JSON.stringify(tokenIsValid))
         return CreateNewUser(user)
     })
     .then(userCreated => {
-        if (!userCreated) throw new Error('create_user_error')
+        if (!userCreated.status === 'error') throw new Error(JSON.stringify(userCreated))
         return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
-        if (!subscriptionUpdated) throw new Error('update_subscription_error')
+        if (!subscriptionUpdated.status === 'error') throw new Error(JSON.stringify(subscriptionUpdated))
         res.redirect(303, redirect_url)
     })
     .catch(error => {   
