@@ -1,6 +1,5 @@
 import { data } from "jquery"
 import Link from "next/link"
-import Results from "../../results"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 
@@ -57,12 +56,13 @@ export const InvalidateToken = async ( token ) => {
         
         const res = await req.json()
         if( res.status === 'error' ) return false
-        
+
     } catch ( error ) {
         return false
     }
     
     return true
+
 
 }
 
@@ -88,13 +88,12 @@ export const ExistsPayment = async ( payment_id ) => {
         
         const res = await req.json()
         if( res.status === 'error' ) return false
-        
+
     } catch ( error ) {
         return false
     }
     
     return true
-
 }
 
 export const CreateNewUser = async ( user ) => {
@@ -125,14 +124,12 @@ export const CreateNewUser = async ( user ) => {
         
         const res = await req.json()
         if( res.status === 'error' ) return false
-        
             
     } catch ( error ) {
         return false
     }
 
     return true
-
 }
 
 export const UpdateSuscription = async ( email, payment_id ) => {
@@ -196,7 +193,13 @@ export default function handler( req, res ) {
 
     ExistsPayment( payment_id )
     .then(paymentExists => {
-        if (!paymentExists) throw new Error('payment_not_found')
+        if (paymentExists.status === 'error') throw new Error(
+            JSON.stringify({
+                error: 'payment_not_found',
+                message: 'El pago no existe',
+                data: paymentExists
+            })
+        )
         return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
@@ -208,12 +211,15 @@ export default function handler( req, res ) {
         return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
-        if (!subscriptionUpdated) throw new Error('suscription_update_error')
+        if (!subscriptionUpdated) throw new Error('update_subscription_error')
         res.redirect(303, redirect_url)
     })
     .catch(error => {   
         InvalidateToken( payment_token )
-        res.status(500).json({ error: error })
+        res.status(500).json({ error: error.message })
     })
+
+    
+
 
 }
