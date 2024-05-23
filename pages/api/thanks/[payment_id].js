@@ -1,4 +1,5 @@
 
+
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 
 export const CheckTokenValidity = async ( token ) => {
@@ -85,13 +86,16 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
-        if( res.status === 'error' ) return false
+        return res
+        //if( res.status === 'error' ) return false
 
     } catch ( error ) {
-        return false
+        return {
+            status: 'error',
+            message: error.message
+        }
     }
     
-    return true
 }
 
 export const CreateNewUser = async ( user ) => {
