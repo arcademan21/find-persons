@@ -207,13 +207,21 @@ export default function handler( req, res ) {
         return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
-        if (!subscriptionUpdated) throw new Error('update_subscription_error')
-        InvalidateToken( payment_token )
-        res.redirect(303, redirect_url)
+        if (!subscriptionUpdated) {
+            InvalidateToken(payment_token)
+            throw new Error('update_subscription_error')
+        }
+
+        else{
+            res.redirect(303, redirect_url)
+            InvalidateToken(payment_token)
+        }
     })
     .catch(error => {   
-        InvalidateToken( payment_token )
         res.status(500).json({ error: error.message })
+    })
+    .finally(() => {
+        InvalidateToken(payment_token)
     })
 
     
