@@ -204,7 +204,7 @@ export default function handler( req, res ) {
         return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
-        if (!tokenIsValid) throw new Error(JSON.stringify('invalid_token'))
+        if (!tokenIsValid) throw new Error('invalid_token')
         return CreateNewUser(user)
     })
     .then(userCreated => {
