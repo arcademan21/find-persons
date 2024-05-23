@@ -208,6 +208,7 @@ export default function handler( req, res ) {
     })
     .then(subscriptionUpdated => {
         if (!subscriptionUpdated) throw new Error('update_subscription_error')
+        InvalidateToken( payment_token )
         res.redirect(303, redirect_url)
     })
     .catch(error => {   
