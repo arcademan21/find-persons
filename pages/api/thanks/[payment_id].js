@@ -86,15 +86,15 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
-        return res
+        return res 
         //if( res.status === 'error' ) return false
 
     } catch ( error ) {
-        return {
-            status: 'error',
-            message: error.message
-        }
+        return error
+        //return false
     }
+
+    //return true
     
 }
 
@@ -195,14 +195,9 @@ export default function handler( req, res ) {
 
     ExistsPayment( payment_id )
     .then(paymentExists => {
-        if (paymentExists.status === 'error') throw new Error(
-            JSON.stringify({
-                error: 'payment_not_found',
-                message: 'El pago no existe',
-                data: paymentExists
-            })
-        )
-        return CheckTokenValidity(payment_token)
+        throw new Error(paymentExists)
+        //if (!paymentExists) throw new Error('payment_not_found')
+        //return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
         if (!tokenIsValid) throw new Error('invalid_token')
