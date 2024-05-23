@@ -195,7 +195,7 @@ export default function handler( req, res ) {
 
     ExistsPayment( payment_id )
     .then(paymentExists => {
-        throw new Error(paymentExists)
+        throw new Error(JSON.stringify(paymentExists))
         //if (!paymentExists) throw new Error('payment_not_found')
         //return CheckTokenValidity(payment_token)
     })
