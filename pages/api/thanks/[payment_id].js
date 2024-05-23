@@ -1,5 +1,6 @@
 import { data } from "jquery"
 import Link from "next/link"
+import Results from "../../results"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 
@@ -24,16 +25,10 @@ export const CheckTokenValidity = async ( token ) => {
         })
         
         const res = await req.json()
-        
+        throw new Results(res)
         if( res.status === 'error' ) return false
-        return res
 
     } catch ( error ) {
-        return {
-            status: 'error',
-            message: 'Error al validar el token',
-            error: error
-        }
         return false
     }
     
@@ -62,16 +57,11 @@ export const InvalidateToken = async ( token ) => {
         })
         
         const res = await req.json()
-        
+        throw new Results(res)
         if( res.status === 'error' ) return false
-        return res
+        
 
     } catch ( error ) {
-        return {
-            status: 'error',
-            message: 'Error al invalidar el token',
-            error: error
-        }
         return false
     }
     
@@ -101,16 +91,10 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
-        
         if( res.status === 'error' ) return false
-        return res
+        
 
     } catch ( error ) {
-        return {
-            status: 'error',
-            message: 'Error al validar el token',
-            error: error
-        }
         return false
     }
     
@@ -144,16 +128,10 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
-        
+        throw new Results(res)
         if( res.status === 'error' ) return false
-        return res
             
     } catch ( error ) {
-        return {
-            status: 'error',
-            message: 'Error al crear el usuario',
-            error: error
-        }
         return false
     }
 
@@ -183,15 +161,11 @@ export const UpdateSuscription = async ( email, payment_id ) => {
         })
 
         const res = await req.json()
+        throw new Results(res)
         if( res.status === 'error' ) return false
-        return res
 
     } catch ( error ) {
-        return {
-            status: 'error',
-            message: 'Error al actualizar la suscripción',
-            error: error
-        }
+        return false
     }
 
     return true
@@ -226,33 +200,24 @@ export default function handler( req, res ) {
 
     ExistsPayment( payment_id )
     .then(paymentExists => {
-        if (paymentExists.status === 'error') throw new Error(
-            JSON.stringify({
-                error: 'payment_not_found',
-                message: 'El pago no existe',
-                data: paymentExists
-            })
-        )
+        if (!paymentExists) throw new Error('payment_not_found')
         return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
-        if (!tokenIsValid.status === 'error') throw new Error(JSON.stringify(tokenIsValid))
+        if (!tokenIsValid) throw new Error(JSON.stringify('invalid_token'))
         return CreateNewUser(user)
     })
     .then(userCreated => {
-        if (!userCreated.status === 'error') throw new Error(JSON.stringify(userCreated))
+        if (!userCreated) throw new Error('create_user_error')
         return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
-        if (!subscriptionUpdated.status === 'error') throw new Error(JSON.stringify(subscriptionUpdated))
+        if (!subscriptionUpdated) throw new Error('suscription_update_error')
         res.redirect(303, redirect_url)
     })
     .catch(error => {   
         InvalidateToken( payment_token )
         res.status(500).json({ error: error })
     })
-
-    
-
 
 }
