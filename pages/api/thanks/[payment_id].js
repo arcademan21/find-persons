@@ -213,8 +213,8 @@ export default function handler( req, res ) {
         }
 
         else{
-            res.redirect(303, redirect_url)
             InvalidateToken(payment_token)
+            res.redirect(303, redirect_url)
         }
     })
     .catch(error => {   
