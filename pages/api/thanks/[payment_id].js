@@ -91,7 +91,7 @@ export const ExistsPayment = async ( payment_id ) => {
         //if( res.status === 'error' ) return false
 
     } catch ( error ) {
-        return error
+        return {error: error.message}
         //return false
     }
     
