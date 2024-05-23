@@ -87,10 +87,12 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
-        if( res.status === 'error' ) return false
+        return res
+        //if( res.status === 'error' ) return false
 
     } catch ( error ) {
-        return false
+        return error
+        //return false
     }
     
     return true
@@ -203,7 +205,7 @@ export default function handler( req, res ) {
         return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
-        if (!tokenIsValid) throw new Error('invalid_token')
+        if (!tokenIsValid.status) throw new Error(JSON.stringify(tokenIsValid))
         return CreateNewUser(user)
     })
     .then(userCreated => {
