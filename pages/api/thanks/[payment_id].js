@@ -25,8 +25,8 @@ export const CheckTokenValidity = async ( token ) => {
         })
         
         const res = await req.json()
-        return res
         if( res.status === 'error' ) return false
+        return res
 
     } catch ( error ) {
         return false
@@ -57,8 +57,8 @@ export const InvalidateToken = async ( token ) => {
         })
         
         const res = await req.json()
-        return res
         if( res.status === 'error' ) return false
+        return res
         
 
     } catch ( error ) {
@@ -90,8 +90,8 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
-        return res
         if( res.status === 'error' ) return false
+        return res
         
 
     } catch ( error ) {
@@ -128,8 +128,8 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
-        return res
         if( res.status === 'error' ) return false
+        return res
             
     } catch ( error ) {
         return false
@@ -160,14 +160,12 @@ export const UpdateSuscription = async ( email, payment_id ) => {
         })
 
         const res = await req.json()
-        throw new Results(res)
         if( res.status === 'error' ) return false
+        return res
 
     } catch ( error ) {
         return false
     }
-
-    return true
 
 }
 
