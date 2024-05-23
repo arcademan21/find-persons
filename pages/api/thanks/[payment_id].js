@@ -25,8 +25,8 @@ export const CheckTokenValidity = async ( token ) => {
         })
         
         const res = await req.json()
-        if( res.status === 'error' ) return false
         return res
+        if( res.status === 'error' ) return false
 
     } catch ( error ) {
         return false
@@ -57,8 +57,8 @@ export const InvalidateToken = async ( token ) => {
         })
         
         const res = await req.json()
-        if( res.status === 'error' ) return false
         return res
+        if( res.status === 'error' ) return false
         
 
     } catch ( error ) {
@@ -90,8 +90,8 @@ export const ExistsPayment = async ( payment_id ) => {
         })
         
         const res = await req.json()
-        if( res.status === 'error' ) return false
         return res
+        if( res.status === 'error' ) return false
         
 
     } catch ( error ) {
@@ -128,8 +128,8 @@ export const CreateNewUser = async ( user ) => {
         })
         
         const res = await req.json()
-        if( res.status === 'error' ) return false
         return res
+        if( res.status === 'error' ) return false
             
     } catch ( error ) {
         return false
@@ -200,23 +200,19 @@ export default function handler( req, res ) {
     ExistsPayment( payment_id )
     .then(paymentExists => {
         if (!paymentExists) throw new Error('payment_not_found')
-        return paymentExists
-            return CheckTokenValidity(payment_token)
+        return CheckTokenValidity(payment_token)
     })
     .then(tokenIsValid => {
         if (!tokenIsValid) throw new Error('invalid_token')
-        return tokenIsValid
-            return CreateNewUser(user)
+        return CreateNewUser(user)
     })
     .then(userCreated => {
         if (!userCreated) throw new Error('create_user_error')
-        return userCreated
-            return UpdateSuscription(user.user_email, payment_id )
+        return UpdateSuscription(user.user_email, payment_id )
     })
     .then(subscriptionUpdated => {
         if (!subscriptionUpdated) throw new Error('suscription_update_error')
-        return subscriptionUpdated
-            res.redirect(303, redirect_url)
+        res.redirect(303, redirect_url)
     })
     .catch(error => {   
         InvalidateToken( payment_token )
