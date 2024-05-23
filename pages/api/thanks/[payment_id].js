@@ -28,7 +28,10 @@ export const CheckTokenValidity = async ( token ) => {
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
-        return error
+        return {
+            status: 'error',
+            message: 'Error al validar el token',
+        }
         return false
     }
     
@@ -57,9 +60,14 @@ export const InvalidateToken = async ( token ) => {
         })
         
         const res = await req.json()
+        return res
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
+        return {
+            status: 'error',
+            message: 'Error al invalidar el token',
+        }
         return false
     }
     
@@ -93,7 +101,10 @@ export const ExistsPayment = async ( payment_id ) => {
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
-        return error
+        return {
+            status: 'error',
+            message: 'Error al validar el token',
+        }
         return false
     }
     
@@ -131,7 +142,10 @@ export const CreateNewUser = async ( user ) => {
         if( res.status === 'error' ) return false
             
     } catch ( error ) {
-        return error
+        return {
+            status: 'error',
+            message: 'Error al crear el usuario',
+        }
         return false
     }
 
@@ -165,7 +179,10 @@ export const UpdateSuscription = async ( email, payment_id ) => {
         if( res.status === 'error' ) return false
 
     } catch ( error ) {
-        return error
+        return {
+            status: 'error',
+            message: 'Error al actualizar la suscripción',
+        }
         return false
     }
 
