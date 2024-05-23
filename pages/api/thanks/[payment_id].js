@@ -216,22 +216,7 @@ export default function handler( req, res ) {
     })
     .catch(error => {   
         InvalidateToken( payment_token )
-        //res.status(500).json({ error: error.message })
-        return (<>
-            <div className="container">
-                <div className="row">
-                    <div className="col-12">
-                        <h1>payment error</h1>
-                        <p>
-                            Please contact support for more information at 
-                            <Link href={`/${user.country}/#contact`}>
-                                support@find-persons.digital
-                            </Link>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </>)
+        res.status(500).json({ error: error.message })
     })
 
     
