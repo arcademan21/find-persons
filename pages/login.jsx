@@ -69,7 +69,7 @@ const Login = ( ) => {
     }
 
     useEffect(() => {
-        if( user ) window.location.replace('/')
+        if( user ) router.push('/')
     }, [])
 
     useEffect(() => {
@@ -156,7 +156,7 @@ const Login = ( ) => {
                         <p className="title-section text-center w-100">
                         <span className="marked">{language.no_account}</span>
                         <br />
-                        <span className="d-flex link-primary my-1 w-100 justify-content-center align-items-center" onClick={()=>{window.location.replace('/register')}} >
+                        <span className="d-flex link-primary my-1 w-100 justify-content-center align-items-center" onClick={()=>{router.push('/register')}} >
                             <FaUserPlus className='mx-1' style={{ fontSize: "3rem", marginRight: "5px" }} />
                             <span className='fs-4'>{language.register_link}</span>
                         </span>

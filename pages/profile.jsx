@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import 'react-toastify/dist/ReactToastify.css'
 import { toast } from 'react-toastify'
+import { useRouter } from 'next/navigation'
 
 const Profile = () => {
 
@@ -14,6 +15,8 @@ const Profile = () => {
 
     let timestamp = Number(user.createdAt)
     let date = new Date(timestamp)
+
+    const router = useRouter()
 
     const getUserData = async ( email ) => {
 
@@ -100,7 +103,7 @@ const Profile = () => {
         
         
         if( !user ) {
-            window.location.replace('/')
+            router.push('/')
         }
 
         getUserData( user.email ).then( res => { 
@@ -239,7 +242,7 @@ const Profile = () => {
                                                     
                                                     
                                                     TefpayToatsMessage( 'success', laguage_toast.success_down_suscription_message ).then( () => {
-                                                        window.location.reload()
+                                                        router.refresh()
                                                     })
 
                                                 }

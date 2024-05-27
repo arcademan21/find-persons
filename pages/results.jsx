@@ -8,6 +8,7 @@ import PDLJS from 'peopledatalabs'
 import { FaSearch, FaPhone, FaEnvelope, FaSpinner, FaDownload, FaInfoCircle, FaMapMarked }
 from 'react-icons/fa'
 import './css/results.css'
+import { useRouter } from 'next/navigation'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -111,6 +112,8 @@ const Results = () => {
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
 
     const [serpstakResults, setSerpstakResults] = useState(null)
+
+    const router = useRouter()
     
     const setRegionRegionHandler = (e) => {
         setRegion(e.target.value)
@@ -191,20 +194,6 @@ const Results = () => {
         })
     }
 
-    // "message": "Does not meet minimum combination of required data points. Requests must include one of: 'lid' OR 
-    // 'pdl_id' OR 
-    // 'email_hash' OR 
-    // 'phone' OR 
-    // 'email' OR 
-    // 'profile' OR 
-    // 'name'. 
-    // If 'first_name' and 'last_name' or 'name' are used, 
-    // then one of the following is required: 'ip' OR 'country' OR 'postal_code' OR 'street_address' OR 'location' OR 'company' OR 'birth_date' OR 'school' OR 'locality' OR 'username' OR 'region'."
-
-    /*
-        min_likelihood : Este parámetro le permite equilibrar la precisión y la recuperación. En otras palabras, el uso de un valor min_likelihood alto solo arrojará coincidencias muy sólidas, pero corre el riesgo de no devolver ninguna coincidencia si no se puede encontrar ninguna por encima del umbral min_likelihood. Alternativamente, es más probable que el uso de un valor min_likelihood bajo le proporcione una coincidencia, pero a costa de devolver una coincidencia potencialmente más débil. De forma predeterminada, el recuerdo de coincidencias se mantiene muy alto, por lo que una respuesta que arroja una puntuación de probabilidad de 2 tendrá aproximadamente entre un 10 y un 30 % de posibilidades de ser la persona solicitada. Agregar más puntos de datos a sus solicitudes aumentará la probabilidad de una coincidencia exitosa (puntuación de alta probabilidad y en realidad es la persona solicitada). Algunas reglas generales para establecer este parámetro: Para casos de uso que dependen de un alto grado de precisión de los datos, utilice un valor de ≥ 6. Las solicitudes realizadas con solo unos pocos puntos de datos menos específicos arrojarán puntuaciones más bajas. Solicitudes realizadas con sólo unos pocos puntos de datos (por ejemplo, un nombre y unubicación), rara vez arrojará una puntuación de probabilidad > 4. Las solicitudes realizadas con solo un nombre arrojan una puntuación entre 2 y 5, según la calidad de la coincidencia. Las solicitudes realizadas con solo un correo electrónico rara vez arrojarán una puntuación de probabilidad > 6.
-    */
-
     const fetchPersonData = async () => {
     
         try {
@@ -256,8 +245,6 @@ const Results = () => {
                 }
             }
 
-            
-            // Pass the parameters object to the Person Search API
             PDLJSClient.person.enrichment( params ).then(( data ) => {
                 
                 //setDataPerson( dataPerson )
@@ -266,7 +253,6 @@ const Results = () => {
                 
 
             }).catch((error) => {
-                //console.log("NOTE: The carrier pigeons lost motivation in flight. See error and try again.")
                 setError(error)
                 setLoading( false )
             })
@@ -294,9 +280,9 @@ const Results = () => {
         
         GetSuscription( user ).then( suscripted => {
             
-            if(search === 'null') window.location.replace('/')
-            else if( user && !suscripted ) window.location.replace('/payment')
-            else if( !user ) window.location.replace('/register')
+            if(search === 'null') router.push('/')
+            else if( user && !suscripted ) router.push('/payment')
+            else if( !user ) router.push('/register')
 
         })
 

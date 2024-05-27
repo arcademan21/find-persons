@@ -4,6 +4,7 @@ import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import './css/search.css'
 import { FaSpinner, FaCheck, FaUser, FaMapMarkedAlt, FaUsers } from 'react-icons/fa'
+import { useRouter } from 'next/navigation'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -58,6 +59,8 @@ const Search = () => {
 
     const [listOfSearchs, setListOfSearchs] = useState([])
 
+    const router = useRouter()
+
     useEffect(() => {
         if( !search ) window.location.replace('/')
         setListOfSearchs([
@@ -92,9 +95,9 @@ const Search = () => {
                 GetSuscription( user ).then( suscripted => {
                     
                     // Redirect 
-                    if( !user ) window.location.replace('/register')
-                    else if( !suscripted ) window.location.replace('/payment')
-                    else window.location.replace('/results')
+                    if( !user ) router.push('/register')
+                    else if( !suscripted ) router.push('/payment')
+                    else router.push('/results')
         
                 })
                 

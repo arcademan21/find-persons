@@ -6,6 +6,7 @@ import Image from "next/image"
 import { FaClock, FaEnvelope, FaLock } from "react-icons/fa"
 import { FaCircleCheck } from "react-icons/fa6"
 import ModalTerms from "@/components/ModalTerms"
+import { useRouter } from "next/navigation"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -47,14 +48,15 @@ const Payment = () => {
     const user = JSON.parse(localStorage.getItem('user'))
     const search = localStorage.getItem('search')
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
+    const router = useRouter()
     
     useEffect(() => {
         
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
         GetSuscription( user ).then( suscripted => {
             
-            if( !user ) window.location.replace('/register')
-            else if( user && suscripted ) window.location.replace('/results')
+            if( !user ) router.push('/register')
+            else if( user && suscripted ) router.push('/results')
 
         })
     }, [])
@@ -172,19 +174,7 @@ const Payment = () => {
                                 </div>
 
                                 
-                                {/* <h2 className="my-3 title-section">
-                                    <span className="marked">
-                                        {language.secure_payment}
-                                    </span>
-                                </h2>
-                                <p className="text-secondary title-section m-auto">
-                                    <FaLock className="fa-2x text-primary" style={{fontSize: '2rem'}} />
-                                    <br/>
-                                    {language.secure_payment_description}
-                                    <br/>
-                                    {language.domain_name}
-                                </p> */} 
-                                
+                    
                                 
                                 
                             </div>
@@ -202,7 +192,7 @@ const Payment = () => {
                                     </p>
                                     <div className="d-flex justify-content-center">
                                         <button className="btn btn-primary btn-lg decoration-none" onClick={
-                                            () => window.location.replace('/#contact')   
+                                            () => router.push('/#contact')   
                                         }>
                                             <FaEnvelope className="fs-4" />
                                             <b className="fs-4"> 

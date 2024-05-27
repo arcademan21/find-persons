@@ -85,7 +85,7 @@ const ThanksPage = () => {
             setCounter((prevCounter) => {
                 if (prevCounter === 0) {
                     // Redirigiendo a la pagina de resultados
-                    window.location.replace('/results')
+                    router.push('/results')
                     clearInterval( time )
                     return prevCounter
                 } else {
@@ -100,7 +100,7 @@ const ThanksPage = () => {
         CheckTokenValidity( payment_id )
         .then( async ( res ) => {
             if( !res ) {
-                window.location.replace('/')
+                router.push('/')
                 return false
             } 
 
@@ -110,7 +110,7 @@ const ThanksPage = () => {
         .then( res => {
             
             if( !res ) {
-                window.location.replace('/')
+                router.push('/')
                 return false
             }
 
@@ -127,7 +127,7 @@ const ThanksPage = () => {
         })
         .catch( error => {
             console.log( error )
-            window.location.replace('/')
+            router.push('/')
         })
         .finally( () => {
             InvalidateToken( payment_id )

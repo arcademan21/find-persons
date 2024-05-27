@@ -1,3 +1,4 @@
+'use client'
 import { GlobalProvider } from '../src/context/GlobalContext'
 import { ToastContainer } from 'react-toastify'
 import Loader from "../src/components/Loader"
@@ -15,6 +16,7 @@ export const metadata = {
 }
 
 function PersonsFinder({ Component, pageProps }) {
+  
   return (<>
     
     <Head>

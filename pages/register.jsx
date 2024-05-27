@@ -8,7 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import 'react-toastify/dist/ReactToastify.css'
 import './css/register.css'
-import { set } from 'firebase/database'
+import { useRouter } from 'next/navigation'
 
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
@@ -90,6 +90,7 @@ const Register = () => {
     const language_toast = JSON.parse( localStorage.getItem('language_file') ).toast
     const [loadingRegisterButton, setLoadingRegisterButton] = useState( false )
     const lang = localStorage.getItem('language')
+    const router = useRouter()
     
     const newUser = async () => { 
         
@@ -135,9 +136,9 @@ const Register = () => {
                 
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && search === 'null' ) window.location.replace('/')
-                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
-                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
+                    if( !suscripted && search === 'null' ) router.push('/')
+                    else if( !suscripted && search !== 'null' ) router.push('/payment')
+                    else if( suscripted && search !== 'null' ) router.push('/results')
         
                 })
 
@@ -199,10 +200,10 @@ const Register = () => {
                 localStorage.setItem('user_name', user_name)
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && search === 'null' ) window.location.replace('/')
-                    else if( !suscripted && search !== 'null' ) window.location.replace('/payment')
-                    else if( suscripted && search === 'null' ) window.location.replace('/')
-                    else if( suscripted && search !== 'null' ) window.location.replace('/results')
+                    if( !suscripted && search === 'null' ) router.push('/')
+                    else if( !suscripted && search !== 'null' ) router.push('/payment')
+                    else if( suscripted && search === 'null' ) router.push('/')
+                    else if( suscripted && search !== 'null' ) router.push('/results')
                     
         
                 })
@@ -212,34 +213,27 @@ const Register = () => {
             // Todo: save user data
         
         }).catch(( error ) => {
-            
-            // Handle Errors here.
+        
             const errorCode = error.code
             const errorMessage = error.message
-            
-            // The email of the user's account used.
             const email = error.email
-            
-            // The AuthCredential type that was used.
             const credential = GoogleAuthProvider.credentialFromError(error)
 
-            // Todo: validate error and save error data
             if( errorCode === 'auth/account-exists-with-different-credential' ) 
                 toast.error( language_toast.error_google_session_message )
-            // more validations
-            
+
         })
 
     }
-
-    useEffect(() => {
-        GetSuscription( user ).then( suscripted => {
+    
+    // useEffect(() => {
+    //     GetSuscription( user ).then( suscripted => {
             
-            // if( user && !suscripted ) window.location.replace('/payment')
-            // else if( user && suscripted && search !== 'null' ) window.location.replace('/results')
+    //         // if( user && !suscripted ) window.location.replace('/payment')
+    //         // else if( user && suscripted && search !== 'null' ) window.location.replace('/results')
 
-        })
-    }, [])
+    //     })
+    // }, [])
 
     useEffect(() => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).register )
@@ -256,26 +250,25 @@ const Register = () => {
 
                             <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 px-3 login-col">
                                 <div className="d-none w-75 m-auto logo-register-form">
-                                <Link
-                                    href="/"
-                                    className="navbar-brand link-logo 
-                                        text-center"
-                                >
-                                    <Image
-                                    src="/images/logo_find-persons.png"
-                                    alt="Find Persons"
-                                    width={150}
-                                    height={60}
-                                    />
-                                </Link>
+                                    <Link
+                                        href="/"
+                                        className="navbar-brand link-logo text-center"
+                                    >
+                                        <Image
+                                            src="/images/logo_find-persons.png"
+                                            alt="Find Persons"
+                                            width={150}
+                                            height={60}
+                                        />
+                                    </Link>
                                 </div>
 
                                 <h1 className="title-section text-center d-flex flex-column h1 fw-bold mx-1 mx-md-4 my-5 mb-4">
-                                <span>
-                                    { language.title }  
-                                    <span className="marked"> {language.free} </span>
-                                </span>
-                                <span className="marked fs-6 m-auto">{language.subtitle}</span>
+                                    <span>
+                                        { language.title }  
+                                        <span className="marked"> {language.free} </span>
+                                    </span>
+                                    <span className="marked fs-6 m-auto">{language.subtitle}</span>
                                 </h1>
 
                                 <div className="mx-1 mx-md-4 px-4 register-form">
@@ -283,21 +276,21 @@ const Register = () => {
                                     <div className="d-flex flex-row align-items-center mb-2">
                                         <div className="form-outline flex-fill mb-0">
                                         
-                                        <div className="input-icon">
-                                            <FaUser />
-                                            <input
-                                                type="text"
-                                                id="user_name"
-                                                name="user_name"
-                                                className="form-control my-1"
-                                                placeholder={ language.placeholder_user_name}
-                                                required={true}
-                                            />
-                                        </div>
-                                            
-                                        <small className="text-muted p-1">
-                                            { language.min_user_name}
-                                        </small>
+                                            <div className="input-icon">
+                                                <FaUser />
+                                                <input
+                                                    type="text"
+                                                    id="user_name"
+                                                    name="user_name"
+                                                    className="form-control my-1"
+                                                    placeholder={ language.placeholder_user_name}
+                                                    required={true}
+                                                />
+                                            </div>
+                                                
+                                            <small className="text-muted p-1">
+                                                { language.min_user_name}
+                                            </small>
 
                                         </div>
                                     </div>
@@ -326,25 +319,23 @@ const Register = () => {
                                     <div className="d-flex flex-row align-items-center mb-4">
                                         <div className="form-outline flex-fill mb-0">
                                         
-                                        <div className="input-icon">
-                                            <FaLock />
-                                            <input
-                                                type="password"
-                                                id="password"
-                                                name="password"
-                                                className="form-control my-1"
-                                                placeholder={ language.placeholder_password}
-                                            />
-                                        </div>
-                                            
-                                        <small className="text-muted p-1">
-                                            { language.min_password}
-                                        </small>
+                                            <div className="input-icon">
+                                                <FaLock />
+                                                <input
+                                                    type="password"
+                                                    id="password"
+                                                    name="password"
+                                                    className="form-control my-1"
+                                                    placeholder={ language.placeholder_password}
+                                                />
+                                            </div>
+                                                
+                                            <small className="text-muted p-1">
+                                                { language.min_password}
+                                            </small>
 
                                         </div>
                                     </div>
-
-                                    
 
                                     <div className="form-check d-flex justify-content-center mb-4">
                                         <input
@@ -385,20 +376,15 @@ const Register = () => {
 
                                     <div className="d-flex justify-content-center">
                                         <p className="title-section text-center w-100">
-                                        <span className="marked">{language.have_account}</span>
-                                        <br />
-                                        <span href="/login" className="link-primary my-1" onClick={()=>{
-                                            window.location.replace('/login')
-                                        }}>
-                                        
-                                            {language.login} <FaSignInAlt className='fs-5 mx-2' />
-                                        
-                                            
-                                        </span>
+                                            <span className="marked">{language.have_account}</span>
+                                            <br />
+                                            <Link href="/login" className="link-primary my-1">
+                                                <FaSignInAlt className='fs-5 mx-2' />
+                                                <span>{language.login}</span>
+                                            </Link>
                                         </p>
                                     </div>
                                     </div>
-
 
                             </div>
 
