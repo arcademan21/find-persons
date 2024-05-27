@@ -370,9 +370,10 @@ const Register = () => {
                                     className="form-check-label"
                                     htmlFor="register-terms"
                                     >
-                                    {language.accept_the}
-                                    <Link href={`${extension}/terms`}> {language.terms_and_conditions} </Link>
+                                    {language.acept_politics}
+                                    <Link href={`${extension}/policies`}> {language.policies} </Link>
                                     {language.of_service}
+                                    
                                     </label>
                                 </div>
 
