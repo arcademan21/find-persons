@@ -202,7 +202,7 @@ const Register = () => {
                 GetSuscription( user ).then( suscripted => {
             
                     if( !suscripted && search === 'null' ) router.push('/')
-                    else if( !suscripted && search !== 'null' ) router.push('/payment')
+                    else if( !suscripted && search !== 'null' ) window.location.href = '/payment'
                     else if( suscripted && search === 'null' ) router.push('/')
                     else if( suscripted && search !== 'null' ) router.push('/results')
                     
@@ -238,7 +238,7 @@ const Register = () => {
 
     useEffect(() => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).register )
-        //if( user ) router.push('/payment')
+        if( user ) window.location.href = '/payment'
     }, [router, state, user])
 
     return (<>
