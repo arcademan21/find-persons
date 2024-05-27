@@ -57,8 +57,10 @@ const Payment = () => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
         GetSuscription( user ).then( suscripted => {
             
-            if( !user ) router.push('/register')
-            else if( user && suscripted ) router.push('/results')
+            // if( !user ) router.push('/register')
+            // else if( user && suscripted ) router.push('/results')
+
+            if( user && suscripted ) router.push('/results')
 
         })
     }, [])
