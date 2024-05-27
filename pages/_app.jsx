@@ -6,6 +6,7 @@ import Header from "../src/components/Header"
 import Footer from "../src/components/Footer"
 import Script from 'next/script'
 import Head from 'next/head'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const metadata = {
   title: 'Find - Persons',
