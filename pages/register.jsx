@@ -9,8 +9,6 @@ import Link from 'next/link'
 import 'react-toastify/dist/ReactToastify.css'
 import './css/register.css'
 import { useRouter } from 'next/navigation'
-import { Route, Redirect } from 'react-router-dom'
-import { useAuthState } from 'react-firebase-hooks/auth'
 
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
@@ -244,8 +242,8 @@ const Register = () => {
 
     useEffect(() => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).register )
-        if( user ) return <Redirect to='/' />
-    }, [state, user])
+        if( user ) router.push('/')
+    }, [router, state, user])
 
     return (<>
         
