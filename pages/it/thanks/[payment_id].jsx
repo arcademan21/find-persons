@@ -87,8 +87,7 @@ const ThanksPage = () => {
         const time = window.setInterval(() => {
             setCounter((prevCounter) => {
                 if (prevCounter === 0) {
-                    // Redirigiendo a la pagina de resultados
-                    window.location.replace(`${extension}/results`)
+                    router.push(`${extension}/results`)
                     clearInterval( time )
                     return prevCounter
                 } else {

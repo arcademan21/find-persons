@@ -126,7 +126,6 @@ const ThanksPage = () => {
 
         })
         .catch( error => {
-            console.log( error )
             router.push('/')
         })
         .finally( () => {

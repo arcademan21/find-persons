@@ -17,7 +17,7 @@ const TefpayError = () => {
         
         const time = window.setInterval(() => {
             if( counter === 0 ) {
-                window.location.replace('/payment')
+                window.location.href = '/payment'
                 clearInterval( time )
             }
             let temp = counter-1

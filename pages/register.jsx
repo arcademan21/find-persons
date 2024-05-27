@@ -119,8 +119,6 @@ const Register = () => {
         }
 
         localStorage.setItem('user_name', user_name)
-
-        // Registrando un usuario de firebase.
         createUserWithEmailAndPassword( auth, email, password )
         .then( ( UserCredential ) => { 
             
@@ -227,14 +225,14 @@ const Register = () => {
 
     }
     
-    useEffect(() => {
-        GetSuscription( user ).then( suscripted => {
+    // useEffect(() => {
+    //     GetSuscription( user ).then( suscripted => {
             
-            // if( user && !suscripted ) window.location.replace('/payment')
-            // else if( user && suscripted && search !== 'null' ) window.location.replace('/results')
+    //         // if( user && !suscripted ) window.location.replace('/payment')
+    //         // else if( user && suscripted && search !== 'null' ) window.location.replace('/results')
 
-        })
-    }, [])
+    //     })
+    // }, [])
 
     useEffect(() => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).register )

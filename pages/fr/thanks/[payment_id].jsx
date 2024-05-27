@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
-const convertions_gtag = process.env.NEXT_PUBLIC_CONVERTIONS_GTAG_FR
+const convertions_gtag = process.env.NEXT_PUBLIC_CONVERTIONS_GTAG_IT
 
 export const CheckTokenValidity = async ( token ) => {
     
@@ -87,8 +87,7 @@ const ThanksPage = () => {
         const time = window.setInterval(() => {
             setCounter((prevCounter) => {
                 if (prevCounter === 0) {
-                    // Redirigiendo a la pagina de resultados
-                    window.location.replace(`${extension}/results`)
+                    router.push(`${extension}/results`)
                     clearInterval( time )
                     return prevCounter
                 } else {

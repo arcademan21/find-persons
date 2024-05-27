@@ -4,6 +4,7 @@ import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
 import '../css/search.css'
 import { FaSpinner, FaCheck, FaUser, FaMapMarkedAlt, FaUsers } from 'react-icons/fa'
+import { useRouter } from 'next/navigation'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -58,6 +59,7 @@ const Search = () => {
 
     const [listOfSearchs, setListOfSearchs] = useState([])
     const extension = localStorage.getItem('extencion')
+    const router = useRouter()
 
     useEffect(() => {
         if( !search ) window.location.replace(extension)
@@ -93,9 +95,9 @@ const Search = () => {
                 GetSuscription( user ).then( suscripted => {
                     
                     // Redirect 
-                    if( !user ) window.location.replace(`${extension}/register`)
-                    else if( !suscripted ) window.location.replace(`${extension}/payment`)
-                    else window.location.replace(`${extension}/results`)
+                    if( !user ) router.push(`${extension}/register`)
+                    else if( !suscripted ) window.location.href = `${extension}/payment`
+                    else router.push(`${extension}/results`)
         
                 })
                 

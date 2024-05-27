@@ -62,7 +62,7 @@ const Search = () => {
     const router = useRouter()
 
     useEffect(() => {
-        if( !search ) window.location.replace('/')
+        if( !search ) router.push('/')
         setListOfSearchs([
             language.socials, 
             language.work,
@@ -96,7 +96,7 @@ const Search = () => {
                     
                     // Redirect 
                     if( !user ) router.push('/register')
-                    else if( !suscripted ) router.push('/payment')
+                    else if( !suscripted ) window.location.href = '/payment'
                     else router.push('/results')
         
                 })

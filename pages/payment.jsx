@@ -7,7 +7,6 @@ import { FaClock, FaEnvelope, FaLock } from "react-icons/fa"
 import { FaCircleCheck } from "react-icons/fa6"
 import ModalTerms from "@/components/ModalTerms"
 import { useRouter } from "next/navigation"
-import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT

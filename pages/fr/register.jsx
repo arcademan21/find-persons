@@ -8,7 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import 'react-toastify/dist/ReactToastify.css'
 import '../css/register.css'
-import { set } from 'firebase/database'
+import { useRouter } from 'next/navigation'
 
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
@@ -91,6 +91,8 @@ const Register = () => {
     const [loadingRegisterButton, setLoadingRegisterButton] = useState( false )
     const lang = localStorage.getItem('language')
     const extension = localStorage.getItem('extencion')
+
+    const router = useRouter()
     
     const newUser = async () => { 
         
@@ -120,7 +122,7 @@ const Register = () => {
 
         localStorage.setItem('user_name', user_name)
 
-        // Registrando un usuario de firebase.
+        
         createUserWithEmailAndPassword( auth, email, password )
         .then( ( UserCredential ) => { 
             
@@ -151,7 +153,6 @@ const Register = () => {
             loadingButton.removeAttribute('disabled')
             setLoadingRegisterButton(false)
 
-            // Validadndo errors de autenticacion de firebase
             if( error.code === 'auth/email-already-in-use' ) {
                 toast.error( language_toast.error_register_email_message )
                 setError(true)
@@ -202,10 +203,10 @@ const Register = () => {
                 localStorage.setItem('user_name', user_name)
                 GetSuscription( user ).then( suscripted => {
             
-                    if( !suscripted && search === 'null' ) window.location.replace(extension)
-                    else if( !suscripted && search !== 'null' ) window.location.replace(`${extension}/payment`)
-                    else if( suscripted && search === 'null' ) window.location.replace(extension)
-                    else if( suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
+                    if( !suscripted && search === 'null' ) router.push(extension)
+                    else if( !suscripted && search !== 'null' ) window.location.href = `${extension}/payment`
+                    else if( suscripted && search === 'null' ) router.push(extension)
+                    else if( suscripted && search !== 'null' ) router.push(`${extension}/results`)
                     
         
                 })
@@ -241,8 +242,8 @@ const Register = () => {
     useEffect(() => {
         GetSuscription( user ).then( suscripted => {
             
-            if( user && !suscripted ) window.location.replace(`${extension}/payment`)
-            else if( user && suscripted && search !== 'null' ) window.location.replace(`${extension}/results`)
+            if( user && !suscripted ) window.location.href = `${extension}/payment`
+            else if( user && suscripted && search !== 'null' ) router.push(`${extension}/results`)
 
         })
     }, [])
@@ -399,7 +400,7 @@ const Register = () => {
                                     <span className="marked">{language.have_account}</span>
                                     <br />
                                     <span href="/login" className="link-primary my-1" onClick={()=>{
-                                        window.location.replace(`${extension}/login`)
+                                        router.push(`${extension}/login`)
                                     }}>
                                       
                                         {language.login} <FaSignInAlt className='fs-5 mx-2' />
