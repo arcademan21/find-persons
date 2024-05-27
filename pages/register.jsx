@@ -93,10 +93,6 @@ const Register = () => {
     const router = useRouter()
 
     
-
-
-
-    
     const newUser = async () => { 
         
         const user_name = document.getElementById('user_name').value
@@ -142,7 +138,7 @@ const Register = () => {
                 GetSuscription( user ).then( suscripted => {
             
                     if( !suscripted && search === 'null' ) router.push('/')
-                    else if( !suscripted && search !== 'null' ) router.push('/payment')
+                    else if( !suscripted && search !== 'null' ) window.location.href = '/payment'
                     else if( suscripted && search !== 'null' ) router.push('/results')
         
                 })
@@ -231,14 +227,14 @@ const Register = () => {
 
     }
     
-    // useEffect(() => {
-    //     GetSuscription( user ).then( suscripted => {
+    useEffect(() => {
+        GetSuscription( user ).then( suscripted => {
             
-    //         // if( user && !suscripted ) window.location.replace('/payment')
-    //         // else if( user && suscripted && search !== 'null' ) window.location.replace('/results')
+            // if( user && !suscripted ) window.location.replace('/payment')
+            // else if( user && suscripted && search !== 'null' ) window.location.replace('/results')
 
-    //     })
-    // }, [])
+        })
+    }, [])
 
     useEffect(() => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).register )
