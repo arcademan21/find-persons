@@ -7,7 +7,7 @@ import Footer from "../src/components/Footer"
 import Script from 'next/script'
 import Head from 'next/head'
 import 'react-toastify/dist/ReactToastify.css'
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 
 export const metadata = {
   title: 'Find - Persons',

@@ -8,10 +8,6 @@ import Script from 'next/script'
 
 import {useEffect, useState} from 'react'
 
-
-
-
-
 const metadata = {
   title: 'Find - Persons',
   description: 'A professional website for finding persons',
@@ -26,28 +22,29 @@ function RootLayout( { children } ) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const extension = localStorage.getItem('extencion')
-    
-    if( extension === null || extension === undefined || extension === '/') 
-      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_ES)
-    
-    else if( extension === '/es' )
-      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_ES)
+    if (typeof window !== 'undefined') {
 
-    else if( extension === '/it' ) 
-      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_IT)
-    
-    else if( extension === '/fr' ) 
-      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_FR)
+      const extension = localStorage.getItem('extencion')
+      
+      if( extension === null || extension === undefined || extension === '/') 
+        setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_ES)
+      
+      else if( extension === '/es' )
+        setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_ES)
 
-    else if( extension === '/de' )
-      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_DE)
+      else if( extension === '/it' ) 
+        setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_IT)
+      
+      else if( extension === '/fr' ) 
+        setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_FR)
 
-    setLoading(false)
-    
+      else if( extension === '/de' )
+        setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_DE)
+
+      setLoading(false)
+    }
   }, [])
 
-  
 
   return ( 
 
@@ -80,8 +77,8 @@ function RootLayout( { children } ) {
             `
           }} />
 
-          {!loading ? (<>
           {/* Google tag (gtag.js) ANALYTICS */}
+          {!loading ? (<>
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${analiticsTag}`}></script>
           <script dangerouslySetInnerHTML={{
             __html: `
