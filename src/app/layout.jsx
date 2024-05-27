@@ -1,4 +1,4 @@
-
+'use client'
 import { GlobalProvider } from '../context/GlobalContext'
 import { ToastContainer } from 'react-toastify'
 import Loader from "../components/Loader"
@@ -6,15 +6,48 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Script from 'next/script'
 
-export const metadata = {
+import {useEffect, useState} from 'react'
+
+
+
+
+
+const metadata = {
   title: 'Find - Persons',
   description: 'A professional website for finding persons',
-  lang: 'en',
+  lang: 'es',
   favicon: '/images/cropped-lupa-favicon.jpeg',
   charSet: 'UTF-8'
 }
 
 function RootLayout( { children } ) {
+
+  const [analiticsTag, setAnaliticsTag] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const extension = localStorage.getItem('extencion')
+    
+    if( extension === null || extension === undefined || extension === '/') 
+      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_ES)
+    
+    else if( extension === '/es' )
+      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_ES)
+
+    else if( extension === '/it' ) 
+      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_IT)
+    
+    else if( extension === '/fr' ) 
+      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_FR)
+
+    else if( extension === '/de' )
+      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_DE)
+
+    setLoading(false)
+    
+  }, [])
+
+  
 
   return ( 
 
@@ -47,18 +80,18 @@ function RootLayout( { children } ) {
             `
           }} />
 
-          {/*  Google tag (gtag.js) ANALYTICS */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7GD5WN3YR"></script>
-          <script
-              dangerouslySetInnerHTML={{
-              __html: `
+          {!loading ? (<>
+          {/* Google tag (gtag.js) ANALYTICS */}
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${analiticsTag}`}></script>
+          <script dangerouslySetInnerHTML={{
+            __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-L7GD5WN3YR');
-              `,
-              }}
-          />
+              gtag('config', ${analiticsTag});
+            `
+          }} />
+          </>) : null}
 
           
 
