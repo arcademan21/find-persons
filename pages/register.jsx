@@ -242,7 +242,7 @@ const Register = () => {
 
     useEffect(() => {
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).register )
-        if( user ) router.push('/')
+        //if( user ) router.push('/')
     }, [router, state, user])
 
     return (<>
