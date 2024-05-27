@@ -14,7 +14,7 @@ const Header = () => {
   const [isHome, setIsHome ] = useState( null )
 
   useEffect(() => {
-      if( extension === '/es' ) setIsHome(true)
+      if( extension === '/es' || extension === '/fr' || extension === '/it' || extension === '/de' ) setIsHome(true)
       else if( pathname === extension ) setIsHome(true) 
   }) 
 
@@ -31,6 +31,7 @@ const Header = () => {
             : <span className="navbar-brand link-logo ">
                 <Image src="/images/logo_find-persons.png" width={150} height={60} alt="logo" />
               </span> }
+
           </div>
 
           <div
