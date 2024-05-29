@@ -7,7 +7,7 @@ import Footer from "../src/components/Footer"
 import Script from 'next/script'
 import Head from 'next/head'
 import 'react-toastify/dist/ReactToastify.css'
-import {useEffect, useState} from 'react'
+//import {useEffect, useState} from 'react'
 
 export const metadata = {
   title: 'Find - Persons',
@@ -19,27 +19,27 @@ export const metadata = {
 
 function PersonsFinder({ Component, pageProps }) {
 
-  const [analiticsTag, setAnaliticsTag] = useState(null)
+  //const [analiticsTag, setAnaliticsTag] = useState(null)
 
-  useEffect(() => {
-    const extension = localStorage.getItem('extencion')
+  // useEffect(() => {
+  //   const extension = localStorage.getItem('extencion')
     
-    if( extension === null || extension === undefined || extension === '/') 
-      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_ES)
+  //   if( extension === null || extension === undefined || extension === '/') 
+  //     setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_ES)
     
-    else if( extension === '/es' )
-      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_ES)
+  //   else if( extension === '/es' )
+  //     setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_ES)
 
-    else if( extension === '/it' ) 
-      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_IT)
+  //   else if( extension === '/it' ) 
+  //     setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_IT)
     
-    else if( extension === '/fr' ) 
-      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_FR)
+  //   else if( extension === '/fr' ) 
+  //     setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_FR)
 
-    else if( extension === '/de' )
-      setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_DE)
+  //   else if( extension === '/de' )
+  //     setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_DE)
     
-  }, [])
+  // }, [])
   
   return (<>
     
@@ -66,7 +66,10 @@ function PersonsFinder({ Component, pageProps }) {
         }} />
 
         {/* Google tag (gtag.js) ANALYTICS */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${analiticsTag}`}></script>
+        {/* <script 
+        async 
+        src={`https://www.googletagmanager.com/gtag/js?id=${analiticsTag}`}
+        ></script>
         <script dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -74,7 +77,7 @@ function PersonsFinder({ Component, pageProps }) {
             gtag('js', new Date());
             gtag('config', ${analiticsTag});
           `
-        }} />
+        }} /> */}
 
     </Head>
 
@@ -105,7 +108,7 @@ function PersonsFinder({ Component, pageProps }) {
     <Script type="text/javascript" src="/libs/wow/wow.min.js" strategy="beforeInteractive" />
     <Script type="text/javascript" src="/libs/wow/wow.init.js" strategy="afterInteractive" />
 
-    <script dangerouslySetInnerHTML={{
+    {/* <script dangerouslySetInnerHTML={{
       __html: `
       window._mfq = window._mfq || [];
       (function() {
@@ -115,7 +118,7 @@ function PersonsFinder({ Component, pageProps }) {
           document.getElementsByTagName("head")[0].appendChild(mf);
       })();
       `
-    }} />
+    }} /> */}
     
 
   </>)
