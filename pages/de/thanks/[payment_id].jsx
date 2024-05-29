@@ -100,15 +100,6 @@ const ThanksPage = () => {
     useEffect(() => {
 
         CheckTokenValidity( payment_id )
-        .then( async ( res ) => {
-            if( !res ) {
-                window.location.replace(extension)
-                return false
-            } 
-
-            return res
-
-        })
         .then( res => {
             
             if( !res ) {

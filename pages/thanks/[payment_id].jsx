@@ -99,15 +99,6 @@ const ThanksPage = () => {
 
         CheckTokenValidity( payment_id )
         .then( async ( res ) => {
-            if( !res ) {
-                router.push('/')
-                return false
-            } 
-
-            return res
-
-        })
-        .then( res => {
             
             if( !res ) {
                 router.push('/')
