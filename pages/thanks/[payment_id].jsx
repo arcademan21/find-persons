@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
-const convertions_gtag = process.env.NEXT_PUBLIC_CONVERTIONS_GTAG_ES
+//const convertions_gtag = process.env.NEXT_PUBLIC_CONVERTIONS_GTAG_ES
 
 export const CheckTokenValidity = async ( token ) => {
     
@@ -106,10 +106,10 @@ const ThanksPage = () => {
             }
 
             // Cargando script de converciones en la cavecera
-            const script = document.createElement('script')
-            script.type = 'text/javascript'
-            script.innerHTML = convertions_gtag
-            document.head.appendChild( script )
+            // const script = document.createElement('script')
+            // script.type = 'text/javascript'
+            // script.innerHTML = convertions_gtag
+            // document.head.appendChild( script )
 
             timer()
 
@@ -128,6 +128,14 @@ const ThanksPage = () => {
     }, [])
 
     return (<>
+
+        {/* CONVERTIONS TAG */}
+        <script async dangerouslySetInnerHTML={{
+            __html: `
+            //Event snippet for FIND-PERSONS.COM/ES conversion page
+            gtag('event', 'conversion', {'send_to': 'AW-340874452/jL64CKiWxpkYENSpxaIB'})
+            `
+        }} />
         
         <div className="container-fluid h-100 wow fadeInUp " >
             <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75 " >
@@ -142,6 +150,19 @@ const ThanksPage = () => {
                 </div>
             </div>
         </div>
+
+        {/* MOUSE FLOW TAG */}
+        <script dangerouslySetInnerHTML={{
+            __html: `
+            window._mfq = window._mfq || [];
+            (function() {
+                var mf = document.createElement("script");
+                mf.type = "text/javascript"; mf.defer = true;
+                mf.src = "//cdn.mouseflow.com/projects/b954db58-6476-4e67-8b81-d66b3eaa740f.js";
+                document.getElementsByTagName("head")[0].appendChild(mf);
+            })();
+            `
+        }} />
         
         
     </>)
