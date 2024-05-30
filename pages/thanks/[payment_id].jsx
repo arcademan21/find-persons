@@ -11,7 +11,6 @@ export const CheckTokenValidity = async ( token ) => {
     
     try{
 
-        // Fetch to endpoint for get payment
         const req = await fetch( path_endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
