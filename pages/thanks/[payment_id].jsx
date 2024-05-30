@@ -99,10 +99,10 @@ const ThanksPage = () => {
         CheckTokenValidity( payment_id )
         .then( async ( res ) => {
             
-            if( !res ) {
-                router.push('/')
-                return false
-            }
+            // if( !res ) {
+            //     router.push('/')
+            //     return false
+            // }
 
             // Cargando script de converciones en la cavecera
             // const script = document.createElement('script')
@@ -116,7 +116,7 @@ const ThanksPage = () => {
 
         })
         .catch( error => {
-            router.push('/')
+            //router.push('/')
         })
         .finally( () => {
             InvalidateToken( payment_id )
@@ -135,7 +135,7 @@ const ThanksPage = () => {
             gtag('event', 'conversion', {'send_to': 'AW-340874452/jL64CKiWxpkYENSpxaIB'})
             `
         }} />
-        
+
         <div className="container-fluid h-100 wow fadeInUp " >
             <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75 " >
                 <div className="col-md-12">
