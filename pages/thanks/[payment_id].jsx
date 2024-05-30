@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext } from 'react'
 import GlobalContext from '@/context/GlobalContext'
 import Image from 'next/image'
-
 import { useRouter } from 'next/router'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
