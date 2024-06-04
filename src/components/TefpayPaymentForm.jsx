@@ -73,8 +73,6 @@ export const TefpayPaymentForm = () => {
     const [dsmerchant_terminal, setDsMerchantTerminal] = useState('00000001')
     const [dsmerchant_terminalauth, setDsMerchantTerminalAuth] = useState('00000001')
 
-
-
     const CleanStringForTefpay = ( email ) => {
     
         email = email.replace(/[ÁÉÍÓÚÜÑáéíóúàèìòùÀÈÍÒÙüñ]/g, function( match ) {

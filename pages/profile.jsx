@@ -12,11 +12,13 @@ const Profile = () => {
     const laguage_toast = JSON.parse(localStorage.getItem('language_file')).toast
     const [loading, setLoading] = useState( false )
     const user = JSON.parse(localStorage.getItem('user'))
+    const lang = localStorage.getItem('language')
 
     let timestamp = Number(user.createdAt)
     let date = new Date(timestamp)
 
     const router = useRouter()
+
 
     const getUserData = async ( email ) => {
 
@@ -52,6 +54,19 @@ const Profile = () => {
 
         if( confirm('¿Estas seguro de que deseas darte de baja?') === false ) return false
 
+        const terminals_list = {
+            es: '00000001',
+            it: '00000002',
+            fr: '00000003',
+            uk: '00000004',
+            de: '00000005',
+            nl: '00000006',
+            ie: '00000007',
+            ae: '00000008'
+        }
+
+        const terminal = terminals_list[lang]
+
         // Show loading
         setLoading( true )
 
@@ -67,6 +82,7 @@ const Profile = () => {
                             "down_suscription": {
                                 "user_email": email,
                                 "payment_id": payment_id,
+                                "ds_terminal": terminal,
                                 "reason": "user request"
                             }
                         }
