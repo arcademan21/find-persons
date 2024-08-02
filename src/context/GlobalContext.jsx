@@ -173,7 +173,7 @@ export const GlobalProvider = ( { children } ) => {
     
     <GlobalContext.Provider value={{ state, setState }} >
       
-      <CookieConsent
+      {/* <CookieConsent
           location="bottom"
           buttonText={state.language_file.cookies_banner.acept}
           cookieName="myAwesomeCookieName2"
@@ -190,7 +190,7 @@ export const GlobalProvider = ( { children } ) => {
           {state.language_file.cookies_banner.paragraph_2}
           <br />
           {state.language_file.cookies_banner.paragraph_3}
-      </CookieConsent>
+      </CookieConsent> */}
       { children }
     </GlobalContext.Provider>
   )
