@@ -126,6 +126,7 @@ const Register = () => {
         createUserWithEmailAndPassword( auth, email, password )
         .then( ( UserCredential ) => { 
             
+            debugger
             loadingButton.innerHTML = language.suscces_register
             
             setState({ ...state, user: UserCredential.user })
