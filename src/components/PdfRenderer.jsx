@@ -8,12 +8,12 @@ import {
     Link
 } from '@react-pdf/renderer'
 
-
-
 const PdfRenderer = ( { dataPerson } ) => {
     
     const language = JSON.parse(localStorage.getItem('language_file')).results_pdf
+    
     return (
+        
         <Document>
             
             <Page size="A4" style={styles.page}>
@@ -142,6 +142,8 @@ const PdfRenderer = ( { dataPerson } ) => {
                 
 
             </Page>
+
+            
 
         </Document>
     )

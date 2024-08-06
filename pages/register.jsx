@@ -92,7 +92,6 @@ const Register = () => {
     const lang = localStorage.getItem('language')
     const router = useRouter()
 
-    
     const newUser = async () => { 
         
         const user_name = document.getElementById('user_name').value
