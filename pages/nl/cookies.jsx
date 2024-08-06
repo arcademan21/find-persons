@@ -20,9 +20,9 @@ const Cookies = () => {
             <div className="page-banner my-5">
                 <div className="row justify-content-center align-items-center h-100">
                     <div className="col-md-6">
-                    <h1 className="text-center">
-                        {language.title_1}
-                    </h1>
+                        <h1 className="text-center">
+                            {language.title_1}
+                        </h1>
                     </div>
                 </div>
             </div>

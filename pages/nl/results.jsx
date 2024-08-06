@@ -8,6 +8,7 @@ import PDLJS from 'peopledatalabs'
 import { FaSearch, FaPhone, FaEnvelope, FaSpinner, FaDownload, FaInfoCircle, FaMapMarked }
 from 'react-icons/fa'
 import '../css/results.css'
+import { useRouter } from 'next/navigation'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -15,7 +16,7 @@ const GetSuscription = async ( user ) =>{
 
         // Fetch to endpoint for update suscription
         const req = await fetch( path_endpoint, {
-    method: 'POST',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 "petition" : {
@@ -113,6 +114,8 @@ const Results = () => {
     const [serpstakResults, setSerpstakResults] = useState(null)
 
     const extension = localStorage.getItem('extencion')
+
+    const router = useRouter()
     
     const setRegionRegionHandler = (e) => {
         setRegion(e.target.value)
@@ -296,9 +299,9 @@ const Results = () => {
         
         GetSuscription( user ).then( suscripted => {
             
-            if(search === 'null') window.location.replace(extension)
-            else if( user && !suscripted ) window.location.replace(`${extension}/payment`)
-            else if( !user ) window.location.replace(`${extension}/register`)
+            if(search === 'null') router.push(extension)
+            else if( user && !suscripted ) window.location.href = `${extension}/payment`
+            else if( !user ) router.push(`${extension}/register`)
 
         })
 

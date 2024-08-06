@@ -73,7 +73,6 @@ export const InvalidateToken = async ( token ) => {
 const ThanksPage = () => {
 
     const context = useContext( GlobalContext )
-
     const user = JSON.parse(localStorage.getItem('user'))
     const language = JSON.parse(localStorage.getItem('language_file'))
     
@@ -88,8 +87,7 @@ const ThanksPage = () => {
         const time = window.setInterval(() => {
             setCounter((prevCounter) => {
                 if (prevCounter === 0) {
-                    // Redirigiendo a la pagina de resultados
-                    window.location.replace(`${extension}/results`)
+                    router.push(`${extension}/results`)
                     clearInterval( time )
                     return prevCounter
                 } else {
@@ -102,19 +100,10 @@ const ThanksPage = () => {
     useEffect(() => {
 
         CheckTokenValidity( payment_id )
-        .then( async ( res ) => {
-            if( !res ) {
-                window.location.replace(extension)
-                return false
-            } 
-
-            return res
-
-        })
         .then( res => {
             
             if( !res ) {
-                window.location.replace(extension)
+                window.location.href = extension
                 return false
             }
 
@@ -131,7 +120,7 @@ const ThanksPage = () => {
         })
         .catch( error => {
             console.log( error )
-            window.location.replace(extension)
+            window.location.href = extension
         })
         .finally( () => {
             InvalidateToken( payment_id )
@@ -142,7 +131,7 @@ const ThanksPage = () => {
     }, [])
 
     return (<>
-        
+
         <div className="container-fluid h-100 wow fadeInUp " >
             <div className="row m-auto d-flex flex-column px-5 px-sm-2 justify-content-center align-items-center vh-100 py-5 w-75 " >
                 <div className="col-md-12">
@@ -156,6 +145,8 @@ const ThanksPage = () => {
                 </div>
             </div>
         </div>
+
+        
         
         
     </>)

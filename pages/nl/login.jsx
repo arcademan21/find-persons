@@ -73,7 +73,7 @@ const Login = ( ) => {
     }
 
     useEffect(() => {
-        if( user ) window.location.replace(extension)
+        if( user ) router.push(extension)
     }, [])
 
     useEffect(() => {
@@ -160,7 +160,7 @@ const Login = ( ) => {
                         <p className="title-section text-center w-100">
                         <span className="marked">{language.no_account}</span>
                         <br />
-                        <span className="d-flex link-primary my-1 w-100 justify-content-center align-items-center" onClick={()=>{window.location.replace(`${extension}/register`)}} >
+                        <span className="d-flex link-primary my-1 w-100 justify-content-center align-items-center" onClick={()=>{router.push(`${extension}/register`)}} >
                             <FaUserPlus className='mx-1' style={{ fontSize: "3rem", marginRight: "5px" }} />
                             <span className='fs-4'>{language.register_link}</span>
                         </span>
