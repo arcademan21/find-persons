@@ -82,13 +82,16 @@ const Register = () => {
     const context = useContext( GlobalContext )
     const { state, setState } = context
     const { auth } = state
+
     const user = JSON.parse( localStorage.getItem('user') )
     const search = localStorage.getItem('search')
+
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     const language_toast = JSON.parse( localStorage.getItem('language_file') ).toast
     const [loadingRegisterButton, setLoadingRegisterButton] = useState( false )
     const lang = localStorage.getItem('language')
     const extension = localStorage.getItem('extencion')
+
     const router = useRouter()
     
     const newUser = async () => { 
@@ -123,8 +126,6 @@ const Register = () => {
         createUserWithEmailAndPassword( auth, email, password )
         .then( ( UserCredential ) => { 
             
-            // depurando..
-            debugger
             loadingButton.innerHTML = language.suscces_register
             
             setState({ ...state, user: UserCredential.user })
