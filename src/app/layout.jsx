@@ -41,6 +41,9 @@ function RootLayout( { children } ) {
       else if( extension === '/de' )
         setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_DE)
 
+      else if( extension === '/nl' )
+        setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_NL)
+
       setLoading(false)
     }
   }, [])

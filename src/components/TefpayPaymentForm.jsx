@@ -193,7 +193,7 @@ export const TefpayPaymentForm = () => {
             setDsMerchantTerminalAuth('00000003')
         }
 
-        else if( extension === '/uk' ) {
+        else if( extension === '/at' ) {
             setDsMerchantTerminal('00000004')
             setDsMerchantTerminalAuth('00000004')
         }
@@ -208,7 +208,7 @@ export const TefpayPaymentForm = () => {
             setDsMerchantTerminalAuth('00000006')
         }
 
-        else if( extension === '/ie' ) {
+        else if( extension === '/be' ) {
             setDsMerchantTerminal('00000007')
             setDsMerchantTerminalAuth('00000007')
         }
