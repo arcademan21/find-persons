@@ -30,7 +30,7 @@ export const GlobalProvider = ( { children } ) => {
     localStorage.setItem('menu', JSON.stringify( { menu: { active_links: true } } ) )
     
     const extension_list = [
-      'es', 'it', 'fr', 'uk', 'de', 'ae', 'ie', 'nl'
+      'es', 'it', 'fr', 'uk', 'de', 'ae', 'ie', 'nl', 'at', 'be'
     ]
 
     const blocked_url_names = [
@@ -191,6 +191,7 @@ export const GlobalProvider = ( { children } ) => {
           <br />
           {state.language_file.cookies_banner.paragraph_3}
       </CookieConsent> */}
+
       { children }
     </GlobalContext.Provider>
   )
