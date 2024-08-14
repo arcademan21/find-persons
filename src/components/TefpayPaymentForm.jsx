@@ -67,7 +67,10 @@ export const TefpayPaymentForm = () => {
     const [ suscription_description, setSuscriptionDescription ] = useState('')
     const [ user_name, setUserName ] = useState(localStorage.getItem('user_name'))
     const [ user_email, setUserEmail ] = useState(user.email)
+
+    // TODO: Validar el lenguaje que enviamos a Tefpay correctamente
     const [ lang, setLang ] = useState(localStorage.getItem('language'))
+
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
 
     const [dsmerchant_terminal, setDsMerchantTerminal] = useState('00000001')
@@ -168,7 +171,7 @@ export const TefpayPaymentForm = () => {
 
         } )
 
-    }, [extension, user])
+    }, [])
 
     useEffect(() => {
         
@@ -234,7 +237,7 @@ export const TefpayPaymentForm = () => {
             window.TefpayIframe = null
         }
 
-    }, [extension])
+    }, [])
 
     return (<>
 

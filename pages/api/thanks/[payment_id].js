@@ -179,6 +179,9 @@ export default function handler( req, res ) {
     const payment_id = parts[0]
     const signature = parts[1]
     const extension = parts[2] 
+
+    // TODO: debuggear la extension para ver si es correcta
+
     const user = {
         user_email: parts[3],
         user_name: parts[4],
