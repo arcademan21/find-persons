@@ -8,6 +8,7 @@ import PDLJS from 'peopledatalabs'
 import { FaSearch, FaPhone, FaEnvelope, FaSpinner, FaDownload, FaInfoCircle, FaMapMarked }
 from 'react-icons/fa'
 import '../css/results.css'
+import { useRouter } from 'next/navigation'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -34,6 +35,28 @@ const GetSuscription = async ( user ) =>{
         if(res.status === 'error') return false
 
         return res
+
+    } catch ( error ) {
+        return false
+    }
+
+}
+
+const GetSerpstakResults = async ( search, lang ) =>{
+
+    try{
+
+        // Fetch to endpoint for update suscription
+        const req = await fetch( '/api/serpstak/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                "query" : search,
+                "lang": lang
+            })
+        })
+
+        return await req.json()
 
     } catch ( error ) {
         return false
@@ -80,7 +103,6 @@ const Results = () => {
     const user = JSON.parse( localStorage.getItem('user') )
     const lang = localStorage.getItem('language')
     const countrie = localStorage.getItem('countrie')
-    let dataObjectPerson = null
 
     const [dataPerson, setDataPerson] = useState( null )
     
@@ -88,7 +110,12 @@ const Results = () => {
     const [error, setError] = useState(null)
     
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
+
+    const [serpstakResults, setSerpstakResults] = useState(null)
+
     const extension = localStorage.getItem('extencion')
+
+    const router = useRouter()
     
     const setRegionRegionHandler = (e) => {
         setRegion(e.target.value)
@@ -238,20 +265,6 @@ const Results = () => {
             // Pass the parameters object to the Person Search API
             PDLJSClient.person.enrichment( params ).then(( data ) => {
                 
-                // console.log(`Successfully grabbed ${data.data.length} records from PDL.`);
-                // console.log(`${data["total"]} total PDL records exist matching this query.`)
-                // dataObjectPerson = data.data
-                
-                // let dataPerson = data.data
-                // let dataPersonKeys = Object.keys( dataPerson )
-                // let dataPersonKeysLength = dataPersonKeys.length
-
-                // for( let i = 0; i < dataPersonKeysLength; i++ ){
-                //     if( typeof dataPerson[ dataPersonKeys[i] ] === 'object' && dataPerson[ dataPersonKeys[i] ] !== null ){
-                //         dataPerson[ dataPersonKeys[i] ] = JSON.stringify( dataPerson[ dataPersonKeys[i] ] )
-                //     }
-                // }
-
                 //setDataPerson( dataPerson )
                 setDataPerson( data.data )
                 setLoading( false )
@@ -270,13 +283,25 @@ const Results = () => {
 
     }
 
+    const fetchSerpstakResults = async () => {
+        GetSerpstakResults( search, lang ).then( res => {
+            if( !res ) return false
+            setSerpstakResults( res )
+        }).catch( error => {
+            // TODO: Implementar un mensaje de error
+            setError( error )
+        }).finally( () => {
+            setLoading( false )
+        })
+    }
+
     useEffect( () => {
         
         GetSuscription( user ).then( suscripted => {
             
-            if(search === 'null') window.location.replace(extension)
-            else if( user && !suscripted ) window.location.replace(`${extension}/payment`)
-            else if( !user ) window.location.replace(`${extension}/register`)
+            if(search === 'null') router.push(extension)
+            else if( user && !suscripted ) window.location.href = `${extension}/payment`
+            else if( !user ) router.push(`${extension}/register`)
 
         })
 
@@ -285,7 +310,8 @@ const Results = () => {
     useEffect(() => {
 
         getRegionAndLocality()
-        fetchPersonData()
+        //fetchPersonData()
+        fetchSerpstakResults()
 
     }, [] )
 
@@ -339,7 +365,7 @@ const Results = () => {
                                 </span><br/>
                                 {language.results.general_description}
                                 </h3>
-                                <div className="text-secondary my-3">
+                                {/* <div className="text-secondary my-3">
                                     <div className="info-persons card shadow border rounded bg-white w-75 m-auto p-2">
 
                                         <p className='text-secondary title-section'>
@@ -352,14 +378,14 @@ const Results = () => {
                                 </div>
                                 <div className="d-flex justify-content-center content-image-clue">
                                     <Image src="/images/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" width={100} height={100} layout='responsive' />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-2 wrap-results-form">
                         <div className="d-flex px-3 flex-column">
 
-                            <h2 className="text-center text-secondary title-section mt-4">
+                            {/* <h2 className="text-center text-secondary title-section mt-4">
                                 {language.results.contact_info}
                             </h2>
                             <div className="person-contact-section">
@@ -380,14 +406,40 @@ const Results = () => {
                                     
                                 </div>
                                 
-                            </div> <br/>
-                            
+                            </div> <br/> */}
+
+                            {
+                                serpstakResults.response.organic_results && <div className="d-flex flex-column p-3 m-auto w-100">
+                                    <h3 className="text-center text-secondary title-section mb-4">
+                                        {language.results.search_results}
+                                    </h3>
+                                    <div className="text-secondary my-3">
+                                        <div className="info-persons card shadow border rounded bg-white w-75 m-auto p-2">
+                                            <p>
+                                                <ul>
+                                                    { serpstakResults.response.organic_results.map( ( result, index ) => {
+                                                        return <li key={index} className='text-secondary'>
+                                                            <h3 className='text-secondary'>{result.title}</h3>
+                                                            <p>{result.snippet}</p>
+                                                            <a href={result.url} className='decoration-none'>
+                                                                {result.title}
+                                                            </a>
+                                                        </li>
+                                                    }) }
+                                                </ul>
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            }
+
                             <h2 className="text-center text-secondary title-section mt-4">
                                 {language.results.download_complete_info}
                             </h2>
 
                             <PDFDownloadLink 
-                                document={<PdfRenderer dataPerson={ dataObjectPerson } />} 
+                                document={<PdfRenderer dataPerson={ serpstakResults } />} 
                                 fileName="data_person.pdf" 
                                 style={{ textAlign: "center" }} 
                                 onClick={handleDownloadClick}
@@ -395,7 +447,7 @@ const Results = () => {
                                 {({ blob, url, loading, error }) => {
                                     
                                     return loading ? 
-                                        <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
+                                        <button className="btn btn-danger text-light fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
                                             <FaSpinner className="mx-1" />
                                             {language.results.download_pdf}
                                         </button> 
@@ -407,36 +459,6 @@ const Results = () => {
 
                                 }}
                             </PDFDownloadLink>
-
-                            {/* { dataPerson ? 
-
-                                <PDFDownloadLink 
-                                    document={<PdfRenderer dataPerson={ dataObjectPerson } />} 
-                                    fileName="data_person.pdf" 
-                                    style={{ textAlign: "center" }} 
-                                    onClick={handleDownloadClick}
-                                >
-                                    {({ blob, url, loading, error }) => {
-                                        
-                                        return loading ? 
-                                            <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
-                                                <FaSpinner className="mx-1" />
-                                                {language.results.download_pdf}
-                                            </button> 
-                                        : 
-                                            <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn">
-                                                <FaDownload className="mx-1" />
-                                                {language.results.download_pdf}
-                                            </button>
-
-                                    }}
-                                </PDFDownloadLink>
-                            : 
-                                <button className="btn btn-warning text-dark fs-4 btn-sm rounded-pill m-auto w-50 fs-5 download-btn" >
-                                    <FaSpinner className="mx-1" />
-                                    {language.results.download_pdf}
-                                </button> 
-                            } */}
 
                             <div className="w-75 shadow rounded m-auto my-3 p-3 bg-white note-info">
                                 <FaInfoCircle className="mx-2" style={{ fontSize: "2rem" }} />
@@ -459,7 +481,7 @@ const Results = () => {
                                 <h4>Resultados de {search}</h4>
                             </div>
                             <div className="card-body">
-                                {dataPerson && <pre>{ JSON.stringify( dataPerson, null, 2) }</pre>}
+                                {serpstakResults && <pre>{ JSON.stringify( serpstakResults, null, 2) }</pre>}
                                 {error && <p>Error: { error.message }</p>}
                             </div>
                         </div>

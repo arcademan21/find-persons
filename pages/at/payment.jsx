@@ -6,6 +6,7 @@ import Image from "next/image"
 import { FaClock, FaEnvelope, FaLock } from "react-icons/fa"
 import { FaCircleCheck } from "react-icons/fa6"
 import ModalTerms from "@/components/ModalTerms"
+import { useRouter } from "next/navigation"
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -48,14 +49,16 @@ const Payment = () => {
     const search = localStorage.getItem('search')
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).payment )
     const extension = localStorage.getItem('extencion')
+
+    const router = useRouter()
     
     useEffect(() => {
         
         setLanguage( JSON.parse( localStorage.getItem('language_file') ).payment )
         GetSuscription( user ).then( suscripted => {
             
-            if( !user ) window.location.replace(`${extension}/register`)
-            else if( user && suscripted ) window.location.replace(`${extension}/results`)
+            if( !user ) router.push(`${extension}/register`)
+            else if( user && suscripted ) router.push(`${extension}/results`)
 
         })
     }, [])
@@ -134,7 +137,7 @@ const Payment = () => {
                                     </span>
                                 </h3>
                                 <p className="title-section text-secondary">
-                                    <span className="marked fs-5">
+                                    <span className="marked fs-5 fs-ms-6">
                                         <FaClock className="fs-1" />
                                         {language.time_access}
                                     </span> 
@@ -198,7 +201,7 @@ const Payment = () => {
                                     </p>
                                     <div className="d-flex justify-content-center">
                                         <button className="btn btn-primary btn-lg decoration-none" onClick={
-                                            () => window.location.replace(`${extension}/#contact`)   
+                                            () => router.push(`${extension}/#contact`)   
                                         }>
                                             <FaEnvelope className="fs-4" />
                                             <b className="fs-4"> 

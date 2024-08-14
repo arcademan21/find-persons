@@ -8,6 +8,7 @@ import PDLJS from 'peopledatalabs'
 import { FaSearch, FaPhone, FaEnvelope, FaSpinner, FaDownload, FaInfoCircle, FaMapMarked }
 from 'react-icons/fa'
 import '../css/results.css'
+import { useRouter } from 'next/navigation'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const GetSuscription = async ( user ) =>{
@@ -113,6 +114,8 @@ const Results = () => {
     const [serpstakResults, setSerpstakResults] = useState(null)
 
     const extension = localStorage.getItem('extencion')
+
+    const router = useRouter()
     
     const setRegionRegionHandler = (e) => {
         setRegion(e.target.value)
@@ -264,18 +267,18 @@ const Results = () => {
                 
                 //setDataPerson( dataPerson )
                 setDataPerson( data.data )
-                //setLoading( false )
+                setLoading( false )
                 
 
             }).catch((error) => {
                 //console.log("NOTE: The carrier pigeons lost motivation in flight. See error and try again.")
                 setError(error)
-                //setLoading( false )
+                setLoading( false )
             })
 
         } catch (error) {
             setError(error)
-            //setLoading( false )
+            setLoading( false )
         }
 
     }
@@ -288,7 +291,7 @@ const Results = () => {
             // TODO: Implementar un mensaje de error
             setError( error )
         }).finally( () => {
-            //setLoading( false )
+            setLoading( false )
         })
     }
 
@@ -296,9 +299,9 @@ const Results = () => {
         
         GetSuscription( user ).then( suscripted => {
             
-            if(search === 'null') window.location.replace(extension)
-            else if( user && !suscripted ) window.location.replace(`${extension}/payment`)
-            else if( !user ) window.location.replace(`${extension}/register`)
+            if(search === 'null') router.push(extension)
+            else if( user && !suscripted ) window.location.href = `${extension}/payment`
+            else if( !user ) router.push(`${extension}/register`)
 
         })
 
@@ -371,12 +374,11 @@ const Results = () => {
                                             { dataPerson && dataPerson.birth_date ? dataPerson.birth_date : ' - n/a - ' }  
                                             { language.results.actualy} <span className='marked'> { dataPerson && dataPerson.location_name ? dataPerson.location_name : ' - n/a - ' } </span> 
                                         </p>
-
                                     </div>
-                                </div> */}
+                                </div>
                                 <div className="d-flex justify-content-center content-image-clue">
                                     <Image src="/images/bg_image_3.png" alt="secure-payment" className="img-fluid w-50" width={100} height={100} layout='responsive' />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
