@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
-const convertions_gtag = process.env.NEXT_PUBLIC_CONVERTIONS_GTAG
+const convertions_gtag = process.env.NEXT_PUBLIC_CONVERTIONS_GTAG_AT
 
 export const CheckTokenValidity = async ( token ) => {
     
