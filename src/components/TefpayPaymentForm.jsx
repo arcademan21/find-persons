@@ -168,7 +168,7 @@ export const TefpayPaymentForm = () => {
 
         } )
 
-    }, [])
+    }, [extension, user])
 
     useEffect(() => {
         
@@ -234,7 +234,7 @@ export const TefpayPaymentForm = () => {
             window.TefpayIframe = null
         }
 
-    }, [])
+    }, [extension])
 
     return (<>
 
