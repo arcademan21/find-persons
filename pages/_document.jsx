@@ -17,8 +17,8 @@ class MyDocument extends Document {
           <meta name="description" content={metadata.description} />
 
           {/* <!-- Start cookieyes banner -->  */}
-          {/* <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/351f4de424a0d0b99de31a9b/script.js" async></script> */}
-          
+          <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/351f4de424a0d0b99de31a9b/script.js" async></script>
+
           {/* Google tag (gtag.js) ADWORDS */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=AW-340874452"></script>
           <script dangerouslySetInnerHTML={{
@@ -35,7 +35,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           <script dangerouslySetInnerHTML={{
-              __html: `
+            __html: `
               window._mfq = window._mfq || [];
               (function() {
                   var mf = document.createElement("script");
