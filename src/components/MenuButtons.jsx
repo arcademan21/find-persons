@@ -15,7 +15,7 @@ const MenuButtons = () => {
 
     const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')))
     const [isHome, setIsHome ] = useState( null )
-    const activeMenu = JSON.parse(localStorage.getItem('menu')).menu.active_links
+    const activeMenu = JSON.parse(localStorage.getItem('menu'))?.menu?.active_links
     
     const handle_contact = () => {
         
