@@ -72,6 +72,12 @@ function PersonsFinder({ Component, pageProps }) {
     <Script type="text/javascript" src="/js/theme.js" strategy='lazyOnload' />
     <Script type="text/javascript" src="/libs/wow/wow.min.js" strategy="beforeInteractive" />
     <Script type="text/javascript" src="/libs/wow/wow.init.js" strategy="afterInteractive" />
+
+    <Script id="cookieyes"
+      type="text/javascript"
+      src="https://cdn-cookieyes.com/client_data/351f4de424a0d0b99de31a9b/script.js"
+      async strategy='lazyOnload'
+    />
     
   </>)
 
