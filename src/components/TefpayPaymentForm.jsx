@@ -69,7 +69,7 @@ export const TefpayPaymentForm = () => {
   const [user_email, setUserEmail] = useState(user.email)
 
   // TODO: Validar el lenguaje enviamos a Tefpay correctamente
-  const [lang, setLang] = useState(localStorage.getItem('language'))
+  const [lang, setLang] = useState(localStorage.getItem('languageI18'))
 
   const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')).payment)
   const [dsmerchant_terminal, setDsMerchantTerminal] = useState('00000001')
@@ -109,7 +109,7 @@ export const TefpayPaymentForm = () => {
 
   useEffect(() => {
 
-    const merchant_lang = localStorage.getItem('language')
+    const merchant_lang = localStorage.getItem('languageI18')
     const matchingData = String(new Date().toISOString().replace(/[^0-9]/g, '')).padEnd(21, '0')
     const merchantURL = tefpay_notyfi_url
     const signature = CreateSubscriptionSignature(

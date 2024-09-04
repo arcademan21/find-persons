@@ -12,7 +12,7 @@ const Profile = () => {
     const laguage_toast = JSON.parse(localStorage.getItem('language_file')).toast
     const [loading, setLoading] = useState( false )
     const user = JSON.parse(localStorage.getItem('user'))
-    const lang = localStorage.getItem('language')
+    const lang = localStorage.getItem('languageI18')
 
     let timestamp = Number(user.createdAt)
     let date = new Date(timestamp)

@@ -5,7 +5,7 @@ import {toast} from 'react-toastify'
 const ModalTerms = () => {
 
     const language = JSON.parse(localStorage.getItem('language_file')).modal_terms
-    let lang = localStorage.getItem('language')
+    let lang = localStorage.getItem('languageI18')
 
     if( lang === 'es' ) lang = ''
 

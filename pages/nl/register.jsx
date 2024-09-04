@@ -89,7 +89,7 @@ const Register = () => {
     const [ language, setLanguage ] = useState( JSON.parse( localStorage.getItem('language_file') ).register )
     const language_toast = JSON.parse( localStorage.getItem('language_file') ).toast
     const [loadingRegisterButton, setLoadingRegisterButton] = useState( false )
-    const lang = localStorage.getItem('language')
+    const lang = localStorage.getItem('languageI18')
     const extension = localStorage.getItem('extencion')
 
     const router = useRouter()

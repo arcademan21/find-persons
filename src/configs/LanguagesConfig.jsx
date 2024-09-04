@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 export const DefaultLanguage = () => {
 
     let extension = localStorage.getItem('extencion').split('/')[1]
-    const language = localStorage.getItem('language')
+    const language = localStorage.getItem('languageI18')
 
     if( extension === '' ) {
         extension = language
@@ -25,7 +25,7 @@ export const DefaultLanguage = () => {
 
     useEffect(() => {
         
-        const local_language = window.localStorage.getItem('language')
+        const local_language = window.localStorage.getItem('languageI18')
         if( local_language !== null ){
             setDefaultLanguage( local_language )
             SetDefaultLanguageOnLocalStorage( local_language )
@@ -42,7 +42,7 @@ export const DefaultLanguage = () => {
 }
 
 export const SetDefaultLanguageOnLocalStorage = ( language ) => {  
-    window.localStorage.setItem('language', language)
+    window.localStorage.setItem('languageI18', language)
 }
 
 export const SetDefaultObjectLanguageOnLocalStorage = ( data ) => {

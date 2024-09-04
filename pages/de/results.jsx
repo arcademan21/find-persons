@@ -101,7 +101,7 @@ const Results = () => {
     const search = localStorage.getItem('search')
     const search_type = localStorage.getItem('search_type')
     const user = JSON.parse( localStorage.getItem('user') )
-    const lang = localStorage.getItem('language')
+    const lang = localStorage.getItem('languageI18')
     const countrie = localStorage.getItem('countrie')
 
     const [dataPerson, setDataPerson] = useState( null )
