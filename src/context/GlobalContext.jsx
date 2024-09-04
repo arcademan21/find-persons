@@ -71,7 +71,7 @@ export const GlobalProvider = ( { children } ) => {
       if( language === null && pathname !== '/' ) {
           extension = localStorage.getItem('extencion').split('/')[1]
       }
-
+        console.log("extension", extension)
       const req = await fetch(`/languajes/${extension}.json`)
       const res = await req.json()
       localStorage.setItem('language', res.language)
