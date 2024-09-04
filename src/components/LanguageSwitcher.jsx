@@ -29,6 +29,9 @@ const LanguageSwitcher = () => {
     if (lang === null) lang = e.target.getAttribute('data-language')
     if (lang === null) return false
     lang = 'es'
+
+    alert("lang: ", lang)
+    
     const req = await fetch(`/languajes/${lang}.json`)
       .then(res => res)
       .catch(err => console.error(err))
