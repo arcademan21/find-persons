@@ -30,7 +30,7 @@ export const GlobalProvider = ( { children } ) => {
     localStorage.setItem('menu', JSON.stringify( { menu: { active_links: true } } ) )
     
     const extension_list = [
-      'es', 'it', 'fr', 'uk', 'de', 'ae', 'ie', 'nl', 'at', 'be'
+      'es', 'it', 'fr', 'uk', 'de', 'ae', 'ie', 'nl'
     ]
 
     const blocked_url_names = [
@@ -71,8 +71,6 @@ export const GlobalProvider = ( { children } ) => {
       if( language === null && pathname !== '/' ) {
           extension = localStorage.getItem('extencion').split('/')[1]
       }
-
-      alert("extension: ", extension)
 
       const req = await fetch(`/languajes/${extension}.json`)
       const res = await req.json()
@@ -193,7 +191,6 @@ export const GlobalProvider = ( { children } ) => {
           <br />
           {state.language_file.cookies_banner.paragraph_3}
       </CookieConsent> */}
-
       { children }
     </GlobalContext.Provider>
   )
