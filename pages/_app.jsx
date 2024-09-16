@@ -42,8 +42,6 @@ function PersonsFinder({ Component, pageProps }) {
           `
         }} />
 
-        
-
     </Head>
 
     <Loader />

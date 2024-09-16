@@ -13,9 +13,19 @@ const Header = () => {
   const extension = localStorage.getItem('extencion')
   const [isHome, setIsHome ] = useState( null )
 
+  console.log('extension', extension)
+
   useEffect(() => {
-      if( extension === '/es' || extension === '/fr' || extension === '/it' || extension === '/de' ) setIsHome(true)
-      else if( pathname === extension ) setIsHome(true) 
+      if( 
+        extension === '/es' || 
+        extension === '/fr' || 
+        extension === '/it' || 
+        extension === '/de' ||
+        extension === '/at' ||
+        extension === '/be' ) 
+        setIsHome(true)
+      else if( pathname === extension ) 
+        setIsHome(true) 
   }) 
 
   return (
