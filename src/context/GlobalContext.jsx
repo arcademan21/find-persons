@@ -30,7 +30,7 @@ export const GlobalProvider = ( { children } ) => {
     localStorage.setItem('menu', JSON.stringify( { menu: { active_links: true } } ) )
     
     const extension_list = [
-      'es', 'it', 'fr', 'uk', 'de', 'ae', 'ie', 'nl', 'at', 'be'
+      'es', 'it', 'fr', 'uk', 'de', 'ae', 'ie', 'nl', 'at', 'tr', 'be'
     ]
 
     const blocked_url_names = [
@@ -71,12 +71,15 @@ export const GlobalProvider = ( { children } ) => {
       if( language === null && pathname !== '/' ) {
           extension = localStorage.getItem('extencion').split('/')[1]
       }
-        console.log("extension", extension)
+        
       const req = await fetch(`/languajes/${extension}.json`)
       const res = await req.json()
+
       localStorage.setItem('languageI18', res.language)
       localStorage.setItem('language_file', JSON.stringify(res))
+
       setState(prevState => ({ ...prevState, language: res.language, language_file: res }))
+      
       if( extension !== 'es' ) setExtension(extension)
       return res
 

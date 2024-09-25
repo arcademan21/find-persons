@@ -44,10 +44,18 @@ function RootLayout( { children } ) {
       else if( extension === '/nl' )
         setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_NL)
 
+      else if( extension === '/at' )
+        setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_AT)
+
+      else if( extension === '/tr' )
+        setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_TR)
+
+      else if( extension === '/be' )
+        setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_BE)
+
       setLoading(false)
     }
   }, [])
-
 
   return ( 
 
@@ -59,7 +67,6 @@ function RootLayout( { children } ) {
           <meta name="description" content={metadata.description} />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
           <title> {metadata.title} </title>
 
           <link rel="icon" type="image/jpeg" href={metadata.favicon} />
@@ -67,7 +74,6 @@ function RootLayout( { children } ) {
           <link rel="stylesheet" type="text/css" href="/libs/animate/animate.css" />
           <link rel="stylesheet" type="text/css" href="/libs/owl-carousel/owl.carousel.css" />
           <link rel="stylesheet" type="text/css" href="/css/globals.css" />
-          
           
           {/* Google tag (gtag.js) ADWORDS */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=AW-340874452"></script>
@@ -93,8 +99,6 @@ function RootLayout( { children } ) {
           }} />
           </>) : null}
 
-          
-
       </head>
 
       <body>
@@ -108,8 +112,6 @@ function RootLayout( { children } ) {
                     theme="colored"
                     limit={1}
                 />
-
-                
 
                 <Header />
               
@@ -139,18 +141,18 @@ function RootLayout( { children } ) {
           <Script type="text/javascript" src="/libs/wow/wow.min.js" strategy="beforeInteractive" />
           <Script type="text/javascript" src="/libs/wow/wow.init.js" strategy="afterInteractive" />
 
-          <script dangerouslySetInnerHTML={{
-            __html: `
-            window._mfq = window._mfq || [];
-            (function() {
-                var mf = document.createElement("script");
-                mf.type = "text/javascript"; mf.defer = true;
-                mf.src = "//cdn.mouseflow.com/projects/b954db58-6476-4e67-8b81-d66b3eaa740f.js";
-                document.getElementsByTagName("head")[0].appendChild(mf);
-            })();
-            `
-        }}
-        />      
+          {/* <script dangerouslySetInnerHTML={{
+              __html: `
+                window._mfq = window._mfq || [];
+                (function() {
+                    var mf = document.createElement("script");
+                    mf.type = "text/javascript"; mf.defer = true;
+                    mf.src = "//cdn.mouseflow.com/projects/b954db58-6476-4e67-8b81-d66b3eaa740f.js";
+                    document.getElementsByTagName("head")[0].appendChild(mf);
+                })();
+                `
+            }}
+          />       */}
 
       </body>
     </html>
