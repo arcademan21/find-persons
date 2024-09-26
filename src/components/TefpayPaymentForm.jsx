@@ -195,11 +195,11 @@ export const TefpayPaymentForm = () => {
       setDsMerchantTerminalAuth('00000003')
     }
 
-    else if (extension === '/at') {
-      // setLang('at')
-      setDsMerchantTerminal('00000004')
-      setDsMerchantTerminalAuth('00000004')
-    }
+    // else if (extension === '/at') {
+    //   // setLang('at')
+    //   setDsMerchantTerminal('00000004')
+    //   setDsMerchantTerminalAuth('00000004')
+    // }
 
     else if (extension === '/tr') {
       setDsMerchantTerminal('00000004')
@@ -222,7 +222,12 @@ export const TefpayPaymentForm = () => {
       setDsMerchantTerminalAuth('00000007')
     }
 
-    else if (extension === '/ae') {
+    // else if (extension === '/ae') {
+    //   setDsMerchantTerminal('00000008')
+    //   setDsMerchantTerminalAuth('00000008')
+    // }
+
+    else if (extension === '/sv') {
       setDsMerchantTerminal('00000008')
       setDsMerchantTerminalAuth('00000008')
     }

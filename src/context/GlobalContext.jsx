@@ -30,7 +30,7 @@ export const GlobalProvider = ( { children } ) => {
     localStorage.setItem('menu', JSON.stringify( { menu: { active_links: true } } ) )
     
     const extension_list = [
-      'es', 'it', 'fr', 'uk', 'de', 'ae', 'ie', 'nl', 'at', 'tr', 'be'
+      'es', 'it', 'fr', 'uk', 'de', 'ae', 'ie', 'nl', 'at', 'tr', 'be', 'sv'
     ]
 
     const blocked_url_names = [

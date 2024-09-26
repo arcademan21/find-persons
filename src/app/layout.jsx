@@ -53,6 +53,10 @@ function RootLayout( { children } ) {
       else if( extension === '/be' )
         setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_BE)
 
+      else if( extension === '/sv' )
+        setAnaliticsTag(process.env.NEXT_PUBLIC_ANALYTICS_TAG_SE)
+
+
       setLoading(false)
     }
   }, [])

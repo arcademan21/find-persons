@@ -98,7 +98,7 @@ const MenuButtons = () => {
                   </b>
                 </button>
       
-                <LogOutButton />
+                <LogOutButton text={language.nav_bar.logout}/>
                 <GetLanguageSwitcher />
                 
               </>)
