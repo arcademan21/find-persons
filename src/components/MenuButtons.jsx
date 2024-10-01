@@ -103,19 +103,16 @@ const MenuButtons = () => {
                 
               </>)
             
-
-
           : null }
           
         </> ) 
-        
-        
-        
+      
         : (
 
         <>
           
           { isHome ? 
+            
             (<> 
               
               <button onClick={handle_contact} className="btn btn-outline py-2 px-3 rounded-pill decoration-none m-3 menu-contact-btn" >
@@ -139,14 +136,10 @@ const MenuButtons = () => {
 
               <GetLanguageSwitcher />
               
-
             </>) 
+            
             : null
             
-            
-
-
-
           }
 
         </>

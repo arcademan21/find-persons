@@ -192,7 +192,9 @@ export default function handler( req, res ) {
     let redirect_url = ''
     if( extension !== 'es' ) {
         redirect_url = `/${extension}/thanks/${payment_token}`
-    } else {
+    } 
+    
+    else {
         redirect_url = `/thanks/${payment_token}`
     }
 
@@ -227,8 +229,5 @@ export default function handler( req, res ) {
     .finally(() => {
         InvalidateToken(payment_token)
     })
-
-    
-
 
 }

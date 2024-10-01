@@ -16,7 +16,6 @@ const suscription_amount = process.env.NEXT_PUBLIC_SUSCRIPTION_AMOUNT
 const path_endpoint = process.env.NEXT_PUBLIC_PATH_END_POINT
 const tefpay_notyfi_url = process.env.NEXT_PUBLIC_TEFPAY_NOTYFI_URL
 
-
 const CreatePaymentToken = async (payment_id, user_email) => {
 
   try {
@@ -70,7 +69,6 @@ export const TefpayPaymentForm = () => {
 
   // TODO: Validar el lenguaje enviamos a Tefpay correctamente
   const [lang, setLang] = useState(localStorage.getItem('languageI18'))
-
   const [language, setLanguage] = useState(JSON.parse(localStorage.getItem('language_file')).payment)
   const [dsmerchant_terminal, setDsMerchantTerminal] = useState('00000001')
   const [dsmerchant_terminalauth, setDsMerchantTerminalAuth] = useState('00000001')
@@ -127,32 +125,12 @@ export const TefpayPaymentForm = () => {
     setSuscriptionAccount(matchingData)
     setPaymentId(matchingData)
     setUserEmail(user.email)
-
-    // setPaymentDescription( `
-    //     NEW PAYMENT - ( Find-persons ) : ${ hostname }
-    //     Payment ID: ${ matchingData }
-    //     Country: ${ merchant_lang }
-    //     User: ${ user_name }
-    //     Email: ${ user_email }
-    //     Amount: 0.60 EUR
-    // `)
-
     setPaymentDescription(`NEW PAYMENT - ( Find-persons ) `)
-
-    // setSuscriptionDescription(`
-    //     NEW SUSCRIPTION - ( Find-persons ) : ${ hostname }
-    //     Payment ID: ${ matchingData }
-    //     Country: ${ merchant_lang }
-    //     User: ${ user_name }
-    //     Email: ${ user_email }
-    //     Amount: 49.90 EUR 
-    // `)
-
     setSuscriptionDescription(`NEW SUSCRIPTION - ( Find-persons ) `)
 
     let paymentToken = `${matchingData}-${signature}`
     CreatePaymentToken(paymentToken, user.email).then(res => {
-      console.log(res)
+      
       if (!res) {
 
         paymentToken = ''

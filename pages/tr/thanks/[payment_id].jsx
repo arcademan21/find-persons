@@ -67,7 +67,6 @@ export const InvalidateToken = async ( token ) => {
     
     return true
 
-
 }
 
 const ThanksPage = () => {
@@ -98,7 +97,7 @@ const ThanksPage = () => {
     }
 
     useEffect(() => {
-
+        
         CheckTokenValidity( payment_id )
         .then( res => {
             
@@ -119,14 +118,11 @@ const ThanksPage = () => {
 
         })
         .catch( error => {
-            console.log( error )
             window.location.href = extension
         })
         .finally( () => {
             InvalidateToken( payment_id )
         })
-
-        
 
     }, [])
 
@@ -146,9 +142,6 @@ const ThanksPage = () => {
             </div>
         </div>
 
-        
-        
-        
     </>)
 
 }

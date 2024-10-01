@@ -122,7 +122,7 @@ const ThanksPage = () => {
       .finally(() => {
         InvalidateToken(payment_id)
       })
-
+      
   }, [])
 
   return (<>
