@@ -32,7 +32,8 @@ export const GlobalProvider = ( { children } ) => {
     const extension_list = [
       'es', 'it', 'fr', 'uk', 
       'de', 'ae', 'ie', 'nl', 
-      'at', 'tr', 'be', 'sv'
+      'at', 'tr', 'be', 'sv',
+      'au'
     ]
 
     const blocked_url_names = [
