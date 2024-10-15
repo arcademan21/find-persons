@@ -143,6 +143,8 @@
       "policies": "Privacy Policies",
       "placeholder_email": "E-mail",
       "placeholder_password": "Password",
+      "placeholder_user_name": "Name",
+      "min_user_name": "Enter your name",
       "example_email": "Example: myuser@mail.com",
       "min_password": "A minimum of 6 characters",
       "register_free": "Register for free",

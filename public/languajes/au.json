@@ -141,6 +141,8 @@
       "of_service": "from service.",
       "acept_politics": "I accept the",
       "policies": "Privacy Policies",
+      "placeholder_user_name": "Name",
+      "min_user_name": "Enter your name",
       "placeholder_email": "E-mail",
       "placeholder_password": "Password",
       "example_email": "Example: myuser@mail.com",
