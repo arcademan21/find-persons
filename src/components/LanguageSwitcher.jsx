@@ -194,7 +194,7 @@ const LanguageSwitcher = () => {
 
         <div className="menu-languages-item border shadow rounded ">
           <div className='d-flex flex-column text-center align-items-center image-content'>
-            <Image src={`/languajes/flags/ca.svg`} alt="English (Canada)" className="flag rounded w-100 px-1" data-language="au" onClick={switchLanguage} width={100} height={70} />
+            <Image src={`/languajes/flags/ca.svg`} alt="English (Canada)" className="flag rounded w-100 px-1" data-language="ca" onClick={switchLanguage} width={100} height={70} />
             English (Canada)
           </div>
         </div>
