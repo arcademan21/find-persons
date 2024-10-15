@@ -28,7 +28,7 @@ const LanguageSwitcher = () => {
     // if( selector ) return false
     if (lang === null) lang = e.target.getAttribute('data-language')
     if (lang === null) return false
-    console.log("lang", lang)
+    
     const req = await fetch(`/languajes/${lang}.json`)
       .then(res => res)
       .catch(err => console.error(err))
@@ -101,12 +101,11 @@ const LanguageSwitcher = () => {
         <div className="menu-languages-item-holder">
           <div className='d-flex flex-column align-items-center image-content'>
 
-            <Image
-              className="flag image-holder rounded shadow border"
-              onClick={e => switchLanguage(e, null, true)} width={50} height={39}
-              src={`/languajes/flags/${language}.svg`} alt="language"
-            />
-
+              <Image
+                className="flag image-holder rounded shadow border"
+                onClick={e => switchLanguage(e, null, true)} width={50} height={39}
+                src={`/languajes/flags/${language}.svg`} alt="language"
+              />
 
           </div>
         </div>
@@ -151,15 +150,6 @@ const LanguageSwitcher = () => {
           </div>
         </div>
 
-        {/* TEST - IDIOMA */}
-        {/* <div className="menu-languages-item border shadow rounded ">
-                        <div className='d-flex flex-column align-items-center image-content'>
-                            <Image src={`/languajes/flags/at.svg`} alt="Aleman" className="flag rounded w-100 px-1" data-language="at" onClick={ switchLanguage } width={100} height={70} />
-                            Australiano
-                        </div>
-                    </div> */}
-        {/*  END - IDIOMA */}
-
         <div className="menu-languages-item border shadow rounded ">
           <div className='d-flex flex-column align-items-center image-content'>
             <Image src={`/languajes/flags/us.svg`} alt="Ingles" className="flag rounded w-100 px-1" data-language="us" onClick={switchLanguage} width={100} height={70} />
@@ -173,13 +163,6 @@ const LanguageSwitcher = () => {
             Dutch
           </div>
         </div>
-
-        {/* <div className="menu-languages-item border shadow rounded ">
-          <div className='d-flex flex-column align-items-center image-content'>
-            <Image src={`/languajes/flags/at.svg`} alt="Austrian" className="flag rounded w-100 px-1" data-language="at" onClick={switchLanguage} width={100} height={70} />
-            Austrian
-          </div>
-        </div> */}
 
         <div className="menu-languages-item border shadow rounded ">
           <div className='d-flex flex-column align-items-center image-content'>
@@ -206,6 +189,13 @@ const LanguageSwitcher = () => {
           <div className='d-flex flex-column text-center align-items-center image-content'>
             <Image src={`/languajes/flags/au.svg`} alt="English (Australia)" className="flag rounded w-100 px-1" data-language="au" onClick={switchLanguage} width={100} height={70} />
             English (Australia)
+          </div>
+        </div>
+
+        <div className="menu-languages-item border shadow rounded ">
+          <div className='d-flex flex-column text-center align-items-center image-content'>
+            <Image src={`/languajes/flags/ca.svg`} alt="English (Canada)" className="flag rounded w-100 px-1" data-language="au" onClick={switchLanguage} width={100} height={70} />
+            English (Canada)
           </div>
         </div>
 

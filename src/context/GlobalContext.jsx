@@ -33,7 +33,7 @@ export const GlobalProvider = ( { children } ) => {
       'es', 'it', 'fr', 'uk', 
       'de', 'ae', 'ie', 'nl', 
       'at', 'tr', 'be', 'sv',
-      'au'
+      'au', 'ca'
     ]
 
     const blocked_url_names = [
@@ -178,25 +178,6 @@ export const GlobalProvider = ( { children } ) => {
   return (
     
     <GlobalContext.Provider value={{ state, setState }} >
-      
-      {/* <CookieConsent
-          location="bottom"
-          buttonText={state.language_file.cookies_banner.acept}
-          cookieName="myAwesomeCookieName2"
-          style={cookieConsentStyle}
-          buttonClasses="btn bg-primary w-25 text-white py-1 fs-4 rounded"
-          buttonWrapperClasses="w-100 text-center"
-          expires={150}
-      >
-          {state.language_file.cookies_banner.paragraph_1}
-          <a href={`${extension}/cookies`} className='m-3 mx-1 border rounded bg-light p-1 py-2'>
-            <TbCookie className='fs-1 mx-1'/>
-            {state.language_file.cookies_banner.cookies}
-          </a>
-          {state.language_file.cookies_banner.paragraph_2}
-          <br />
-          {state.language_file.cookies_banner.paragraph_3}
-      </CookieConsent> */}
       { children }
     </GlobalContext.Provider>
   )
