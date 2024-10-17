@@ -366,12 +366,15 @@ const Register = () => {
                                     value=""
                                     id="register-terms"
                                     />
+                                    
                                     <label
                                     className="form-check-label"
                                     htmlFor="register-terms"
                                     >
                                     {language.acept_politics}
-                                    <Link href={`${extension}/policies`}> {language.policies} </Link>
+                                    <Link href={`${extension}/policies`}> 
+                                        {language.policies} 
+                                    </Link>
                                     {language.of_service}
                                     
                                     </label>
