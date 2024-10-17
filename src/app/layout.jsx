@@ -143,7 +143,7 @@ function RootLayout( { children } ) {
           <Script type="text/javascript" src="/libs/wow/wow.init.js" strategy="afterInteractive" />
 
           {/* MAPA DE CALOR -- MOUSEFLOW */}
-          <script dangerouslySetInnerHTML={{
+          {/*<script dangerouslySetInnerHTML={{
               __html: `
                 window._mfq = window._mfq || [];
                 (function() {
@@ -154,7 +154,7 @@ function RootLayout( { children } ) {
                 })();
                 `
             }}
-          />
+          />*/}
 
       </body>
     </html>
