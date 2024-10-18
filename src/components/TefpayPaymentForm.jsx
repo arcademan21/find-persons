@@ -73,6 +73,11 @@ export const TefpayPaymentForm = () => {
   const [dsmerchant_terminal, setDsMerchantTerminal] = useState('00000001')
   const [dsmerchant_terminalauth, setDsMerchantTerminalAuth] = useState('00000001')
 
+  const handle_user_name = (value) => {
+    setUserName(value)
+    return value
+  }
+
   const CleanStringForTefpay = (email) => {
 
     email = email.replace(/[ÁÉÍÓÚÜÑáéíóúàèìòùÀÈÍÒÙüñ]/g, function (match) {
@@ -95,12 +100,7 @@ export const TefpayPaymentForm = () => {
     const result = sha1(buffer)
     return result
   }
-
-  const handle_user_name = (value) => {
-    setUserName(value)
-    return value
-  }
-
+  
   useEffect(() => {
     setLanguage(JSON.parse(localStorage.getItem('language_file')).payment)
   }, [state])
