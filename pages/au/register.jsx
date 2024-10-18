@@ -289,25 +289,24 @@ const Register = () => {
 
                                 <div className="mx-1 mx-md-4 px-4 register-form">
 
-                                    
                                     <div className="d-flex flex-row align-items-center mb-2">
                                         <div className="form-outline flex-fill mb-0">
                                         
-                                        <div className="input-icon">
-                                            <FaUser />
-                                            <input
-                                                type="text"
-                                                id="user_name"
-                                                name="user_name"
-                                                className="form-control my-1"
-                                                placeholder={ language.placeholder_user_name}
-                                                required={true}
-                                            />
-                                        </div>
-                                            
-                                        <small className="text-muted p-1">
-                                            { language.min_user_name}
-                                        </small>
+                                            <div className="input-icon">
+                                                <FaUser />
+                                                <input
+                                                    type="text"
+                                                    id="user_name"
+                                                    name="user_name"
+                                                    className="form-control my-1"
+                                                    placeholder={ language.placeholder_user_name}
+                                                    required={true}
+                                                />
+                                            </div>
+                                                
+                                            <small className="text-muted p-1">
+                                                { language.min_user_name}
+                                            </small>
 
                                         </div>
                                     </div>

@@ -31,36 +31,36 @@ export const CheckTokenValidity = async ( token ) => {
     
 }
 
-export const InvalidateToken = async ( token ) => {
+// export const InvalidateToken = async ( token ) => {
     
-    try{
+//     try{
 
-        // Fetch to endpoint for get payment
-        const req = await fetch( path_endpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                "petition" : {
-                    "name": "invalidate_payment_token",
-                    "data": {
-                        "invalidate_payment_token": {
-                            "payment_id": token
-                        }
-                    }
-                }
-            })
-        })
+//         // Fetch to endpoint for get payment
+//         const req = await fetch( path_endpoint, {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify({
+//                 "petition" : {
+//                     "name": "invalidate_payment_token",
+//                     "data": {
+//                         "invalidate_payment_token": {
+//                             "payment_id": token
+//                         }
+//                     }
+//                 }
+//             })
+//         })
         
-        const res = await req.json()
-        if( res.status === 'error' ) return false
+//         const res = await req.json()
+//         if( res.status === 'error' ) return false
 
-    } catch ( error ) {
-        return false
-    }
+//     } catch ( error ) {
+//         return false
+//     }
     
-    return true
+//     return true
 
-}
+// }
 
 export const ExistsPayment = async ( payment_id ) => {
     
@@ -208,24 +208,24 @@ export default function handler( req, res ) {
     }).then(subscriptionUpdated => {
         
         if (!subscriptionUpdated) {
-            InvalidateToken(payment_token)
+            //InvalidateToken(payment_token)
             throw new Error('update_subscription_error')
         }
 
         else{
-            InvalidateToken(payment_token)
+            //InvalidateToken(payment_token)
             res.redirect(303, redirect_url)
         }
 
     })
 
     .catch(error => {   
-        InvalidateToken(payment_token)
+        //InvalidateToken(payment_token)
         res.status(500).json({ error: error.message })
     })
 
-    .finally(() => {
-        InvalidateToken(payment_token)
-    })
+    // .finally(() => {
+    //     //InvalidateToken(payment_token)
+    // })
 
 }
