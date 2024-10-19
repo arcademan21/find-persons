@@ -79,18 +79,29 @@ const ThanksPage = () => {
   const [counter, setCounter] = useState(5)
 
   const timer = () => {
+    
     const time = window.setInterval(() => {
+      
+      
       setCounter((prevCounter) => {
+        
         if (prevCounter === 0) {
           // Redirigiendo a la pagina de resultados
           router.push('/results')
           clearInterval(time)
+
           return prevCounter
-        } else {
+        } 
+        
+        else {
           return prevCounter - 1
         }
+
       })
+
+
     }, 1000)
+
   }
 
   useEffect(() => {

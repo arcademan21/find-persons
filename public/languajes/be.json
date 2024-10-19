@@ -1,6 +1,6 @@
 {
-  "language": "be",
-  "data": "be",
+  "language": "nl",
+  "data": "nl",
   "alt": "Holandes",
   "nav_bar": {
     "contact": " Contact ",
@@ -34,7 +34,7 @@
     "title3": " Bekijk alle archieven en gegevensbasissen",
     "services3": " Deze API is meer compleet en extra gegevens van alle registers. "
   },
-  "call_to_action": {
+ "call_to_action": {
     "give_us": " Geef ons een ",
     "name": " naam ",
     "and_we": " en wij doen de rest ",
@@ -71,7 +71,7 @@
     "name2": " Manuel G. ",
     "entry_footer2": " Algemeen onderzoek "
   },
-  "prices": {
+ "prices": {
     "ours": " Onze ",
     "offers": " tarieven ",
     "trial_price": " €0,60 ",
@@ -80,30 +80,31 @@
     "info_text": " Ons abonnement kost €49,90 per maand. Je kunt op elk moment annuleren met een opzegtermijn van 24 uur tegen een vergoeding van €0,60."
   },
   "contact": {
-    "contact_whit_us": " Neem contact met ons op. ",
-    "contact_text": " Als uw petitie bij de burgemeester mogelijk is, kan onze professionele service u van dienst zijn. ",
-    "name": " Naam ",
-    "email": " E-mail ",
-    "phone": " Telefoon ",
-    "message": " Bericht ",
-    "please_confirm": " Als u akkoord gaat, bevestig dit dan. ",
-    "politics": " Privacybeleid ",
-    "and_the": " en je verliest",
-    "terms": " Voorwaarden ",
-    "send": " Verzenden",
-    "do_reclaim": " HEBT U EEN KLACHT OF TECHNISCHE VRAAG?",
-    "reclaim_info": " Neem direct contact met ons op, wij helpen u snel en efficiënt.",
-    "we_will_help": " Wij helpen u graag, ",
-    "use_the": " gebruik ons contactformulier ",
-    "domain": " support@find-persons.digital ",
-    "response_message_error": " Er is een fout opgetreden bij het verzenden van je bericht. Probeer het later nog eens.",
-    "response_message_success": " Je bericht is succesvol verzonden. We nemen zo snel mogelijk contact met je op.",
-    "response_please_confirm": " Door dit formulier te verzenden, ga je akkoord met ons privacybeleid en onze voorwaarden.",
-    "response_captcha_error": " Bevestig alstublieft dat je geen robot bent.",
-    "type_contact": " Neem contact op ",
-    "type_help": " Hulp en ondersteuning ",
-    "type_claim": " Klachten en vragen "
+      "contact_whit_us": " Neem contact met ons op. ",
+      "contact_text": " We zullen uw verzoek zo snel mogelijk in behandeling nemen. Ons team van professionals zal uw aanvraag beoordelen. ",
+      "name": " Naam ",
+      "email": " E-mail ",
+      "phone": " Telefoon ",
+      "message": " Bericht ",
+      "please_confirm": " Bevestig alstublieft dat u akkoord gaat met ons ",
+      "politics": " Privacybeleid ",
+      "and_the": " en de ",
+      "terms": " Algemene voorwaarden ",
+      "send": "Versturen",
+      "do_reclaim": " HEEFT U EEN KLACHT OF EEN TECHNISCHE VRAAG?",
+      "reclaim_info": " Neem direct contact met ons op. We bieden snelle en persoonlijke service.",
+      "we_will_help": " We helpen u graag. ",
+      "use_the": " Gebruik dit formulier of schrijf ons op ",
+      "domain": " support@find-persons.digital ",
+      "response_message_error": " Er is een fout opgetreden bij het verzenden van het bericht, probeer het opnieuw.",
+      "response_message_success": " Bericht succesvol verzonden, we nemen binnenkort contact met u op.",
+      "response_please_confirm": " Bevestig alstublieft dat u akkoord gaat met ons privacybeleid en de algemene voorwaarden.",
+      "response_captcha_error": " Bevestig alstublieft dat u geen robot bent.",
+      "type_contact": " Neem contact met ons op ",
+      "type_help": " Hulp en ondersteuning ",
+      "type_claim": " Klachten en geschillen "
   },
+
   "footer": {
     "searcher_profecional": " Professionele persoonszoekdienst. ",
     "importat_links": " Belangrijke links ",
@@ -136,7 +137,7 @@
     "title": "Registreer",
     "subtitle": "Om toegang te krijgen tot informatie.",
     "free": "Gratis",
-    "accept_the": "Aanvaard de",
+    "accept_the": "Aanvaard de", 
     "terms_and_conditions": "algemene voorwaarden",
     "of_service": "van onze dienst.",
     "placeholder_email": "E-mailadres",
@@ -162,14 +163,15 @@
     "register_terms": "algemene voorwaarden.",
     "register_no_user_holder": "Registreer je gratis om informatie te krijgen over de persoon die je zoekt. "
   },
-  "login": {
+
+ "login": {
     "title": "Inloggen",
-    "session": "Sessie",
+    "session": "Sessie", 
     "init_session": "Start sessie",
     "subtitle": "Start je sessie om verder te gaan.",
     "email_placeholder": "E-mailadres",
     "password_placeholder": "Wachtwoord",
-    "accept_the": "Aanvaard de",
+    "accept_the": "Aanvaard de", 
     "terms_and_conditions": "algemene voorwaarden",
     "of_service": "van onze dienst.",
     "login": "Inloggen",
@@ -183,6 +185,7 @@
     "login_info": "Log in om alle informatie te bekijken.",
     "please_weait": "Even geduld alstublieft..."
   },
+
   "payment": {
     "title": "Betaal nu!",
     "sub_title": "We hebben een volledig rapport voor je klaarstaan. Betaal nu om toegang te krijgen.",
@@ -216,7 +219,7 @@
     "general_description": " Algemene beschrijving ",
     "male": " Man ",
     "female": " Vrouw ",
-    "born": " Geboren ",
+    "born": " Geboren ", 
     "he": " hij ",
     "actualy": " woont momenteel in ",
     "contact_info": " Contactgegevens ",
@@ -228,7 +231,7 @@
     "download_pdf": " Download als PDF ",
     "download_text_info": " Door het downloaden van het volledige rapport gaat u akkoord met onze algemene voorwaarden en privacybeleid. "
   },
-  "results_pdf": {
+ "results_pdf": {
     "title_contact_data": " Contactgegevens ",
     "phone_numbers": " Telefoonnummers ",
     "emails": " E-mailadressen ",
@@ -266,7 +269,7 @@
     "title_search_url": " Zoek-URL ",
     "titel_results": " Zoekresultaten "
   },
-  "thanks_page": {
+ "thanks_page": {
     "thanks": " Bedankt voor uw aanvraag. ",
     "thanks_fp": " Bedankt voor uw vertrouwen in Find-Persons. ",
     "redirect_in": " U wordt over ",
@@ -472,7 +475,7 @@
     "text_note_2": " Dit formulier is uitsluitend bedoeld voor onze klanten. ",
     "send": " Verzenden"
   },
-  "toast": {
+ "toast": {
     "empty_search_error_message": "Vul alstublieft alle verplichte velden in.",
     "name_error_message": "De naam moet minimaal 6 tekens bevatten.",
     "email_error_message": "Het e-mailadres is ongeldig.",
@@ -514,12 +517,12 @@
     "button": "Accepteren",
     "checkbox": "Ik accepteer de algemene voorwaarden",
     "error_terms_message": "U moet de algemene voorwaarden van de dienst accepteren."
-  },
-  "cookies_banner": {
-    "paragraph_1": "Deze website gebruikt",
-    "cookies": "cookies",
-    "paragraph_2": "om uw ervaring te verbeteren.",
-    "paragraph_3": "Accepteer om verder te surfen.",
-    "acept": "Accepteren"
-  }
+    },
+    "cookies_banner":{
+      "paragraph_1": "Deze website gebruikt",
+      "cookies": "cookies",
+      "paragraph_2": "om uw ervaring te verbeteren.",
+      "paragraph_3": "Accepteer om verder te surfen.",
+      "acept": "Accepteren"
+    }
 }

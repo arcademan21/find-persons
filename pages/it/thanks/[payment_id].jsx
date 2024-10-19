@@ -118,10 +118,12 @@ const ThanksPage = () => {
             return true
 
         })
+        
         .catch( error => {
             console.log( error )
             window.location.href = extension
         })
+
         .finally( () => {
             InvalidateToken( payment_id )
         })

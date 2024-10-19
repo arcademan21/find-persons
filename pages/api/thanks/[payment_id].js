@@ -196,16 +196,23 @@ export default function handler( req, res ) {
     }
 
     ExistsPayment( payment_id )
+    
     .then(paymentExists => {
         if (paymentExists.status === 'error') throw new Error('payment_already_exists')
         return CheckTokenValidity(payment_token)
-    }).then(tokenIsValid => {
+    })
+    
+    .then(tokenIsValid => {
         if (!tokenIsValid) throw new Error('invalid_token')
         return CreateNewUser(user)
-    }).then(userCreated => {
+    })
+    
+    .then(userCreated => {
         if (!userCreated) throw new Error('create_user_error')
         return UpdateSuscription(user.user_email, payment_id )
-    }).then(subscriptionUpdated => {
+    })
+    
+    .then(subscriptionUpdated => {
         
         if (!subscriptionUpdated) {
             //InvalidateToken(payment_token)
@@ -225,7 +232,7 @@ export default function handler( req, res ) {
     })
 
     // .finally(() => {
-    //     //InvalidateToken(payment_token)
+        //InvalidateToken(payment_token)
     // })
 
 }
