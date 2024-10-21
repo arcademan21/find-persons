@@ -194,7 +194,6 @@ export const TefpayPaymentForm = () => {
     }
 
     else if (extension === '/be') {
-      // setLang('be')
       setDsMerchantTerminal('00000007')
       setDsMerchantTerminalAuth('00000007')
     }

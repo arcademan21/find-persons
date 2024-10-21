@@ -58,11 +58,13 @@ const Profile = () => {
             es: '00000001',
             it: '00000002',
             fr: '00000003',
-            uk: '00000004',
+            tr: '00000004',
+            au: '00000004',
             de: '00000005',
             nl: '00000006',
-            ie: '00000007',
-            ae: '00000008'
+            be: '00000007',
+            sv: '00000008',
+            ca: '00000009'
         }
 
         const terminal = terminals_list[lang]
@@ -92,11 +94,11 @@ const Profile = () => {
 
             const res = await req.json()
             if( res.status === 'error' ) return false
+
             setLoading( false )
             return true
 
-        }
-        catch ( error ) {
+        } catch ( error ) {
             return false
         }
 
@@ -116,7 +118,6 @@ const Profile = () => {
 
    
     useEffect(() => {
-        
         
         if( !user ) {
             router.push('/')
@@ -171,6 +172,7 @@ const Profile = () => {
                                 </p>
 
                             </div>
+
                             </>)
                             :
                             <>
@@ -178,6 +180,7 @@ const Profile = () => {
                             <h2>
                                 { language.my_account_title }
                             </h2>
+
                             <div className="card profile-data mb-3 p-3">
                                 
                                 { user.displayName ? 
@@ -222,7 +225,7 @@ const Profile = () => {
 
                                 <p className="mb-1">
                                     <strong>
-                                        { language.created_at }
+                                    { language.created_at }
                                     : </strong> 
                                     { userData && userData.suscription_data.data && userData.suscription_data.data.created_at }
                                 </p>
@@ -251,9 +254,11 @@ const Profile = () => {
                                         <button className="btn btn-secondary"
                                             onClick={ async ()=>{
                                                 const res = await downSuscription( userData.user_data.user_email, userData.suscription_data.data.payment_id )
+                                                
                                                 if( !res ) {
                                                     TefpayToatsMessage( 'error', laguage_toast.error_down_suscription_message )
                                                 }
+
                                                 else {
                                                     
                                                     
@@ -262,6 +267,7 @@ const Profile = () => {
                                                     })
 
                                                 }
+                                                
                                             } }
                                         >  
                                             { loading ? <div className="spinner-border text-primary mx-2" role="status"></div> : null }
