@@ -180,7 +180,7 @@ const Login = ( ) => {
                             width={100}
                             height={100}
                             layout="responsive"
-                            alt="Registrate gratis"
+                            alt="regístrate gratis"
                         />
 
                         <div className="d-flex flex-column py-5">

@@ -148,7 +148,7 @@
     },
 
     "register": {
-        "title": "Registrate",
+        "title": "regístrate",
         "subtitle": "Para obtener el informe.",
         "free": "Gratis",
         "accept_the": "Acepto los",
@@ -176,10 +176,10 @@
         "we_have_report": "tenemos un",
         "complete_report": "informe completo",
         "of_profile": "de su perfil.",
-        "register_to_see": "Registrate gratis para ver o descargar el informe completo.",
+        "register_to_see": "regístrate gratis para ver o descargar el informe completo.",
         "register_accept": "Al registrarte aceptas los",
         "register_terms": "términos y condiciones del servicio.",
-        "register_no_user_holder": "Registrate primero! Con solo un correo electrónico y una contraseña crea una cuenta de usuario para poder usar el servicio y descargar los informes que quieras. Buscamos en todos los archivos y bases de datos , extraemos datos de todos los registros.",
+        "register_no_user_holder": "regístrate primero! Con solo un correo electrónico y una contraseña crea una cuenta de usuario para poder usar el servicio y descargar los informes que quieras. Buscamos en todos los archivos y bases de datos , extraemos datos de todos los registros.",
         "please_weait": "Por favor espere...",
         "suscces_register": "Registro exitoso.",
         "error_register_empty_message": "Debes completar todos los campos."

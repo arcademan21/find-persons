@@ -423,7 +423,7 @@ const Register = () => {
                                         className="img-fluid w-75 h-75 px-5 m-auto"
                                         width={500}
                                         height={500}
-                                        alt="Registrate gratis"
+                                        alt="regístrate gratis"
                                         />
 
                                         <div className="d-flex flex-column py-2">

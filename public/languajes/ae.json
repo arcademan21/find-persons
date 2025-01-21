@@ -149,7 +149,7 @@
     },
 
     "register": {
-        "title": "Registrate",
+        "title": "regístrate",
         "subtitle": "Para obtener el informe.",
         "free": "Gratis",
         "accept_the": "Acepto los",
@@ -173,10 +173,10 @@
         "we_have_report": "tenemos un",
         "complete_report": "informe completo",
         "of_profile": "de su perfil.",
-        "register_to_see": "Registrate gratis para ver o descargar el informe completo.",
+        "register_to_see": "regístrate gratis para ver o descargar el informe completo.",
         "register_accept": "Al registrarte aceptas los",
         "register_terms": "términos y condiciones del servicio.",
-        "register_no_user_holder": "Registrate gratis para obtener un informe, de cualquier persona que desees buscar. Al registrarte aceptas los términos y condiciones del servicio."
+        "register_no_user_holder": "regístrate gratis para obtener un informe, de cualquier persona que desees buscar. Al registrarte aceptas los términos y condiciones del servicio."
     },
 
     "login": {
