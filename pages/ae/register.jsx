@@ -225,7 +225,6 @@ const Register = () => {
               <h1 className="title-section text-center d-flex flex-column h1 fw-bold mx-1 mx-md-4 my-5 mb-4">
                 <span>
                   {language.title}
-                  <span className="marked"> {language.free} </span>
 
                 </span>
                 <span className="marked fs-6 m-auto">{language.subtitle}</span>
